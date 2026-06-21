@@ -1,0 +1,1180 @@
+# Prompt Log
+
+## Prompt 00 - Institutional Foundation
+
+### Summary
+
+Created the initial Stark Terminal repository foundation. Prompt 00 locks the institutional-grade architecture direction, documents the target infrastructure and analytics stack, creates package boundaries, adds a minimal FastAPI health endpoint, adds a minimal PySide6 desktop shell placeholder, defines a lightweight DecisionObject schema, adds foundation tests, and adds a verification script.
+
+### Files Created
+
+- `README.md`
+- `AGENTS.md`
+- `PROJECT_MAP.md`
+- `pyproject.toml`
+- `.gitignore`
+- `.env.example`
+- `docs/NORTH_STAR.md`
+- `docs/ARCHITECTURE.md`
+- `docs/TECH_STACK.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/SAFETY_RULES.md`
+- `docs/DATA_POLICY.md`
+- `docs/DECISION_OBJECT_SPEC.md`
+- `docs/ROADMAP.md`
+- `apps/api/stark_terminal_api/__init__.py`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `apps/desktop/stark_terminal_desktop/__init__.py`
+- `apps/desktop/stark_terminal_desktop/main.py`
+- `packages/core/stark_terminal_core/__init__.py`
+- `packages/core/stark_terminal_core/domain/__init__.py`
+- `packages/core/stark_terminal_core/domain/enums.py`
+- `packages/core/stark_terminal_core/domain/decision_object.py`
+- `packages/data_platform/stark_terminal_data_platform/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/README.md`
+- `packages/analytics/stark_terminal_analytics/__init__.py`
+- `packages/analytics/stark_terminal_analytics/README.md`
+- `packages/research/stark_terminal_research/__init__.py`
+- `packages/research/stark_terminal_research/README.md`
+- `tests/test_api_health.py`
+- `tests/test_decision_object_schema.py`
+- `tests/test_project_foundation.py`
+- `tests/test_docs_stack_lock.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- API health endpoint test.
+- DecisionObject creation and confidence validation tests.
+- Required documentation presence test.
+- Institutional stack keyword lock test.
+
+### Verification Commands
+
+```bash
+python scripts/verify_foundation.py
+pytest
+```
+
+### Next Recommended Prompt
+
+Prompt 01 - Core Domain Schemas and Typed Configuration Foundation
+
+## Prompt 01 - Core Domain Schemas and Typed Configuration Foundation
+
+### Objective
+
+Deepen the core domain layer and typed configuration foundation without implementing infrastructure services, market-data ingestion, database models, broker integrations, execution APIs, quant models, options pricing, backtesting, or Paper Lab workflows.
+
+### Files Created
+
+- `docs/DOMAIN_MODEL.md`
+- `docs/CONFIGURATION.md`
+- `packages/core/stark_terminal_core/config/__init__.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/domain/identifiers.py`
+- `packages/core/stark_terminal_core/domain/instrument.py`
+- `packages/core/stark_terminal_core/domain/market_data.py`
+- `packages/core/stark_terminal_core/domain/derivatives.py`
+- `packages/core/stark_terminal_core/domain/options.py`
+- `packages/core/stark_terminal_core/domain/audit.py`
+- `packages/core/stark_terminal_core/serialization/__init__.py`
+- `packages/core/stark_terminal_core/serialization/json.py`
+- `apps/api/stark_terminal_api/routes/config.py`
+- `tests/test_api_config.py`
+- `tests/test_settings.py`
+- `tests/test_domain_identifiers.py`
+- `tests/test_instrument_schema.py`
+- `tests/test_market_data_schema.py`
+- `tests/test_derivatives_options_schema.py`
+
+### Files Modified
+
+- `.env.example`
+- `pyproject.toml`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/DECISION_OBJECT_SPEC.md`
+- `docs/PROMPT_LOG.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/domain/__init__.py`
+- `packages/core/stark_terminal_core/domain/enums.py`
+- `packages/core/stark_terminal_core/domain/decision_object.py`
+- `scripts/verify_foundation.py`
+- `tests/test_api_health.py`
+- `tests/test_decision_object_schema.py`
+- `tests/test_project_foundation.py`
+
+### Tests Added
+
+- Settings defaults, validation, safety flags, and safe snapshot tests.
+- API `/config` safety tests.
+- Identifier normalization and AuditId tests.
+- Instrument schema validation tests.
+- Market data OHLC, volume, batch, and timestamp tests.
+- Futures/options contract and options-chain validation tests.
+- DecisionObject directional evidence and serialization tests.
+- Documentation status tests for Prompt 01.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 36 tests. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Next Recommended Prompt
+
+Prompt 02 - PostgreSQL + Alembic Foundation
+
+## Prompt 02 - PostgreSQL + Alembic Foundation
+
+### Objective
+
+Implement the first real persistence foundation for Stark Terminal: PostgreSQL-ready SQLAlchemy 2.x metadata models, Alembic migration foundation, database settings, SQLite local/test fallback, database health checks, and API database health route. Prompt 02 remains infrastructure-focused and does not implement market-data ingestion, TimescaleDB hypertables, broker integrations, execution APIs, analytics engines, or trading behavior.
+
+### Files Created
+
+- `docs/DATABASE_FOUNDATION.md`
+- `packages/data_platform/stark_terminal_data_platform/db/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/db/base.py`
+- `packages/data_platform/stark_terminal_data_platform/db/engine.py`
+- `packages/data_platform/stark_terminal_data_platform/db/session.py`
+- `packages/data_platform/stark_terminal_data_platform/db/health.py`
+- `packages/data_platform/stark_terminal_data_platform/db/models/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/db/models/instrument.py`
+- `packages/data_platform/stark_terminal_data_platform/db/models/data_provider.py`
+- `packages/data_platform/stark_terminal_data_platform/db/models/audit.py`
+- `packages/data_platform/stark_terminal_data_platform/db/models/decision.py`
+- `apps/api/stark_terminal_api/routes/database.py`
+- `alembic.ini`
+- `alembic/env.py`
+- `alembic/script.py.mako`
+- `alembic/versions/.gitkeep`
+- `alembic/versions/0001_initial_metadata_tables.py`
+- `migrations/README.md`
+- `tests/test_database_settings.py`
+- `tests/test_database_models.py`
+- `tests/test_database_health.py`
+- `tests/test_api_database_health.py`
+- `tests/test_alembic_foundation.py`
+
+### Files Modified
+
+- `README.md`
+- `AGENTS.md`
+- `.env.example`
+- `pyproject.toml`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/TECH_STACK.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/data_platform/stark_terminal_data_platform/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/project tests
+
+### Tests Added
+
+- Database settings and validation tests.
+- ORM metadata, constraint, and reserved-name tests.
+- ORM mapping tests for instruments, providers, audit metadata, and decision records.
+- Database health tests for SQLite fallback and invalid URLs.
+- API database health tests.
+- Alembic foundation and migration-content tests.
+- Prompt 02 docs/status tests.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 54 tests. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command is missing; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+
+### Next Recommended Prompt
+
+Prompt 03 - TimescaleDB Operational Time-Series Foundation
+
+## Prompt 03 - TimescaleDB Operational Time-Series Foundation
+
+### Objective
+
+Implement the TimescaleDB-oriented operational time-series foundation for Stark Terminal: settings, PostgreSQL-compatible ORM models, Alembic migration planning, opt-in extension/hypertable SQL scaffolding, safe Timescale health checks, and API health route. Prompt 03 does not implement market-data ingestion, provider clients, live TimescaleDB deployment, analytics engines, or execution APIs.
+
+### Files Created
+
+- `docs/TIMESCALEDB_FOUNDATION.md`
+- `docs/TIMESERIES_SCHEMA.md`
+- `packages/data_platform/stark_terminal_data_platform/db/models/timeseries.py`
+- `packages/data_platform/stark_terminal_data_platform/timeseries/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/timeseries/health.py`
+- `packages/data_platform/stark_terminal_data_platform/timeseries/hypertables.py`
+- `packages/data_platform/stark_terminal_data_platform/timeseries/README.md`
+- `apps/api/stark_terminal_api/routes/timeseries.py`
+- `alembic/versions/0002_operational_timeseries_tables.py`
+- `tests/test_timescale_settings.py`
+- `tests/test_timeseries_models.py`
+- `tests/test_timeseries_health.py`
+- `tests/test_api_timeseries_health.py`
+- `tests/test_timeseries_alembic_foundation.py`
+- `tests/test_timeseries_docs_status.py`
+
+### Files Modified
+
+- `README.md`
+- `AGENTS.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/TECH_STACK.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/DATABASE_FOUNDATION.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/domain/enums.py`
+- `packages/data_platform/stark_terminal_data_platform/db/models/__init__.py`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/project tests
+
+### Tests Added
+
+- Timescale settings and safe snapshot tests.
+- Operational time-series ORM metadata and mapping tests.
+- Futures basis, market-state, and regime snapshot model tests.
+- Hypertable SQL helper tests.
+- Timescale health tests for disabled and invalid configurations.
+- API `/timeseries/health` tests.
+- Alembic 0002 migration-content tests.
+- Prompt 03 docs/status tests.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 79 tests. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command is missing; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- SQLite fallback may create `stark_terminal_dev.db` during health checks; clean it after verification if present.
+
+### Next Recommended Prompt
+
+Prompt 04 - DuckDB + Parquet Research Lake Foundation
+
+## Prompt 04 - DuckDB + Parquet Research Lake Foundation
+
+### Objective
+
+Implement the DuckDB + Parquet research lake foundation for Stark Terminal: data lake directory contracts, Parquet zones, DuckDB local query helpers, Parquet IO helpers, dataset manifest schemas, in-memory registry placeholder, safe lake health checks, and API health route. Prompt 04 does not implement market-data ingestion, provider clients, analytics engines, Redis/Kafka/ClickHouse/Feature Store, or execution APIs.
+
+### Files Created
+
+- `docs/RESEARCH_LAKE_FOUNDATION.md`
+- `docs/PARQUET_DATA_ZONES.md`
+- `docs/DUCKDB_FOUNDATION.md`
+- `packages/data_platform/stark_terminal_data_platform/lake/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/lake/paths.py`
+- `packages/data_platform/stark_terminal_data_platform/lake/zones.py`
+- `packages/data_platform/stark_terminal_data_platform/lake/manifest.py`
+- `packages/data_platform/stark_terminal_data_platform/lake/duckdb_client.py`
+- `packages/data_platform/stark_terminal_data_platform/lake/parquet_io.py`
+- `packages/data_platform/stark_terminal_data_platform/lake/registry.py`
+- `packages/data_platform/stark_terminal_data_platform/lake/health.py`
+- `packages/data_platform/stark_terminal_data_platform/lake/README.md`
+- `apps/api/stark_terminal_api/routes/research_lake.py`
+- `tests/test_lake_settings.py`
+- `tests/test_lake_paths_zones.py`
+- `tests/test_dataset_manifest.py`
+- `tests/test_parquet_io.py`
+- `tests/test_duckdb_client.py`
+- `tests/test_lake_health.py`
+- `tests/test_api_research_lake_health.py`
+- `tests/test_research_lake_docs_status.py`
+
+### Files Modified
+
+- `README.md`
+- `AGENTS.md`
+- `.gitignore`
+- `.env.example`
+- `pyproject.toml`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/TECH_STACK.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/domain/enums.py`
+- `packages/data_platform/stark_terminal_data_platform/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/project tests
+
+### Tests Added
+
+- Lake settings and safe snapshot tests.
+- Lake path and zone tests.
+- Dataset manifest and registry tests.
+- Parquet roundtrip tests.
+- DuckDB client tests.
+- Research lake health tests.
+- API `/research-lake/health` tests.
+- Prompt 04 docs/status tests.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 111 tests. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command is missing; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- SQLite fallback may create `stark_terminal_dev.db`; research lake health may create local lake directories only when explicitly requested.
+
+### Next Recommended Prompt
+
+Prompt 05 - Redis Cache Foundation
+
+## Prompt 05 - Redis Cache Foundation
+
+### Objective
+
+Implement the Redis cache foundation for Stark Terminal: Redis/cache settings, cache key namespace policy, cache serialization helpers, Redis client wrapper, in-memory local/test fallback, safe cache health checks, and API cache health route. Prompt 05 does not implement Redis Streams, event pipelines, market-data ingestion, provider clients, Kafka/Redpanda, ClickHouse, Feature Store, analytics engines, broker integrations, or execution APIs.
+
+### Files Created
+
+- `docs/REDIS_CACHE_FOUNDATION.md`
+- `docs/CACHE_KEY_POLICY.md`
+- `packages/data_platform/stark_terminal_data_platform/cache/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/cache/keys.py`
+- `packages/data_platform/stark_terminal_data_platform/cache/serialization.py`
+- `packages/data_platform/stark_terminal_data_platform/cache/client.py`
+- `packages/data_platform/stark_terminal_data_platform/cache/memory.py`
+- `packages/data_platform/stark_terminal_data_platform/cache/health.py`
+- `packages/data_platform/stark_terminal_data_platform/cache/README.md`
+- `apps/api/stark_terminal_api/routes/cache.py`
+- `tests/test_cache_settings.py`
+- `tests/test_cache_keys.py`
+- `tests/test_cache_serialization.py`
+- `tests/test_cache_memory.py`
+- `tests/test_cache_client.py`
+- `tests/test_cache_health.py`
+- `tests/test_api_cache_health.py`
+- `tests/test_cache_docs_status.py`
+
+### Files Modified
+
+- `.env.example`
+- `pyproject.toml`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/TECH_STACK.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/domain/enums.py`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/project tests
+
+### Tests Added
+
+- Cache settings and safe snapshot tests.
+- Cache key namespace and validation tests.
+- Cache serialization tests.
+- In-memory cache fallback tests.
+- Cache client tests.
+- Cache health tests.
+- API `/cache/health` tests.
+- Prompt 05 docs/status tests.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 146 tests. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command is missing; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- SQLite fallback may create `stark_terminal_dev.db`; research lake health may create local lake directories only when explicitly requested.
+
+### Next Recommended Prompt
+
+Prompt 06 - Redis Streams Event Pipeline Foundation
+
+## Prompt 06 - Redis Streams Event Pipeline Foundation
+
+### Objective
+
+Implement the Redis Streams event pipeline foundation for Stark Terminal: Redis Streams settings, stream naming policy, typed EventEnvelope schema, stream serialization helpers, producer and consumer wrappers, in-memory local/test fallback, safe stream health checks, and API streams health route. Prompt 06 does not implement real workers, market-data ingestion, provider clients, Kafka/Redpanda, ClickHouse, Feature Store, analytics engines, broker integrations, or execution APIs.
+
+### Files Created
+
+- `docs/REDIS_STREAMS_FOUNDATION.md`
+- `docs/EVENT_PIPELINE_POLICY.md`
+- `docs/EVENT_ENVELOPE_SPEC.md`
+- `packages/data_platform/stark_terminal_data_platform/streams/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/streams/names.py`
+- `packages/data_platform/stark_terminal_data_platform/streams/events.py`
+- `packages/data_platform/stark_terminal_data_platform/streams/serialization.py`
+- `packages/data_platform/stark_terminal_data_platform/streams/memory.py`
+- `packages/data_platform/stark_terminal_data_platform/streams/producer.py`
+- `packages/data_platform/stark_terminal_data_platform/streams/consumer.py`
+- `packages/data_platform/stark_terminal_data_platform/streams/health.py`
+- `packages/data_platform/stark_terminal_data_platform/streams/README.md`
+- `apps/api/stark_terminal_api/routes/streams.py`
+- `tests/test_stream_settings.py`
+- `tests/test_stream_names.py`
+- `tests/test_stream_event_envelope.py`
+- `tests/test_stream_serialization.py`
+- `tests/test_stream_memory.py`
+- `tests/test_stream_producer_consumer.py`
+- `tests/test_stream_health.py`
+- `tests/test_api_streams_health.py`
+- `tests/test_stream_docs_status.py`
+
+### Files Modified
+
+- `README.md`
+- `AGENTS.md`
+- `.env.example`
+- `pyproject.toml`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/TECH_STACK.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/ARCHITECTURE.md`
+- `docs/REDIS_CACHE_FOUNDATION.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/domain/enums.py`
+- `packages/data_platform/stark_terminal_data_platform/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/project/cache/research-lake status tests
+
+### Tests Added
+
+- Redis Streams settings and safe snapshot tests.
+- Stream naming policy tests.
+- EventEnvelope schema and roundtrip tests.
+- Stream serialization tests.
+- In-memory stream fallback tests.
+- Stream producer/consumer tests.
+- Streams health tests.
+- API `/streams/health` tests.
+- Prompt 06 docs/status tests.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 194 tests. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command is missing; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated test/install artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+## Prompt 07 - Worker System Foundation
+
+### Objective
+
+Implement the Worker System foundation for Stark Terminal: worker configuration, canonical worker roles, JobEnvelope and WorkerResult contracts, base worker lifecycle abstractions, explicit registry, deterministic in-process harness, safe worker health checks, and API workers health route. Prompt 07 does not implement real production worker loops, market-data ingestion, provider clients, stream-to-worker wiring, analytics engines, broker integrations, or execution APIs.
+
+### Files Created
+
+- `docs/WORKER_SYSTEM_FOUNDATION.md`
+- `docs/WORKER_ROLE_POLICY.md`
+- `docs/JOB_ENVELOPE_SPEC.md`
+- `packages/data_platform/stark_terminal_data_platform/workers/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/workers/roles.py`
+- `packages/data_platform/stark_terminal_data_platform/workers/jobs.py`
+- `packages/data_platform/stark_terminal_data_platform/workers/results.py`
+- `packages/data_platform/stark_terminal_data_platform/workers/base.py`
+- `packages/data_platform/stark_terminal_data_platform/workers/registry.py`
+- `packages/data_platform/stark_terminal_data_platform/workers/harness.py`
+- `packages/data_platform/stark_terminal_data_platform/workers/health.py`
+- `packages/data_platform/stark_terminal_data_platform/workers/README.md`
+- `apps/api/stark_terminal_api/routes/workers.py`
+- `tests/test_worker_settings.py`
+- `tests/test_worker_roles.py`
+- `tests/test_job_envelope.py`
+- `tests/test_worker_results.py`
+- `tests/test_worker_base.py`
+- `tests/test_worker_registry.py`
+- `tests/test_worker_harness.py`
+- `tests/test_worker_health.py`
+- `tests/test_api_workers_health.py`
+- `tests/test_worker_docs_status.py`
+
+### Files Modified
+
+- `README.md`
+- `AGENTS.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/TECH_STACK.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/ARCHITECTURE.md`
+- `docs/REDIS_STREAMS_FOUNDATION.md`
+- `docs/EVENT_PIPELINE_POLICY.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/domain/enums.py`
+- `packages/data_platform/stark_terminal_data_platform/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/project/cache/research-lake/streams status tests
+
+### Tests Added
+
+- Worker settings and safe snapshot tests.
+- Worker role and forbidden execution-role policy tests.
+- JobEnvelope schema and payload safety tests.
+- WorkerResult helper and sanitization tests.
+- Base worker lifecycle tests.
+- Worker registry tests.
+- In-process worker harness tests.
+- Worker System health tests.
+- API `/workers/health` tests.
+- Prompt 07 docs/status tests.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 243 tests. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command is missing; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated test/install artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 08 - Instrument Master + Market Data Contracts
+
+## Prompt 08 - Instrument Master + Market Data Contracts
+
+### Objective
+
+Implement the Instrument Master and Market Data Contracts foundation for Stark Terminal: symbol normalization, exchange/segment normalization, instrument universe contracts, local synthetic Instrument Master, read-only market data provider interfaces, market data request/response schemas, provider registry, safe health checks, and API instrument/provider routes. Prompt 08 does not implement real provider ingestion, external calls, scraping, provider SDKs, broker integrations, analytics engines, or execution APIs.
+
+### Files Created
+
+- `docs/INSTRUMENT_MASTER_FOUNDATION.md`
+- `docs/MARKET_DATA_PROVIDER_CONTRACTS.md`
+- `docs/SYMBOL_NORMALIZATION_POLICY.md`
+- `packages/core/stark_terminal_core/domain/market_data_contracts.py`
+- `packages/data_platform/stark_terminal_data_platform/instruments/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/instruments/normalization.py`
+- `packages/data_platform/stark_terminal_data_platform/instruments/universe.py`
+- `packages/data_platform/stark_terminal_data_platform/instruments/master.py`
+- `packages/data_platform/stark_terminal_data_platform/instruments/fixtures.py`
+- `packages/data_platform/stark_terminal_data_platform/instruments/health.py`
+- `packages/data_platform/stark_terminal_data_platform/instruments/README.md`
+- `packages/data_platform/stark_terminal_data_platform/providers/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/providers/base.py`
+- `packages/data_platform/stark_terminal_data_platform/providers/contracts.py`
+- `packages/data_platform/stark_terminal_data_platform/providers/registry.py`
+- `packages/data_platform/stark_terminal_data_platform/providers/health.py`
+- `packages/data_platform/stark_terminal_data_platform/providers/README.md`
+- `apps/api/stark_terminal_api/routes/instruments.py`
+- `tests/test_instrument_settings.py`
+- `tests/test_symbol_normalization.py`
+- `tests/test_instrument_universe.py`
+- `tests/test_instrument_master.py`
+- `tests/test_market_data_contracts.py`
+- `tests/test_provider_contracts.py`
+- `tests/test_provider_registry.py`
+- `tests/test_instrument_provider_health.py`
+- `tests/test_api_instruments_health.py`
+- `tests/test_instrument_docs_status.py`
+
+### Files Modified
+
+- `README.md`
+- `AGENTS.md`
+- `.env.example`
+- `pyproject.toml`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/TECH_STACK.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/DOMAIN_MODEL.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/ARCHITECTURE.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/domain/enums.py`
+- `packages/data_platform/stark_terminal_data_platform/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/project/cache/research-lake/streams/workers status tests
+
+### Tests Added
+
+- Instrument settings and safe snapshot tests.
+- Symbol normalization tests.
+- Instrument universe snapshot tests.
+- LocalInstrumentMaster tests.
+- Market data request/response contract tests.
+- Provider capability and base provider tests.
+- Provider registry tests.
+- Instrument/provider health tests.
+- API instrument/provider endpoint tests.
+- Prompt 08 docs/status tests.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 284 tests. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command is missing; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 09 - ClickHouse Analytical Warehouse Foundation
+
+## Prompt 09 - ClickHouse Analytical Warehouse Foundation
+
+### Objective
+
+Implement the ClickHouse Analytical Warehouse foundation for Stark Terminal: ClickHouse settings, analytical table contracts, deterministic DDL string helpers, disabled-safe client wrapper, local/test memory query recorder, safe warehouse health checks, and API warehouse health/contracts routes. Prompt 09 does not implement real market-data ingestion, real ClickHouse table creation, production dashboards, analytics engines, Kafka/Redpanda, Feature Store, broker integrations, or execution APIs.
+
+### Files Created
+
+- `docs/CLICKHOUSE_WAREHOUSE_FOUNDATION.md`
+- `docs/ANALYTICAL_TABLE_CONTRACTS.md`
+- `docs/WAREHOUSE_QUERY_POLICY.md`
+- `packages/data_platform/stark_terminal_data_platform/warehouse/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/warehouse/tables.py`
+- `packages/data_platform/stark_terminal_data_platform/warehouse/ddl.py`
+- `packages/data_platform/stark_terminal_data_platform/warehouse/client.py`
+- `packages/data_platform/stark_terminal_data_platform/warehouse/memory.py`
+- `packages/data_platform/stark_terminal_data_platform/warehouse/health.py`
+- `packages/data_platform/stark_terminal_data_platform/warehouse/README.md`
+- `apps/api/stark_terminal_api/routes/warehouse.py`
+- `tests/test_warehouse_settings.py`
+- `tests/test_warehouse_tables.py`
+- `tests/test_warehouse_ddl.py`
+- `tests/test_warehouse_memory.py`
+- `tests/test_warehouse_client.py`
+- `tests/test_warehouse_health.py`
+- `tests/test_api_warehouse_health.py`
+- `tests/test_warehouse_docs_status.py`
+
+### Files Modified
+
+- `README.md`
+- `AGENTS.md`
+- `.env.example`
+- `pyproject.toml`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/TECH_STACK.md`
+- `docs/ARCHITECTURE.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/domain/enums.py`
+- `packages/data_platform/stark_terminal_data_platform/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/project/cache/research-lake/streams/workers/instrument status tests
+
+### Tests Added
+
+- Warehouse settings and safe snapshot tests.
+- Analytical table contract validation tests.
+- ClickHouse DDL rendering and identifier safety tests.
+- Memory query recorder tests.
+- Disabled-safe ClickHouse warehouse client tests.
+- Warehouse health tests.
+- API `/warehouse/health` and `/warehouse/contracts` tests.
+- Prompt 09 docs/status tests.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 315 tests. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command is missing; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 10 - Feature Store / Stark Feature Registry Foundation
+
+## Prompt 10 - Feature Store / Stark Feature Registry Foundation
+
+### Objective
+
+Implement the custom Stark Feature Registry foundation for Stark Terminal: feature registry settings, feature definition contracts, feature set contracts, feature value and snapshot contracts, feature quality reports, feature lineage records, in-memory registry, safe registry health checks, and API feature registry health/contracts routes. Prompt 10 does not implement real feature computation, indicators, ML models, Feast integration, market-data ingestion, Kafka/Redpanda, production feature pipelines, broker integrations, or execution APIs.
+
+### Files Created
+
+- `docs/FEATURE_REGISTRY_FOUNDATION.md`
+- `docs/FEATURE_DEFINITION_SPEC.md`
+- `docs/FEATURE_QUALITY_POLICY.md`
+- `docs/TRAINING_SERVING_CONSISTENCY_POLICY.md`
+- `packages/data_platform/stark_terminal_data_platform/features/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/features/definitions.py`
+- `packages/data_platform/stark_terminal_data_platform/features/feature_sets.py`
+- `packages/data_platform/stark_terminal_data_platform/features/values.py`
+- `packages/data_platform/stark_terminal_data_platform/features/quality.py`
+- `packages/data_platform/stark_terminal_data_platform/features/lineage.py`
+- `packages/data_platform/stark_terminal_data_platform/features/registry.py`
+- `packages/data_platform/stark_terminal_data_platform/features/health.py`
+- `packages/data_platform/stark_terminal_data_platform/features/README.md`
+- `apps/api/stark_terminal_api/routes/features.py`
+- `tests/test_feature_settings.py`
+- `tests/test_feature_definitions.py`
+- `tests/test_feature_sets.py`
+- `tests/test_feature_values.py`
+- `tests/test_feature_quality.py`
+- `tests/test_feature_lineage.py`
+- `tests/test_feature_registry.py`
+- `tests/test_feature_health.py`
+- `tests/test_api_features_health.py`
+- `tests/test_feature_docs_status.py`
+
+### Files Modified
+
+- `README.md`
+- `AGENTS.md`
+- `.env.example`
+- `pyproject.toml`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/TECH_STACK.md`
+- `docs/ARCHITECTURE.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/DOMAIN_MODEL.md`
+- `docs/CONFIGURATION.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/domain/enums.py`
+- `packages/data_platform/stark_terminal_data_platform/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/project/cache/research-lake/streams/workers/instrument/warehouse status tests
+
+### Tests Added
+
+- Feature registry settings and safe snapshot tests.
+- FeatureDefinition and FeatureDependency validation tests.
+- FeatureSet validation tests.
+- FeatureEntity, FeatureValue, and FeatureSnapshot tests.
+- FeatureQualityReport and summary tests.
+- FeatureLineageRecord tests.
+- In-memory StarkFeatureRegistry tests.
+- Feature registry health tests.
+- API `/features/health` and `/features/contracts` tests.
+- Prompt 10 docs/status tests.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 382 tests. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command is missing; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 11 - Milestone A/B Infrastructure Audit and Consolidation
+
+## Prompt 11 - Milestone A/B Infrastructure Audit and Consolidation
+
+### Objective
+
+Perform the Milestone A/B Infrastructure Audit and Consolidation for Prompts 00-10. Verify docs match implementation, `PROJECT_MAP.md` matches the repo, `NORTH_STAR.md` reflects current state, no execution APIs or broker/trading behavior exist, no accidental external calls exist, safe settings snapshots do not expose secrets, health endpoints remain deterministic, verifier coverage is current, and the next build phase is clearly defined.
+
+Prompt 11 is audit/consolidation only. It does not implement real market ingestion, Kafka/Redpanda, analytics engines, feature computation, broker integrations, or execution APIs.
+
+### Files Created
+
+- `docs/MILESTONE_A_B_AUDIT.md`
+- `docs/REPO_INVENTORY.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `scripts/audit_foundation.py`
+- `tests/test_milestone_a_b_audit_docs.py`
+- `tests/test_api_surface_inventory.py`
+- `tests/test_safety_no_execution.py`
+- `tests/test_safe_settings_snapshot_audit.py`
+- `tests/test_repo_inventory_consistency.py`
+- `tests/test_foundation_health_surface.py`
+
+### Files Modified
+
+- `README.md`
+- `AGENTS.md`
+- `.env.example`
+- `pyproject.toml`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/SAFETY_RULES.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `scripts/verify_foundation.py`
+- Existing prompt status tests
+
+### Tests Added
+
+- Milestone audit document presence and safety phrase tests.
+- API surface inventory and FastAPI route consistency tests.
+- No-execution route, worker role, settings, and safety-doc tests.
+- Safe settings snapshot audit tests with sensitive values.
+- Repo inventory consistency and audit script execution tests.
+- Foundation health surface smoke tests for all current health endpoints.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 400 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Audit Verdict
+
+Foundation ready for the next infrastructure phase. Prompt 11 confirmed docs, repo inventory, API surface, safe settings exposure, safety boundaries, and local deterministic health surfaces are aligned with the current implementation.
+
+### Known Issues
+
+- Ambient `python` command is missing; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 12 - Kafka/Redpanda Event Backbone Foundation
+
+## Prompt 12 - Kafka/Redpanda Event Backbone Foundation
+
+### Objective
+
+Implement the Kafka/Redpanda Event Backbone foundation for Stark Terminal: configuration contracts, topic naming policy, DurableEventEnvelope compatibility with Redis Streams EventEnvelope semantics, producer/consumer wrappers, in-memory local/test fallback, safe health checks, and API event-backbone health/topics routes.
+
+Prompt 12 does not implement real market ingestion, production Kafka/Redpanda pipelines, schema registry integration, ClickHouse ingestion pipelines, Feature Store computation pipelines, analytics engines, broker integrations, or execution APIs.
+
+### Files Created
+
+- `docs/KAFKA_REDPANDA_FOUNDATION.md`
+- `docs/EVENT_BACKBONE_TOPIC_POLICY.md`
+- `docs/DURABLE_EVENT_ENVELOPE_SPEC.md`
+- `packages/data_platform/stark_terminal_data_platform/event_backbone/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/event_backbone/topics.py`
+- `packages/data_platform/stark_terminal_data_platform/event_backbone/envelopes.py`
+- `packages/data_platform/stark_terminal_data_platform/event_backbone/serialization.py`
+- `packages/data_platform/stark_terminal_data_platform/event_backbone/memory.py`
+- `packages/data_platform/stark_terminal_data_platform/event_backbone/producer.py`
+- `packages/data_platform/stark_terminal_data_platform/event_backbone/consumer.py`
+- `packages/data_platform/stark_terminal_data_platform/event_backbone/health.py`
+- `packages/data_platform/stark_terminal_data_platform/event_backbone/README.md`
+- `apps/api/stark_terminal_api/routes/event_backbone.py`
+- `tests/test_event_backbone_settings.py`
+- `tests/test_event_backbone_topics.py`
+- `tests/test_event_backbone_envelopes.py`
+- `tests/test_event_backbone_serialization.py`
+- `tests/test_event_backbone_memory.py`
+- `tests/test_event_backbone_producer_consumer.py`
+- `tests/test_event_backbone_health.py`
+- `tests/test_api_event_backbone_health.py`
+- `tests/test_event_backbone_docs_status.py`
+
+### Files Modified
+
+- `README.md`
+- `AGENTS.md`
+- `.env.example`
+- `pyproject.toml`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/TECH_STACK.md`
+- `docs/ARCHITECTURE.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/DOMAIN_MODEL.md`
+- `docs/CONFIGURATION.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/REPO_INVENTORY.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/domain/enums.py`
+- `packages/data_platform/stark_terminal_data_platform/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/verify_foundation.py`
+- `scripts/audit_foundation.py`
+- Existing API/config/project/audit status tests
+
+### Tests Added
+
+- Event backbone settings and safe snapshot tests.
+- Kafka/Redpanda topic naming policy tests.
+- DurableEventEnvelope validation and Redis Streams compatibility tests.
+- Event backbone serialization tests.
+- In-memory event backbone tests.
+- Producer/consumer wrapper tests.
+- Event backbone health tests.
+- API `/event-backbone/health` and `/event-backbone/topics` tests.
+- Prompt 12 docs/status tests.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 458 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command is missing; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 13 - Data Quality + Validation Framework
+
+## Prompt 13 - Data Quality + Validation Framework
+
+### Objective
+
+Implement the Data Quality + Validation Framework foundation for Stark Terminal: data quality settings, validation issue/rule/result/report schemas, quality gate policies, deterministic validator base interface, built-in validators for existing local contracts, validation registry, safe data-quality health checks, and API data-quality health/contracts routes.
+
+Prompt 13 does not implement real market ingestion, external provider calls, external validation engines, production validation pipelines, analytics signals, feature computation, ML models, broker integrations, or execution APIs.
+
+### Files Created
+
+- `docs/DATA_QUALITY_FRAMEWORK.md`
+- `docs/VALIDATION_RULE_SPEC.md`
+- `docs/QUALITY_GATE_POLICY.md`
+- `docs/DATA_QUALITY_REPORT_SPEC.md`
+- `packages/data_platform/stark_terminal_data_platform/quality/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/quality/enums.py`
+- `packages/data_platform/stark_terminal_data_platform/quality/issues.py`
+- `packages/data_platform/stark_terminal_data_platform/quality/rules.py`
+- `packages/data_platform/stark_terminal_data_platform/quality/results.py`
+- `packages/data_platform/stark_terminal_data_platform/quality/reports.py`
+- `packages/data_platform/stark_terminal_data_platform/quality/gates.py`
+- `packages/data_platform/stark_terminal_data_platform/quality/validators.py`
+- `packages/data_platform/stark_terminal_data_platform/quality/builtins.py`
+- `packages/data_platform/stark_terminal_data_platform/quality/registry.py`
+- `packages/data_platform/stark_terminal_data_platform/quality/health.py`
+- `packages/data_platform/stark_terminal_data_platform/quality/README.md`
+- `apps/api/stark_terminal_api/routes/data_quality.py`
+- `tests/test_quality_settings.py`
+- `tests/test_quality_issues_rules.py`
+- `tests/test_quality_results_reports.py`
+- `tests/test_quality_gates.py`
+- `tests/test_quality_validators_base.py`
+- `tests/test_quality_builtin_validators.py`
+- `tests/test_quality_registry.py`
+- `tests/test_quality_health.py`
+- `tests/test_api_data_quality.py`
+- `tests/test_quality_docs_status.py`
+
+### Files Modified
+
+- `README.md`
+- `AGENTS.md`
+- `.env.example`
+- `pyproject.toml`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/TECH_STACK.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/DOMAIN_MODEL.md`
+- `docs/CONFIGURATION.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/REPO_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/SAFETY_RULES.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/data_platform/stark_terminal_data_platform/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/verify_foundation.py`
+- `scripts/audit_foundation.py`
+- Existing API/config/project/audit status tests
+
+### Tests Added
+
+- Data quality settings and safe snapshot tests.
+- ValidationIssue and ValidationRule tests.
+- ValidationResult and ValidationReport tests.
+- QualityGatePolicy and QualityGateResult tests.
+- BaseValidator tests.
+- Built-in validator tests for existing local contracts.
+- ValidationRegistry tests.
+- Data quality health tests.
+- API `/data-quality/health` and `/data-quality/contracts` tests.
+- Prompt 13 docs/status tests.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 505 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command is missing; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 14 - Sample Market Data Fixtures + Synthetic OHLCV Contracts

@@ -1,0 +1,5 @@
+# Stark Terminal Data Platform
+
+This package contains the Prompt 02 SQLAlchemy/Alembic database foundation for metadata persistence, the Prompt 03 TimescaleDB-oriented operational schema foundation, the Prompt 04 DuckDB + Parquet research lake foundation, the Prompt 05 Redis cache foundation, the Prompt 06 Redis Streams foundation, the Prompt 07 Worker System foundation, the Prompt 08 Instrument Master/Provider Contracts foundation, the Prompt 09 ClickHouse Warehouse foundation, the Prompt 10 custom Stark Feature Registry foundation, the Prompt 12 Kafka/Redpanda Event Backbone foundation, and the Prompt 13 Data Quality + Validation Framework. This package will later contain broader provider adapters and external feature store integrations.
+
+Prompt 13 does not implement real market-data ingestion, provider network calls, scraping, real production worker loops, production dashboards, production Kafka/Redpanda pipelines, production validation pipelines, Feast integration, feature computation, analytics signals, broker integrations, automatic ClickHouse table creation, or execution APIs.

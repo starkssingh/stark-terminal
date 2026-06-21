@@ -1,0 +1,1 @@
+"""Stark Terminal FastAPI package."""

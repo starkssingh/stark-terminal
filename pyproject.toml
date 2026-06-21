@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stark-terminal"
+version = "0.0.0"
+description = "Windows-native Indian-market trading research and decision terminal with an institutional-grade quant backend foundation."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "pydantic-settings",
+    "sqlalchemy",
+    "alembic",
+    "psycopg[binary]",
+    "duckdb",
+    "pyarrow",
+    "polars",
+    "redis",
+    "clickhouse-connect",
+    "confluent-kafka",
+    "pytest",
+    "httpx",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+desktop = [
+    "PySide6",
+]
+
+[tool.setuptools.packages.find]
+where = [
+    "apps/api",
+    "apps/desktop",
+    "packages/core",
+    "packages/data_platform",
+    "packages/analytics",
+    "packages/research",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [
+    "apps/api",
+    "apps/desktop",
+    "packages/core",
+    "packages/data_platform",
+    "packages/analytics",
+    "packages/research",
+]
+addopts = "-q"
+
+# Prompt 13 adds the Data Quality + Validation Framework with no new dependency.
+# The full institutional target stack is locked in docs/TECH_STACK.md.
