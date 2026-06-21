@@ -20,3 +20,4 @@ data/lake/
 *.duckdb
 dist/
 build/
+*.egg-info/
