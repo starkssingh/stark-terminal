@@ -14,6 +14,9 @@ This repo inventory captures the Prompt 11 Milestone A/B audit baseline. It shou
 - `apps/api/stark_terminal_api/routes/streams.py`: `GET /streams/health`.
 - `apps/api/stark_terminal_api/routes/event_backbone.py`: `GET /event-backbone/health`, `GET /event-backbone/topics`.
 - `apps/api/stark_terminal_api/routes/data_quality.py`: `GET /data-quality/health`, `GET /data-quality/contracts`.
+- `apps/api/stark_terminal_api/routes/fixtures.py`: `GET /fixtures/health`, `GET /fixtures/catalog`.
+- `apps/api/stark_terminal_api/routes/instrument_metadata.py`: `GET /instrument-metadata/health`, `GET /instrument-metadata/sample`, `GET /instrument-metadata/list`.
+- `apps/api/stark_terminal_api/routes/market_data_batches.py`: `GET /market-data-batches/health`, `GET /market-data-batches/sample`, `GET /market-data-batches/list`.
 - `apps/api/stark_terminal_api/routes/workers.py`: `GET /workers/health`.
 - `apps/api/stark_terminal_api/routes/instruments.py`: `GET /instruments/health`, `GET /providers/health`, `GET /instruments/sample`.
 - `apps/api/stark_terminal_api/routes/warehouse.py`: `GET /warehouse/health`, `GET /warehouse/contracts`.
@@ -26,7 +29,7 @@ This repo inventory captures the Prompt 11 Milestone A/B audit baseline. It shou
 ## Core Package Inventory
 
 - `packages/core/stark_terminal_core/config/settings.py`: typed settings and safe settings snapshot.
-- `packages/core/stark_terminal_core/domain/`: enums, identifiers, instrument, market data, market data contracts, derivatives, options, audit metadata, and DecisionObject schema.
+- `packages/core/stark_terminal_core/domain/`: enums, identifiers, instrument, market data, market data batch metadata, market data contracts, derivatives, options, audit metadata, and DecisionObject schema.
 - `packages/core/stark_terminal_core/serialization/json.py`: JSON-safe serialization helpers.
 
 ## Data Platform Inventory
@@ -38,6 +41,9 @@ This repo inventory captures the Prompt 11 Milestone A/B audit baseline. It shou
 - `streams`: Redis Streams naming, EventEnvelope, serialization, memory fallback, producer/consumer wrappers, and health checks.
 - `event_backbone`: Kafka/Redpanda topic naming, DurableEventEnvelope compatibility helpers, serialization, memory fallback, producer/consumer wrappers, and health checks.
 - `quality`: Data Quality + Validation Framework enums, issues, rules, results, reports, gates, validators, built-ins, registry, and health checks.
+- `fixtures`: synthetic fixture manifests, deterministic OHLCV generation, catalog, validation helpers, tiny explicit Parquet test roundtrips, and health checks.
+- `repositories`: explicit SQLAlchemy repositories, currently `InstrumentRepository` for metadata-only instrument persistence and `MarketDataBatchRepository` for metadata-only batch records.
+- `services`: service-layer workflows, currently `InstrumentMetadataService` for validation-before-persistence and synthetic instrument seeding plus `MarketDataBatchMetadataService` for validation-gated synthetic/local batch metadata persistence.
 - `workers`: worker roles, job/result schemas, base workers, registry, in-process harness, and health checks.
 - `instruments`: symbol normalization, synthetic fixtures, local master, universe contracts, and health checks.
 - `providers`: read-only provider contracts, local sample provider, registry, and health checks.
@@ -46,7 +52,7 @@ This repo inventory captures the Prompt 11 Milestone A/B audit baseline. It shou
 
 ## Docs Inventory
 
-Documentation covers North Star status, architecture, stack locks, safety, data policy, configuration, domain model, decision object spec, database foundation, TimescaleDB, research lake, Redis cache, Redis Streams, Kafka/Redpanda Event Backbone, Data Quality + Validation Framework, Worker System, Instrument Master, Market Data Provider contracts, ClickHouse Warehouse, Feature Registry, and Prompt 11 audit artifacts.
+Documentation covers North Star status, architecture, stack locks, safety, data policy, configuration, domain model, decision object spec, database foundation, TimescaleDB, research lake, Redis cache, Redis Streams, Kafka/Redpanda Event Backbone, Data Quality + Validation Framework, Synthetic Market Data Fixtures, Instrument Metadata Persistence, Market Data Batch Persistence, Worker System, Instrument Master, Market Data Provider contracts, ClickHouse Warehouse, Feature Registry, and Prompt 11 audit artifacts.
 
 Prompt 11 audit docs:
 
@@ -63,8 +69,8 @@ Prompt 11 audit docs:
 
 ## Tests Inventory
 
-Tests cover settings, domain contracts, database foundations, TimescaleDB schemas, research lake helpers, Redis cache, Redis Streams, Kafka/Redpanda Event Backbone, Data Quality + Validation Framework, Worker System, Instrument Master/Provider contracts, ClickHouse Warehouse, Feature Registry, API health endpoints, documentation status, and Prompt 11 audit invariants.
+Tests cover settings, domain contracts, database foundations, TimescaleDB schemas, research lake helpers, Redis cache, Redis Streams, Kafka/Redpanda Event Backbone, Data Quality + Validation Framework, Synthetic Fixture foundation, instrument metadata persistence, market data batch metadata persistence, Worker System, Instrument Master/Provider contracts, ClickHouse Warehouse, Feature Registry, API health endpoints, documentation status, and Prompt 11 audit invariants.
 
 The repository remains cross-platform-safe: use `pathlib`, avoid hardcoded macOS or Windows paths, build on Mac mini M2 during development, and preserve the Windows-native Stark Terminal target.
 
-Kafka/Redpanda Event Backbone and Data Quality + Validation Framework foundations are implemented as contracts only. no execution APIs. no real market ingestion. no analytics signals.
+Kafka/Redpanda Event Backbone and Data Quality + Validation Framework foundations are implemented as contracts only. Synthetic Fixtures are local-only test/dev data only. Market Data Batch Persistence stores batch metadata only and no full OHLCV bars. no execution APIs. no real market ingestion. no external calls. no analytics signals.

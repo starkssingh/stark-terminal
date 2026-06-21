@@ -28,12 +28,27 @@ Redis cache and Redis Streams are local/test fallback capable and are not durabl
 
 Instrument and provider foundations use synthetic/local fixtures only. no real market ingestion is implemented. no scraping is implemented. External calls require a future provider-specific implementation prompt and data-policy review.
 
+## Synthetic Fixture Safety Status
+
+Prompt 14 synthetic fixtures are local-only test/dev data. They are not real market data, not trading data, not investment advice, and have no external provider source. Fixture endpoints return health and catalog metadata only; they do not return live data, perform market data ingestion, make external provider calls, publish events, compute analytics signals, or enable execution APIs.
+
+## Instrument Metadata Persistence Safety Status
+
+Prompt 15 instrument metadata persistence is metadata-only. `InstrumentRepository` and `InstrumentMetadataService` perform no external calls, no provider fetching, no scraping, no OHLCV persistence, no analytics, no event publishing, and no execution APIs. Validation-before-persistence is required by default, and synthetic seeding is local/test/dev only.
+
+## Market Data Batch Persistence Safety Status
+
+Prompt 16 Market Data Batch Persistence is metadata-only. `MarketDataBatchRepository` and `MarketDataBatchMetadataService` persist batch metadata for validated synthetic/local batches only. They perform no external calls, no provider fetching, no scraping, no full OHLCV bar persistence, no TimescaleDB writes, no ClickHouse writes, no DuckDB/Parquet production writes, no event publishing, no analytics, no feature computation, no decisions, and no execution APIs. Validation-before-persistence is required by default, and synthetic batch metadata is local/test/dev only.
+
 ## Known Safety Warnings
 
 - Ambient `python` remains unavailable; use `.venv/bin/python`.
 - FastAPI/TestClient emits an existing dependency-level `StarletteDeprecationWarning`.
 - Kafka/Redpanda Event Backbone foundation is contracts-only; production pipelines are not implemented.
 - Data Quality + Validation Framework is contracts-only; production validation pipelines are not implemented.
+- Synthetic Fixtures are not production datasets and must never be treated as live or real market data.
+- Instrument metadata persistence is not real market ingestion and must not be extended to provider calls without a future explicit prompt and data-policy review.
+- Market data batch persistence is not real market ingestion, does not store full OHLCV production history, and must not be extended to provider calls or production storage without a future explicit prompt and data-policy review.
 
 ## Future Safety Gates
 

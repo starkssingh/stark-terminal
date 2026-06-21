@@ -2,28 +2,28 @@
 
 ## Recommended Next Prompt
 
-Prompt 14 - Sample Market Data Fixtures + Synthetic OHLCV Contracts.
+Prompt 17 - Data Foundation Audit and Readiness Check.
 
 ## Why This Follows
 
-Prompts 00-10 establish typed contracts, safety boundaries, data platform foundations, cache/stream primitives, worker contracts, instrument/provider contracts, analytical warehouse contracts, and Feature Registry governance. Prompt 11 audits and consolidates that foundation. Prompt 12 adds the durable event backbone layer. Prompt 13 adds deterministic Data Quality + Validation Framework contracts.
+Prompts 00-10 establish typed contracts, safety boundaries, data platform foundations, cache/stream primitives, worker contracts, instrument/provider contracts, analytical warehouse contracts, and Feature Registry governance. Prompt 11 audits and consolidates that foundation. Prompt 12 adds the durable event backbone layer. Prompt 13 adds deterministic Data Quality + Validation Framework contracts. Prompt 14 adds synthetic local-only OHLCV fixtures.
 
-Prompt 12 completed the Kafka/Redpanda Event Backbone foundation with configuration contracts, topic naming policy, durable event envelope compatibility, producer/consumer wrapper interfaces with local memory fallback, and safe health checks. Prompt 13 completed deterministic data quality and validation contracts before any real market ingestion. The next institutional gap is deterministic synthetic OHLCV fixture contracts so later ingestion and validator work has local, audited sample data.
+Prompt 15 completed Instrument Metadata Persistence Wiring so canonical instruments can be stored through the PostgreSQL-ready ORM foundation with SQLite test fallback and validation gates. Prompt 16 completed Market Data Batch Persistence Contracts so validated synthetic/local `MarketDataBatch` metadata can be persisted without storing full production OHLCV history. The next institutional step is an audit and readiness check across Prompts 14-16 before planning future TimescaleDB synthetic OHLCV storage.
 
 ## Proposed Phase After Audit
 
 The next phase should remain infrastructure-first and safety-bounded:
 
-1. Prompt 14 - Sample Market Data Fixtures + Synthetic OHLCV Contracts.
-2. Prompt 15 - Instrument Metadata Persistence Wiring.
-3. Prompt 16 - Milestone C Audit.
-4. Prompt 17 - Provider Adapter Contract Hardening.
-5. Prompt 18 - Operational Dataset Lineage Foundation.
-6. Prompt 19 - Research Dataset Versioning Foundation.
-7. Prompt 20 - Market Calendar + Session Contract Foundation.
-8. Prompt 21 - Data Readiness Dashboard Contracts.
-9. Prompt 22 - Provider Sandbox Adapter Foundation.
-10. Prompt 23 - Data Quality Persistence Planning.
+1. Prompt 17 - Data Foundation Audit and Readiness Check.
+2. Prompt 18 - Provider Adapter Contract Hardening.
+3. Prompt 19 - Operational Dataset Lineage Foundation.
+4. Prompt 20 - Research Dataset Versioning Foundation.
+5. Prompt 21 - Market Calendar + Session Contract Foundation.
+6. Prompt 22 - Data Readiness Dashboard Contracts.
+7. Prompt 23 - Provider Sandbox Adapter Foundation.
+8. Prompt 24 - Data Quality Persistence Planning.
+9. Prompt 25 - Synthetic Provider Sandbox Replay Contracts.
+10. Prompt 26 - TimescaleDB Synthetic OHLCV Storage Planning.
 
 ## Still Forbidden
 
@@ -37,6 +37,7 @@ The next phase should remain infrastructure-first and safety-bounded:
 - no NSE/BSE scraping.
 - no production Kafka/Redpanda pipelines.
 - no production validation pipelines.
+- no full OHLCV production persistence.
 - no analytics engines, ML models, feature computation, backtesting engine, options pricing engine, or paper-to-strategy implementation.
 
 ## Platform Notes

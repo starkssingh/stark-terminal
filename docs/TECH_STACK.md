@@ -1,6 +1,6 @@
 # Technical Stack
 
-Prompt 11 audits the complete target stack while installing no new dependencies.
+Prompt 15 keeps the locked target stack and adds no new dependencies.
 
 ## Core Language / Runtime
 
@@ -149,3 +149,15 @@ Prompt 12 adds `confluent-kafka` for Kafka/Redpanda client compatibility. It doe
 ## Prompt 13 Dependency Boundary
 
 Prompt 13 adds the Data Quality + Validation Framework with no new dependency. It does not add Great Expectations, Pandera, Deequ, full quant/ML libraries, provider SDKs, scraping dependencies, broker/trading dependencies, execution APIs, real market ingestion, production validation pipelines, feature computation, or analytics signals.
+
+## Prompt 14 Dependency Boundary
+
+Prompt 14 adds Synthetic Market Data Fixtures with no new dependency. It uses the existing standard library, Pydantic, Polars, PyArrow, and local project contracts. It does not add market data SDKs, scraping dependencies, broker/trading dependencies, full quant/ML libraries, execution APIs, real market ingestion, production dataset writes, feature computation, analytics signals, or decisions.
+
+## Prompt 15 Dependency Boundary
+
+Prompt 15 adds Instrument Metadata Persistence Wiring with no new dependency. It uses the existing SQLAlchemy, Pydantic, FastAPI/TestClient, SQLite test fallback, and local project contracts. It does not add market data SDKs, scraping dependencies, broker/trading dependencies, full quant/ML libraries, execution APIs, real market ingestion, OHLCV persistence, provider calls, feature computation, analytics signals, or decisions.
+
+## Prompt 16 Dependency Boundary
+
+Prompt 16 adds Market Data Batch Persistence Contracts with no new dependency. It uses existing SQLAlchemy, Alembic, Pydantic, FastAPI/TestClient, SQLite test fallback, and local project contracts. It does not add market data SDKs, scraping dependencies, broker/trading dependencies, full quant/ML libraries, execution APIs, real market ingestion, full OHLCV persistence, provider calls, TimescaleDB writes, ClickHouse writes, event publishing, feature computation, analytics signals, or decisions.

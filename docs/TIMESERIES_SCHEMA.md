@@ -29,3 +29,7 @@ Operational time-series storage is optimized for recent and replayable applicati
 ## Snapshot Storage vs Analytics Logic
 
 Snapshot tables store facts or generated outputs with timestamps and source references. They do not decide, predict, price, trade, or backtest. Analytics and decision logic remain separate future systems.
+
+## Prompt 16 Boundary
+
+Prompt 16 does not store OHLCV bars in TimescaleDB. Market Data Batch Persistence records batch metadata only in PostgreSQL-ready metadata tables. Full operational OHLCV storage remains deferred to a future explicit TimescaleDB prompt after provider adapters, validation gates, and data policy review.

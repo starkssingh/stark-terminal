@@ -7,7 +7,7 @@ from stark_terminal_core.config.settings import Settings
 def test_instrument_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "13"
+    assert settings.prompt_number == "16"
     assert settings.instrument_master_mode == "local"
     assert settings.instrument_master_source == "synthetic"
     assert settings.allow_external_market_data_calls is False
@@ -16,6 +16,10 @@ def test_instrument_settings_defaults_are_safe() -> None:
     assert settings.default_market_data_provider == "local_sample"
     assert settings.default_exchange == "NSE"
     assert settings.default_market_segment == "NSE_EQUITY"
+    assert settings.instrument_persistence_enabled is True
+    assert settings.instrument_persistence_require_validation is True
+    assert settings.instrument_persistence_allow_synthetic_seed is True
+    assert settings.instrument_persistence_schema_version == "v1"
 
 
 def test_instrument_settings_safe_snapshot_includes_contract_fields() -> None:
@@ -29,6 +33,10 @@ def test_instrument_settings_safe_snapshot_includes_contract_fields() -> None:
     assert snapshot["default_market_data_provider"] == "local_sample"
     assert snapshot["default_exchange"] == "NSE"
     assert snapshot["default_market_segment"] == "NSE_EQUITY"
+    assert snapshot["instrument_persistence_enabled"] is True
+    assert snapshot["instrument_persistence_require_validation"] is True
+    assert snapshot["instrument_persistence_allow_synthetic_seed"] is True
+    assert snapshot["instrument_persistence_schema_version"] == "v1"
     assert not any("credential" in key or "broker_token" in key for key in snapshot)
 
 
@@ -41,6 +49,7 @@ def test_instrument_settings_safe_snapshot_includes_contract_fields() -> None:
         ("default_market_data_provider", ""),
         ("default_exchange", ""),
         ("default_market_segment", ""),
+        ("instrument_persistence_schema_version", ""),
     ],
 )
 def test_instrument_setting_validation(field: str, value: str) -> None:

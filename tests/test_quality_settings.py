@@ -7,7 +7,7 @@ from stark_terminal_core.config.settings import Settings
 def test_data_quality_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "13"
+    assert settings.prompt_number == "16"
     assert settings.data_quality_enabled is True
     assert settings.data_quality_schema_version == "v1"
     assert settings.data_quality_default_fail_on_error is True

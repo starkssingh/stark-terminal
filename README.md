@@ -8,9 +8,9 @@ Evidence before decision. Safety before execution. Research before automation. D
 
 ## Current Status
 
-Prompt 13 Data Quality + Validation Framework.
+Prompt 16 Market Data Batch Persistence Contracts.
 
-This repository currently contains the verified foundation only: project control documents, institutional architecture documentation, Prompt 11 audit artifacts, package skeletons, typed configuration, core domain schemas, SQLAlchemy/Alembic metadata persistence foundation, TimescaleDB-oriented operational time-series schema foundation, DuckDB + Parquet research lake foundation, Redis cache foundation, Redis Streams event pipeline foundation, Kafka/Redpanda Event Backbone foundation, Data Quality + Validation Framework, Worker System foundation, Instrument Master/Provider Contracts foundation, ClickHouse Warehouse foundation, Feature Registry foundation, FastAPI health/config/database-health/timeseries-health/research-lake-health/cache-health/streams-health/event-backbone-health/data-quality-health/workers-health/instrument-health/provider-health/warehouse-health/feature-registry-health surfaces, a minimal PySide6 desktop shell placeholder, an enriched DecisionObject schema placeholder, tests, an audit script, and a verification script.
+This repository currently contains the verified foundation only: project control documents, institutional architecture documentation, Prompt 11 audit artifacts, package skeletons, typed configuration, core domain schemas, SQLAlchemy/Alembic metadata persistence foundation, Instrument Metadata Persistence Wiring, Market Data Batch Persistence Contracts, TimescaleDB-oriented operational time-series schema foundation, DuckDB + Parquet research lake foundation, Redis cache foundation, Redis Streams event pipeline foundation, Kafka/Redpanda Event Backbone foundation, Data Quality + Validation Framework, Synthetic Market Data Fixtures, Worker System foundation, Instrument Master/Provider Contracts foundation, ClickHouse Warehouse foundation, Feature Registry foundation, FastAPI health/config/database-health/timeseries-health/research-lake-health/cache-health/streams-health/event-backbone-health/data-quality-health/fixtures-health/instrument-metadata-health/market-data-batches-health/workers-health/instrument-health/provider-health/warehouse-health/feature-registry-health surfaces, a minimal PySide6 desktop shell placeholder, an enriched DecisionObject schema placeholder, tests, an audit script, and a verification script.
 
 ## High-Level Architecture
 
@@ -22,7 +22,7 @@ Stark Terminal is designed as a cloud-brain plus Windows-native terminal:
 - Core domain contracts shared by backend, analytics, and future worker pipelines.
 - Institutional-grade data and analytics architecture locked in documentation before implementation.
 
-Stark Terminal intentionally targets an institutional-grade stack, including PostgreSQL, TimescaleDB, DuckDB, Parquet, Redis, Redis Streams, Kafka or Redpanda-compatible event replay, data quality gates, worker pipelines, Instrument Master/Provider Contracts, ClickHouse Warehouse, a custom Stark Feature Registry, and future Feast evaluation. Current prompts implement only controlled foundations; production Kafka/Redpanda pipelines, Feast integration, real production workers, real market data ingestion, external provider calls, production dashboards, feature computation, validation pipelines, and analytics engines remain deferred.
+Stark Terminal intentionally targets an institutional-grade stack, including PostgreSQL, TimescaleDB, DuckDB, Parquet, Redis, Redis Streams, Kafka or Redpanda-compatible event replay, data quality gates, synthetic local test fixtures, repository/service persistence layers, worker pipelines, Instrument Master/Provider Contracts, ClickHouse Warehouse, a custom Stark Feature Registry, and future Feast evaluation. Current prompts implement only controlled foundations; production Kafka/Redpanda pipelines, Feast integration, real production workers, real market data ingestion, external provider calls, production dashboards, feature computation, validation pipelines, and analytics engines remain deferred.
 
 ## Local Development
 
@@ -68,4 +68,4 @@ python apps/desktop/stark_terminal_desktop/main.py
 
 ## Safety Note
 
-Stark Terminal is decision support only. Current foundations include no live trading, no broker execution, no order placement, no real-money routing, no broker credential vaults, no autonomous trading, no real market data ingestion, no scraping, no external provider calls, no automatic ClickHouse table creation, no feature computation, and no analytics signals.
+Stark Terminal is decision support only. Current foundations include no live trading, no broker execution, no order placement, no real-money routing, no broker credential vaults, no autonomous trading, no real market data ingestion, no scraping, no external provider calls, no automatic ClickHouse table creation, no full OHLCV bars in Prompt 16, no feature computation, and no analytics signals. Instrument metadata persistence and market data batch persistence are metadata-only and validation-gated. Synthetic fixtures are local-only test/dev data, not real market data and not trading or investment data.

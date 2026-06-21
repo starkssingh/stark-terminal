@@ -51,6 +51,16 @@ def test_safe_settings_snapshot_excludes_raw_sensitive_values() -> None:
     assert snapshot["kafka_configured"] is True
     assert snapshot["data_quality_enabled"] is True
     assert snapshot["data_quality_external_validation_enabled"] is False
+    assert snapshot["synthetic_fixtures_enabled"] is True
+    assert snapshot["synthetic_fixture_allow_disk_writes"] is False
+    assert snapshot["instrument_persistence_enabled"] is True
+    assert snapshot["instrument_persistence_require_validation"] is True
+    assert snapshot["instrument_persistence_allow_synthetic_seed"] is True
+    assert snapshot["instrument_persistence_schema_version"] == "v1"
+    assert snapshot["market_data_batch_persistence_enabled"] is True
+    assert snapshot["market_data_batch_persistence_require_validation"] is True
+    assert snapshot["market_data_batch_persistence_allow_synthetic"] is True
+    assert snapshot["market_data_batch_persistence_schema_version"] == "v1"
     assert snapshot["execution_apis_enabled"] is False
     assert snapshot["broker_integrations_enabled"] is False
     assert snapshot["live_trading_enabled"] is False

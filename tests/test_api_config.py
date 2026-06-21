@@ -13,7 +13,7 @@ def test_config_endpoint_returns_safe_settings_snapshot() -> None:
     assert body["app_name"] == "Stark Terminal"
     assert body["app_version"] == "0.1.0"
     assert body["stark_env"] == "development"
-    assert body["prompt_number"] == "13"
+    assert body["prompt_number"] == "16"
     assert body["timescale_enabled"] is False
     assert body["timescale_create_extension"] is False
     assert body["timescale_create_hypertables"] is False
@@ -82,6 +82,23 @@ def test_config_endpoint_returns_safe_settings_snapshot() -> None:
     assert body["data_quality_require_timezone_aware_timestamps"] is True
     assert body["data_quality_allow_synthetic_data"] is True
     assert body["data_quality_external_validation_enabled"] is False
+    assert body["synthetic_fixtures_enabled"] is True
+    assert body["synthetic_fixture_schema_version"] == "v1"
+    assert body["synthetic_fixture_default_seed"] == 42
+    assert body["synthetic_fixture_default_bar_count"] == 30
+    assert body["synthetic_fixture_default_start_price"] == 100.0
+    assert body["synthetic_fixture_default_timeframe"] == "DAILY"
+    assert body["synthetic_fixture_allow_disk_writes"] is False
+    assert body["synthetic_fixture_output_root"] == "data/synthetic_fixtures"
+    assert body["synthetic_fixture_label"] == "synthetic-local-test-only"
+    assert body["instrument_persistence_enabled"] is True
+    assert body["instrument_persistence_require_validation"] is True
+    assert body["instrument_persistence_allow_synthetic_seed"] is True
+    assert body["instrument_persistence_schema_version"] == "v1"
+    assert body["market_data_batch_persistence_enabled"] is True
+    assert body["market_data_batch_persistence_require_validation"] is True
+    assert body["market_data_batch_persistence_allow_synthetic"] is True
+    assert body["market_data_batch_persistence_schema_version"] == "v1"
     assert body["api_host"] == "127.0.0.1"
     assert body["api_port"] == 8000
     assert body["feature_store_mode"] == "custom"
@@ -121,3 +138,6 @@ def test_config_endpoint_does_not_expose_raw_url_keys() -> None:
     assert "kafka_configured" in body
     assert "event_backbone_mode" in body
     assert "data_quality_enabled" in body
+    assert "synthetic_fixtures_enabled" in body
+    assert "instrument_persistence_enabled" in body
+    assert "market_data_batch_persistence_enabled" in body

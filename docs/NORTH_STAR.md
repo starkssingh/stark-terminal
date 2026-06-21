@@ -48,7 +48,7 @@ The flagship surface is the Retail Decision Console / Decision Desk. It compress
 
 The DecisionObject is the central object of Stark Terminal. Every visible recommendation, state label, or action state must eventually be backed by instrument, market/exchange, segment, timeframe, regime, state, action state, confidence, risk, evidence, invalidation, horizon, generated timestamp, source data reference, model or rule version, and audit ID.
 
-Prompt 13 adds the Data Quality + Validation Framework to the enriched schema plus persistence, operational time-series, research lake, cache, stream, event backbone, worker, instrument master, provider-contract, analytical warehouse, and feature registry foundations only. It does not implement a live decision engine.
+Prompt 16 adds Market Data Batch Persistence Contracts to the enriched schema plus instrument metadata persistence, operational time-series, research lake, cache, stream, event backbone, data quality, synthetic fixture, worker, instrument master, provider-contract, analytical warehouse, and feature registry foundations only. It does not implement a live decision engine.
 
 ## Architecture Direction
 
@@ -73,17 +73,17 @@ Target analytics includes NumPy, SciPy, pandas, Polars, Numba, JAX, CuPy, statis
 
 - Target Version: v1.0
 - Estimated Full Build: 110-150 prompts
-- Current Prompt: 13
-- Completed Prompts: 13 before this prompt, 14 after completion
-- Current Milestone: Post-audit Data Foundation Phase - Data Quality + Validation Framework
+- Current Prompt: 16
+- Completed Prompts: 16 before this prompt, 17 after completion
+- Current Milestone: Post-audit Data Foundation Phase - Market Data Batch Persistence Contracts
 
 ## Current Capability Status
 
-- Backend Status: Foundation health surface + data quality health endpoint
+- Backend Status: Foundation health surface + market data batch metadata health endpoint
 - Desktop Status: Skeleton only
-- Data Platform Status: Foundations through Event Backbone plus Data Quality Framework implemented
-- Infrastructure Status: PostgreSQL, TimescaleDB schema foundation, DuckDB/Parquet, Redis cache, Redis Streams, Worker System, Instrument/Provider Contracts, ClickHouse Warehouse, Feature Registry, Kafka/Redpanda Event Backbone, and Data Quality foundations implemented
-- Data Layer Status: Contracts/foundations + validation framework only, no real market ingestion
+- Data Platform Status: Foundations through Instrument Metadata Persistence plus Market Data Batch Persistence Contracts implemented
+- Infrastructure Status: PostgreSQL/Alembic foundation implemented and now wired for instrument metadata and batch metadata; TimescaleDB schema foundation, DuckDB/Parquet, Redis cache, Redis Streams, Worker System, Instrument/Provider Contracts, ClickHouse Warehouse, Feature Registry, Kafka/Redpanda Event Backbone, Data Quality, and Synthetic Fixtures implemented
+- Data Layer Status: Instrument metadata + batch metadata persistence wiring + contracts/foundations + validation + synthetic fixtures only, no real market ingestion
 - Quant Engine Status: Documentation + package placeholder only
 - Regime Engine Status: Not started
 - Decision Engine Status: Enriched schema + persistence record placeholder only
@@ -95,13 +95,16 @@ Target analytics includes NumPy, SciPy, pandas, Polars, Numba, JAX, CuPy, statis
 - Feature Engine Status: Registry/contracts only, no feature computation
 - Event Backbone Status: Kafka/Redpanda contracts/foundation only, no production pipelines
 - Data Quality Status: Validation framework/contracts only, no production ingestion pipeline
+- Fixture Status: Synthetic local-only test/dev fixtures implemented; no real market data
+- Instrument Persistence Status: Instrument metadata repository/service wiring implemented; no OHLCV persistence
+- Market Data Batch Persistence Status: Batch metadata repository/service wiring implemented; no full OHLCV bars persisted
 - Paper Lab Status: Not started
 - Deployment Status: Not started
 - Execution APIs: Forbidden
 - Development Environment: Mac mini M2 / macOS / Apple Silicon
 - Target Desktop Product: Windows-native Stark Terminal
 - Known Blockers: Ambient `python` command missing; use `.venv/bin/python`
-- Audit Verdict: Milestone A/B completed; data quality foundation added under Prompt 13 if tests pass
+- Audit Verdict: Foundation ready for Prompt 17 after Prompt 16 verification passed
 
 ## Hard Exclusions
 
@@ -121,7 +124,7 @@ Target analytics includes NumPy, SciPy, pandas, Polars, Numba, JAX, CuPy, statis
 
 ## Current Milestone Plan
 
-Prompt 13 implements the Data Quality + Validation Framework. Prompt 14 should implement Sample Market Data Fixtures + Synthetic OHLCV Contracts. Real market ingestion, production validation pipelines, production event pipelines, production dashboards, Feast integration, feature computation, analytics engines, analytics signals, UI surfaces, execution APIs, and deployment hardening remain deferred to later prompts.
+Prompt 16 implements Market Data Batch Persistence Contracts. Prompt 17 should perform a Data Foundation Audit and Readiness Check. Real market ingestion, full OHLCV production persistence, TimescaleDB data writes, ClickHouse data writes, production validation pipelines, production event pipelines, production dashboards, Feast integration, feature computation, analytics engines, analytics signals, UI surfaces, execution APIs, and deployment hardening remain deferred to later prompts.
 
 ## Prompt Log Rule
 

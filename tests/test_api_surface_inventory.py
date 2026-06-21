@@ -15,6 +15,9 @@ EXPECTED_ENDPOINTS = {
     "/streams/health",
     "/event-backbone/health",
     "/data-quality/health",
+    "/fixtures/health",
+    "/instrument-metadata/health",
+    "/market-data-batches/health",
     "/workers/health",
     "/instruments/health",
     "/providers/health",
@@ -25,6 +28,11 @@ EXPECTED_ENDPOINTS = {
     "/event-backbone/topics",
     "/data-quality/contracts",
     "/instruments/sample",
+    "/fixtures/catalog",
+    "/instrument-metadata/sample",
+    "/instrument-metadata/list",
+    "/market-data-batches/sample",
+    "/market-data-batches/list",
 }
 
 FORBIDDEN_ROUTE_TERMS = (

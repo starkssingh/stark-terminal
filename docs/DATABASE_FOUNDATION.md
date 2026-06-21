@@ -38,3 +38,17 @@ Prompt 03 adds operational time-series tables and TimescaleDB extension/hypertab
 ## Current Extension Path
 
 Prompt 03 extended the PostgreSQL foundation with TimescaleDB-oriented operational time-series schemas and migration planning. Prompt 04 then added the DuckDB + Parquet research lake foundation. Market data ingestion remains intentionally not implemented.
+
+## Prompt 15 Instrument Repository Wiring
+
+`InstrumentORM` is now wired through `InstrumentRepository` and `InstrumentMetadataService`. PostgreSQL remains the intended system of record, while SQLite supports local tests and development. The repository uses a caller-provided SQLAlchemy `Session`, performs idempotent upsert by symbol, exchange, and segment, and does not create engines or commits at import time.
+
+This is metadata-only persistence. It does not persist OHLCV bars, call external providers, run ingestion, or expose execution APIs.
+
+## Prompt 16 Batch Metadata Table
+
+Prompt 16 adds `market_data_batch_records` through `MarketDataBatchRecordORM` and Alembic migration `0003_market_data_batch_metadata.py`.
+
+The table stores batch metadata only: batch id, instrument identity, timeframe, provider identity, quality status, row count, start/end timestamps, source reference, synthetic flag, fixture linkage, dataset manifest linkage, validation report linkage, schema version, and sanitized notes. It has a unique constraint on `batch_id` and indexes for instrument/time range and synthetic fixture lookup.
+
+The table stores no full OHLCV bars and does not replace TimescaleDB operational bar storage, DuckDB/Parquet research storage, or ClickHouse analytical copies. No tables are created automatically at import time, and no external calls or execution APIs are introduced.

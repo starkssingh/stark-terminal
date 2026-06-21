@@ -48,6 +48,11 @@ Stark Terminal will use a data-provider adapter architecture. Provider-specific 
 - Validation failure must never silently pass.
 - Do not use validation results or quality gates as trade calls, signals, order instructions, or execution approvals.
 - Prompt 13 performs no external validation and no production validation pipeline work.
+- Synthetic fixtures must remain synthetic, local-only, and test/dev only.
+- Do not check real production data or generated fixture datasets into the repository.
+- Do not use sample data as a trade signal, analytics signal, recommendation, or decision.
+- Synthetic fixture disk writes are disabled by default for the configured output root.
+- Real ingestion requires provider adapter contracts, data-policy review, source references, and validation gates.
 - Keep raw provider payloads separate from cleaned, normalized, feature-ready, backtest-ready, and research-artifact datasets.
 - Every dataset should eventually be auditable and reproducible.
 
@@ -97,6 +102,12 @@ Prompt 13 adds the Data Quality + Validation Framework only. Validators are dete
 
 Future ingestion, feature, backtest, warehouse, research lake, and decision-support workflows must pass explicit validation rules and quality gates before promotion. Source references are required by default. Timestamp validation requires timezone-aware timestamps by default. Quality gates are conservative and may ALLOW, WARN, or BLOCK, but no quality gate can authorize execution or trading.
 
+## Synthetic Fixture Policy
+
+Prompt 14 adds Synthetic Market Data Fixtures only. Fixtures are synthetic, local-only, test/dev only, not real market data, not trading data, not investment advice, and have no external provider source.
+
+Fixture helpers may generate tiny deterministic OHLCV bars and MarketDataBatch objects for tests. They must use explicit seeds, UTC timestamps, `LOCAL_SAMPLE` provider metadata, synthetic source data references, and Data Quality Framework validation. They must not scrape NSE/BSE, call provider APIs, publish events, write production datasets, compute indicators, compute features, backtest strategies, generate decisions, or expose execution APIs.
+
 ## Prompt 11 Data Audit
 
 Prompt 12 confirms no real market ingestion exists yet. Future market data ingestion requires a provider-specific implementation prompt, data-policy review, read-only provider adapter contract, source reference policy, quality checks, and audit path. no execution APIs and broker integrations remain forbidden.
@@ -113,3 +124,17 @@ Prompt 12 confirms no real market ingestion exists yet. Future market data inges
 ## Reproducibility Expectations
 
 Datasets should eventually include source references, ingestion timestamps, provider identifiers, schema versions, quality checks, transformation versions, and deterministic partitioning where practical.
+
+## Prompt 15 Instrument Metadata Persistence Policy
+
+Instrument metadata persistence is allowed for canonical `Instrument` records only. Repositories and services must not fetch real market data, call external providers, scrape NSE/BSE, persist OHLCV bars, publish events, compute signals, or expose execution APIs.
+
+Instrument metadata writes require validation-before-persistence by default. Synthetic fixture seeding is local/test/dev only and must remain clearly synthetic. Repository and service errors must not expose database URLs, credentials, provider secrets, broker secrets, tokens, or API keys.
+
+## Prompt 16 Batch Metadata Persistence Policy
+
+Market Data Batch Persistence records batch metadata only. The persistence layer may store `batch_id`, instrument identity, timeframe, provider identity, row count, start/end timestamps, quality status, `source_data_reference`, synthetic flag, `fixture_id`, `dataset_manifest_id`, and `validation_report_id`.
+
+The metadata table must store no full OHLCV bars, no tick history, no provider payloads, no options payloads, no secrets, no broker data, no order data, no trading signals, and no recommendations. Batch metadata is not a trade signal and must not become an execution gate.
+
+Validation-before-persistence is required by default. Synthetic batch metadata is allowed only for local/test/dev use and must use a synthetic/local/test source reference. Repositories and services must make no external calls and must not perform real market ingestion. Future real ingestion requires provider adapters, source references, data quality gates, data-policy review, and an explicit future prompt.

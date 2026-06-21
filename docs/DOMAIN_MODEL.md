@@ -58,6 +58,22 @@ The domain model gives future infrastructure, analytics, API, desktop, and worke
 
 Prompt 10 adds FeatureDefinition, FeatureSet, FeatureEntity, FeatureValue, FeatureSnapshot, FeatureQualityReport, and FeatureLineageRecord contracts. These govern future feature metadata, source references, freshness/staleness, quality, and lineage. They do not compute features, train models, ingest market data, implement Feast, or generate trade calls.
 
+## Prompt 15 Instrument Persistence Wiring
+
+The `Instrument` domain model now has metadata-only persistence wiring through `InstrumentRepository` and `InstrumentMetadataService`. Identity remains the stable `InstrumentId` tuple of symbol, exchange, and segment. Repository lookups normalize symbol/exchange/segment before querying.
+
+This wiring does not change the domain model into a market-data ingestion model. It persists instrument metadata only, requires validation-before-persistence by default, allows synthetic local/test/dev seeding, and exposes no execution APIs.
+
+## Prompt 16 Market Data Batch Metadata
+
+Prompt 16 adds `MarketDataBatchMetadata` and `MarketDataBatchPersistenceResult`.
+
+`MarketDataBatchMetadata` captures batch-level metadata for validated synthetic/local `MarketDataBatch` objects: `batch_id`, `instrument_id`, `timeframe`, provider identity, `quality_status`, `row_count`, start/end timestamps, `source_data_reference`, synthetic flag, fixture linkage, dataset manifest linkage, validation report linkage, schema version, creation time, and sanitized notes.
+
+`MarketDataBatchPersistenceResult` captures safe persistence outcomes without exposing secrets. The helper `metadata_from_batch` builds metadata from a `MarketDataBatch` after checking that a batch contains one instrument, one timeframe, a source reference, and a stable time range.
+
+This model is batch metadata only. It does not store full OHLCV bars, does not represent real market ingestion, does not create trading signals, and exposes no execution APIs.
+
 ## DurableEventEnvelope
 
 Prompt 12 adds DurableEventEnvelope contracts for the Kafka/Redpanda Event Backbone foundation. They reuse EventType, EventSource, and EventPriority from Redis Streams EventEnvelope semantics while adding explicit topic, key, and partition fields. Durable events are coordination/replay contracts only; Kafka/Redpanda is not system of record and does not implement production pipelines, market ingestion, broker integrations, or execution APIs.

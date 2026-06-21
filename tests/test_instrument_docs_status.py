@@ -14,7 +14,7 @@ def test_instrument_docs_exist_and_prompt_status_is_current() -> None:
     project_map = (ROOT / "PROJECT_MAP.md").read_text(encoding="utf-8")
 
     assert "Prompt 08 - Instrument Master + Market Data Contracts" in prompt_log
-    assert "Current Prompt: 13" in north_star
-    assert "Completed Prompts: 13 before this prompt, 14 after completion" in north_star
+    assert "Current Prompt: 16" in north_star
+    assert "Completed Prompts: 16 before this prompt, 17 after completion" in north_star
     assert "instruments/normalization.py" in project_map
     assert "Market Data Provider" in project_map

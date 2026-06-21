@@ -7,7 +7,7 @@ from stark_terminal_core.config.settings import Settings
 def test_event_backbone_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "13"
+    assert settings.prompt_number == "16"
     assert settings.event_backbone_mode == "memory"
     assert settings.kafka_enabled is False
     assert settings.kafka_use_memory_fallback is True

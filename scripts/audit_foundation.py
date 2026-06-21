@@ -19,6 +19,13 @@ REQUIRED_DOCS = [
     "docs/VALIDATION_RULE_SPEC.md",
     "docs/QUALITY_GATE_POLICY.md",
     "docs/DATA_QUALITY_REPORT_SPEC.md",
+    "docs/SYNTHETIC_MARKET_DATA_FIXTURES.md",
+    "docs/OHLCV_FIXTURE_CONTRACTS.md",
+    "docs/SAMPLE_DATA_POLICY.md",
+    "docs/INSTRUMENT_PERSISTENCE_FOUNDATION.md",
+    "docs/INSTRUMENT_REPOSITORY_POLICY.md",
+    "docs/MARKET_DATA_BATCH_PERSISTENCE.md",
+    "docs/BATCH_METADATA_POLICY.md",
     "docs/NORTH_STAR.md",
     "docs/PROMPT_LOG.md",
     "docs/TECH_STACK.md",
@@ -45,6 +52,9 @@ REQUIRED_PACKAGE_DIRS = [
     "packages/data_platform/stark_terminal_data_platform/streams",
     "packages/data_platform/stark_terminal_data_platform/event_backbone",
     "packages/data_platform/stark_terminal_data_platform/quality",
+    "packages/data_platform/stark_terminal_data_platform/fixtures",
+    "packages/data_platform/stark_terminal_data_platform/repositories",
+    "packages/data_platform/stark_terminal_data_platform/services",
     "packages/data_platform/stark_terminal_data_platform/workers",
     "packages/data_platform/stark_terminal_data_platform/instruments",
     "packages/data_platform/stark_terminal_data_platform/providers",
@@ -64,6 +74,9 @@ REQUIRED_ROUTE_FILES = [
     "apps/api/stark_terminal_api/routes/streams.py",
     "apps/api/stark_terminal_api/routes/event_backbone.py",
     "apps/api/stark_terminal_api/routes/data_quality.py",
+    "apps/api/stark_terminal_api/routes/fixtures.py",
+    "apps/api/stark_terminal_api/routes/instrument_metadata.py",
+    "apps/api/stark_terminal_api/routes/market_data_batches.py",
     "apps/api/stark_terminal_api/routes/workers.py",
     "apps/api/stark_terminal_api/routes/instruments.py",
     "apps/api/stark_terminal_api/routes/warehouse.py",
@@ -89,6 +102,19 @@ REQUIRED_SAFETY_PHRASES = [
     "durable event backbone",
     "Data Quality",
     "validation framework",
+    "synthetic",
+    "OHLCV",
+    "local-only",
+    "test/dev only",
+    "no external calls",
+    "no real market data",
+    "Instrument Metadata Persistence",
+    "InstrumentRepository",
+    "InstrumentMetadataService",
+    "Market Data Batch Persistence",
+    "batch metadata",
+    "no full OHLCV bars",
+    "validation-before-persistence",
     "Feature Registry",
     "Mac mini M2",
     "Windows-native",
@@ -142,21 +168,24 @@ def _check_required_safety_phrases() -> AuditResult:
 
 def _check_prompt_log() -> AuditResult:
     text = (ROOT / "docs/PROMPT_LOG.md").read_text(encoding="utf-8")
-    expected = [f"Prompt {number:02d}" for number in range(10)] + ["Prompt 10", "Prompt 11", "Prompt 12", "Prompt 13"]
+    expected = [f"Prompt {number:02d}" for number in range(10)] + ["Prompt 10", "Prompt 11", "Prompt 12", "Prompt 13", "Prompt 14", "Prompt 15", "Prompt 16"]
     missing = [entry for entry in expected if entry not in text]
-    return AuditResult("prompt log", not missing, ", ".join(missing) if missing else "Prompt 00 through Prompt 13 present")
+    return AuditResult("prompt log", not missing, ", ".join(missing) if missing else "Prompt 00 through Prompt 16 present")
 
 
 def _check_north_star_status() -> AuditResult:
     text = (ROOT / "docs/NORTH_STAR.md").read_text(encoding="utf-8")
     required = [
-        "Current Prompt: 13",
-        "Completed Prompts: 13 before this prompt, 14 after completion",
+        "Current Prompt: 16",
+        "Completed Prompts: 16 before this prompt, 17 after completion",
         "Event Backbone Status: Kafka/Redpanda contracts/foundation only, no production pipelines",
         "Data Quality Status: Validation framework/contracts only, no production ingestion pipeline",
+        "Fixture Status: Synthetic local-only test/dev fixtures implemented; no real market data",
+        "Instrument Persistence Status: Instrument metadata repository/service wiring implemented; no OHLCV persistence",
+        "Market Data Batch Persistence Status: Batch metadata repository/service wiring implemented; no full OHLCV bars persisted",
     ]
     missing = [phrase for phrase in required if phrase not in text]
-    return AuditResult("north star status", not missing, ", ".join(missing) if missing else "North Star Prompt 13 status present")
+    return AuditResult("north star status", not missing, ", ".join(missing) if missing else "North Star Prompt 16 status present")
 
 
 def run_audit() -> list[AuditResult]:

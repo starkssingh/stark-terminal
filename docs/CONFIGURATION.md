@@ -1,6 +1,6 @@
 # Configuration
 
-Prompt 13 maintains typed application settings through `stark_terminal_core.config.settings.Settings` and adds Data Quality + Validation Framework settings.
+Prompt 14 maintains typed application settings through `stark_terminal_core.config.settings.Settings` and adds Synthetic Fixture settings.
 
 ## Settings
 
@@ -11,14 +11,14 @@ Important defaults:
 - `STARK_ENV=development`
 - `APP_NAME=Stark Terminal`
 - `APP_VERSION=0.1.0`
-- `PROMPT_NUMBER=13`
+- `PROMPT_NUMBER=14`
 - `API_HOST=127.0.0.1`
 - `API_PORT=8000`
 - `FEATURE_STORE_MODE=custom`
 
 ## Environment Variables
 
-The settings model supports placeholders for `DATABASE_URL`, `TIMESCALE_DATABASE_URL`, `REDIS_URL`, `CLICKHOUSE_URL`, and `KAFKA_BOOTSTRAP_SERVERS`. Prompt 13 adds Data Quality + Validation Framework settings while keeping raw secrets hidden. Feast integration remains deferred.
+The settings model supports placeholders for `DATABASE_URL`, `TIMESCALE_DATABASE_URL`, `REDIS_URL`, `CLICKHOUSE_URL`, and `KAFKA_BOOTSTRAP_SERVERS`. Prompt 14 adds Synthetic Fixture settings while keeping raw secrets hidden. Feast integration remains deferred.
 
 ## Database Settings
 
@@ -201,6 +201,22 @@ Data quality is enabled by default, but external validation is disabled by defau
 
 Source references and timezone-aware timestamps are required by default. Synthetic/local test data remains allowed so deterministic tests can validate contracts without external providers.
 
+## Synthetic Fixture Settings
+
+Prompt 14 adds Synthetic Market Data Fixture settings:
+
+- `SYNTHETIC_FIXTURES_ENABLED=true`
+- `SYNTHETIC_FIXTURE_SCHEMA_VERSION=v1`
+- `SYNTHETIC_FIXTURE_DEFAULT_SEED=42`
+- `SYNTHETIC_FIXTURE_DEFAULT_BAR_COUNT=30`
+- `SYNTHETIC_FIXTURE_DEFAULT_START_PRICE=100.0`
+- `SYNTHETIC_FIXTURE_DEFAULT_TIMEFRAME=DAILY`
+- `SYNTHETIC_FIXTURE_ALLOW_DISK_WRITES=false`
+- `SYNTHETIC_FIXTURE_OUTPUT_ROOT=data/synthetic_fixtures`
+- `SYNTHETIC_FIXTURE_LABEL=synthetic-local-test-only`
+
+Synthetic fixtures are enabled by default for local/test/dev use. Disk writes are disabled by default for the configured output root. Deterministic seed, bar count, start price, timeframe, schema version, and label fields are exposed through the safe settings snapshot.
+
 ## Safety Flags
 
 Execution-related flags default to false:
@@ -209,7 +225,7 @@ Execution-related flags default to false:
 - `BROKER_INTEGRATIONS_ENABLED=false`
 - `LIVE_TRADING_ENABLED=false`
 
-These flags fail closed in Prompt 13. Enabling them raises configuration validation errors because execution APIs, broker integrations, live trading, external market data calls, and provider network calls remain forbidden.
+These flags fail closed in Prompt 16. Enabling them raises configuration validation errors because execution APIs, broker integrations, live trading, external market data calls, and provider network calls remain forbidden.
 
 ## Safe Settings Snapshot
 
@@ -217,8 +233,34 @@ These flags fail closed in Prompt 13. Enabling them raises configuration validat
 
 Raw URLs and secrets must never be exposed by API responses.
 
-Database and TimescaleDB configuration are exposed only as booleans such as `database_configured` and `timescale_configured`. Research lake settings expose safe relative roots and booleans only. Redis cache, Redis Streams, Kafka/Redpanda Event Backbone, Data Quality, Worker System, Instrument Master/Provider, ClickHouse Warehouse, and Feature Registry settings expose safe booleans and policy fields only. Raw database URLs, Timescale URLs, Redis URLs, ClickHouse URLs, Kafka bootstrap servers, Kafka SASL usernames/passwords, ClickHouse users/passwords, credentials, and host strings with secrets are not returned by `/config`, `/database/health`, `/timeseries/health`, `/research-lake/health`, `/cache/health`, `/streams/health`, `/event-backbone/health`, `/data-quality/health`, `/workers/health`, `/instruments/health`, `/providers/health`, `/warehouse/health`, or `/features/health`.
+Database and TimescaleDB configuration are exposed only as booleans such as `database_configured` and `timescale_configured`. Research lake settings expose safe relative roots and booleans only. Redis cache, Redis Streams, Kafka/Redpanda Event Backbone, Data Quality, Synthetic Fixtures, Worker System, Instrument Master/Provider, ClickHouse Warehouse, and Feature Registry settings expose safe booleans and policy fields only. Raw database URLs, Timescale URLs, Redis URLs, ClickHouse URLs, Kafka bootstrap servers, Kafka SASL usernames/passwords, ClickHouse users/passwords, credentials, and host strings with secrets are not returned by `/config`, `/database/health`, `/timeseries/health`, `/research-lake/health`, `/cache/health`, `/streams/health`, `/event-backbone/health`, `/data-quality/health`, `/fixtures/health`, `/workers/health`, `/instruments/health`, `/providers/health`, `/warehouse/health`, or `/features/health`.
 
-## Prompt 13 Configuration Audit
+## Prompt 16 Configuration Audit
 
-Prompt 13 confirms sensitive URLs and secrets are exposed only as configured booleans/status, not raw values. Safe snapshots must not expose raw database URLs, TimescaleDB URLs, Redis URLs, ClickHouse URLs, ClickHouse users, ClickHouse passwords, Kafka bootstrap strings, Kafka SASL credentials, API keys, tokens, broker secrets, or provider credentials. no execution APIs, no market data ingestion, no external validation, and no analytics signals remain enforced through disabled-by-default settings and local deterministic validators.
+Prompt 16 confirms sensitive URLs and secrets are exposed only as configured booleans/status, not raw values. Safe snapshots must not expose raw database URLs, TimescaleDB URLs, Redis URLs, ClickHouse URLs, ClickHouse users, ClickHouse passwords, Kafka bootstrap strings, Kafka SASL credentials, API keys, tokens, broker secrets, or provider credentials. no execution APIs, no market data ingestion, no external validation, no external provider calls, and no analytics signals remain enforced through disabled-by-default settings, local deterministic validators, synthetic fixture labels, and validation-gated metadata persistence.
+
+## Instrument Persistence Settings
+
+Prompt 15 adds Instrument Metadata Persistence settings:
+
+- `INSTRUMENT_PERSISTENCE_ENABLED=true`
+- `INSTRUMENT_PERSISTENCE_REQUIRE_VALIDATION=true`
+- `INSTRUMENT_PERSISTENCE_ALLOW_SYNTHETIC_SEED=true`
+- `INSTRUMENT_PERSISTENCE_SCHEMA_VERSION=v1`
+
+Validation is required by default. Synthetic seeding is allowed by default for local/test/dev workflows only. `instrument_persistence_schema_version` cannot be empty. Safe settings snapshots may expose these booleans and schema status but must not expose database URLs or credentials.
+
+Instrument persistence remains metadata-only: no real market ingestion, no external calls, no OHLCV persistence, no broker behavior, and no execution APIs.
+
+## Market Data Batch Persistence Settings
+
+Prompt 16 adds Market Data Batch Persistence settings:
+
+- `MARKET_DATA_BATCH_PERSISTENCE_ENABLED=true`
+- `MARKET_DATA_BATCH_PERSISTENCE_REQUIRE_VALIDATION=true`
+- `MARKET_DATA_BATCH_PERSISTENCE_ALLOW_SYNTHETIC=true`
+- `MARKET_DATA_BATCH_PERSISTENCE_SCHEMA_VERSION=v1`
+
+Validation is required by default. Synthetic batch metadata is allowed by default for local/test/dev workflows only. `market_data_batch_persistence_schema_version` cannot be empty. Safe settings snapshots may expose these booleans and schema status but must not expose database URLs or credentials.
+
+Market data batch persistence remains metadata-only: no real market ingestion, no external calls, no full OHLCV bars, no broker behavior, and no execution APIs.

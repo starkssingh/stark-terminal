@@ -47,4 +47,14 @@ Quality gates evaluate validation reports against explicit policies. Gates can A
 
 PostgreSQL remains system of record. TimescaleDB remains the operational time-series target. DuckDB/Parquet remains the research lake. ClickHouse remains the analytical warehouse. Feature Registry remains governance. Redis Streams and Kafka/Redpanda remain event foundations. The Data Quality Framework validates contracts across these layers before future data movement, but it does not ingest, store, publish, or compute real data.
 
+## Prompt 14 Synthetic Fixture Relationship
+
+Prompt 14 synthetic OHLCV fixtures validate through this Data Quality Framework, especially `MarketDataBarValidator`. Generated fixture bars are synthetic, local-only, test/dev only, and carry `synthetic-local-test-only` source references. Fixture validation remains deterministic, local, and side-effect free. It makes no external calls, performs no market data ingestion, computes no analytics signals, and enables no execution APIs.
+
 Development environment remains Mac mini M2 / macOS / Apple Silicon. Target desktop product remains Windows-native Stark Terminal.
+
+## Prompt 16 Batch Metadata Gate
+
+Market Data Batch Persistence uses Data Quality validators before writing metadata. Generated synthetic fixture batches must pass local deterministic validation before `MarketDataBatchMetadataService` persists their batch metadata.
+
+Validation failure blocks persistence. This gate does not compute analytics signals, does not run real ingestion, does not make external calls, and does not enable execution APIs.

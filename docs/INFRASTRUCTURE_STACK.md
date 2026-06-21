@@ -1,6 +1,6 @@
 # Infrastructure Stack
 
-Prompt 13 implements the PostgreSQL-ready SQLAlchemy/Alembic foundation for metadata persistence, the TimescaleDB-oriented operational time-series schema foundation, the DuckDB + Parquet research lake foundation, the Redis cache foundation, the Redis Streams foundation, the Kafka/Redpanda Event Backbone foundation, the Data Quality + Validation Framework, the Worker System foundation, the Instrument Master/Provider Contracts foundation, the ClickHouse Warehouse foundation, and the custom Stark Feature Registry foundation. Other infrastructure systems remain planned and not implemented.
+Prompt 14 implements the PostgreSQL-ready SQLAlchemy/Alembic foundation for metadata persistence, the TimescaleDB-oriented operational time-series schema foundation, the DuckDB + Parquet research lake foundation, the Redis cache foundation, the Redis Streams foundation, the Kafka/Redpanda Event Backbone foundation, the Data Quality + Validation Framework, the Synthetic Fixtures foundation, the Worker System foundation, the Instrument Master/Provider Contracts foundation, the ClickHouse Warehouse foundation, and the custom Stark Feature Registry foundation. Other infrastructure systems remain planned and not implemented.
 
 ## PostgreSQL
 
@@ -87,6 +87,14 @@ The Data Quality + Validation Framework provides deterministic local validation 
 
 The framework sits across the storage and event layers: it can validate future PostgreSQL metadata contracts, TimescaleDB operational bars, DuckDB/Parquet research datasets, ClickHouse warehouse table contracts, Feature Registry snapshots, provider responses, Redis Streams events, and Kafka/Redpanda durable events after explicit future prompts wire those flows. It does not ingest real market data, run production validation pipelines, make external calls, compute analytics signals, mutate durable state, or enable execution APIs.
 
+## Synthetic Fixtures
+
+Prompt 14 implements deterministic synthetic OHLCV fixtures, fixture manifests, a local metadata catalog, validation helpers, temporary Parquet roundtrip helpers, and fixture health checks.
+
+Synthetic Fixtures are not infrastructure truth, not a system of record, not provider data, and not live market data. They exist only for local/test/dev workflows. Disk writes are disabled by default for the configured output root, and any test Parquet writes must be explicitly directed to temporary paths.
+
+No real ingestion exists in Prompt 14. Real market ingestion still requires provider adapters, data-policy review, source references, quality gates, and a future explicit prompt.
+
 ## Worker Pipeline Plan
 
 Planned workers:
@@ -110,6 +118,20 @@ Every important data mutation, feature computation, regime update, decision gene
 
 ## Prompt 11 Infrastructure Audit Summary
 
-Implemented foundation layers: PostgreSQL metadata, TimescaleDB schema planning, DuckDB/Parquet research lake helpers, Redis cache, Redis Streams, Kafka/Redpanda Event Backbone, Data Quality + Validation Framework, Worker System, Instrument/Provider Contracts, ClickHouse Warehouse contracts, and Feature Registry contracts. Planned layers: external feature store backends, real ingestion pipelines, production worker deployment, production event pipelines, production validation pipelines, production dashboards, and analytics engines.
+Implemented foundation layers: PostgreSQL metadata, TimescaleDB schema planning, DuckDB/Parquet research lake helpers, Redis cache, Redis Streams, Kafka/Redpanda Event Backbone, Data Quality + Validation Framework, Synthetic Fixtures, Worker System, Instrument/Provider Contracts, ClickHouse Warehouse contracts, and Feature Registry contracts. Planned layers: external feature store backends, real ingestion pipelines, production worker deployment, production event pipelines, production validation pipelines, production dashboards, and analytics engines.
 
 Prompt 11 adds audit tooling only. It does not implement Kafka/Redpanda, real market ingestion, external provider calls, automatic table creation, feature computation, broker integrations, or no execution APIs.
+
+## Prompt 15 Instrument Metadata Persistence Wiring
+
+Prompt 15 marks Instrument Metadata Persistence Wiring as implemented. PostgreSQL remains the intended system of record, and the existing SQLite fallback supports deterministic local tests and development. The first repository/service wiring is metadata-only through `InstrumentRepository` and `InstrumentMetadataService`.
+
+This layer persists canonical instrument metadata after validation-before-persistence. It does not persist OHLCV bars, run real market ingestion, call external providers, publish events, compute analytics, or expose execution APIs.
+
+## Prompt 16 Market Data Batch Persistence Contracts
+
+Prompt 16 marks Market Data Batch Persistence Contracts as implemented. PostgreSQL remains the intended system of record and now has metadata-only repository/service wiring for validated synthetic/local market data batch records through `MarketDataBatchRecordORM`, `MarketDataBatchRepository`, and `MarketDataBatchMetadataService`.
+
+This layer stores batch metadata only: batch id, instrument, timeframe, row count, time range, quality status, source reference, synthetic flag, fixture linkage, dataset manifest linkage, and validation report linkage. It stores no full OHLCV bars and performs no TimescaleDB data writes, ClickHouse writes, DuckDB/Parquet production writes, Redis/Kafka publishing, real market ingestion, external calls, analytics, or execution APIs.
+
+TimescaleDB still owns future operational bar storage. DuckDB/Parquet still owns future research datasets. ClickHouse still owns future analytical copies. Prompt 16 only records metadata needed to audit future batch flows.

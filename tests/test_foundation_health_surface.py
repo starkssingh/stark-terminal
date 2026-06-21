@@ -12,6 +12,9 @@ HEALTH_ENDPOINTS = [
     "/streams/health",
     "/event-backbone/health",
     "/data-quality/health",
+    "/fixtures/health",
+    "/instrument-metadata/health",
+    "/market-data-batches/health",
     "/workers/health",
     "/instruments/health",
     "/providers/health",
@@ -25,6 +28,11 @@ OPTIONAL_SAFE_ENDPOINTS = [
     "/event-backbone/topics",
     "/data-quality/contracts",
     "/instruments/sample",
+    "/fixtures/catalog",
+    "/instrument-metadata/sample",
+    "/instrument-metadata/list",
+    "/market-data-batches/sample",
+    "/market-data-batches/list",
 ]
 
 FORBIDDEN_RESPONSE_KEYS = {
@@ -64,12 +72,12 @@ def test_all_foundation_health_endpoints_return_200() -> None:
         assert response.status_code == 200, endpoint
 
 
-def test_health_endpoint_reports_prompt_13_audit_status() -> None:
+def test_health_endpoint_reports_prompt_16_audit_status() -> None:
     client = TestClient(app)
 
     body = client.get("/health").json()
 
-    assert body["prompt"] == "13"
+    assert body["prompt"] == "16"
     assert body["audit_status"] == "milestone-a-b"
     assert body["execution_apis_enabled"] is False
 

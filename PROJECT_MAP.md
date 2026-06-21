@@ -16,6 +16,13 @@ stark-terminal/
     API_SURFACE_INVENTORY.md
     SAFETY_AUDIT.md
     NEXT_PHASE_PLAN.md
+    SYNTHETIC_MARKET_DATA_FIXTURES.md
+    OHLCV_FIXTURE_CONTRACTS.md
+    SAMPLE_DATA_POLICY.md
+    INSTRUMENT_PERSISTENCE_FOUNDATION.md
+    INSTRUMENT_REPOSITORY_POLICY.md
+    MARKET_DATA_BATCH_PERSISTENCE.md
+    BATCH_METADATA_POLICY.md
   apps/
     api/
       stark_terminal_api/
@@ -30,6 +37,9 @@ stark-terminal/
           event_backbone.py
           health.py
           instruments.py
+          fixtures.py
+          instrument_metadata.py
+          market_data_batches.py
           research_lake.py
           streams.py
           timeseries.py
@@ -54,6 +64,7 @@ stark-terminal/
           identifiers.py
           instrument.py
           market_data.py
+          market_data_batch.py
           market_data_contracts.py
           derivatives.py
           options.py
@@ -78,6 +89,7 @@ stark-terminal/
             audit.py
             decision.py
             timeseries.py
+            market_data_batch.py
         timeseries/
           __init__.py
           health.py
@@ -133,6 +145,25 @@ stark-terminal/
           registry.py
           builtins.py
           health.py
+          README.md
+        fixtures/
+          __init__.py
+          manifests.py
+          synthetic_ohlcv.py
+          catalog.py
+          validation.py
+          parquet.py
+          health.py
+          README.md
+        repositories/
+          __init__.py
+          instruments.py
+          market_data_batches.py
+          README.md
+        services/
+          __init__.py
+          instruments.py
+          market_data_batches.py
           README.md
         workers/
           __init__.py
@@ -191,6 +222,7 @@ stark-terminal/
     versions/
       0001_initial_metadata_tables.py
       0002_operational_timeseries_tables.py
+      0003_market_data_batch_metadata.py
   migrations/
     README.md
   tests/
@@ -205,7 +237,7 @@ stark-terminal/
 - `apps/api/`: FastAPI backend entrypoint and HTTP routes.
 - `apps/desktop/`: Windows-native PySide6 / Qt desktop shell.
 - `packages/core/`: Shared typed domain contracts and enums.
-- `packages/data_platform/`: SQLAlchemy/Alembic database foundation, TimescaleDB schema helpers, DuckDB/Parquet lake helpers, Redis cache foundation, Redis Streams foundation, Kafka/Redpanda Event Backbone foundation, Data Quality + Validation Framework, Worker System foundation, Instrument Master/Market Data Provider Contracts, ClickHouse Warehouse foundation, and Feature Registry foundation.
+- `packages/data_platform/`: SQLAlchemy/Alembic database foundation, repository/service persistence wiring, TimescaleDB schema helpers, DuckDB/Parquet lake helpers, Redis cache foundation, Redis Streams foundation, Kafka/Redpanda Event Backbone foundation, Data Quality + Validation Framework, Synthetic Fixture foundation, Worker System foundation, Instrument Master/Market Data Provider Contracts, ClickHouse Warehouse foundation, and Feature Registry foundation.
 - `packages/analytics/`: Placeholder for future numerical, statistical, ML, optimization, options, risk, and backtesting analytics.
 - `packages/research/`: Placeholder for future Paper Lab, StrategyCandidate generation, experiment tracking, and research artifact logic.
 - `tests/`: Foundation, typed settings, API, domain contract, and audit invariant tests.
@@ -213,7 +245,7 @@ stark-terminal/
 
 ## Current Implemented Modules
 
-- `stark_terminal_api.main`: Creates the FastAPI `app` and registers health/config/database/timeseries/research-lake/cache/streams/event-backbone/data-quality/workers/instruments/warehouse/features routers.
+- `stark_terminal_api.main`: Creates the FastAPI `app` and registers health/config/database/timeseries/research-lake/cache/streams/event-backbone/data-quality/fixtures/instrument-metadata/market-data-batches/workers/instruments/warehouse/features routers.
 - `stark_terminal_api.routes.health`: Implements `GET /health`.
 - `stark_terminal_api.routes.config`: Implements safe `GET /config`.
 - `stark_terminal_api.routes.database`: Implements safe `GET /database/health`.
@@ -223,6 +255,9 @@ stark-terminal/
 - `stark_terminal_api.routes.streams`: Implements safe `GET /streams/health`.
 - `stark_terminal_api.routes.event_backbone`: Implements safe `GET /event-backbone/health` and `GET /event-backbone/topics`.
 - `stark_terminal_api.routes.data_quality`: Implements safe `GET /data-quality/health` and `GET /data-quality/contracts`.
+- `stark_terminal_api.routes.fixtures`: Implements safe `GET /fixtures/health` and synthetic metadata-only `GET /fixtures/catalog`.
+- `stark_terminal_api.routes.instrument_metadata`: Implements safe `GET /instrument-metadata/health`, synthetic-only `GET /instrument-metadata/sample`, and fail-safe read-only `GET /instrument-metadata/list`.
+- `stark_terminal_api.routes.market_data_batches`: Implements safe `GET /market-data-batches/health`, synthetic-only metadata `GET /market-data-batches/sample`, and fail-safe read-only `GET /market-data-batches/list`.
 - `stark_terminal_api.routes.workers`: Implements safe `GET /workers/health`.
 - `stark_terminal_api.routes.instruments`: Implements safe `GET /instruments/health`, `GET /providers/health`, and synthetic-only `GET /instruments/sample`.
 - `stark_terminal_api.routes.warehouse`: Implements safe `GET /warehouse/health` and `GET /warehouse/contracts`.
@@ -233,6 +268,7 @@ stark-terminal/
 - `stark_terminal_core.domain.identifiers`: Defines InstrumentId, DataProviderId, and AuditId.
 - `stark_terminal_core.domain.instrument`: Defines Instrument.
 - `stark_terminal_core.domain.market_data`: Defines MarketDataBar and MarketDataBatch.
+- `stark_terminal_core.domain.market_data_batch`: Defines `MarketDataBatchMetadata`, `MarketDataBatchPersistenceResult`, and metadata construction helpers.
 - `stark_terminal_core.domain.market_data_contracts`: Defines MarketDataRequest and MarketDataResponse contracts.
 - `stark_terminal_core.domain.derivatives`: Defines FuturesContract.
 - `stark_terminal_core.domain.options`: Defines OptionContract and OptionsChainSnapshot.
@@ -248,6 +284,7 @@ stark-terminal/
 - `stark_terminal_data_platform.db.models.audit`: Defines `AuditRecordORM`.
 - `stark_terminal_data_platform.db.models.decision`: Defines `DecisionObjectRecordORM`.
 - `stark_terminal_data_platform.db.models.timeseries`: Defines operational time-series ORM models for OHLCV bars, options-chain snapshots, futures-basis snapshots, market-state snapshots, and regime snapshots.
+- `stark_terminal_data_platform.db.models.market_data_batch`: Defines `MarketDataBatchRecordORM` for metadata-only batch persistence with no full bar columns.
 - `stark_terminal_data_platform.timeseries.health`: Defines safe TimescaleDB health/capability checks.
 - `stark_terminal_data_platform.timeseries.hypertables`: Defines non-executing TimescaleDB extension and hypertable SQL helpers.
 - `stark_terminal_data_platform.lake.paths`: Defines cross-platform lake path helpers.
@@ -286,6 +323,16 @@ stark-terminal/
 - `stark_terminal_data_platform.quality.builtins`: Defines built-in validators for existing local contracts.
 - `stark_terminal_data_platform.quality.registry`: Defines the explicit in-memory ValidationRegistry.
 - `stark_terminal_data_platform.quality.health`: Defines safe Data Quality health checks.
+- `stark_terminal_data_platform.fixtures.manifests`: Defines synthetic fixture manifest contracts.
+- `stark_terminal_data_platform.fixtures.synthetic_ohlcv`: Defines deterministic local synthetic OHLCV generation and MarketDataBatch helpers.
+- `stark_terminal_data_platform.fixtures.catalog`: Defines an explicit synthetic fixture catalog.
+- `stark_terminal_data_platform.fixtures.validation`: Defines fixture validation helpers using the Data Quality Framework.
+- `stark_terminal_data_platform.fixtures.parquet`: Defines tiny explicit Parquet fixture roundtrip helpers for tests/local use.
+- `stark_terminal_data_platform.fixtures.health`: Defines safe synthetic fixture health checks.
+- `stark_terminal_data_platform.repositories.instruments`: Defines `InstrumentRepository` for metadata-only SQLAlchemy instrument persistence.
+- `stark_terminal_data_platform.repositories.market_data_batches`: Defines `MarketDataBatchRepository` for metadata-only SQLAlchemy batch records.
+- `stark_terminal_data_platform.services.instruments`: Defines `InstrumentMetadataService`, validation-before-persistence, synthetic instrument seeding, and safe persistence health checks.
+- `stark_terminal_data_platform.services.market_data_batches`: Defines `MarketDataBatchMetadataService`, validation-before-persistence, synthetic batch metadata persistence, and safe persistence health checks.
 - `stark_terminal_data_platform.workers.roles` (`workers/roles.py`): Defines canonical worker roles, queue mapping, role descriptions, and forbidden execution-role detection.
 - `stark_terminal_data_platform.workers.jobs` (`workers/jobs.py`): Defines typed JobEnvelope contracts and safe job payload validation.
 - `stark_terminal_data_platform.workers.results` (`workers/results.py`): Defines WorkerResult contracts and sanitized result helpers.
@@ -349,9 +396,44 @@ Prompt 12 adds Kafka/Redpanda Event Backbone contracts only. It does not add pro
 
 Prompt 13 adds the Data Quality + Validation Framework only. It does not add real market ingestion, production validation pipelines, external validation calls, analytics signals, feature computation, models, decisions, or execution APIs.
 
+## Prompt 14 Synthetic Fixture Artifacts
+
+- `docs/SYNTHETIC_MARKET_DATA_FIXTURES.md`: Synthetic fixture purpose, deterministic generation, and no-real-data boundary.
+- `docs/OHLCV_FIXTURE_CONTRACTS.md`: SyntheticOHLCVConfig, MarketDataBar, MarketDataBatch, OHLC constraints, timestamp rules, and validation expectations.
+- `docs/SAMPLE_DATA_POLICY.md`: Sample data safety policy, no scraping, no external calls, and disk-write boundary.
+- `packages/data_platform/stark_terminal_data_platform/fixtures/`: Manifest schemas, deterministic OHLCV generation, catalog, validation helpers, Parquet test helpers, and health checks.
+- `apps/api/stark_terminal_api/routes/fixtures.py`: API health and synthetic catalog metadata route.
+
+Prompt 14 adds synthetic local-only test/dev fixtures only. It does not add real market data ingestion, provider clients, scraping, production dataset writes, analytics signals, feature computation, backtesting, decisions, or execution APIs.
+
+## Prompt 15 Instrument Metadata Persistence Artifacts
+
+- `docs/INSTRUMENT_PERSISTENCE_FOUNDATION.md`: Instrument metadata persistence purpose, PostgreSQL/SQLite role, repository/service split, validation-before-persistence, and safety boundaries.
+- `docs/INSTRUMENT_REPOSITORY_POLICY.md`: Repository and service responsibilities, normalization rules, transaction ownership, and no-external-call policy.
+- `packages/data_platform/stark_terminal_data_platform/repositories/`: Metadata persistence repository package.
+- `packages/data_platform/stark_terminal_data_platform/repositories/instruments.py`: `InstrumentRepository` for idempotent upsert/list/get/search/count/delete operations.
+- `packages/data_platform/stark_terminal_data_platform/services/`: Service-layer package.
+- `packages/data_platform/stark_terminal_data_platform/services/instruments.py`: `InstrumentMetadataService` with validation gates, commit/rollback ownership, synthetic seeding, and health status.
+- `apps/api/stark_terminal_api/routes/instrument_metadata.py`: API health, synthetic sample, and fail-safe read-only list routes.
+
+Prompt 15 adds Instrument Metadata Persistence Wiring only. It does not add real market data ingestion, external provider calls, provider clients, OHLCV persistence, TimescaleDB writes, ClickHouse writes, event publishing, analytics signals, feature computation, backtesting, decisions, or execution APIs.
+
+## Prompt 16 Market Data Batch Persistence Artifacts
+
+- `docs/MARKET_DATA_BATCH_PERSISTENCE.md`: Market Data Batch Persistence scope, metadata-only persistence boundary, validation-before-persistence, and future storage ownership.
+- `docs/BATCH_METADATA_POLICY.md`: Batch metadata identity, source reference, synthetic, fixture, validation report, and no-full-bars policy.
+- `packages/core/stark_terminal_core/domain/market_data_batch.py`: `MarketDataBatchMetadata`, `MarketDataBatchPersistenceResult`, and helpers for safe metadata construction from `MarketDataBatch`.
+- `packages/data_platform/stark_terminal_data_platform/db/models/market_data_batch.py`: `MarketDataBatchRecordORM` metadata table mapping.
+- `packages/data_platform/stark_terminal_data_platform/repositories/market_data_batches.py`: `MarketDataBatchRepository` for idempotent upsert/get/list/search/count/delete operations.
+- `packages/data_platform/stark_terminal_data_platform/services/market_data_batches.py`: `MarketDataBatchMetadataService` with validation gates, synthetic batch metadata persistence, and health status.
+- `apps/api/stark_terminal_api/routes/market_data_batches.py`: API health, synthetic sample metadata, and fail-safe read-only list routes.
+- `alembic/versions/0003_market_data_batch_metadata.py`: Alembic migration for `market_data_batch_records`.
+
+Prompt 16 adds Market Data Batch Persistence Contracts only. It persists batch metadata, not full OHLCV bars. It does not add real market data ingestion, external provider calls, provider clients, TimescaleDB data writes, ClickHouse data writes, DuckDB/Parquet production writes, event publishing, analytics signals, feature computation, backtesting, decisions, or execution APIs.
+
 ## Future Modules Not Yet Implemented
 
-- PostgreSQL system-of-record repositories.
+- Additional PostgreSQL system-of-record repositories beyond instrument metadata and batch metadata.
 - Live TimescaleDB deployment and actual hypertable execution.
 - Real market data ingestion into operational time-series storage.
 - Real NSE/BSE instrument master ingestion.
@@ -364,12 +446,13 @@ Prompt 13 adds the Data Quality + Validation Framework only. It does not add rea
 - Real feature computation pipelines and model-ready feature materialization.
 - Actual production worker loops, deployment, schedulers, and stream-to-worker wiring.
 - Persistent Feature Registry backends beyond the Prompt 10 in-memory registry.
-- Production instrument master persistence and market-data provider adapters.
+- Production market-data provider adapters and real instrument master ingestion.
 - Real ingestion, normalization, feature, regime, options, risk, decision, backtest, paper lab, and audit worker implementations.
 - Production validation pipelines and persisted validation report stores.
+- Real production sample datasets; Prompt 14 fixtures are synthetic local-only test/dev data.
 - Quant analytics, statistical models, ML models, optimization, options analytics, backtesting, risk analytics, and Paper Lab workflows.
 - Retail Decision Console, Quant Lab, Options Desk, Backtest Lab, Risk Lab, Data Lab, Journal, Settings, and System Health UI surfaces.
 
-Missing modules are intentionally deferred. Prompt 13 implements Data Quality + Validation Framework contracts only. It does not implement real market-data ingestion, real ClickHouse table creation, production dashboard analytics, external validation calls, external provider calls, scraping, real production worker loops, Redis Streams worker wiring, production Kafka/Redpanda pipelines, production validation pipelines, Feast integration, feature computation, analytics signals, analytics engines, or execution APIs.
+Missing modules are intentionally deferred. Prompt 16 implements Market Data Batch Persistence Contracts only. It does not implement real market-data ingestion, full OHLCV production persistence, real ClickHouse table creation, production dashboard analytics, external validation calls, external provider calls, scraping, real production worker loops, Redis Streams worker wiring, production Kafka/Redpanda pipelines, production validation pipelines, Feast integration, feature computation, analytics signals, analytics engines, or execution APIs.
 
 The documentation locks the target institutional stack before implementation so later prompts can add systems in a controlled, testable order without scope drift.

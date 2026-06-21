@@ -34,5 +34,5 @@ def test_data_quality_docs_and_status_are_current() -> None:
     ]:
         assert phrase in docs_text
     assert "Prompt 13" in prompt_log
-    assert "Current Prompt: 13" in north_star
+    assert "Current Prompt: 16" in north_star
     assert "Data Quality + Validation Framework" in project_map

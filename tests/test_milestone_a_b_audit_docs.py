@@ -41,8 +41,8 @@ def test_prompt_12_status_docs_are_current() -> None:
     prompt_log = (ROOT / "docs/PROMPT_LOG.md").read_text(encoding="utf-8")
     project_map = (ROOT / "PROJECT_MAP.md").read_text(encoding="utf-8")
 
-    assert "Current Prompt: 13" in north_star
-    assert "Completed Prompts: 13 before this prompt, 14 after completion" in north_star
+    assert "Current Prompt: 16" in north_star
+    assert "Completed Prompts: 16 before this prompt, 17 after completion" in north_star
     assert "Event Backbone Status: Kafka/Redpanda contracts/foundation only, no production pipelines" in north_star
     assert "Data Quality Status: Validation framework/contracts only, no production ingestion pipeline" in north_star
     assert "Prompt 11 - Milestone A/B Infrastructure Audit and Consolidation" in prompt_log

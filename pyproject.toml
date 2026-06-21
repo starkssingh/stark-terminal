@@ -54,5 +54,5 @@ pythonpath = [
 ]
 addopts = "-q"
 
-# Prompt 13 adds the Data Quality + Validation Framework with no new dependency.
+# Prompt 15 adds instrument metadata persistence wiring with no new dependency.
 # The full institutional target stack is locked in docs/TECH_STACK.md.

@@ -13,7 +13,7 @@ def test_health_endpoint_returns_prompt_00_foundation_status() -> None:
         "status": "ok",
         "service": "stark-terminal-api",
         "version": "0.1.0",
-        "prompt": "13",
+        "prompt": "16",
         "architecture": "institutional-grade-foundation",
         "execution_apis_enabled": False,
         "audit_status": "milestone-a-b",

@@ -48,6 +48,13 @@ def test_key_prompt_00_docs_exist() -> None:
         "docs/VALIDATION_RULE_SPEC.md",
         "docs/QUALITY_GATE_POLICY.md",
         "docs/DATA_QUALITY_REPORT_SPEC.md",
+        "docs/SYNTHETIC_MARKET_DATA_FIXTURES.md",
+        "docs/OHLCV_FIXTURE_CONTRACTS.md",
+        "docs/SAMPLE_DATA_POLICY.md",
+        "docs/INSTRUMENT_PERSISTENCE_FOUNDATION.md",
+        "docs/INSTRUMENT_REPOSITORY_POLICY.md",
+        "docs/MARKET_DATA_BATCH_PERSISTENCE.md",
+        "docs/BATCH_METADATA_POLICY.md",
         "docs/DECISION_OBJECT_SPEC.md",
         "docs/PROMPT_LOG.md",
     ]
@@ -63,8 +70,10 @@ def test_prompt_10_docs_reflect_current_status() -> None:
     project_map = (ROOT / "PROJECT_MAP.md").read_text(encoding="utf-8")
 
     assert "Prompt 10 - Feature Store / Stark Feature Registry Foundation" in prompt_log
-    assert "Current Prompt: 13" in north_star
-    assert "Completed Prompts: 13 before this prompt, 14 after completion" in north_star
+    assert "Current Prompt: 16" in north_star
+    assert "Completed Prompts: 16 before this prompt, 17 after completion" in north_star
     assert "Feature Registry foundation" in project_map
     assert "Kafka/Redpanda Event Backbone foundation" in project_map
     assert "Data Quality + Validation Framework" in project_map
+    assert "Instrument Metadata Persistence" in project_map
+    assert "Market Data Batch Persistence" in project_map

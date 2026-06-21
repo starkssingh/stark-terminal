@@ -1,6 +1,6 @@
 # Analytics Stack
 
-Prompt 13 audits the analytical target stack and current foundations: DuckDB/Parquet research lake foundation, Redis cache foundation, Redis Streams foundation, Kafka/Redpanda Event Backbone foundation, Data Quality + Validation Framework, Worker System foundation, Instrument Master/Provider Contracts foundation, ClickHouse Warehouse foundation, and Feature Registry foundation. Actual numerical, statistical, ML, optimization, options, risk, backtesting, feature computation, and NLP engines still happen in later prompts.
+Prompt 14 audits the analytical target stack and current foundations: DuckDB/Parquet research lake foundation, Redis cache foundation, Redis Streams foundation, Kafka/Redpanda Event Backbone foundation, Data Quality + Validation Framework, Synthetic Fixtures foundation, Worker System foundation, Instrument Master/Provider Contracts foundation, ClickHouse Warehouse foundation, and Feature Registry foundation. Actual numerical, statistical, ML, optimization, options, risk, backtesting, feature computation, and NLP engines still happen in later prompts.
 
 ## Numerical Computing Layer
 
@@ -121,3 +121,19 @@ Prompt 12 adds Kafka/Redpanda Event Backbone contracts so future analytics, feat
 ## Prompt 13 Data Quality Status
 
 Prompt 13 adds deterministic validation contracts, built-in validators, validation reports, and quality gates so future analytics, feature, regime, decision, backtest, and warehouse workflows can require validated data before use. Validators are not indicators, factors, models, alpha signals, analytics signals, or trading decisions. Analytics engines/models, production validation pipelines, real market ingestion, feature computation, and trading decisions remain deferred.
+
+## Prompt 14 Synthetic Fixture Status
+
+Prompt 14 adds deterministic synthetic OHLCV fixtures for future analytics tests. Fixture data is synthetic, local-only, test/dev only, not real market data, not trading data, and not investment advice.
+
+Synthetic fixture data must not be interpreted as signal data, decision data, model evidence, backtest results, or production market history. Analytics engines/models, production validation pipelines, real market ingestion, feature computation, backtesting, and trading decisions remain deferred.
+
+## Prompt 15 Instrument Persistence Status
+
+Prompt 15 adds Instrument Metadata Persistence Wiring for canonical instrument metadata only. It supports future analytics by giving instruments a validated metadata repository, but it does not implement indicators, feature computation, models, analytics signals, backtesting, options analytics, or decisions.
+
+## Prompt 16 Market Data Batch Metadata Status
+
+Prompt 16 adds Market Data Batch Persistence Contracts for validated synthetic/local batch metadata only. It supports future analytics by making batch row counts, time ranges, source references, fixture ids, and validation report ids auditable before future data movement.
+
+This is not an analytics engine. It does not persist full OHLCV bars, compute indicators, feature values, model inputs, analytics signals, backtest results, options analytics, or decisions.

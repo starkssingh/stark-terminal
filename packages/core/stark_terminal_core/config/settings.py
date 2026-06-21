@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     stark_env: str = "development"
     app_name: str = "Stark Terminal"
     app_version: str = "0.1.0"
-    prompt_number: str = "13"
+    prompt_number: str = "16"
 
     api_host: str = "127.0.0.1"
     api_port: int = Field(default=8000, ge=1, le=65535)
@@ -106,6 +106,23 @@ class Settings(BaseSettings):
     data_quality_require_timezone_aware_timestamps: bool = True
     data_quality_allow_synthetic_data: bool = True
     data_quality_external_validation_enabled: bool = False
+    synthetic_fixtures_enabled: bool = True
+    synthetic_fixture_schema_version: str = "v1"
+    synthetic_fixture_default_seed: int = 42
+    synthetic_fixture_default_bar_count: int = Field(default=30, gt=0)
+    synthetic_fixture_default_start_price: float = Field(default=100.0, gt=0)
+    synthetic_fixture_default_timeframe: str = "DAILY"
+    synthetic_fixture_allow_disk_writes: bool = False
+    synthetic_fixture_output_root: str = "data/synthetic_fixtures"
+    synthetic_fixture_label: str = "synthetic-local-test-only"
+    instrument_persistence_enabled: bool = True
+    instrument_persistence_require_validation: bool = True
+    instrument_persistence_allow_synthetic_seed: bool = True
+    instrument_persistence_schema_version: str = "v1"
+    market_data_batch_persistence_enabled: bool = True
+    market_data_batch_persistence_require_validation: bool = True
+    market_data_batch_persistence_allow_synthetic: bool = True
+    market_data_batch_persistence_schema_version: str = "v1"
 
     feature_store_mode: str = "custom"
     feature_registry_enabled: bool = False
@@ -242,6 +259,27 @@ class Settings(BaseSettings):
             raise ValueError("data_quality_schema_version cannot be empty")
         return normalized
 
+    @field_validator(
+        "synthetic_fixture_schema_version",
+        "synthetic_fixture_default_timeframe",
+        "synthetic_fixture_output_root",
+        "synthetic_fixture_label",
+    )
+    @classmethod
+    def synthetic_fixture_text_fields_must_be_non_empty(cls, value: str) -> str:
+        normalized = value.strip()
+        if not normalized:
+            raise ValueError("synthetic fixture text settings cannot be empty")
+        return normalized
+
+    @field_validator("instrument_persistence_schema_version", "market_data_batch_persistence_schema_version")
+    @classmethod
+    def persistence_schema_version_must_be_non_empty(cls, value: str) -> str:
+        normalized = value.strip()
+        if not normalized:
+            raise ValueError("persistence schema versions cannot be empty")
+        return normalized
+
     @field_validator("worker_harness_mode")
     @classmethod
     def worker_harness_mode_must_be_supported(cls, value: str) -> str:
@@ -291,15 +329,15 @@ class Settings(BaseSettings):
     @model_validator(mode="after")
     def execution_flags_must_remain_disabled(self) -> Settings:
         if self.execution_apis_enabled:
-            raise ValueError("execution APIs are forbidden in Prompt 13")
+            raise ValueError("execution APIs are forbidden in Prompt 16")
         if self.broker_integrations_enabled:
-            raise ValueError("broker integrations are forbidden in Prompt 13")
+            raise ValueError("broker integrations are forbidden in Prompt 16")
         if self.live_trading_enabled:
-            raise ValueError("live trading is forbidden in Prompt 13")
+            raise ValueError("live trading is forbidden in Prompt 16")
         if self.allow_external_market_data_calls:
-            raise ValueError("external market data calls are forbidden in Prompt 13")
+            raise ValueError("external market data calls are forbidden in Prompt 16")
         if self.allow_provider_network_calls:
-            raise ValueError("provider network calls are forbidden in Prompt 13")
+            raise ValueError("provider network calls are forbidden in Prompt 16")
         if self.feature_max_allowed_staleness_seconds < self.feature_default_freshness_seconds:
             raise ValueError("feature_max_allowed_staleness_seconds must be >= feature_default_freshness_seconds")
         return self
@@ -397,6 +435,23 @@ class Settings(BaseSettings):
             "data_quality_require_timezone_aware_timestamps": self.data_quality_require_timezone_aware_timestamps,
             "data_quality_allow_synthetic_data": self.data_quality_allow_synthetic_data,
             "data_quality_external_validation_enabled": self.data_quality_external_validation_enabled,
+            "synthetic_fixtures_enabled": self.synthetic_fixtures_enabled,
+            "synthetic_fixture_schema_version": self.synthetic_fixture_schema_version,
+            "synthetic_fixture_default_seed": self.synthetic_fixture_default_seed,
+            "synthetic_fixture_default_bar_count": self.synthetic_fixture_default_bar_count,
+            "synthetic_fixture_default_start_price": self.synthetic_fixture_default_start_price,
+            "synthetic_fixture_default_timeframe": self.synthetic_fixture_default_timeframe,
+            "synthetic_fixture_allow_disk_writes": self.synthetic_fixture_allow_disk_writes,
+            "synthetic_fixture_output_root": self.synthetic_fixture_output_root,
+            "synthetic_fixture_label": self.synthetic_fixture_label,
+            "instrument_persistence_enabled": self.instrument_persistence_enabled,
+            "instrument_persistence_require_validation": self.instrument_persistence_require_validation,
+            "instrument_persistence_allow_synthetic_seed": self.instrument_persistence_allow_synthetic_seed,
+            "instrument_persistence_schema_version": self.instrument_persistence_schema_version,
+            "market_data_batch_persistence_enabled": self.market_data_batch_persistence_enabled,
+            "market_data_batch_persistence_require_validation": self.market_data_batch_persistence_require_validation,
+            "market_data_batch_persistence_allow_synthetic": self.market_data_batch_persistence_allow_synthetic,
+            "market_data_batch_persistence_schema_version": self.market_data_batch_persistence_schema_version,
         }
 
 

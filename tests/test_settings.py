@@ -9,9 +9,13 @@ def test_settings_defaults_load() -> None:
 
     assert settings.app_name == "Stark Terminal"
     assert settings.app_version == "0.1.0"
-    assert settings.prompt_number == "13"
+    assert settings.prompt_number == "16"
     assert settings.api_port == 8000
     assert settings.feature_store_mode == "custom"
+    assert settings.market_data_batch_persistence_enabled is True
+    assert settings.market_data_batch_persistence_require_validation is True
+    assert settings.market_data_batch_persistence_allow_synthetic is True
+    assert settings.market_data_batch_persistence_schema_version == "v1"
 
 
 def test_execution_flags_default_false() -> None:
@@ -96,6 +100,23 @@ def test_safe_snapshot_does_not_expose_raw_urls() -> None:
     assert snapshot["data_quality_require_timezone_aware_timestamps"] is True
     assert snapshot["data_quality_allow_synthetic_data"] is True
     assert snapshot["data_quality_external_validation_enabled"] is False
+    assert snapshot["synthetic_fixtures_enabled"] is True
+    assert snapshot["synthetic_fixture_schema_version"] == "v1"
+    assert snapshot["synthetic_fixture_default_seed"] == 42
+    assert snapshot["synthetic_fixture_default_bar_count"] == 30
+    assert snapshot["synthetic_fixture_default_start_price"] == 100.0
+    assert snapshot["synthetic_fixture_default_timeframe"] == "DAILY"
+    assert snapshot["synthetic_fixture_allow_disk_writes"] is False
+    assert snapshot["synthetic_fixture_output_root"] == "data/synthetic_fixtures"
+    assert snapshot["synthetic_fixture_label"] == "synthetic-local-test-only"
+    assert snapshot["instrument_persistence_enabled"] is True
+    assert snapshot["instrument_persistence_require_validation"] is True
+    assert snapshot["instrument_persistence_allow_synthetic_seed"] is True
+    assert snapshot["instrument_persistence_schema_version"] == "v1"
+    assert snapshot["market_data_batch_persistence_enabled"] is True
+    assert snapshot["market_data_batch_persistence_require_validation"] is True
+    assert snapshot["market_data_batch_persistence_allow_synthetic"] is True
+    assert snapshot["market_data_batch_persistence_schema_version"] == "v1"
     assert "clickhouse_user" not in snapshot
     assert "clickhouse_password" not in snapshot
 
@@ -109,3 +130,8 @@ def test_api_port_validation(api_port: int) -> None:
 def test_execution_flags_fail_closed_when_enabled() -> None:
     with pytest.raises(ValidationError):
         Settings(execution_apis_enabled=True)
+
+
+def test_market_data_batch_persistence_schema_version_validation() -> None:
+    with pytest.raises(ValidationError):
+        Settings(market_data_batch_persistence_schema_version="")

@@ -1178,3 +1178,264 @@ Passed with 505 tests. The audit script and foundation verifier passed. The only
 ### Next Recommended Prompt
 
 Prompt 14 - Sample Market Data Fixtures + Synthetic OHLCV Contracts
+
+## Prompt 14 - Sample Market Data Fixtures + Synthetic OHLCV Contracts
+
+### Objective
+
+Implement deterministic local-only Synthetic Market Data Fixtures for Stark Terminal: fixture settings, fixture manifest contracts, synthetic OHLCV generation helpers, a synthetic fixture catalog, MarketDataBatch creation, Data Quality Framework validation helpers, tiny explicit Parquet test roundtrip helpers, safe fixture health checks, and API fixture health/catalog routes.
+
+Prompt 14 does not implement real market ingestion, scraping, external provider calls, production dataset writes, analytics indicators, feature computation, backtesting, decisions, broker integrations, or execution APIs.
+
+### Files Created
+
+- `docs/SYNTHETIC_MARKET_DATA_FIXTURES.md`
+- `docs/OHLCV_FIXTURE_CONTRACTS.md`
+- `docs/SAMPLE_DATA_POLICY.md`
+- `packages/data_platform/stark_terminal_data_platform/fixtures/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/fixtures/manifests.py`
+- `packages/data_platform/stark_terminal_data_platform/fixtures/synthetic_ohlcv.py`
+- `packages/data_platform/stark_terminal_data_platform/fixtures/catalog.py`
+- `packages/data_platform/stark_terminal_data_platform/fixtures/validation.py`
+- `packages/data_platform/stark_terminal_data_platform/fixtures/parquet.py`
+- `packages/data_platform/stark_terminal_data_platform/fixtures/health.py`
+- `packages/data_platform/stark_terminal_data_platform/fixtures/README.md`
+- `apps/api/stark_terminal_api/routes/fixtures.py`
+- `tests/test_fixture_settings.py`
+- `tests/test_fixture_manifests.py`
+- `tests/test_synthetic_ohlcv_generation.py`
+- `tests/test_fixture_catalog.py`
+- `tests/test_fixture_validation.py`
+- `tests/test_fixture_parquet.py`
+- `tests/test_fixture_health.py`
+- `tests/test_api_fixtures.py`
+- `tests/test_fixture_docs_status.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `pyproject.toml`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/TECH_STACK.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/REPO_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/INSTRUMENT_MASTER_FOUNDATION.md`
+- `docs/DATA_QUALITY_FRAMEWORK.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/domain/enums.py`
+- `packages/data_platform/stark_terminal_data_platform/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/verify_foundation.py`
+- `scripts/audit_foundation.py`
+- Existing API/config/project/audit status tests
+
+### Tests Added
+
+- Fixture settings and safe snapshot tests.
+- FixtureManifest validation tests.
+- Deterministic synthetic OHLCV generation tests.
+- FixtureCatalog tests.
+- Fixture validation tests through Prompt 13 validators.
+- Tiny explicit Parquet temp roundtrip tests.
+- Fixture health tests.
+- API `/fixtures/health` and `/fixtures/catalog` tests.
+- Prompt 14 docs/status tests.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 548 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command is missing; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 15 - Instrument Metadata Persistence Wiring
+
+## Prompt 15 - Instrument Metadata Persistence Wiring
+
+### Objective
+
+Implement metadata-only persistence wiring between the existing Instrument domain model, SQLAlchemy/Alembic database foundation, synthetic/local fixtures, and Data Quality Framework. Prompt 15 adds `InstrumentRepository`, `InstrumentMetadataService`, validation-before-persistence, safe API metadata health/sample/list endpoints, and local SQLite-backed tests. It does not implement real market ingestion, external provider calls, OHLCV persistence, analytics engines, broker integrations, or execution APIs.
+
+### Files Created
+
+- `docs/INSTRUMENT_PERSISTENCE_FOUNDATION.md`
+- `docs/INSTRUMENT_REPOSITORY_POLICY.md`
+- `packages/data_platform/stark_terminal_data_platform/repositories/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/repositories/instruments.py`
+- `packages/data_platform/stark_terminal_data_platform/repositories/README.md`
+- `packages/data_platform/stark_terminal_data_platform/services/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/services/instruments.py`
+- `packages/data_platform/stark_terminal_data_platform/services/README.md`
+- `apps/api/stark_terminal_api/routes/instrument_metadata.py`
+- `tests/test_instrument_repository.py`
+- `tests/test_instrument_service.py`
+- `tests/test_instrument_persistence_validation.py`
+- `tests/test_api_instrument_metadata.py`
+- `tests/test_instrument_persistence_docs_status.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/DOMAIN_MODEL.md`
+- `docs/DATABASE_FOUNDATION.md`
+- `docs/INSTRUMENT_MASTER_FOUNDATION.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/REPO_INVENTORY.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/data_platform/stark_terminal_data_platform/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/status/audit tests
+
+### Tests Added
+
+- Repository tests for isolated SQLite upsert/get/list/search/count/delete behavior.
+- Service tests for validation-gated persistence, idempotent synthetic seeding, and health behavior.
+- Persistence validation tests confirming Data Quality validator use and write blocking.
+- API tests for `/instrument-metadata/health`, `/instrument-metadata/sample`, and `/instrument-metadata/list`.
+- Prompt 15 docs/status tests.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 569 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command is assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 16 - Market Data Batch Persistence Contracts
+
+## Prompt 16 - Market Data Batch Persistence Contracts
+
+### Objective
+
+Implement metadata-only persistence contracts for validated synthetic/local `MarketDataBatch` metadata. Prompt 16 adds `MarketDataBatchMetadata`, `MarketDataBatchPersistenceResult`, `MarketDataBatchRecordORM`, `MarketDataBatchRepository`, `MarketDataBatchMetadataService`, validation-before-persistence, safe API metadata health/sample/list endpoints, and SQLite-backed deterministic tests. It does not implement real market ingestion, external provider calls, full OHLCV bar persistence, TimescaleDB writes, ClickHouse writes, DuckDB/Parquet production writes, event publishing, analytics engines, broker integrations, or execution APIs.
+
+### Files Created
+
+- `docs/MARKET_DATA_BATCH_PERSISTENCE.md`
+- `docs/BATCH_METADATA_POLICY.md`
+- `packages/core/stark_terminal_core/domain/market_data_batch.py`
+- `packages/data_platform/stark_terminal_data_platform/db/models/market_data_batch.py`
+- `packages/data_platform/stark_terminal_data_platform/repositories/market_data_batches.py`
+- `packages/data_platform/stark_terminal_data_platform/services/market_data_batches.py`
+- `apps/api/stark_terminal_api/routes/market_data_batches.py`
+- `alembic/versions/0003_market_data_batch_metadata.py`
+- `tests/test_market_data_batch_domain.py`
+- `tests/test_market_data_batch_orm.py`
+- `tests/test_market_data_batch_repository.py`
+- `tests/test_market_data_batch_service.py`
+- `tests/test_market_data_batch_validation.py`
+- `tests/test_api_market_data_batches.py`
+- `tests/test_market_data_batch_docs_status.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/DOMAIN_MODEL.md`
+- `docs/DATABASE_FOUNDATION.md`
+- `docs/TIMESERIES_SCHEMA.md`
+- `docs/SYNTHETIC_MARKET_DATA_FIXTURES.md`
+- `docs/DATA_QUALITY_FRAMEWORK.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/REPO_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/TECH_STACK.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/data_platform/stark_terminal_data_platform/db/models/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/repositories/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/repositories/README.md`
+- `packages/data_platform/stark_terminal_data_platform/services/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/services/README.md`
+- `packages/data_platform/stark_terminal_data_platform/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/status/audit tests
+
+### Tests Added
+
+- Domain tests for `MarketDataBatchMetadata`, `MarketDataBatchPersistenceResult`, metadata construction, identity, source reference, and synthetic-reference validation.
+- ORM tests for `MarketDataBatchRecordORM`, metadata-only columns, indexes/constraints, migration content, and roundtrip mapping.
+- Repository tests for isolated SQLite upsert/get/list/search/count/delete behavior.
+- Service tests for validation-gated metadata persistence, synthetic batch metadata persistence, and health behavior.
+- Validation tests confirming Data Quality validators block invalid batches before persistence.
+- API tests for `/market-data-batches/health`, `/market-data-batches/sample`, and `/market-data-batches/list`.
+- Prompt 16 docs/status tests.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 605 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 17 - Data Foundation Audit and Readiness Check
