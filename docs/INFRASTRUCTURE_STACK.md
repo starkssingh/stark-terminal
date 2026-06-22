@@ -1,6 +1,6 @@
 # Infrastructure Stack
 
-Prompt 14 implements the PostgreSQL-ready SQLAlchemy/Alembic foundation for metadata persistence, the TimescaleDB-oriented operational time-series schema foundation, the DuckDB + Parquet research lake foundation, the Redis cache foundation, the Redis Streams foundation, the Kafka/Redpanda Event Backbone foundation, the Data Quality + Validation Framework, the Synthetic Fixtures foundation, the Worker System foundation, the Instrument Master/Provider Contracts foundation, the ClickHouse Warehouse foundation, and the custom Stark Feature Registry foundation. Other infrastructure systems remain planned and not implemented.
+Prompt 25 completes the Provider Adapter Milestone Audit before analytics planning. Current implemented foundations include PostgreSQL/Alembic metadata, TimescaleDB-oriented operational schema, TimescaleDB Synthetic OHLCV Storage Foundation, Synthetic OHLCV to Research Lake Export Contract, Provider Adapter Guardrails, Provider Readiness governance, Local Sample Provider Adapter v0, Local File Provider Adapter v0, DuckDB + Parquet research lake foundation, Redis cache, Redis Streams, Kafka/Redpanda Event Backbone, Data Quality + Validation Framework, Synthetic Fixtures, Instrument Metadata Persistence Wiring, Market Data Batch Persistence Contracts, Worker System, Instrument Master/Provider Contracts, ClickHouse Warehouse, and custom Stark Feature Registry. Other infrastructure systems remain planned and not implemented.
 
 ## PostgreSQL
 
@@ -135,3 +135,91 @@ Prompt 16 marks Market Data Batch Persistence Contracts as implemented. PostgreS
 This layer stores batch metadata only: batch id, instrument, timeframe, row count, time range, quality status, source reference, synthetic flag, fixture linkage, dataset manifest linkage, and validation report linkage. It stores no full OHLCV bars and performs no TimescaleDB data writes, ClickHouse writes, DuckDB/Parquet production writes, Redis/Kafka publishing, real market ingestion, external calls, analytics, or execution APIs.
 
 TimescaleDB still owns future operational bar storage. DuckDB/Parquet still owns future research datasets. ClickHouse still owns future analytical copies. Prompt 16 only records metadata needed to audit future batch flows.
+
+## Prompt 17 Data Foundation Audit
+
+Prompt 17 marks the data foundation audit as implemented. The audit confirms stores and responsibilities after Prompts 14-16:
+
+- PostgreSQL/Alembic is wired for metadata only: instrument metadata and market data batch metadata.
+- TimescaleDB remains the future operational OHLCV/time-series store and currently receives no bars.
+- DuckDB/Parquet remains the future research dataset store; Prompt 14 fixture Parquet writes are explicit temp/test-only helpers.
+- ClickHouse remains the future analytical copy store and receives no market data.
+- Redis remains cache only.
+- Redis Streams and Kafka/Redpanda remain coordination/event backbone foundations only.
+
+No real ingestion exists. no external provider calls exist. no full OHLCV production persistence exists. no execution APIs exist.
+
+## Prompt 18 TimescaleDB Synthetic OHLCV Storage Foundation
+
+Prompt 18 marks TimescaleDB Synthetic OHLCV Storage Foundation as implemented. TimescaleDB remains the intended operational OHLCV/time-series layer, and the existing `OHLCVBarORM` is now wired through `OHLCVBarRepository` and `SyntheticOHLCVStorageService` for synthetic-only bars.
+
+This is not real ingestion. The foundation requires validation-before-storage, synthetic/local/test `source_data_reference`, and `LOCAL_SAMPLE` provider identity where practical. Tests remain SQLite-compatible and do not require a live TimescaleDB server, TimescaleDB extension, hypertable creation, or TimescaleDB-specific SQL.
+
+Prompt 18 does not write ClickHouse, DuckDB/Parquet, Redis, Redis Streams, or Kafka. It does not call external providers, ingest real market data, compute analytics, generate trading signals, generate decisions, or expose execution APIs.
+
+## Prompt 19 Synthetic OHLCV to Research Lake Export Contract
+
+Prompt 19 marks Synthetic OHLCV to Research Lake Export Contract as implemented. The DuckDB/Parquet research lake foundation now has a synthetic-only export service that writes explicit Parquet artifacts only when called with a safe output path, normally a temporary test directory.
+
+The export creates DatasetManifest records, uses validation-before-export, verifies DuckDB readback, and remains synthetic-only. It is not real ingestion and does not write production research lake data by default.
+
+Prompt 19 does not call external providers, scrape, write ClickHouse, publish Redis/Kafka events, compute analytics, generate trading signals, generate decisions, or expose execution APIs.
+
+## Prompt 20 Provider Adapter Guardrails
+
+Prompt 20 marks Provider Adapter Guardrails as implemented. This is a governance layer before real ingestion, not an ingestion subsystem. It defines approval workflow contracts, compliance checklist contracts, guardrail evaluation, readiness reports, and safe API health/contracts endpoints.
+
+Provider guardrails sit between read-only provider contracts and any future adapter implementation. They require approval, terms review, data quality planning, audit logging planning, and explicit future prompt scope before real provider work.
+
+Prompt 20 implements no provider SDKs, no scraping dependencies, no external provider calls, no credentials, no real market ingestion, no production provider clients, no analytics signals, no decisions, and no execution APIs.
+
+## Prompt 21 Local Sample Provider Adapter
+
+Prompt 21 marks Local Sample Provider Adapter v0 as implemented. It is a synthetic-only provider boundary for local/test/dev workflows, not real ingestion infrastructure.
+
+The adapter returns synthetic/local instrument master data and deterministic synthetic historical bars through `MarketDataResponse` contracts. It uses provider guardrails before use, `LOCAL_SAMPLE` provider identity, and Data Quality validation where practical.
+
+It performs no external calls, no scraping, no credential loading, no provider SDK calls, no persistence writes, no TimescaleDB/ClickHouse/DuckDB/Parquet writes, no Redis/Kafka event publishing, no analytics signals, no decisions, and no execution APIs.
+
+## Prompt 22 Data Foundation Milestone Audit
+
+Prompt 22 marks the Prompt 18-21 data foundation milestone audit as implemented. The audit confirms store and provider responsibilities after synthetic storage/export and the local sample provider:
+
+- TimescaleDB-oriented ORM/repository/service wiring stores synthetic OHLCV bars only.
+- DuckDB/Parquet export is synthetic-only and writes explicit temp/test artifacts by default with DatasetManifest linkage.
+- Provider guardrails are governance contracts before real ingestion.
+- Local Sample Provider Adapter v0 is synthetic/local/test-only and makes no external calls.
+- PostgreSQL/Alembic remains metadata system of record.
+- Redis, Redis Streams, and Kafka/Redpanda remain cache/event foundations only.
+- ClickHouse remains analytical warehouse contracts only.
+
+No infrastructure store receives real market data. no external provider calls exist. no scraping exists. no credentials exist. no provider SDKs are added. no analytics/signals/decisions are generated. no execution APIs exist.
+
+## Prompt 23 Real Provider Readiness Governance
+
+Prompt 23 marks Real Provider Readiness Checklist and Candidate Selection as implemented. This is a governance layer before real ingestion, not infrastructure ingestion and not a provider implementation.
+
+The new provider readiness contracts cover candidate profiles, readiness checklists, selection criteria, risk scoring, capability gap analysis, and an in-memory candidate registry. They exist before local-file and real-provider work so future provider selection remains auditable and conservative.
+
+Prompt 23 adds no provider SDKs, no scraping dependencies, no external provider calls, no credentials, no real market ingestion, no production provider clients, no production approval, no analytics signals, no decisions, and no execution APIs. Prompt 24 later adds Local File Provider Adapter v0 as a second local/test/dev adapter; no real provider implementation exists.
+
+## Prompt 24 Local File Provider Adapter
+
+Prompt 24 marks Local File Provider Adapter v0 as implemented. This is a local-only adapter layer before real provider work, not a live provider integration and not production ingestion infrastructure.
+
+The adapter reads explicit CSV/Parquet `LocalFileSource` objects under a configured allowed root for local/test/dev instrument master and historical bar responses. It uses path safety, provider guardrails, and Data Quality validation where practical.
+
+Prompt 24 adds no provider SDKs, no scraping dependencies, no external provider calls, no credentials, no arbitrary file read API, no real market ingestion, no production provider clients, no production approval, no analytics signals, no decisions, and no execution APIs.
+
+## Prompt 25 Provider Adapter Milestone Audit
+
+Prompt 25 marks the provider adapter milestone audit as implemented. The audit confirms provider store and adapter responsibilities after Prompts 20-24:
+
+- Provider Adapter Guardrails are governance contracts only.
+- Provider Readiness and Candidate Selection are governance contracts only.
+- Local Sample Provider Adapter v0 is synthetic/local/test-only.
+- Local File Provider Adapter v0 is local-file/test/dev-only and path-safe.
+- PostgreSQL/Alembic remains metadata system of record.
+- TimescaleDB, DuckDB/Parquet, ClickHouse, Redis, Redis Streams, and Kafka/Redpanda are not written by provider adapters.
+
+No infrastructure store receives real provider data. no external provider calls exist. no scraping exists. no credentials exist. no provider SDKs are added. no arbitrary file read API exists. no analytics/signals/decisions are generated. no execution APIs exist.

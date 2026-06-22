@@ -40,6 +40,97 @@ Prompt 15 instrument metadata persistence is metadata-only. `InstrumentRepositor
 
 Prompt 16 Market Data Batch Persistence is metadata-only. `MarketDataBatchRepository` and `MarketDataBatchMetadataService` persist batch metadata for validated synthetic/local batches only. They perform no external calls, no provider fetching, no scraping, no full OHLCV bar persistence, no TimescaleDB writes, no ClickHouse writes, no DuckDB/Parquet production writes, no event publishing, no analytics, no feature computation, no decisions, and no execution APIs. Validation-before-persistence is required by default, and synthetic batch metadata is local/test/dev only.
 
+## Data Foundation Safety Verdict
+
+Prompt 17 audits Prompts 14-16 and confirms the data foundation remains synthetic/metadata-only. no real market ingestion, external provider calls, scraping, live data claims, full OHLCV production persistence, analytics signals, decision generation, broker behavior, or execution APIs are implemented. The next TimescaleDB phase must remain synthetic-only until future provider adapter guardrails, validation gates, and data-policy review explicitly approve real ingestion.
+
+## Prompt 18 Synthetic Storage Safety Verdict
+
+Prompt 18 adds synthetic-only OHLCV storage through `OHLCVBarRepository` and `SyntheticOHLCVStorageService`. The service requires validation-before-storage, synthetic/local/test source references, and `LOCAL_SAMPLE` provider identity where practical. It stores no real market data, performs no real market ingestion, makes no external provider calls, does not scrape, publishes no Redis/Kafka events, writes no ClickHouse or DuckDB/Parquet production stores, computes no analytics signals, generates no decisions, and exposes no execution APIs.
+
+## Prompt 19 Synthetic Export Safety Verdict
+
+Prompt 19 adds synthetic-only OHLCV export through `SyntheticOHLCVResearchLakeExportService`. The service requires validation-before-export, synthetic/local/test source references, DatasetManifest linkage, explicit safe output paths, and temp-only tests. It exports no real market data, performs no real market ingestion, makes no external provider calls, does not scrape, publishes no Redis/Kafka events, writes no ClickHouse, performs no production research lake writes by default, computes no analytics signals, generates no decisions, and exposes no execution APIs.
+
+Real ingestion remains forbidden until future provider adapter guardrails, validation gates, source reference policy, data-policy review, and an explicit implementation prompt approve it.
+
+## Prompt 20 Provider Guardrail Safety Verdict
+
+Prompt 20 adds Provider Adapter Guardrails before any real provider work. `ProviderGuardrailPolicy`, `ProviderApprovalRecord`, `ProviderComplianceChecklist`, and `ProviderReadinessReport` define approval, compliance, capability, and readiness contracts only.
+
+The guardrails default to no network calls, no scraping, no credentials, no real ingestion, synthetic-only current mode, approval required, terms review required, and execution always forbidden. Provider guardrail API endpoints are read-only and do not approve a real provider.
+
+Prompt 20 implements no real provider clients, no provider SDKs, no external provider calls, no credentials, no scraping, no real market ingestion, no analytics signals, no generated decisions, and no execution APIs.
+
+## Prompt 21 Local Sample Provider Safety Verdict
+
+Prompt 21 adds Local Sample Provider Adapter v0 as the only currently implemented adapter. It is synthetic, local-only, test/dev only, read-only, and guardrail-protected. It uses synthetic/local instruments and deterministic synthetic OHLCV generation only.
+
+The local sample provider performs no network calls, no scraping, no credential loading, no provider SDK use, no real market ingestion, no persistence writes, no event publishing, no analytics signal generation, no decision generation, and no execution APIs. It supports synthetic instrument master responses, synthetic historical bars, and health checks only.
+
+Unsupported behavior includes real latest bars, real options chains, real futures chains, corporate actions, broker execution, order placement, live trading, and real-money routing. API responses must label sample data as synthetic and must not claim live or real market data.
+
+## Prompt 22 Data Foundation Milestone Safety Verdict
+
+Prompt 22 audits Prompts 18-21 and confirms the second data-foundation segment remains synthetic-only, local/test/dev safe, and read-only at the API boundary.
+
+Audit confirmation:
+
+- synthetic OHLCV storage stores synthetic bars only.
+- synthetic OHLCV export writes only explicit safe/temp Parquet artifacts and uses DatasetManifest linkage.
+- provider guardrails remain fail-closed: no network calls by default, no scraping by default, no credentials by default, no real ingestion, no execution.
+- Local Sample Provider Adapter v0 remains synthetic/local/test-only, and Prompt 24 adds Local File Provider Adapter v0 as a second local/test/dev adapter.
+- no real market ingestion.
+- no external calls.
+- no scraping.
+- no credentials.
+- no live provider clients.
+- no provider SDKs.
+- no production event publishing.
+- no production research lake writes by default.
+- no analytics/signals/decisions.
+- no execution APIs.
+
+The data foundation is ready for a provider readiness checklist and local-file provider phase if verification passes. Real ingestion remains forbidden until readiness review, terms/compliance review, Data Quality gates, source reference policy, and an explicit future prompt approve it.
+
+## Prompt 23 Real Provider Readiness Safety Verdict
+
+Prompt 23 adds Real Provider Readiness Checklist and Candidate Selection contracts before any real provider implementation. `ProviderCandidateProfile`, `ProviderCandidateChecklist`, `ProviderSelectionCriteria`, `ProviderCapabilityGap`, `ProviderCandidateScore`, and `ProviderCandidateRegistry` are governance metadata only.
+
+The readiness layer performs deterministic risk scoring and capability gap analysis without external calls, provider SDKs, scraping, credentials, real market ingestion, production approval, analytics signals, decision generation, broker execution, order placement, live trading, real-money routing, or execution APIs.
+
+API endpoints `/provider-readiness/health`, `/provider-readiness/contracts`, `/provider-readiness/template`, and `/provider-readiness/example-score` are read-only and do not approve real providers. Prompt 24 later adds Local File Provider Adapter v0; no real provider implementation exists.
+
+## Prompt 24 Local File Provider Safety Verdict
+
+Prompt 24 adds Local File Provider Adapter v0 as a local-file-only, test/dev-only, read-only, guardrail-protected adapter. It reads only explicit `LocalFileSource` objects under a configured allowed root and supports CSV/Parquet files for instrument master and historical bars.
+
+The local file provider performs no network calls, no scraping, no credential loading, no provider SDK use, no real market ingestion, no persistence writes, no event publishing, no analytics signal generation, no decision generation, and no execution APIs. It rejects path traversal, network paths, unsupported extensions, missing files, symlink escape, and real-data claims.
+
+The API endpoints `/local-file-provider/health` and `/local-file-provider/contracts` are read-only and do not accept caller-supplied paths or expose arbitrary file read API behavior. Local file inputs remain local/test/dev data and must not be interpreted as live data, real market data, provider-sourced production data, trading signals, recommendations, or investment advice.
+
+## Prompt 25 Provider Adapter Milestone Safety Verdict
+
+Prompt 25 audits Prompts 20-24 and confirms the provider foundation remains guardrail-bounded, local/test/dev safe, and read-only at the API boundary.
+
+Audit confirmation:
+
+- Provider Adapter Guardrails remain fail-closed for network calls, scraping, credentials, real ingestion, production approval, and execution behavior.
+- Real Provider Readiness and Candidate Selection remain governance-only and do not approve production providers.
+- Local Sample Provider Adapter v0 remains synthetic/local/test-only and makes no external calls.
+- Local File Provider Adapter v0 remains local-file-only, uses allowed-root path safety, rejects network paths, and exposes no arbitrary file read API.
+- no real market ingestion.
+- no external calls.
+- no scraping.
+- no credentials.
+- no provider SDKs.
+- no live provider clients.
+- no production approval.
+- no analytics/signals/decisions.
+- no execution APIs.
+
+The provider foundation is ready for the analytics-planning phase if verification passes. Real provider integration remains forbidden until future explicit approval, terms/compliance review, data-policy review, source reference policy, Data Quality gates, and audit logging are complete.
+
 ## Known Safety Warnings
 
 - Ambient `python` remains unavailable; use `.venv/bin/python`.

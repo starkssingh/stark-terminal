@@ -19,6 +19,7 @@ MAJOR_DATA_PLATFORM_SUBPACKAGES = [
     "fixtures",
     "repositories",
     "services",
+    "exports",
     "workers",
     "instruments",
     "providers",

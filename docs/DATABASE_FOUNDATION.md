@@ -52,3 +52,7 @@ Prompt 16 adds `market_data_batch_records` through `MarketDataBatchRecordORM` an
 The table stores batch metadata only: batch id, instrument identity, timeframe, provider identity, quality status, row count, start/end timestamps, source reference, synthetic flag, fixture linkage, dataset manifest linkage, validation report linkage, schema version, and sanitized notes. It has a unique constraint on `batch_id` and indexes for instrument/time range and synthetic fixture lookup.
 
 The table stores no full OHLCV bars and does not replace TimescaleDB operational bar storage, DuckDB/Parquet research storage, or ClickHouse analytical copies. No tables are created automatically at import time, and no external calls or execution APIs are introduced.
+
+## Prompt 17 Data Foundation Audit Note
+
+Prompt 17 confirms the database layer remains metadata-only after Prompts 14-16. `InstrumentRepository` persists canonical instrument metadata, and `MarketDataBatchRepository` persists batch metadata. Neither repository stores full OHLCV bars, performs real market ingestion, calls external providers, scrapes, publishes events, writes analytical/research stores, generates signals, or exposes execution APIs.

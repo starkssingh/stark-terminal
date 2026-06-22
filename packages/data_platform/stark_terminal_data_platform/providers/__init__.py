@@ -1,2 +1,71 @@
 """Read-only market data provider contracts."""
 
+from stark_terminal_data_platform.providers.candidates import (
+    ProviderCandidateChecklist,
+    ProviderCandidateProfile,
+    ProviderCandidateStatus,
+    ProviderDataAccessMethod,
+    candidate_requires_guardrail_block,
+    create_default_candidate_checklist,
+    create_provider_candidate_profile,
+)
+from stark_terminal_data_platform.providers.local_sample import (
+    LOCAL_SAMPLE_PROVIDER_ID,
+    LOCAL_SAMPLE_SOURCE_REFERENCE,
+    LocalSampleProviderAdapter,
+    LocalSampleProviderHealthStatus,
+    create_local_sample_provider,
+)
+from stark_terminal_data_platform.providers.local_file import (
+    LOCAL_FILE_PROVIDER_ID,
+    LOCAL_FILE_SOURCE_REFERENCE,
+    LocalFileProviderAdapter,
+    LocalFileProviderHealthStatus,
+    LocalFileSource,
+    check_local_file_provider_health,
+    create_local_file_provider,
+)
+from stark_terminal_data_platform.providers.selection import (
+    ProviderCandidateRegistry,
+    ProviderCandidateScore,
+    ProviderCapabilityGap,
+    ProviderReadinessHealthStatus,
+    ProviderSelectionCriteria,
+    ProviderSelectionDecision,
+    analyze_capability_gaps,
+    check_provider_readiness_health,
+    default_provider_selection_criteria,
+    score_provider_candidate,
+)
+
+__all__ = [
+    "LOCAL_SAMPLE_PROVIDER_ID",
+    "LOCAL_SAMPLE_SOURCE_REFERENCE",
+    "LOCAL_FILE_PROVIDER_ID",
+    "LOCAL_FILE_SOURCE_REFERENCE",
+    "LocalFileProviderAdapter",
+    "LocalFileProviderHealthStatus",
+    "LocalFileSource",
+    "LocalSampleProviderAdapter",
+    "LocalSampleProviderHealthStatus",
+    "ProviderCandidateChecklist",
+    "ProviderCandidateProfile",
+    "ProviderCandidateRegistry",
+    "ProviderCandidateScore",
+    "ProviderCandidateStatus",
+    "ProviderCapabilityGap",
+    "ProviderDataAccessMethod",
+    "ProviderReadinessHealthStatus",
+    "ProviderSelectionCriteria",
+    "ProviderSelectionDecision",
+    "analyze_capability_gaps",
+    "candidate_requires_guardrail_block",
+    "check_local_file_provider_health",
+    "check_provider_readiness_health",
+    "create_default_candidate_checklist",
+    "create_local_file_provider",
+    "create_local_sample_provider",
+    "create_provider_candidate_profile",
+    "default_provider_selection_criteria",
+    "score_provider_candidate",
+]

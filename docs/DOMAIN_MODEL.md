@@ -83,3 +83,21 @@ Prompt 12 adds DurableEventEnvelope contracts for the Kafka/Redpanda Event Backb
 Prompt 13 adds ValidationIssue, ValidationRule, ValidationResult, ValidationReport, QualityGatePolicy, and QualityGateResult contracts. These provide deterministic local validation and conservative quality gate decisions for existing contracts such as instruments, market data bars, options snapshots, dataset manifests, feature snapshots, feature quality reports, and warehouse table contracts.
 
 Data quality contracts do not ingest market data, make external provider calls, compute analytics signals, compute features, train models, generate decisions, or enable execution APIs.
+
+## Provider Guardrail Contracts
+
+Prompt 20 adds provider-specific governance contracts in the data platform package: `ProviderGuardrailPolicy`, `ProviderGuardrailResult`, `ProviderApprovalRecord`, `ProviderComplianceChecklist`, and `ProviderReadinessReport`.
+
+These contracts classify provider readiness and approval state only. They do not implement provider clients, make external calls, scrape, store credentials, ingest real market data, compute analytics signals, generate decisions, or enable execution APIs.
+
+## Provider Candidate Selection Contracts
+
+Prompt 23 adds provider candidate governance contracts in the data platform package: `ProviderCandidateProfile`, `ProviderCandidateChecklist`, `ProviderSelectionCriteria`, `ProviderCapabilityGap`, `ProviderCandidateScore`, and `ProviderCandidateRegistry`.
+
+These contracts support Real Provider Readiness, Candidate Selection, risk scoring, and capability gap analysis only. They do not implement provider APIs, SDKs, scraping, credentials, external calls, real market ingestion, production approval, analytics signals, trading decisions, or execution APIs.
+
+## Local File Provider Contracts
+
+Prompt 24 adds `LocalFileSource` and Local File Provider Adapter contracts in the data platform package. These contracts describe explicit local CSV/Parquet test/dev sources, path safety, local/test/dev labels, supported formats, and real-market-data false semantics.
+
+They do not implement real provider APIs, provider SDKs, scraping, credentials, external calls, arbitrary file read API behavior, real market ingestion, analytics signals, trading decisions, or execution APIs.

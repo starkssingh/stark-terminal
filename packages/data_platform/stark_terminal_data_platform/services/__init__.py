@@ -12,6 +12,13 @@ from stark_terminal_data_platform.services.market_data_batches import (
     MarketDataBatchPersistenceHealthStatus,
     MarketDataBatchValidationError,
 )
+from stark_terminal_data_platform.services.synthetic_ohlcv_storage import (
+    SyntheticOHLCVStorageError,
+    SyntheticOHLCVStorageHealthStatus,
+    SyntheticOHLCVStorageResult,
+    SyntheticOHLCVStorageService,
+    SyntheticOHLCVStorageValidationError,
+)
 
 __all__ = [
     "InstrumentMetadataService",
@@ -22,4 +29,9 @@ __all__ = [
     "MarketDataBatchPersistenceError",
     "MarketDataBatchPersistenceHealthStatus",
     "MarketDataBatchValidationError",
+    "SyntheticOHLCVStorageError",
+    "SyntheticOHLCVStorageHealthStatus",
+    "SyntheticOHLCVStorageResult",
+    "SyntheticOHLCVStorageService",
+    "SyntheticOHLCVStorageValidationError",
 ]

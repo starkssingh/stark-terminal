@@ -56,8 +56,12 @@ Expectations: Backtest-ready datasets must be deterministic and auditable.
 
 Purpose: Research outputs, experiment artifacts, notebooks exports, manifests, and reports.
 
+Current synthetic examples: Prompt 19 synthetic OHLCV Parquet exports with DatasetManifest linkage, validation-before-export, and DuckDB readback verification in temporary test paths.
+
 Future examples: Experiment summaries, feature studies, validation reports, synthetic test fixtures.
 
 Not allowed yet: Production strategy promotion or execution artifacts.
 
 Expectations: Artifacts should reference input datasets, code/rule version, and audit context where applicable.
+
+Prompt 19 exports are synthetic-only. They are not real market data, not real market ingestion, not provider-sourced data, not analytics signals, not trading decisions, and not execution APIs.

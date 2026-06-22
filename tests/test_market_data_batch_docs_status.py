@@ -37,8 +37,8 @@ def test_prompt_16_status_docs_updated() -> None:
     prompt_log = (ROOT / "docs/PROMPT_LOG.md").read_text(encoding="utf-8")
     project_map = (ROOT / "PROJECT_MAP.md").read_text(encoding="utf-8")
 
-    assert "Current Prompt: 16" in north_star
-    assert "Completed Prompts: 16 before this prompt, 17 after completion" in north_star
+    assert "Current Prompt: 25" in north_star
+    assert "Completed Prompts: 25 before this prompt, 26 after completion" in north_star
     assert "Market Data Batch Persistence" in north_star
     assert "Prompt 16 - Market Data Batch Persistence Contracts" in prompt_log
     assert "MarketDataBatchRecordORM" in project_map

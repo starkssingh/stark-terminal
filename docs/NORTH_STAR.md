@@ -48,7 +48,7 @@ The flagship surface is the Retail Decision Console / Decision Desk. It compress
 
 The DecisionObject is the central object of Stark Terminal. Every visible recommendation, state label, or action state must eventually be backed by instrument, market/exchange, segment, timeframe, regime, state, action state, confidence, risk, evidence, invalidation, horizon, generated timestamp, source data reference, model or rule version, and audit ID.
 
-Prompt 16 adds Market Data Batch Persistence Contracts to the enriched schema plus instrument metadata persistence, operational time-series, research lake, cache, stream, event backbone, data quality, synthetic fixture, worker, instrument master, provider-contract, analytical warehouse, and feature registry foundations only. It does not implement a live decision engine.
+Prompt 25 completes the Provider Adapter Milestone Audit. It audits Provider Adapter Guardrails, Real Provider Readiness and Candidate Selection, Local Sample Provider Adapter v0, and Local File Provider Adapter v0. It confirms no live provider clients, external provider calls, scraping, credentials, provider SDKs, real market ingestion, production approval, arbitrary file read API behavior, analytics signals, decisions, or execution APIs are implemented.
 
 ## Architecture Direction
 
@@ -73,18 +73,19 @@ Target analytics includes NumPy, SciPy, pandas, Polars, Numba, JAX, CuPy, statis
 
 - Target Version: v1.0
 - Estimated Full Build: 110-150 prompts
-- Current Prompt: 16
-- Completed Prompts: 16 before this prompt, 17 after completion
-- Current Milestone: Post-audit Data Foundation Phase - Market Data Batch Persistence Contracts
+- Current Prompt: 25
+- Completed Prompts: 25 before this prompt, 26 after completion
+- Current Milestone: Provider Adapter Milestone Audit completed
 
 ## Current Capability Status
 
-- Backend Status: Foundation health surface + market data batch metadata health endpoint
+- Backend Status: Foundation health surface + provider endpoints audited
 - Desktop Status: Skeleton only
-- Data Platform Status: Foundations through Instrument Metadata Persistence plus Market Data Batch Persistence Contracts implemented
-- Infrastructure Status: PostgreSQL/Alembic foundation implemented and now wired for instrument metadata and batch metadata; TimescaleDB schema foundation, DuckDB/Parquet, Redis cache, Redis Streams, Worker System, Instrument/Provider Contracts, ClickHouse Warehouse, Feature Registry, Kafka/Redpanda Event Backbone, Data Quality, and Synthetic Fixtures implemented
-- Data Layer Status: Instrument metadata + batch metadata persistence wiring + contracts/foundations + validation + synthetic fixtures only, no real market ingestion
-- Quant Engine Status: Documentation + package placeholder only
+- Data Platform Status: Synthetic/local data foundation complete; Local Sample Provider and Local File Provider implemented and audited; real provider implementation not started
+- Infrastructure Status: Existing foundations intact; provider adapter milestone audited before analytics planning
+- Data Layer Status: Validated synthetic/local fixtures + metadata persistence + synthetic/local provider responses/storage/export only; no real market ingestion
+- Provider Status: Guardrails, readiness/candidate selection, local sample provider, and local file provider implemented and audited; no real provider implementation; no external calls
+- Quant Engine Status: Documentation + package placeholder only; ready for analytics foundation planning
 - Regime Engine Status: Not started
 - Decision Engine Status: Enriched schema + persistence record placeholder only
 - Retail Console Status: Not started
@@ -94,17 +95,19 @@ Target analytics includes NumPy, SciPy, pandas, Polars, Numba, JAX, CuPy, statis
 - ML Engine Status: Not started
 - Feature Engine Status: Registry/contracts only, no feature computation
 - Event Backbone Status: Kafka/Redpanda contracts/foundation only, no production pipelines
-- Data Quality Status: Validation framework/contracts only, no production ingestion pipeline
-- Fixture Status: Synthetic local-only test/dev fixtures implemented; no real market data
-- Instrument Persistence Status: Instrument metadata repository/service wiring implemented; no OHLCV persistence
-- Market Data Batch Persistence Status: Batch metadata repository/service wiring implemented; no full OHLCV bars persisted
+- Data Quality Status: Validation framework active for synthetic/local provider boundaries
+- Fixture Status: Synthetic local-only test/dev fixtures implemented and audited
+- Instrument Persistence Status: Instrument metadata repository/service wiring implemented
+- Market Data Batch Persistence Status: Batch metadata repository/service wiring implemented; no production ingestion
+- Synthetic OHLCV Storage Status: Synthetic-only repository/service wiring implemented; no real market data
+- Synthetic OHLCV Export Status: Synthetic-only Parquet export contract with DatasetManifest linkage implemented; no real market data
 - Paper Lab Status: Not started
 - Deployment Status: Not started
 - Execution APIs: Forbidden
 - Development Environment: Mac mini M2 / macOS / Apple Silicon
 - Target Desktop Product: Windows-native Stark Terminal
 - Known Blockers: Ambient `python` command missing; use `.venv/bin/python`
-- Audit Verdict: Foundation ready for Prompt 17 after Prompt 16 verification passed
+- Audit Verdict: Provider foundation ready for next analytics-planning phase if tests pass
 
 ## Hard Exclusions
 
@@ -124,7 +127,7 @@ Target analytics includes NumPy, SciPy, pandas, Polars, Numba, JAX, CuPy, statis
 
 ## Current Milestone Plan
 
-Prompt 16 implements Market Data Batch Persistence Contracts. Prompt 17 should perform a Data Foundation Audit and Readiness Check. Real market ingestion, full OHLCV production persistence, TimescaleDB data writes, ClickHouse data writes, production validation pipelines, production event pipelines, production dashboards, Feast integration, feature computation, analytics engines, analytics signals, UI surfaces, execution APIs, and deployment hardening remain deferred to later prompts.
+Prompt 25 audits provider guardrails, provider readiness, Local Sample Provider, Local File Provider, no external calls, no scraping, no credentials, no SDKs, no real ingestion, no production approval, no arbitrary file read API, and no execution APIs. Prompt 26 should plan the quant/time-series analytics foundation without computing indicators, features, signals, decisions, recommendations, or backtests. Real market ingestion, provider-specific live clients, provider SDKs, credentials, scraping, ClickHouse writes, production validation pipelines, production event pipelines, production dashboards, Feast integration, feature computation, analytics engines, analytics signals, UI surfaces, execution APIs, and deployment hardening remain deferred to later prompts.
 
 ## Prompt Log Rule
 

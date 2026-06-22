@@ -36,8 +36,8 @@ def test_prompt_14_status_docs_updated() -> None:
     project_map = (ROOT / "PROJECT_MAP.md").read_text(encoding="utf-8")
     prompt_log = (ROOT / "docs/PROMPT_LOG.md").read_text(encoding="utf-8")
 
-    assert "Current Prompt: 16" in north_star
-    assert "Completed Prompts: 16 before this prompt, 17 after completion" in north_star
-    assert "Fixture Status: Synthetic local-only test/dev fixtures implemented; no real market data" in north_star
+    assert "Current Prompt: 25" in north_star
+    assert "Completed Prompts: 25 before this prompt, 26 after completion" in north_star
+    assert "Fixture Status: Synthetic local-only test/dev fixtures implemented and audited" in north_star
     assert "fixtures/" in project_map
     assert "Prompt 14 - Sample Market Data Fixtures + Synthetic OHLCV Contracts" in prompt_log

@@ -1,6 +1,6 @@
 # Analytics Stack
 
-Prompt 14 audits the analytical target stack and current foundations: DuckDB/Parquet research lake foundation, Redis cache foundation, Redis Streams foundation, Kafka/Redpanda Event Backbone foundation, Data Quality + Validation Framework, Synthetic Fixtures foundation, Worker System foundation, Instrument Master/Provider Contracts foundation, ClickHouse Warehouse foundation, and Feature Registry foundation. Actual numerical, statistical, ML, optimization, options, risk, backtesting, feature computation, and NLP engines still happen in later prompts.
+Prompt 25 completes the Provider Adapter Milestone Audit while analytics engines remain unimplemented. Current data foundations include DuckDB/Parquet research lake foundation, Redis cache, Redis Streams, Kafka/Redpanda Event Backbone, Data Quality + Validation Framework, Synthetic Fixtures, Instrument Metadata Persistence Wiring, Market Data Batch Persistence Contracts, TimescaleDB Synthetic OHLCV Storage Foundation, Synthetic OHLCV Research Lake Export, Provider Adapter Guardrails, Provider Readiness governance, Local Sample Provider Adapter v0, Local File Provider Adapter v0, Worker System, Instrument Master/Provider Contracts, ClickHouse Warehouse, and Feature Registry. Actual numerical, statistical, ML, optimization, options, risk, backtesting, feature computation, and NLP engines still happen in later prompts.
 
 ## Numerical Computing Layer
 
@@ -137,3 +137,45 @@ Prompt 15 adds Instrument Metadata Persistence Wiring for canonical instrument m
 Prompt 16 adds Market Data Batch Persistence Contracts for validated synthetic/local batch metadata only. It supports future analytics by making batch row counts, time ranges, source references, fixture ids, and validation report ids auditable before future data movement.
 
 This is not an analytics engine. It does not persist full OHLCV bars, compute indicators, feature values, model inputs, analytics signals, backtest results, options analytics, or decisions.
+
+## Prompt 17 Data Foundation Audit Status
+
+Prompt 17 confirms synthetic fixtures and metadata persistence can support future analytics tests, but no analytics engine exists yet. The audit confirms no real market ingestion, no full OHLCV production persistence, no feature computation, no indicators, no analytics signals, no model outputs, no backtest results, and no decisions are produced by Prompts 14-16.
+
+## Prompt 18 Synthetic OHLCV Storage Status
+
+Prompt 18 adds synthetic-only OHLCV storage for future data movement tests. Stored synthetic bars remain local/test/dev data and are not indicators, factors, model features, analytics signals, backtest evidence, trading decisions, or investment advice.
+
+Analytics engines/models, production validation pipelines, real market ingestion, feature computation, backtesting, options analytics, and trading decisions remain deferred.
+
+## Prompt 19 Synthetic OHLCV Export Status
+
+Prompt 19 adds synthetic-only OHLCV export to Parquet research artifacts for future data movement tests. Exported synthetic datasets remain local/test/dev data and are not indicators, factors, model features, analytics signals, backtest evidence, trading decisions, or investment advice.
+
+The export service does not compute analytics, features, signals, decisions, backtests, regimes, options analytics, or model outputs. It is a research lake data movement contract only.
+
+## Prompt 20 Provider Guardrail Status
+
+Prompt 20 adds Provider Adapter Guardrails for future data-source planning. Guardrails, approvals, compliance checklists, and readiness reports are not analytics engines, indicators, features, model inputs, trading signals, backtest evidence, decisions, or investment advice.
+
+Provider guardrails do not call providers, scrape websites, ingest real market data, compute analytics, generate signals, generate decisions, or enable execution APIs.
+
+## Prompt 22 Data Foundation Milestone Audit Status
+
+Prompt 22 audits synthetic OHLCV storage, synthetic OHLCV research lake export, provider guardrails, and Local Sample Provider Adapter v0. The audit confirms these foundations are data movement/governance contracts only.
+
+Synthetic bars, exported Parquet artifacts, provider guardrail reports, and local sample provider responses must not be interpreted as analytics signals, features, model evidence, backtest evidence, trading decisions, recommendations, or investment advice.
+
+Analytics engines, feature computation, indicators, models, regimes, options analytics, backtesting, generated signals, and decision generation remain unimplemented.
+
+## Prompt 24 Local File Provider Status
+
+Prompt 24 adds Local File Provider Adapter v0 for local/test/dev file parsing and provider response validation. Local file provider responses are not indicators, factors, model features, analytics signals, backtest evidence, trading decisions, or investment advice.
+
+The adapter does not compute analytics, features, signals, decisions, backtests, regimes, options analytics, or model outputs. It does not ingest real market data, call providers, scrape, load credentials, or expose execution APIs.
+
+## Prompt 25 Provider Adapter Milestone Audit Status
+
+Prompt 25 audits provider guardrails, provider readiness/candidate selection, Local Sample Provider, and Local File Provider before analytics planning starts. The audit confirms provider responses and governance reports remain data-boundary artifacts only.
+
+Provider health, contracts, candidate scores, local sample responses, and local file responses must not be interpreted as indicators, factors, model features, analytics signals, backtest evidence, trading decisions, recommendations, or investment advice.

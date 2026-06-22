@@ -30,6 +30,12 @@ The dataset registry is an in-memory/file-contract placeholder. A persistent reg
 
 Development currently runs on Mac mini M2 / macOS / Apple Silicon. The target desktop product remains Windows-native Stark Terminal. All paths should use `pathlib` and avoid macOS-specific or Windows-specific hardcoding.
 
+## Prompt 19 Synthetic OHLCV Export Linkage
+
+Prompt 19 adds synthetic-only OHLCV research lake export contracts. Stored synthetic bars can now be exported to Parquet artifacts with DatasetManifest linkage, validation-before-export, and DuckDB readback verification in temporary test paths.
+
+This is not real market ingestion, not a production research lake write path, not analytics, not trading signals, not decision generation, and not execution APIs. It remains synthetic/local/test-only until future provider adapter guardrails and data-policy approval exist.
+
 ## Current Extension Path
 
-Prompt 05 implements the Redis Cache Foundation. Prompt 06 should add Redis Streams event pipeline contracts without market data ingestion.
+Prompt 20 should add Data Provider Adapter Implementation Plan and Guardrails without provider API calls, scraping, real market ingestion, or execution APIs.

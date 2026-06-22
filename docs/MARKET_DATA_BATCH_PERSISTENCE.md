@@ -40,3 +40,9 @@ Market data batch metadata persistence is not a market-data ingestion system. It
 Synthetic batch metadata must remain clearly labeled synthetic, local-only, and test/dev only. It is not real market data, not trading data, and not investment advice.
 
 Execution APIs remain forbidden.
+
+## Prompt 18 Synthetic Storage Linkage
+
+Prompt 18 allows validated synthetic `MarketDataBatch` bars to be stored through the synthetic-only OHLCV storage service. Batch metadata can conceptually link to storage results through batch ids, fixture ids, source references, and validation report ids.
+
+This does not change the Prompt 16 boundary: `market_data_batch_records` still stores metadata only and no full bars. Prompt 18 does not implement production ingestion, external provider calls, ClickHouse writes, DuckDB/Parquet production writes, event publishing, analytics, signals, decisions, or execution APIs.

@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     stark_env: str = "development"
     app_name: str = "Stark Terminal"
     app_version: str = "0.1.0"
-    prompt_number: str = "16"
+    prompt_number: str = "25"
 
     api_host: str = "127.0.0.1"
     api_port: int = Field(default=8000, ge=1, le=65535)
@@ -123,6 +123,49 @@ class Settings(BaseSettings):
     market_data_batch_persistence_require_validation: bool = True
     market_data_batch_persistence_allow_synthetic: bool = True
     market_data_batch_persistence_schema_version: str = "v1"
+    synthetic_ohlcv_storage_enabled: bool = True
+    synthetic_ohlcv_storage_require_validation: bool = True
+    synthetic_ohlcv_storage_allow_sqlite: bool = True
+    synthetic_ohlcv_storage_schema_version: str = "v1"
+    synthetic_ohlcv_storage_max_bars_per_batch: int = Field(default=10000, gt=0)
+    synthetic_ohlcv_export_enabled: bool = True
+    synthetic_ohlcv_export_require_validation: bool = True
+    synthetic_ohlcv_export_allow_disk_writes: bool = False
+    synthetic_ohlcv_export_schema_version: str = "v1"
+    synthetic_ohlcv_export_default_zone: str = "RESEARCH_ARTIFACTS"
+    synthetic_ohlcv_export_max_rows: int = Field(default=10000, gt=0)
+    provider_guardrails_enabled: bool = True
+    provider_implementation_approval_required: bool = True
+    provider_terms_review_required: bool = True
+    provider_network_calls_default_allowed: bool = False
+    provider_scraping_default_allowed: bool = False
+    provider_credentials_allowed: bool = False
+    provider_guardrail_schema_version: str = "v1"
+    local_sample_provider_enabled: bool = True
+    local_sample_provider_schema_version: str = "v1"
+    local_sample_provider_default_seed: int = 42
+    local_sample_provider_default_bar_count: int = Field(default=30, gt=0)
+    local_sample_provider_default_start_price: float = Field(default=100.0, gt=0)
+    local_sample_provider_allow_network: bool = False
+    local_sample_provider_allow_real_data: bool = False
+    provider_readiness_enabled: bool = True
+    provider_candidate_selection_schema_version: str = "v1"
+    provider_candidate_real_implementation_allowed: bool = False
+    provider_candidate_network_checks_allowed: bool = False
+    provider_candidate_scraping_checks_allowed: bool = False
+    provider_candidate_credentials_allowed: bool = False
+    provider_candidate_minimum_score_for_design: int = Field(default=70, ge=0, le=100)
+    provider_candidate_minimum_score_for_network_tests: int = Field(default=85, ge=0, le=100)
+    provider_candidate_minimum_score_for_production: int = Field(default=95, ge=0, le=100)
+    local_file_provider_enabled: bool = True
+    local_file_provider_schema_version: str = "v1"
+    local_file_provider_allowed_root: str = "data/local_files"
+    local_file_provider_allow_csv: bool = True
+    local_file_provider_allow_parquet: bool = True
+    local_file_provider_allow_network_paths: bool = False
+    local_file_provider_allow_symlinks: bool = False
+    local_file_provider_max_rows: int = Field(default=10000, gt=0)
+    local_file_provider_allow_real_data_claims: bool = False
 
     feature_store_mode: str = "custom"
     feature_registry_enabled: bool = False
@@ -272,12 +315,38 @@ class Settings(BaseSettings):
             raise ValueError("synthetic fixture text settings cannot be empty")
         return normalized
 
-    @field_validator("instrument_persistence_schema_version", "market_data_batch_persistence_schema_version")
+    @field_validator(
+        "instrument_persistence_schema_version",
+        "market_data_batch_persistence_schema_version",
+        "synthetic_ohlcv_storage_schema_version",
+        "synthetic_ohlcv_export_schema_version",
+        "synthetic_ohlcv_export_default_zone",
+        "provider_guardrail_schema_version",
+        "local_sample_provider_schema_version",
+        "provider_candidate_selection_schema_version",
+        "local_file_provider_schema_version",
+        "local_file_provider_allowed_root",
+    )
     @classmethod
     def persistence_schema_version_must_be_non_empty(cls, value: str) -> str:
         normalized = value.strip()
         if not normalized:
-            raise ValueError("persistence schema versions cannot be empty")
+            raise ValueError("persistence/export text settings cannot be empty")
+        return normalized
+
+    @field_validator("synthetic_ohlcv_export_default_zone")
+    @classmethod
+    def synthetic_ohlcv_export_default_zone_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().upper().replace("-", "_")
+        if normalized not in {
+            "RAW",
+            "CLEANED",
+            "NORMALIZED",
+            "FEATURE_READY",
+            "BACKTEST_READY",
+            "RESEARCH_ARTIFACTS",
+        }:
+            raise ValueError("synthetic_ohlcv_export_default_zone must be a supported data lake zone")
         return normalized
 
     @field_validator("worker_harness_mode")
@@ -329,15 +398,49 @@ class Settings(BaseSettings):
     @model_validator(mode="after")
     def execution_flags_must_remain_disabled(self) -> Settings:
         if self.execution_apis_enabled:
-            raise ValueError("execution APIs are forbidden in Prompt 16")
+            raise ValueError("execution APIs are forbidden in Prompt 25")
         if self.broker_integrations_enabled:
-            raise ValueError("broker integrations are forbidden in Prompt 16")
+            raise ValueError("broker integrations are forbidden in Prompt 25")
         if self.live_trading_enabled:
-            raise ValueError("live trading is forbidden in Prompt 16")
+            raise ValueError("live trading is forbidden in Prompt 25")
         if self.allow_external_market_data_calls:
-            raise ValueError("external market data calls are forbidden in Prompt 16")
+            raise ValueError("external market data calls are forbidden in Prompt 25")
         if self.allow_provider_network_calls:
-            raise ValueError("provider network calls are forbidden in Prompt 16")
+            raise ValueError("provider network calls are forbidden in Prompt 25")
+        if self.provider_network_calls_default_allowed:
+            raise ValueError("provider network calls are disabled by default in Prompt 25")
+        if self.provider_scraping_default_allowed:
+            raise ValueError("provider scraping is disabled by default in Prompt 25")
+        if self.provider_credentials_allowed:
+            raise ValueError("provider credentials are forbidden in Prompt 25")
+        if self.local_sample_provider_allow_network:
+            raise ValueError("local sample provider network calls are forbidden in Prompt 25")
+        if self.local_sample_provider_allow_real_data:
+            raise ValueError("local sample provider real data is forbidden in Prompt 25")
+        if self.provider_candidate_real_implementation_allowed:
+            raise ValueError("real provider implementation is forbidden in Prompt 25")
+        if self.provider_candidate_network_checks_allowed:
+            raise ValueError("provider candidate network checks are forbidden in Prompt 25")
+        if self.provider_candidate_scraping_checks_allowed:
+            raise ValueError("provider candidate scraping checks are forbidden in Prompt 25")
+        if self.provider_candidate_credentials_allowed:
+            raise ValueError("provider candidate credentials are forbidden in Prompt 25")
+        if self.local_file_provider_allow_network_paths:
+            raise ValueError("local file provider network paths are forbidden in Prompt 25")
+        if self.local_file_provider_allow_symlinks:
+            raise ValueError("local file provider symlinks are forbidden in Prompt 25")
+        if self.local_file_provider_allow_real_data_claims:
+            raise ValueError("local file provider real data claims are forbidden in Prompt 25")
+        if (
+            self.provider_candidate_minimum_score_for_network_tests
+            < self.provider_candidate_minimum_score_for_design
+        ):
+            raise ValueError("network test threshold must be >= design threshold")
+        if (
+            self.provider_candidate_minimum_score_for_production
+            < self.provider_candidate_minimum_score_for_network_tests
+        ):
+            raise ValueError("production threshold must be >= network test threshold")
         if self.feature_max_allowed_staleness_seconds < self.feature_default_freshness_seconds:
             raise ValueError("feature_max_allowed_staleness_seconds must be >= feature_default_freshness_seconds")
         return self
@@ -452,6 +555,49 @@ class Settings(BaseSettings):
             "market_data_batch_persistence_require_validation": self.market_data_batch_persistence_require_validation,
             "market_data_batch_persistence_allow_synthetic": self.market_data_batch_persistence_allow_synthetic,
             "market_data_batch_persistence_schema_version": self.market_data_batch_persistence_schema_version,
+            "synthetic_ohlcv_storage_enabled": self.synthetic_ohlcv_storage_enabled,
+            "synthetic_ohlcv_storage_require_validation": self.synthetic_ohlcv_storage_require_validation,
+            "synthetic_ohlcv_storage_allow_sqlite": self.synthetic_ohlcv_storage_allow_sqlite,
+            "synthetic_ohlcv_storage_schema_version": self.synthetic_ohlcv_storage_schema_version,
+            "synthetic_ohlcv_storage_max_bars_per_batch": self.synthetic_ohlcv_storage_max_bars_per_batch,
+            "synthetic_ohlcv_export_enabled": self.synthetic_ohlcv_export_enabled,
+            "synthetic_ohlcv_export_require_validation": self.synthetic_ohlcv_export_require_validation,
+            "synthetic_ohlcv_export_allow_disk_writes": self.synthetic_ohlcv_export_allow_disk_writes,
+            "synthetic_ohlcv_export_schema_version": self.synthetic_ohlcv_export_schema_version,
+            "synthetic_ohlcv_export_default_zone": self.synthetic_ohlcv_export_default_zone,
+            "synthetic_ohlcv_export_max_rows": self.synthetic_ohlcv_export_max_rows,
+            "provider_guardrails_enabled": self.provider_guardrails_enabled,
+            "provider_implementation_approval_required": self.provider_implementation_approval_required,
+            "provider_terms_review_required": self.provider_terms_review_required,
+            "provider_network_calls_default_allowed": self.provider_network_calls_default_allowed,
+            "provider_scraping_default_allowed": self.provider_scraping_default_allowed,
+            "provider_credentials_allowed": self.provider_credentials_allowed,
+            "provider_guardrail_schema_version": self.provider_guardrail_schema_version,
+            "local_sample_provider_enabled": self.local_sample_provider_enabled,
+            "local_sample_provider_schema_version": self.local_sample_provider_schema_version,
+            "local_sample_provider_default_seed": self.local_sample_provider_default_seed,
+            "local_sample_provider_default_bar_count": self.local_sample_provider_default_bar_count,
+            "local_sample_provider_default_start_price": self.local_sample_provider_default_start_price,
+            "local_sample_provider_allow_network": self.local_sample_provider_allow_network,
+            "local_sample_provider_allow_real_data": self.local_sample_provider_allow_real_data,
+            "provider_readiness_enabled": self.provider_readiness_enabled,
+            "provider_candidate_selection_schema_version": self.provider_candidate_selection_schema_version,
+            "provider_candidate_real_implementation_allowed": self.provider_candidate_real_implementation_allowed,
+            "provider_candidate_network_checks_allowed": self.provider_candidate_network_checks_allowed,
+            "provider_candidate_scraping_checks_allowed": self.provider_candidate_scraping_checks_allowed,
+            "provider_candidate_credentials_allowed": self.provider_candidate_credentials_allowed,
+            "provider_candidate_minimum_score_for_design": self.provider_candidate_minimum_score_for_design,
+            "provider_candidate_minimum_score_for_network_tests": self.provider_candidate_minimum_score_for_network_tests,
+            "provider_candidate_minimum_score_for_production": self.provider_candidate_minimum_score_for_production,
+            "local_file_provider_enabled": self.local_file_provider_enabled,
+            "local_file_provider_schema_version": self.local_file_provider_schema_version,
+            "local_file_provider_allowed_root": self.local_file_provider_allowed_root,
+            "local_file_provider_allow_csv": self.local_file_provider_allow_csv,
+            "local_file_provider_allow_parquet": self.local_file_provider_allow_parquet,
+            "local_file_provider_allow_network_paths": self.local_file_provider_allow_network_paths,
+            "local_file_provider_allow_symlinks": self.local_file_provider_allow_symlinks,
+            "local_file_provider_max_rows": self.local_file_provider_max_rows,
+            "local_file_provider_allow_real_data_claims": self.local_file_provider_allow_real_data_claims,
         }
 
 

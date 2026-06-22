@@ -1,6 +1,6 @@
 # Technical Stack
 
-Prompt 15 keeps the locked target stack and adds no new dependencies.
+Prompt 25 keeps the locked target stack and adds no new dependencies. It audits Provider Adapter Guardrails, Real Provider Readiness and Candidate Selection, Local Sample Provider Adapter v0, and Local File Provider Adapter v0. It adds no provider SDKs, no scraping dependencies, no broker/trading dependencies, no full quant/ML libraries, no external calls, no real market ingestion, no production approval, and no execution APIs.
 
 ## Core Language / Runtime
 
@@ -161,3 +161,7 @@ Prompt 15 adds Instrument Metadata Persistence Wiring with no new dependency. It
 ## Prompt 16 Dependency Boundary
 
 Prompt 16 adds Market Data Batch Persistence Contracts with no new dependency. It uses existing SQLAlchemy, Alembic, Pydantic, FastAPI/TestClient, SQLite test fallback, and local project contracts. It does not add market data SDKs, scraping dependencies, broker/trading dependencies, full quant/ML libraries, execution APIs, real market ingestion, full OHLCV persistence, provider calls, TimescaleDB writes, ClickHouse writes, event publishing, feature computation, analytics signals, or decisions.
+
+## Prompt 20 Dependency Boundary
+
+Prompt 20 adds Provider Adapter Guardrails with no new dependency. It uses standard library enums/datetime helpers, Pydantic contracts, FastAPI/TestClient, and existing provider capability enums. It does not add provider SDKs, scraping dependencies, broker/trading dependencies, full quant/ML libraries, external provider calls, real market ingestion, credentials, analytics signals, decisions, or execution APIs.

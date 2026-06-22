@@ -25,3 +25,9 @@ Prompt 03 does not implement market data ingestion, real NSE/BSE loading, provid
 ## Current Extension Path
 
 Prompt 04 implements the DuckDB + Parquet research lake foundation. Market data ingestion remains intentionally not implemented.
+
+## Prompt 18 Synthetic Storage Wiring
+
+Prompt 18 wires `OHLCVBarORM` through `OHLCVBarRepository` and `SyntheticOHLCVStorageService` for synthetic-only OHLCV storage. This proves the repository/service boundary for operational bar storage without requiring live TimescaleDB in tests.
+
+The Prompt 18 path is validation-gated, SQLite-compatible, and restricted to synthetic/local/test data with `LOCAL_SAMPLE` provider identity. It does not create hypertables, execute TimescaleDB-specific SQL, ingest real market data, call external providers, compute analytics, generate trading signals, generate decisions, or expose execution APIs.

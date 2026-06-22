@@ -15,7 +15,7 @@ def test_feature_docs_exist_and_prompt_status_is_current() -> None:
     project_map = (ROOT / "PROJECT_MAP.md").read_text(encoding="utf-8")
 
     assert "Prompt 10 - Feature Store / Stark Feature Registry Foundation" in prompt_log
-    assert "Current Prompt: 16" in north_star
-    assert "Completed Prompts: 16 before this prompt, 17 after completion" in north_star
+    assert "Current Prompt: 25" in north_star
+    assert "Completed Prompts: 25 before this prompt, 26 after completion" in north_star
     assert "features/definitions.py" in project_map
     assert "Feature Registry foundation" in project_map

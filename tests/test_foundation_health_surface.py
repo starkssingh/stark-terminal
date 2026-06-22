@@ -15,6 +15,12 @@ HEALTH_ENDPOINTS = [
     "/fixtures/health",
     "/instrument-metadata/health",
     "/market-data-batches/health",
+    "/synthetic-ohlcv-storage/health",
+    "/synthetic-ohlcv-exports/health",
+    "/provider-guardrails/health",
+    "/provider-readiness/health",
+    "/local-sample-provider/health",
+    "/local-file-provider/health",
     "/workers/health",
     "/instruments/health",
     "/providers/health",
@@ -33,6 +39,19 @@ OPTIONAL_SAFE_ENDPOINTS = [
     "/instrument-metadata/list",
     "/market-data-batches/sample",
     "/market-data-batches/list",
+    "/synthetic-ohlcv-storage/sample",
+    "/synthetic-ohlcv-storage/contracts",
+    "/synthetic-ohlcv-exports/contracts",
+    "/synthetic-ohlcv-exports/sample",
+    "/provider-guardrails/contracts",
+    "/provider-guardrails/readiness-template",
+    "/provider-readiness/contracts",
+    "/provider-readiness/template",
+    "/provider-readiness/example-score",
+    "/local-sample-provider/contracts",
+    "/local-sample-provider/instruments",
+    "/local-sample-provider/sample-bars",
+    "/local-file-provider/contracts",
 ]
 
 FORBIDDEN_RESPONSE_KEYS = {
@@ -72,13 +91,13 @@ def test_all_foundation_health_endpoints_return_200() -> None:
         assert response.status_code == 200, endpoint
 
 
-def test_health_endpoint_reports_prompt_16_audit_status() -> None:
+def test_health_endpoint_reports_prompt_22_audit_status() -> None:
     client = TestClient(app)
 
     body = client.get("/health").json()
 
-    assert body["prompt"] == "16"
-    assert body["audit_status"] == "milestone-a-b"
+    assert body["prompt"] == "25"
+    assert body["audit_status"] == "provider-adapter-milestone"
     assert body["execution_apis_enabled"] is False
 
 

@@ -7,7 +7,7 @@ from stark_terminal_core.config.settings import Settings
 def test_instrument_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "16"
+    assert settings.prompt_number == "25"
     assert settings.instrument_master_mode == "local"
     assert settings.instrument_master_source == "synthetic"
     assert settings.allow_external_market_data_calls is False
@@ -37,7 +37,11 @@ def test_instrument_settings_safe_snapshot_includes_contract_fields() -> None:
     assert snapshot["instrument_persistence_require_validation"] is True
     assert snapshot["instrument_persistence_allow_synthetic_seed"] is True
     assert snapshot["instrument_persistence_schema_version"] == "v1"
-    assert not any("credential" in key or "broker_token" in key for key in snapshot)
+    allowed_policy_keys = {"provider_credentials_allowed", "provider_candidate_credentials_allowed"}
+    assert not any(
+        ("credential" in key or "broker_token" in key) and key not in allowed_policy_keys
+        for key in snapshot
+    )
 
 
 @pytest.mark.parametrize(

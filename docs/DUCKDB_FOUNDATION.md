@@ -20,3 +20,9 @@ Prompt 04 implements a local DuckDB client wrapper, query helpers, and Parquet s
 ## Safety
 
 DuckDB helpers are local only. Remote reads, provider clients, and unsafe SQL exposure through public APIs are out of scope.
+
+## Prompt 19 Export Readback
+
+Prompt 19 uses DuckDB readback verification for synthetic OHLCV Parquet exports. The readback is local/test-only and confirms exported row counts and schema compatibility.
+
+DuckDB readback does not implement real market ingestion, external provider calls, analytics signals, decisions, production dashboards, or execution APIs.

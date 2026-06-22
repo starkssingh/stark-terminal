@@ -61,6 +61,35 @@ def test_safe_settings_snapshot_excludes_raw_sensitive_values() -> None:
     assert snapshot["market_data_batch_persistence_require_validation"] is True
     assert snapshot["market_data_batch_persistence_allow_synthetic"] is True
     assert snapshot["market_data_batch_persistence_schema_version"] == "v1"
+    assert snapshot["synthetic_ohlcv_export_enabled"] is True
+    assert snapshot["synthetic_ohlcv_export_require_validation"] is True
+    assert snapshot["synthetic_ohlcv_export_allow_disk_writes"] is False
+    assert snapshot["synthetic_ohlcv_export_schema_version"] == "v1"
+    assert snapshot["synthetic_ohlcv_export_default_zone"] == "RESEARCH_ARTIFACTS"
+    assert snapshot["synthetic_ohlcv_export_max_rows"] == 10000
+    assert snapshot["provider_guardrails_enabled"] is True
+    assert snapshot["provider_implementation_approval_required"] is True
+    assert snapshot["provider_terms_review_required"] is True
+    assert snapshot["provider_network_calls_default_allowed"] is False
+    assert snapshot["provider_scraping_default_allowed"] is False
+    assert snapshot["provider_credentials_allowed"] is False
+    assert snapshot["provider_guardrail_schema_version"] == "v1"
+    assert snapshot["local_sample_provider_enabled"] is True
+    assert snapshot["local_sample_provider_schema_version"] == "v1"
+    assert snapshot["local_sample_provider_default_seed"] == 42
+    assert snapshot["local_sample_provider_default_bar_count"] == 30
+    assert snapshot["local_sample_provider_default_start_price"] == 100.0
+    assert snapshot["local_sample_provider_allow_network"] is False
+    assert snapshot["local_sample_provider_allow_real_data"] is False
+    assert snapshot["local_file_provider_enabled"] is True
+    assert snapshot["local_file_provider_schema_version"] == "v1"
+    assert snapshot["local_file_provider_allowed_root"] == "data/local_files"
+    assert snapshot["local_file_provider_allow_csv"] is True
+    assert snapshot["local_file_provider_allow_parquet"] is True
+    assert snapshot["local_file_provider_allow_network_paths"] is False
+    assert snapshot["local_file_provider_allow_symlinks"] is False
+    assert snapshot["local_file_provider_max_rows"] == 10000
+    assert snapshot["local_file_provider_allow_real_data_claims"] is False
     assert snapshot["execution_apis_enabled"] is False
     assert snapshot["broker_integrations_enabled"] is False
     assert snapshot["live_trading_enabled"] is False

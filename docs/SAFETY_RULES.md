@@ -34,3 +34,7 @@ Stark Terminal is decision support only.
 Prompt 11 confirms execution APIs remain forbidden. Future milestone audits must search for execution, broker, order, live-trading, real-money routing, broker credential, autonomous trading, and hidden background trading concepts in code, routes, worker roles, provider contracts, settings, docs, and tests.
 
 The current foundation has no execution APIs, no broker execution, no real market ingestion, no external provider calls, no production Kafka/Redpanda pipelines, no production validation pipelines, and no analytics signals.
+
+## Provider Guardrail Safety Rule
+
+Prompt 20 requires provider adapter guardrails before any future provider implementation. Provider adapters must remain read-only, network calls are disabled by default, scraping is disabled by default, credentials are disallowed in the current phase, and execution is always forbidden. Provider guardrails do not approve real ingestion, real provider clients, provider SDKs, analytics signals, decisions, or execution APIs.

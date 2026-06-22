@@ -1439,3 +1439,716 @@ Passed with 605 tests. The audit script and foundation verifier passed. The only
 ### Next Recommended Prompt
 
 Prompt 17 - Data Foundation Audit and Readiness Check
+
+## Prompt 17 - Data Foundation Audit and Readiness Check
+
+### Objective
+
+Perform a focused Data Foundation Audit and Readiness Check for Prompts 14-16. Prompt 17 audits synthetic fixtures, fixture policies, instrument metadata persistence, market data batch metadata persistence, validation-before-persistence, repository/service boundaries, Data Quality gate use, no real ingestion, no external calls, no full OHLCV production persistence, no execution APIs, and readiness for the next synthetic-only TimescaleDB storage phase.
+
+### Files Created
+
+- `docs/DATA_FOUNDATION_AUDIT.md`
+- `docs/DATA_PERSISTENCE_BOUNDARY.md`
+- `docs/SYNTHETIC_DATA_SAFETY_AUDIT.md`
+- `docs/DATA_FOUNDATION_NEXT_PHASE.md`
+- `tests/test_data_foundation_audit_docs.py`
+- `tests/test_data_foundation_no_real_ingestion.py`
+- `tests/test_data_foundation_persistence_boundaries.py`
+- `tests/test_data_foundation_api_safety.py`
+- `tests/test_data_foundation_readiness.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATABASE_FOUNDATION.md`
+- `docs/TIMESERIES_SCHEMA.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/TECH_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/status/audit tests
+
+### Tests Added
+
+- Data foundation audit document tests.
+- No-real-ingestion and no-external-call invariant tests.
+- Persistence boundary tests for metadata-only repositories and services.
+- API safety tests for fixtures, instrument metadata, and market data batch endpoints.
+- Readiness tests for audit/verifier coverage, `NORTH_STAR.md`, `NEXT_PHASE_PLAN.md`, and `PROMPT_LOG.md`.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 622 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Audit Verdict
+
+Data foundation ready for the synthetic OHLCV storage phase. Prompt 17 confirms Prompts 14-16 remain synthetic/metadata-only with no real ingestion, no external calls, no full OHLCV production persistence, no execution APIs, and no trading decisions.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 18 - TimescaleDB Synthetic OHLCV Storage Foundation
+
+## Prompt 18 - TimescaleDB Synthetic OHLCV Storage Foundation
+
+### Objective
+
+Implement synthetic-only OHLCV operational storage using the existing TimescaleDB-oriented `OHLCVBarORM`, deterministic Prompt 14 fixtures, Prompt 13 Data Quality validators, explicit repository/service boundaries, SQLite-compatible tests, and safe read-only API endpoints. Prompt 18 does not implement real market ingestion, external provider calls, scraping, analytics, signals, decisions, event publishing, or execution APIs.
+
+### Files Created
+
+- `docs/SYNTHETIC_OHLCV_STORAGE_FOUNDATION.md`
+- `docs/TIMESCALE_SYNTHETIC_STORAGE_POLICY.md`
+- `packages/data_platform/stark_terminal_data_platform/repositories/ohlcv_bars.py`
+- `packages/data_platform/stark_terminal_data_platform/services/synthetic_ohlcv_storage.py`
+- `apps/api/stark_terminal_api/routes/synthetic_ohlcv_storage.py`
+- `tests/test_ohlcv_bar_repository.py`
+- `tests/test_synthetic_ohlcv_storage_service.py`
+- `tests/test_synthetic_ohlcv_storage_validation.py`
+- `tests/test_api_synthetic_ohlcv_storage.py`
+- `tests/test_synthetic_ohlcv_storage_docs_status.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/TIMESCALEDB_FOUNDATION.md`
+- `docs/TIMESERIES_SCHEMA.md`
+- `docs/DATA_QUALITY_FRAMEWORK.md`
+- `docs/SYNTHETIC_MARKET_DATA_FIXTURES.md`
+- `docs/MARKET_DATA_BATCH_PERSISTENCE.md`
+- `docs/DATA_FOUNDATION_NEXT_PHASE.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/data_platform/stark_terminal_data_platform/repositories/README.md`
+- `packages/data_platform/stark_terminal_data_platform/services/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/status/audit tests
+
+### Tests Added
+
+- OHLCV repository SQLite tests for idempotent synthetic bar upsert/get/list/count/delete behavior.
+- Synthetic OHLCV storage service tests for validation-before-storage, synthetic source enforcement, `LOCAL_SAMPLE` provider enforcement, max batch limits, health, and no event/external writes.
+- Validation tests proving invalid OHLCV bars are blocked before storage.
+- API tests for `/synthetic-ohlcv-storage/health`, `/synthetic-ohlcv-storage/sample`, and `/synthetic-ohlcv-storage/contracts`.
+- Docs/status tests for Prompt 18 artifacts.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 640 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 19 - Synthetic OHLCV to Research Lake Export Contract
+
+## Prompt 19 - Synthetic OHLCV to Research Lake Export Contract
+
+### Objective
+
+Implement a synthetic-only export contract from Prompt 18 stored OHLCV bars to the DuckDB/Parquet research lake foundation. Prompt 19 adds export request/result schemas, DatasetManifest linkage, validation-before-export, temp-only Parquet export, DuckDB readback verification, and safe read-only API endpoints. It does not implement real market ingestion, external provider calls, scraping, analytics, signals, decisions, production research lake writes, or execution APIs.
+
+### Files Created
+
+- `docs/SYNTHETIC_OHLCV_RESEARCH_LAKE_EXPORT.md`
+- `docs/OHLCV_EXPORT_MANIFEST_POLICY.md`
+- `packages/data_platform/stark_terminal_data_platform/exports/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/exports/synthetic_ohlcv.py`
+- `packages/data_platform/stark_terminal_data_platform/exports/README.md`
+- `apps/api/stark_terminal_api/routes/synthetic_ohlcv_exports.py`
+- `tests/test_synthetic_ohlcv_export_contracts.py`
+- `tests/test_synthetic_ohlcv_export_service.py`
+- `tests/test_synthetic_ohlcv_export_validation.py`
+- `tests/test_synthetic_ohlcv_export_parquet.py`
+- `tests/test_api_synthetic_ohlcv_exports.py`
+- `tests/test_synthetic_ohlcv_export_docs_status.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/RESEARCH_LAKE_FOUNDATION.md`
+- `docs/PARQUET_DATA_ZONES.md`
+- `docs/DUCKDB_FOUNDATION.md`
+- `docs/SYNTHETIC_OHLCV_STORAGE_FOUNDATION.md`
+- `docs/TIMESCALE_SYNTHETIC_STORAGE_POLICY.md`
+- `docs/DATA_QUALITY_FRAMEWORK.md`
+- `docs/DATA_FOUNDATION_NEXT_PHASE.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/status/audit tests
+
+### Tests Added
+
+- Export contract tests for request/result validation, synthetic-only enforcement, source references, dataset name safety, and sanitized errors.
+- Export service tests proving stored synthetic bars export to tmp-path Parquet with DatasetManifest linkage.
+- Export validation tests proving no bars, invalid bars, non-synthetic source references, non-`LOCAL_SAMPLE` providers, and max-row violations block export.
+- Parquet/DuckDB tests proving exported files are temp-only, schema-compatible, and DuckDB-readable.
+- API tests for `/synthetic-ohlcv-exports/health`, `/synthetic-ohlcv-exports/contracts`, and `/synthetic-ohlcv-exports/sample`.
+- Docs/status tests for Prompt 19 artifacts.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 663 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 20 - Data Provider Adapter Implementation Plan and Guardrails
+
+## Prompt 20 - Data Provider Adapter Implementation Plan and Guardrails
+
+### Objective
+
+Implement provider-integration governance before any real provider adapter work. Prompt 20 adds provider guardrail contracts, approval workflow schemas, compliance checklist schemas, readiness report contracts, safe provider guardrail health/contracts API endpoints, and audit/verifier coverage. It does not implement provider clients, provider SDKs, scraping, credentials, external calls, real market ingestion, analytics signals, decisions, or execution APIs.
+
+### Files Created
+
+- `docs/PROVIDER_ADAPTER_IMPLEMENTATION_PLAN.md`
+- `docs/PROVIDER_GUARDRAIL_POLICY.md`
+- `docs/PROVIDER_APPROVAL_WORKFLOW.md`
+- `docs/PROVIDER_COMPLIANCE_CHECKLIST.md`
+- `packages/data_platform/stark_terminal_data_platform/providers/guardrails.py`
+- `packages/data_platform/stark_terminal_data_platform/providers/approval.py`
+- `packages/data_platform/stark_terminal_data_platform/providers/readiness.py`
+- `apps/api/stark_terminal_api/routes/provider_guardrails.py`
+- `tests/test_provider_guardrail_contracts.py`
+- `tests/test_provider_approval_workflow.py`
+- `tests/test_provider_readiness.py`
+- `tests/test_api_provider_guardrails.py`
+- `tests/test_provider_guardrail_docs_status.py`
+- `tests/test_provider_no_external_calls_guardrail.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/MARKET_DATA_PROVIDER_CONTRACTS.md`
+- `docs/DATA_FOUNDATION_NEXT_PHASE.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/data_platform/stark_terminal_data_platform/providers/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/status/audit tests
+
+### Tests Added
+
+- Guardrail contract tests for default no-network/no-scraping/no-credentials/no-execution behavior.
+- Approval workflow tests for status transitions, capability subsets, and execution rejection.
+- Compliance/readiness tests for blockers, readiness helpers, and sanitized report fields.
+- API tests for `/provider-guardrails/health`, `/provider-guardrails/contracts`, and `/provider-guardrails/readiness-template`.
+- No-external-call tests for provider guardrail modules and dependency boundaries.
+- Docs/status tests for Prompt 20 artifacts.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 687 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 21 - Local Sample Provider Adapter v0
+
+## Prompt 21 - Local Sample Provider Adapter v0
+
+### Objective
+
+Implement the first concrete provider adapter as a synthetic/local/test-only adapter. Prompt 21 adds Local Sample Provider Adapter v0 with provider guardrail checks, synthetic instrument master responses, deterministic synthetic historical bars, Data Quality validation where practical, and safe read-only API endpoints. It does not implement real provider clients, provider SDKs, scraping, credentials, external calls, real market ingestion, analytics signals, decisions, persistence writes, event publishing, or execution APIs.
+
+### Files Created
+
+- `docs/LOCAL_SAMPLE_PROVIDER_ADAPTER.md`
+- `docs/LOCAL_SAMPLE_PROVIDER_POLICY.md`
+- `packages/data_platform/stark_terminal_data_platform/providers/local_sample.py`
+- `apps/api/stark_terminal_api/routes/local_sample_provider.py`
+- `tests/test_local_sample_provider_adapter.py`
+- `tests/test_local_sample_provider_guardrails.py`
+- `tests/test_local_sample_provider_validation.py`
+- `tests/test_api_local_sample_provider.py`
+- `tests/test_local_sample_provider_docs_status.py`
+- `tests/test_local_sample_provider_no_external_calls.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/MARKET_DATA_PROVIDER_CONTRACTS.md`
+- `docs/PROVIDER_GUARDRAIL_POLICY.md`
+- `docs/DATA_FOUNDATION_NEXT_PHASE.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_QUALITY_FRAMEWORK.md`
+- `docs/SYNTHETIC_MARKET_DATA_FIXTURES.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/data_platform/stark_terminal_data_platform/providers/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/providers/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/status/audit tests
+
+### Tests Added
+
+- Adapter tests for provider identity, capabilities, health, synthetic instrument master responses, deterministic historical bars, and unsupported latest/options/futures behavior.
+- Guardrail tests proving synthetic-only local mode is allowed while network, real-data, and dangerous capabilities remain blocked.
+- Data Quality tests proving generated responses validate and invalid requests return sanitized errors.
+- API tests for `/local-sample-provider/health`, `/local-sample-provider/contracts`, `/local-sample-provider/instruments`, and `/local-sample-provider/sample-bars`.
+- No-external-call tests for imports and dependency boundaries.
+- Docs/status tests for Prompt 21 artifacts.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 709 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 22 - Data Foundation Milestone Audit
+
+## Prompt 22 - Data Foundation Milestone Audit
+
+### Objective
+
+Perform the Data Foundation Milestone Audit for Prompts 18-21. Prompt 22 audits synthetic-only OHLCV storage, synthetic-only OHLCV research lake export, provider guardrails, Local Sample Provider Adapter v0, API safety, docs/status consistency, no real ingestion, no external calls, no scraping, no credentials, no analytics/signals/decisions, and no execution APIs. It adds audit artifacts and invariant tests only.
+
+### Files Created
+
+- `docs/DATA_FOUNDATION_MILESTONE_AUDIT.md`
+- `docs/SYNTHETIC_STORAGE_EXPORT_AUDIT.md`
+- `docs/PROVIDER_GUARDRAIL_AUDIT.md`
+- `docs/LOCAL_SAMPLE_PROVIDER_AUDIT.md`
+- `docs/DATA_FOUNDATION_MILESTONE_NEXT_PHASE.md`
+- `tests/test_data_foundation_milestone_audit_docs.py`
+- `tests/test_synthetic_storage_export_boundaries.py`
+- `tests/test_provider_guardrail_milestone_safety.py`
+- `tests/test_local_sample_provider_milestone_safety.py`
+- `tests/test_data_foundation_milestone_api_safety.py`
+- `tests/test_data_foundation_milestone_readiness.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/DATA_FOUNDATION_NEXT_PHASE.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/TECH_STACK.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/status/audit tests
+
+### Tests Added
+
+- Milestone audit document tests for Prompt 18-21 scope, no real ingestion, no external calls, no scraping, no credentials, no execution APIs, and no analytics/signals/decisions.
+- Synthetic storage/export boundary tests for synthetic-only docs/API posture, temp/test export expectations, no live TimescaleDB requirement, and no analytics/signal/decision behavior.
+- Provider guardrail milestone tests for fail-closed network/scraping/credentials/execution defaults and dependency boundaries.
+- Local sample provider milestone tests for synthetic/local-only behavior, unsupported capabilities, no network imports, no credentials, and no real-data claims.
+- API safety tests for synthetic storage/export, provider guardrail, and local sample provider endpoints.
+- Readiness tests for audit/verifier coverage, Prompt 22 North Star status, Prompt 23 roadmap, and Prompt 22 prompt log entry.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 731 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Audit Verdict
+
+Data foundation ready for Prompt 23 Real Provider Readiness Checklist and Candidate Selection. Prompt 22 confirms Prompts 18-21 remain synthetic/local/test-only or governance-only, with no real ingestion, no external calls, no scraping, no credentials, no analytics/signals/decisions, and no execution APIs.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 23 - Real Provider Readiness Checklist and Candidate Selection
+
+## Prompt 23 - Real Provider Readiness Checklist and Candidate Selection
+
+### Objective
+
+Implement the Real Provider Readiness Checklist and Candidate Selection foundation. Prompt 23 adds provider candidate profiles, readiness checklists, selection criteria, deterministic risk scoring, capability gap analysis, an in-memory candidate registry, and safe read-only provider readiness API endpoints. It does not implement real provider clients, provider SDKs, scraping, credentials, external calls, real market ingestion, production approval, analytics signals, decisions, or execution APIs.
+
+### Files Created
+
+- `docs/REAL_PROVIDER_READINESS_CHECKLIST.md`
+- `docs/PROVIDER_CANDIDATE_SELECTION_POLICY.md`
+- `docs/PROVIDER_RISK_SCORING_POLICY.md`
+- `docs/PROVIDER_CAPABILITY_GAP_ANALYSIS.md`
+- `packages/data_platform/stark_terminal_data_platform/providers/candidates.py`
+- `packages/data_platform/stark_terminal_data_platform/providers/selection.py`
+- `apps/api/stark_terminal_api/routes/provider_readiness.py`
+- `tests/test_provider_candidate_profiles.py`
+- `tests/test_provider_selection_criteria.py`
+- `tests/test_provider_risk_scoring.py`
+- `tests/test_provider_capability_gap_analysis.py`
+- `tests/test_provider_candidate_registry.py`
+- `tests/test_api_provider_readiness.py`
+- `tests/test_provider_readiness_docs_status.py`
+- `tests/test_provider_readiness_no_external_calls.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/MARKET_DATA_PROVIDER_CONTRACTS.md`
+- `docs/PROVIDER_ADAPTER_IMPLEMENTATION_PLAN.md`
+- `docs/PROVIDER_GUARDRAIL_POLICY.md`
+- `docs/PROVIDER_APPROVAL_WORKFLOW.md`
+- `docs/PROVIDER_COMPLIANCE_CHECKLIST.md`
+- `docs/DATA_FOUNDATION_MILESTONE_NEXT_PHASE.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/data_platform/stark_terminal_data_platform/providers/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/providers/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/status/audit tests
+
+### Tests Added
+
+- Candidate profile and checklist validation tests for required metadata, secret sanitization, no-execution scope, scraping flags, and default blockers.
+- Selection criteria, capability gap, and risk scoring tests for conservative defaults, deterministic scoring, missing compliance blockers, scraping/network/credential blockers, and production approval boundaries.
+- Candidate registry tests for register/get/list/replace/shortlist behavior without shared global state.
+- API tests for `/provider-readiness/health`, `/provider-readiness/contracts`, `/provider-readiness/template`, and `/provider-readiness/example-score`.
+- No-external-call tests for imports and dependency boundaries.
+- Docs/status tests for Prompt 23 artifacts.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 762 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 24 - Local File Provider Adapter v0
+
+## Prompt 24 - Local File Provider Adapter v0
+
+### Objective
+
+Implement Local File Provider Adapter v0. Prompt 24 adds local-file-only provider contracts, path safety, explicit CSV/Parquet local readers, a read-only guardrail-protected `LocalFileProviderAdapter`, Data Quality validation before successful responses, and safe local file provider health/contracts API endpoints. It does not implement live provider clients, provider SDKs, scraping, credentials, external calls, real market ingestion, arbitrary file read API behavior, persistence writes, analytics signals, decisions, or execution APIs.
+
+### Files Created
+
+- `docs/LOCAL_FILE_PROVIDER_ADAPTER.md`
+- `docs/LOCAL_FILE_PROVIDER_POLICY.md`
+- `docs/LOCAL_FILE_PATH_SAFETY.md`
+- `packages/data_platform/stark_terminal_data_platform/providers/local_file.py`
+- `apps/api/stark_terminal_api/routes/local_file_provider.py`
+- `tests/test_local_file_provider_contracts.py`
+- `tests/test_local_file_provider_path_safety.py`
+- `tests/test_local_file_provider_adapter.py`
+- `tests/test_local_file_provider_validation.py`
+- `tests/test_api_local_file_provider.py`
+- `tests/test_local_file_provider_docs_status.py`
+- `tests/test_local_file_provider_no_external_calls.py`
+
+### Files Modified
+
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/DOMAIN_MODEL.md`
+- `docs/DATA_QUALITY_FRAMEWORK.md`
+- `docs/MARKET_DATA_PROVIDER_CONTRACTS.md`
+- `docs/PROVIDER_GUARDRAIL_POLICY.md`
+- `docs/DATA_FOUNDATION_MILESTONE_NEXT_PHASE.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/TECH_STACK.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/data_platform/stark_terminal_data_platform/providers/__init__.py`
+- `packages/data_platform/stark_terminal_data_platform/providers/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/status/audit tests
+
+### Tests Added
+
+- Local file source schema and sanitization tests.
+- Path safety tests for allowed root, traversal, missing files, unsupported extensions, network paths, absolute escapes, and symlink escapes where supported.
+- Adapter tests for provider identity, capabilities, health, explicit CSV/Parquet instrument master reads, explicit CSV/Parquet historical bar reads, deterministic behavior, max-row enforcement, and unsupported capabilities.
+- Data Quality validation tests for valid bars, invalid OHLC rows, invalid instrument rows, and invalid request handling.
+- API safety tests for `/local-file-provider/health` and `/local-file-provider/contracts`.
+- No-external-call tests for imports, dependency boundaries, and no persistence/event publishing in the adapter.
+- Docs/status tests for Prompt 24 artifacts.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 797 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 25 - Provider Adapter Milestone Audit
+
+## Prompt 25 - Provider Adapter Milestone Audit
+
+### Objective
+
+Perform the Provider Adapter Milestone Audit for Prompts 20-24. Prompt 25 audits provider guardrails, real provider readiness/candidate selection, Local Sample Provider Adapter v0, Local File Provider Adapter v0, API safety, dependency/import safety, path safety, docs/status consistency, no real ingestion, no external calls, no scraping, no credentials, no provider SDKs, no production approval, no arbitrary file read API, no analytics/signals/decisions, and no execution APIs. It adds audit artifacts and invariant tests only.
+
+### Files Created
+
+- `docs/PROVIDER_ADAPTER_MILESTONE_AUDIT.md`
+- `docs/PROVIDER_BOUNDARY_AUDIT.md`
+- `docs/PROVIDER_NO_EXTERNAL_CALLS_AUDIT.md`
+- `docs/PROVIDER_NEXT_PHASE_PLAN.md`
+- `tests/test_provider_adapter_milestone_audit_docs.py`
+- `tests/test_provider_no_external_calls_milestone.py`
+- `tests/test_provider_no_sdk_or_scraping_dependencies.py`
+- `tests/test_provider_api_milestone_safety.py`
+- `tests/test_provider_boundary_readiness.py`
+- `tests/test_provider_adapter_milestone_readiness.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/DATA_FOUNDATION_MILESTONE_NEXT_PHASE.md`
+- `docs/DATA_FOUNDATION_NEXT_PHASE.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/MARKET_DATA_PROVIDER_CONTRACTS.md`
+- `docs/PROVIDER_ADAPTER_IMPLEMENTATION_PLAN.md`
+- `docs/PROVIDER_GUARDRAIL_POLICY.md`
+- `docs/TECH_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `apps/api/stark_terminal_api/routes/provider_readiness.py`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- Existing API/config/status/audit tests
+
+### Tests Added
+
+- Provider milestone audit document tests for Prompt 20-24 scope, no real ingestion, no external calls, no scraping, no credentials, no provider SDKs, no execution APIs, and no analytics/signals/decisions.
+- Provider no-external-call tests for guardrail, readiness, local sample, local file, and provider API route modules.
+- Provider dependency boundary tests for no provider SDKs, no scraping dependencies, and no broker/trading SDKs.
+- Provider API milestone safety tests for provider guardrail/readiness/local sample/local file endpoints.
+- Provider boundary readiness tests for local-only adapters, no arbitrary file read API, governance-only readiness, no production approval, and no execution APIs.
+- Readiness tests for audit/verifier coverage, Prompt 25 North Star status, Prompt 26 roadmap, and Prompt 25 prompt log entry.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 817 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Audit Verdict
+
+Provider foundation ready for Prompt 26 Quant/Time-Series Analytics Foundation Plan if verification passes. Prompt 25 confirms Prompts 20-24 remain local/test/dev or governance-only, with no real ingestion, no external calls, no scraping, no credentials, no provider SDKs, no production approval, no arbitrary file read API, no analytics/signals/decisions, and no execution APIs.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 26 - Quant/Time-Series Analytics Foundation Plan

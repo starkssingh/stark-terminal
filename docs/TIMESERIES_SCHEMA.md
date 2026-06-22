@@ -33,3 +33,13 @@ Snapshot tables store facts or generated outputs with timestamps and source refe
 ## Prompt 16 Boundary
 
 Prompt 16 does not store OHLCV bars in TimescaleDB. Market Data Batch Persistence records batch metadata only in PostgreSQL-ready metadata tables. Full operational OHLCV storage remains deferred to a future explicit TimescaleDB prompt after provider adapters, validation gates, and data policy review.
+
+## Prompt 17 Readiness Check
+
+Prompt 17 confirms TimescaleDB has not yet received synthetic or real OHLCV bars. The next phase may add TimescaleDB Synthetic OHLCV Storage Foundation, but that phase must remain synthetic-only, validation-gated, and local-testable. Real ingestion remains forbidden until provider adapter guardrails, validation gates, source reference policy, and data-policy review are complete.
+
+## Prompt 18 Synthetic OHLCV Storage Boundary
+
+Prompt 18 uses `OHLCVBarORM` through `OHLCVBarRepository` and `SyntheticOHLCVStorageService` for synthetic-only bars. Stored synthetic bars retain instrument, timeframe, timestamp, provider, quality status, and source data reference.
+
+This is not production ingestion. It does not store real market data, call providers, scrape, create hypertables, require live TimescaleDB in tests, compute analytics, generate trading signals, generate decisions, or expose execution APIs. Real operational OHLCV ingestion remains a future provider-gated prompt.

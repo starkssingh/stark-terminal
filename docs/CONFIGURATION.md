@@ -1,6 +1,6 @@
 # Configuration
 
-Prompt 14 maintains typed application settings through `stark_terminal_core.config.settings.Settings` and adds Synthetic Fixture settings.
+Prompt 25 maintains typed application settings through `stark_terminal_core.config.settings.Settings` and adds no new settings. Prompt 24 added safe Local File Provider settings, Prompt 23 added safe Provider Readiness settings, Prompt 21 added safe Local Sample Provider settings, Prompt 20 added Provider Guardrail settings, Prompt 19 added Synthetic OHLCV Export settings, Prompt 18 added Synthetic OHLCV Storage settings, Prompt 14 added Synthetic Fixture settings, Prompt 15 added Instrument Persistence settings, and Prompt 16 added Market Data Batch Persistence settings.
 
 ## Settings
 
@@ -11,14 +11,14 @@ Important defaults:
 - `STARK_ENV=development`
 - `APP_NAME=Stark Terminal`
 - `APP_VERSION=0.1.0`
-- `PROMPT_NUMBER=14`
+- `PROMPT_NUMBER=25`
 - `API_HOST=127.0.0.1`
 - `API_PORT=8000`
 - `FEATURE_STORE_MODE=custom`
 
 ## Environment Variables
 
-The settings model supports placeholders for `DATABASE_URL`, `TIMESCALE_DATABASE_URL`, `REDIS_URL`, `CLICKHOUSE_URL`, and `KAFKA_BOOTSTRAP_SERVERS`. Prompt 14 adds Synthetic Fixture settings while keeping raw secrets hidden. Feast integration remains deferred.
+The settings model supports placeholders for `DATABASE_URL`, `TIMESCALE_DATABASE_URL`, `REDIS_URL`, `CLICKHOUSE_URL`, and `KAFKA_BOOTSTRAP_SERVERS`. Prompt 19 adds no sensitive settings and keeps raw secrets hidden. Feast integration remains deferred.
 
 ## Database Settings
 
@@ -264,3 +264,112 @@ Prompt 16 adds Market Data Batch Persistence settings:
 Validation is required by default. Synthetic batch metadata is allowed by default for local/test/dev workflows only. `market_data_batch_persistence_schema_version` cannot be empty. Safe settings snapshots may expose these booleans and schema status but must not expose database URLs or credentials.
 
 Market data batch persistence remains metadata-only: no real market ingestion, no external calls, no full OHLCV bars, no broker behavior, and no execution APIs.
+
+## Synthetic OHLCV Storage Settings
+
+Prompt 18 adds TimescaleDB Synthetic OHLCV Storage settings:
+
+- `SYNTHETIC_OHLCV_STORAGE_ENABLED=true`
+- `SYNTHETIC_OHLCV_STORAGE_REQUIRE_VALIDATION=true`
+- `SYNTHETIC_OHLCV_STORAGE_ALLOW_SQLITE=true`
+- `SYNTHETIC_OHLCV_STORAGE_SCHEMA_VERSION=v1`
+- `SYNTHETIC_OHLCV_STORAGE_MAX_BARS_PER_BATCH=10000`
+
+Validation is required by default. SQLite is allowed by default for local tests/dev so Prompt 18 does not require a live TimescaleDB server. The schema version cannot be empty, and max bars per batch must be positive.
+
+Safe settings snapshots may expose these booleans and schema/limit fields. They must not expose database URLs, TimescaleDB URLs, provider credentials, broker secrets, tokens, or API keys.
+
+Synthetic OHLCV storage remains synthetic-only: no real market data, no real market ingestion, no external calls, no analytics signals, no decisions, and no execution APIs.
+
+## Synthetic OHLCV Export Settings
+
+Prompt 19 adds Synthetic OHLCV Export settings:
+
+- `SYNTHETIC_OHLCV_EXPORT_ENABLED=true`
+- `SYNTHETIC_OHLCV_EXPORT_REQUIRE_VALIDATION=true`
+- `SYNTHETIC_OHLCV_EXPORT_ALLOW_DISK_WRITES=false`
+- `SYNTHETIC_OHLCV_EXPORT_SCHEMA_VERSION=v1`
+- `SYNTHETIC_OHLCV_EXPORT_DEFAULT_ZONE=RESEARCH_ARTIFACTS`
+- `SYNTHETIC_OHLCV_EXPORT_MAX_ROWS=10000`
+
+Validation is required by default. Disk writes are disabled by default for configured production-style paths; tests pass an explicit temporary path. The schema version and default zone cannot be empty, the default zone must be supported, and max rows must be positive.
+
+Safe settings snapshots may expose these booleans and schema/limit/zone fields. They must not expose database URLs, TimescaleDB URLs, provider credentials, broker secrets, tokens, or API keys.
+
+Synthetic OHLCV export remains synthetic-only: no real market data, no real market ingestion, no external calls, no production research lake writes by default, no analytics signals, no decisions, and no execution APIs.
+
+## Provider Guardrail Settings
+
+Prompt 20 adds Provider Adapter Guardrail settings:
+
+- `PROVIDER_GUARDRAILS_ENABLED=true`
+- `PROVIDER_IMPLEMENTATION_APPROVAL_REQUIRED=true`
+- `PROVIDER_TERMS_REVIEW_REQUIRED=true`
+- `PROVIDER_NETWORK_CALLS_DEFAULT_ALLOWED=false`
+- `PROVIDER_SCRAPING_DEFAULT_ALLOWED=false`
+- `PROVIDER_CREDENTIALS_ALLOWED=false`
+- `PROVIDER_GUARDRAIL_SCHEMA_VERSION=v1`
+
+Provider guardrails are enabled by default. Approval and terms review are required by default. Network calls, scraping, and credentials are disabled by default and fail closed if enabled in the current phase. The schema version cannot be empty.
+
+Safe settings snapshots may expose these booleans and the schema version. They must not expose provider credentials, provider URLs, API keys, tokens, broker secrets, raw database URLs, or any sensitive configuration value.
+
+Provider guardrails remain governance contracts only: no real provider implementation, no provider SDKs, no external calls, no scraping, no real market ingestion, no analytics signals, no decisions, and no execution APIs.
+
+## Local Sample Provider Settings
+
+Prompt 21 adds Local Sample Provider Adapter v0 settings:
+
+- `LOCAL_SAMPLE_PROVIDER_ENABLED=true`
+- `LOCAL_SAMPLE_PROVIDER_SCHEMA_VERSION=v1`
+- `LOCAL_SAMPLE_PROVIDER_DEFAULT_SEED=42`
+- `LOCAL_SAMPLE_PROVIDER_DEFAULT_BAR_COUNT=30`
+- `LOCAL_SAMPLE_PROVIDER_DEFAULT_START_PRICE=100.0`
+- `LOCAL_SAMPLE_PROVIDER_ALLOW_NETWORK=false`
+- `LOCAL_SAMPLE_PROVIDER_ALLOW_REAL_DATA=false`
+
+The local sample provider is enabled by default for synthetic local/test/dev responses. Network calls and real data are disabled by default and fail closed if enabled. The schema version cannot be empty, default bar count must be positive, and default start price must be positive.
+
+Safe settings snapshots may expose these booleans and deterministic generation defaults. They must not expose provider credentials, provider URLs, API keys, broker secrets, raw database URLs, or any sensitive configuration value.
+
+Local Sample Provider Adapter v0 remains synthetic-only: no external calls, no real market data, no scraping, no credentials, no analytics signals, no decisions, and no execution APIs.
+
+## Provider Readiness Settings
+
+Prompt 23 adds Real Provider Readiness and Candidate Selection settings:
+
+- `PROVIDER_READINESS_ENABLED=true`
+- `PROVIDER_CANDIDATE_SELECTION_SCHEMA_VERSION=v1`
+- `PROVIDER_CANDIDATE_REAL_IMPLEMENTATION_ALLOWED=false`
+- `PROVIDER_CANDIDATE_NETWORK_CHECKS_ALLOWED=false`
+- `PROVIDER_CANDIDATE_SCRAPING_CHECKS_ALLOWED=false`
+- `PROVIDER_CANDIDATE_CREDENTIALS_ALLOWED=false`
+- `PROVIDER_CANDIDATE_MINIMUM_SCORE_FOR_DESIGN=70`
+- `PROVIDER_CANDIDATE_MINIMUM_SCORE_FOR_NETWORK_TESTS=85`
+- `PROVIDER_CANDIDATE_MINIMUM_SCORE_FOR_PRODUCTION=95`
+
+Provider readiness is enabled by default, but real implementation, network checks, scraping checks, and credentials are all disabled by default and fail closed if enabled in Prompt 23. The schema version cannot be empty. Scores must be between 0 and 100, the network-test threshold must be greater than or equal to the design threshold, and the production threshold must be greater than or equal to the network-test threshold.
+
+Safe settings snapshots may expose these booleans and thresholds. They must not expose provider credentials, API keys, tokens, raw provider URLs, broker secrets, or any sensitive configuration value.
+
+Provider readiness remains governance-only: no provider SDKs, no external calls, no scraping, no credentials, no real market ingestion, no production approval, no analytics signals, no decisions, and no execution APIs.
+
+## Local File Provider Settings
+
+Prompt 24 adds Local File Provider Adapter v0 settings:
+
+- `LOCAL_FILE_PROVIDER_ENABLED=true`
+- `LOCAL_FILE_PROVIDER_SCHEMA_VERSION=v1`
+- `LOCAL_FILE_PROVIDER_ALLOWED_ROOT=data/local_files`
+- `LOCAL_FILE_PROVIDER_ALLOW_CSV=true`
+- `LOCAL_FILE_PROVIDER_ALLOW_PARQUET=true`
+- `LOCAL_FILE_PROVIDER_ALLOW_NETWORK_PATHS=false`
+- `LOCAL_FILE_PROVIDER_ALLOW_SYMLINKS=false`
+- `LOCAL_FILE_PROVIDER_MAX_ROWS=10000`
+- `LOCAL_FILE_PROVIDER_ALLOW_REAL_DATA_CLAIMS=false`
+
+The local file provider is enabled by default for explicit local/test/dev file workflows. CSV and Parquet are allowed by default. Network paths, symlinks, and real-data claims are disabled by default and fail closed if enabled in Prompt 24. The schema version and allowed root cannot be empty, and max rows must be positive.
+
+Safe settings snapshots may expose these booleans, the local test/dev root, schema version, and row limit. They must not expose provider credentials, provider URLs, API keys, tokens, broker secrets, raw database URLs, or any sensitive configuration value.
+
+Local File Provider Adapter v0 remains local-file-only and test/dev only: no external calls, no real market data claims, no scraping, no credentials, no arbitrary file read API, no analytics signals, no decisions, and no execution APIs.
