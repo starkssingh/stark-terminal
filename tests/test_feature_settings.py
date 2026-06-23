@@ -7,7 +7,7 @@ from stark_terminal_core.config.settings import Settings
 def test_feature_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "25"
+    assert settings.prompt_number == "54"
     assert settings.feature_store_mode == "custom"
     assert settings.feature_registry_enabled is False
     assert settings.feature_registry_backend == "memory"
@@ -57,4 +57,3 @@ def test_feature_store_mode_supports_custom_feast_planned_and_disabled() -> None
     assert Settings(feature_store_mode="custom").feature_store_mode == "custom"
     assert Settings(feature_store_mode="feast_planned").feature_store_mode == "feast_planned"
     assert Settings(feature_store_mode="disabled").feature_store_mode == "disabled"
-

@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
+import re
+import tomllib
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -56,6 +58,173 @@ REQUIRED_DOCS = [
     "docs/PROVIDER_BOUNDARY_AUDIT.md",
     "docs/PROVIDER_NO_EXTERNAL_CALLS_AUDIT.md",
     "docs/PROVIDER_NEXT_PHASE_PLAN.md",
+    "docs/QUANT_ANALYTICS_FOUNDATION_PLAN.md",
+    "docs/TIME_SERIES_ANALYTICS_BOUNDARY.md",
+    "docs/ANALYTICS_SAFETY_POLICY.md",
+    "docs/ANALYTICS_DEPENDENCY_STAGING.md",
+    "docs/ANALYTICS_ROADMAP.md",
+    "docs/NUMERICAL_ANALYTICS_CORE_CONTRACTS.md",
+    "docs/NUMERICAL_ANALYTICS_VALIDATION_POLICY.md",
+    "docs/NUMERICAL_ANALYTICS_DEPENDENCY_GATE.md",
+    "docs/NUMERICAL_ANALYTICS_SAFETY_BOUNDARY.md",
+    "docs/RETURNS_ANALYTICS_V0.md",
+    "docs/ROLLING_WINDOW_ANALYTICS_V0.md",
+    "docs/RETURNS_ROLLING_VALIDATION_POLICY.md",
+    "docs/RETURNS_ROLLING_SAFETY_BOUNDARY.md",
+    "docs/VOLATILITY_ANALYTICS_V0.md",
+    "docs/DRAWDOWN_ANALYTICS_V0.md",
+    "docs/VOLATILITY_DRAWDOWN_VALIDATION_POLICY.md",
+    "docs/VOLATILITY_DRAWDOWN_SAFETY_BOUNDARY.md",
+    "docs/ANALYTICS_MILESTONE_AUDIT.md",
+    "docs/ANALYTICS_BOUNDARY_AUDIT.md",
+    "docs/ANALYTICS_NO_SIGNAL_AUDIT.md",
+    "docs/ANALYTICS_DEPENDENCY_AUDIT.md",
+    "docs/ANALYTICS_NEXT_PHASE_PLAN.md",
+    "docs/CORRELATION_ANALYTICS_V0.md",
+    "docs/BETA_ANALYTICS_V0.md",
+    "docs/CORRELATION_BETA_VALIDATION_POLICY.md",
+    "docs/CORRELATION_BETA_SAFETY_BOUNDARY.md",
+    "docs/TIME_SERIES_DIAGNOSTICS_FOUNDATION.md",
+    "docs/TIMESTAMP_DIAGNOSTICS_POLICY.md",
+    "docs/TIME_SERIES_GAP_DIAGNOSTICS.md",
+    "docs/TIME_SERIES_DIAGNOSTICS_SAFETY_BOUNDARY.md",
+    "docs/STATIONARITY_REGIME_DIAGNOSTICS_DEFERRED.md",
+    "docs/REGIME_ANALYTICS_PLANNING.md",
+    "docs/REGIME_LABEL_CONTRACTS.md",
+    "docs/REGIME_EVIDENCE_REQUIREMENTS.md",
+    "docs/REGIME_ANALYTICS_SAFETY_POLICY.md",
+    "docs/REGIME_DEPENDENCY_STAGING.md",
+    "docs/REGIME_ANALYTICS_ROADMAP.md",
+    "docs/REGIME_FEATURE_PREPARATION_CONTRACTS.md",
+    "docs/REGIME_FEATURE_GROUPS.md",
+    "docs/REGIME_FEATURE_PROVENANCE_POLICY.md",
+    "docs/REGIME_FEATURE_EVIDENCE_MAPPING.md",
+    "docs/REGIME_FEATURE_SAFETY_POLICY.md",
+    "docs/REGIME_FEATURE_DEPENDENCY_STAGING.md",
+    "docs/ANALYTICS_REGIME_MILESTONE_AUDIT.md",
+    "docs/REGIME_BOUNDARY_AUDIT.md",
+    "docs/REGIME_NO_CLASSIFICATION_AUDIT.md",
+    "docs/REGIME_FEATURE_PREPARATION_AUDIT.md",
+    "docs/ANALYTICS_REGIME_NO_SIGNAL_AUDIT.md",
+    "docs/ANALYTICS_REGIME_DEPENDENCY_AUDIT.md",
+    "docs/DECISION_DESK_READINESS_PLAN.md",
+    "docs/RETAIL_DECISION_DESK_PLANNING.md",
+    "docs/DECISION_DESK_ACTION_PLACEHOLDERS.md",
+    "docs/DECISION_DESK_EVIDENCE_REQUIREMENTS.md",
+    "docs/DECISION_DESK_HUMAN_REVIEW_GUARDRAILS.md",
+    "docs/DECISION_DESK_SAFETY_POLICY.md",
+    "docs/DECISION_DESK_DISPLAY_BOUNDARY.md",
+    "docs/DECISIONOBJECT_EVIDENCE_BUNDLE_CONTRACTS.md",
+    "docs/DECISION_EVIDENCE_ITEM_SCHEMA.md",
+    "docs/DECISION_EVIDENCE_PROVENANCE_POLICY.md",
+    "docs/DECISION_EVIDENCE_VALIDATION_CHECKLIST.md",
+    "docs/DECISION_EVIDENCE_HUMAN_REVIEW_ATTACHMENTS.md",
+    "docs/DECISION_EVIDENCE_SAFETY_POLICY.md",
+    "docs/DECISION_SAFETY_GUARDRAILS.md",
+    "docs/DECISION_HUMAN_REVIEW_GATES.md",
+    "docs/DECISION_APPROVAL_PLACEHOLDERS.md",
+    "docs/DECISION_OVERRIDE_PROHIBITION.md",
+    "docs/DECISION_BLOCKED_OUTPUT_POLICY.md",
+    "docs/DECISION_SAFETY_READINESS_POLICY.md",
+    "docs/DECISION_DESK_API_CONTRACT_SKELETON.md",
+    "docs/DECISION_DESK_REQUEST_RESPONSE_PLACEHOLDERS.md",
+    "docs/DECISION_DESK_UNAVAILABLE_RESPONSES.md",
+    "docs/DECISION_DESK_API_SAFETY_BOUNDARY.md",
+    "docs/DECISION_DESK_API_NO_RECOMMENDATION_POLICY.md",
+    "docs/DECISION_DESK_MILESTONE_AUDIT.md",
+    "docs/DECISION_DESK_BOUNDARY_AUDIT.md",
+    "docs/DECISION_EVIDENCE_BOUNDARY_AUDIT.md",
+    "docs/DECISION_SAFETY_BOUNDARY_AUDIT.md",
+    "docs/DECISION_API_SKELETON_AUDIT.md",
+    "docs/DECISION_NO_RECOMMENDATION_AUDIT.md",
+    "docs/DECISION_DESK_NEXT_PHASE_PLAN.md",
+    "docs/DECISION_DESK_READINESS_API_SKELETON.md",
+    "docs/DECISION_READINESS_REQUEST_RESPONSE_PLACEHOLDERS.md",
+    "docs/DECISION_READINESS_REFERENCE_PLACEHOLDERS.md",
+    "docs/DECISION_READINESS_UNAVAILABLE_RESPONSES.md",
+    "docs/DECISION_READINESS_API_SAFETY_BOUNDARY.md",
+    "docs/DECISION_READINESS_NO_RECOMMENDATION_POLICY.md",
+    "docs/DECISION_DESK_DISPLAY_CONTRACT_SKELETON.md",
+    "docs/DECISION_DISPLAY_CARD_PLACEHOLDERS.md",
+    "docs/DECISION_DISPLAY_SECTION_PLACEHOLDERS.md",
+    "docs/DECISION_DISPLAY_UNAVAILABLE_RESPONSES.md",
+    "docs/DECISION_DISPLAY_SAFETY_BOUNDARY.md",
+    "docs/DECISION_DISPLAY_NO_RECOMMENDATION_POLICY.md",
+    "docs/DECISION_EVIDENCE_VALIDATION_V0.md",
+    "docs/DECISION_EVIDENCE_VALIDATION_RESULT_SCHEMA.md",
+    "docs/DECISION_EVIDENCE_VALIDATION_FAILURE_REASONS.md",
+    "docs/DECISION_EVIDENCE_VALIDATION_SAFETY_BOUNDARY.md",
+    "docs/DECISION_EVIDENCE_VALIDATION_API_SKELETON.md",
+    "docs/DECISION_EVIDENCE_VALIDATION_NO_RECOMMENDATION_POLICY.md",
+    "docs/DECISION_HUMAN_REVIEW_WORKFLOW_SKELETON.md",
+    "docs/DECISION_REVIEW_TASK_PLACEHOLDERS.md",
+    "docs/DECISION_REVIEW_ROLE_PLACEHOLDERS.md",
+    "docs/DECISION_REVIEW_QUEUE_PLACEHOLDERS.md",
+    "docs/DECISION_REVIEW_UNAVAILABLE_RESPONSES.md",
+    "docs/DECISION_REVIEW_NO_APPROVAL_POLICY.md",
+    "docs/DECISION_DESK_MILESTONE_AUDIT_2.md",
+    "docs/DECISION_READINESS_API_BOUNDARY_AUDIT.md",
+    "docs/DECISION_DISPLAY_BOUNDARY_AUDIT.md",
+    "docs/DECISION_EVIDENCE_VALIDATION_BOUNDARY_AUDIT.md",
+    "docs/DECISION_HUMAN_REVIEW_WORKFLOW_BOUNDARY_AUDIT.md",
+    "docs/DECISION_NO_APPROVAL_WORKFLOW_AUDIT.md",
+    "docs/DECISION_DESK_NEXT_PHASE_PLAN_2.md",
+    "docs/DECISION_DESK_SYSTEM_BOUNDARY_HARDENING.md",
+    "docs/DECISION_FORBIDDEN_BEHAVIOR_REGISTRY.md",
+    "docs/DECISION_ENDPOINT_BOUNDARY_POLICY.md",
+    "docs/DECISION_MODULE_BOUNDARY_POLICY.md",
+    "docs/DECISION_CROSS_MODULE_INVARIANTS.md",
+    "docs/DECISION_BOUNDARY_HARDENING_NO_EXECUTION_POLICY.md",
+    "docs/DECISION_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md",
+    "docs/DECISION_CROSS_ENDPOINT_CONSISTENCY_AUDIT.md",
+    "docs/DECISION_API_DISPLAY_BOUNDARY_AUDIT.md",
+    "docs/DECISION_BOUNDARY_INTEGRATION_AUDIT.md",
+    "docs/DECISION_INTEGRATION_NO_RECOMMENDATION_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_READINESS_PLAN.md",
+    "docs/RETAIL_DASHBOARD_PLANNING.md",
+    "docs/RETAIL_DASHBOARD_GUARDRAILS.md",
+    "docs/RETAIL_DASHBOARD_SECTION_PLACEHOLDERS.md",
+    "docs/RETAIL_DASHBOARD_CARD_PLACEHOLDERS.md",
+    "docs/RETAIL_DASHBOARD_FORBIDDEN_INTERACTIONS.md",
+    "docs/RETAIL_DASHBOARD_NO_RECOMMENDATION_POLICY.md",
+    "docs/RETAIL_DASHBOARD_NO_EXECUTION_POLICY.md",
+    "docs/RETAIL_DASHBOARD_API_CONTRACT_SKELETON.md",
+    "docs/RETAIL_DASHBOARD_API_REQUEST_RESPONSE_PLACEHOLDERS.md",
+    "docs/RETAIL_DASHBOARD_API_REFERENCE_PLACEHOLDERS.md",
+    "docs/RETAIL_DASHBOARD_API_UNAVAILABLE_RESPONSES.md",
+    "docs/RETAIL_DASHBOARD_API_SAFETY_BOUNDARY.md",
+    "docs/RETAIL_DASHBOARD_API_NO_RECOMMENDATION_POLICY.md",
+    "docs/RETAIL_DASHBOARD_API_NO_EXECUTION_POLICY.md",
+    "docs/RETAIL_DASHBOARD_DISPLAY_CONTRACT_SKELETON.md",
+    "docs/RETAIL_DASHBOARD_LAYOUT_PLACEHOLDERS.md",
+    "docs/RETAIL_DASHBOARD_WIDGET_PLACEHOLDERS.md",
+    "docs/RETAIL_DASHBOARD_VISUAL_SECTION_PLACEHOLDERS.md",
+    "docs/RETAIL_DASHBOARD_DISPLAY_UNAVAILABLE_RESPONSES.md",
+    "docs/RETAIL_DASHBOARD_DISPLAY_SAFETY_BOUNDARY.md",
+    "docs/RETAIL_DASHBOARD_DISPLAY_NO_RECOMMENDATION_POLICY.md",
+    "docs/RETAIL_DASHBOARD_DISPLAY_NO_EXECUTION_POLICY.md",
+    "docs/RETAIL_DASHBOARD_SAFETY_BOUNDARY_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_API_BOUNDARY_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_DISPLAY_BOUNDARY_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_NO_ACTIVE_UI_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_NO_RECOMMENDATION_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_NO_EXECUTION_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_MILESTONE_READINESS.md",
+    "docs/RETAIL_DASHBOARD_MILESTONE_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_PLANNING_MILESTONE_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_API_MILESTONE_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_DISPLAY_MILESTONE_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_SAFETY_MILESTONE_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_PHASE_NO_ACTIVE_UI_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_PHASE_NO_RECOMMENDATION_EXECUTION_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_NEXT_PHASE_PLAN.md",
+    "docs/RETAIL_DASHBOARD_SYSTEM_BOUNDARY_HARDENING.md",
+    "docs/RETAIL_DASHBOARD_FORBIDDEN_BEHAVIOR_REGISTRY.md",
+    "docs/RETAIL_DASHBOARD_ENDPOINT_BOUNDARY_POLICY.md",
+    "docs/RETAIL_DASHBOARD_MODULE_BOUNDARY_POLICY.md",
+    "docs/RETAIL_DASHBOARD_CROSS_MODULE_INVARIANTS.md",
+    "docs/RETAIL_DASHBOARD_BOUNDARY_NO_ACTIVE_UI_POLICY.md",
+    "docs/RETAIL_DASHBOARD_BOUNDARY_NO_EXECUTION_POLICY.md",
     "docs/NORTH_STAR.md",
     "docs/PROMPT_LOG.md",
     "docs/TECH_STACK.md",
@@ -73,6 +242,19 @@ REQUIRED_PACKAGE_DIRS = [
     "packages/core/stark_terminal_core",
     "packages/core/stark_terminal_core/config",
     "packages/core/stark_terminal_core/domain",
+    "packages/core/stark_terminal_core/decision_desk",
+    "packages/core/stark_terminal_core/decision_evidence",
+    "packages/core/stark_terminal_core/decision_safety",
+    "packages/core/stark_terminal_core/decision_api",
+    "packages/core/stark_terminal_core/decision_readiness_api",
+    "packages/core/stark_terminal_core/decision_display",
+    "packages/core/stark_terminal_core/decision_evidence_validation",
+    "packages/core/stark_terminal_core/decision_human_review",
+    "packages/core/stark_terminal_core/decision_boundary",
+    "packages/core/stark_terminal_core/retail_dashboard",
+    "packages/core/stark_terminal_core/retail_dashboard_api",
+    "packages/core/stark_terminal_core/retail_dashboard_display",
+    "packages/core/stark_terminal_core/retail_dashboard_boundary",
     "packages/core/stark_terminal_core/serialization",
     "packages/data_platform/stark_terminal_data_platform",
     "packages/data_platform/stark_terminal_data_platform/db",
@@ -92,6 +274,17 @@ REQUIRED_PACKAGE_DIRS = [
     "packages/data_platform/stark_terminal_data_platform/warehouse",
     "packages/data_platform/stark_terminal_data_platform/features",
     "packages/analytics/stark_terminal_analytics",
+    "packages/analytics/stark_terminal_analytics/foundation",
+    "packages/analytics/stark_terminal_analytics/numerical",
+    "packages/analytics/stark_terminal_analytics/returns",
+    "packages/analytics/stark_terminal_analytics/rolling",
+    "packages/analytics/stark_terminal_analytics/volatility",
+    "packages/analytics/stark_terminal_analytics/drawdown",
+    "packages/analytics/stark_terminal_analytics/correlation",
+    "packages/analytics/stark_terminal_analytics/beta",
+    "packages/analytics/stark_terminal_analytics/diagnostics",
+    "packages/analytics/stark_terminal_analytics/regime",
+    "packages/analytics/stark_terminal_analytics/regime_features",
     "packages/research/stark_terminal_research",
 ]
 
@@ -114,6 +307,27 @@ REQUIRED_ROUTE_FILES = [
     "apps/api/stark_terminal_api/routes/provider_readiness.py",
     "apps/api/stark_terminal_api/routes/local_sample_provider.py",
     "apps/api/stark_terminal_api/routes/local_file_provider.py",
+    "apps/api/stark_terminal_api/routes/analytics_foundation.py",
+    "apps/api/stark_terminal_api/routes/numerical_analytics.py",
+    "apps/api/stark_terminal_api/routes/returns_analytics.py",
+    "apps/api/stark_terminal_api/routes/risk_analytics.py",
+    "apps/api/stark_terminal_api/routes/relationship_analytics.py",
+    "apps/api/stark_terminal_api/routes/time_series_diagnostics.py",
+    "apps/api/stark_terminal_api/routes/regime_analytics.py",
+    "apps/api/stark_terminal_api/routes/regime_features.py",
+    "apps/api/stark_terminal_api/routes/decision_desk.py",
+    "apps/api/stark_terminal_api/routes/decision_evidence.py",
+    "apps/api/stark_terminal_api/routes/decision_safety.py",
+    "apps/api/stark_terminal_api/routes/decision_desk_api.py",
+    "apps/api/stark_terminal_api/routes/decision_readiness_api.py",
+    "apps/api/stark_terminal_api/routes/decision_display.py",
+    "apps/api/stark_terminal_api/routes/decision_evidence_validation.py",
+    "apps/api/stark_terminal_api/routes/decision_human_review.py",
+    "apps/api/stark_terminal_api/routes/decision_boundary.py",
+    "apps/api/stark_terminal_api/routes/retail_dashboard.py",
+    "apps/api/stark_terminal_api/routes/retail_dashboard_api.py",
+    "apps/api/stark_terminal_api/routes/retail_dashboard_display.py",
+    "apps/api/stark_terminal_api/routes/retail_dashboard_boundary.py",
     "apps/api/stark_terminal_api/routes/workers.py",
     "apps/api/stark_terminal_api/routes/instruments.py",
     "apps/api/stark_terminal_api/routes/warehouse.py",
@@ -170,10 +384,19 @@ REQUIRED_DATA_FOUNDATION_FILES = [
     "docs/PROVIDER_BOUNDARY_AUDIT.md",
     "docs/PROVIDER_NO_EXTERNAL_CALLS_AUDIT.md",
     "docs/PROVIDER_NEXT_PHASE_PLAN.md",
+    "docs/QUANT_ANALYTICS_FOUNDATION_PLAN.md",
+    "docs/TIME_SERIES_ANALYTICS_BOUNDARY.md",
+    "docs/ANALYTICS_SAFETY_POLICY.md",
+    "docs/ANALYTICS_DEPENDENCY_STAGING.md",
+    "docs/ANALYTICS_ROADMAP.md",
     "apps/api/stark_terminal_api/routes/synthetic_ohlcv_storage.py",
     "apps/api/stark_terminal_api/routes/synthetic_ohlcv_exports.py",
     "apps/api/stark_terminal_api/routes/provider_guardrails.py",
     "apps/api/stark_terminal_api/routes/provider_readiness.py",
+    "apps/api/stark_terminal_api/routes/analytics_foundation.py",
+    "apps/api/stark_terminal_api/routes/numerical_analytics.py",
+    "apps/api/stark_terminal_api/routes/returns_analytics.py",
+    "apps/api/stark_terminal_api/routes/risk_analytics.py",
     "apps/api/stark_terminal_api/routes/fixtures.py",
     "apps/api/stark_terminal_api/routes/instrument_metadata.py",
     "apps/api/stark_terminal_api/routes/market_data_batches.py",
@@ -242,6 +465,259 @@ REQUIRED_SAFETY_PHRASES = [
     "Provider Boundary Audit",
     "Provider No External Calls Audit",
     "Provider Next Phase Plan",
+    "Quant Analytics",
+    "Time-Series Analytics",
+    "analytics safety",
+    "dependency staging",
+    "no signals",
+    "no recommendations",
+    "no analytics calculations",
+    "Numerical Analytics",
+    "source reference",
+    "finite values",
+    "dependency gate",
+    "descriptive-only",
+    "no returns",
+    "no volatility",
+    "no drawdown",
+    "no correlation",
+    "no DecisionObject",
+    "Returns Analytics",
+    "Rolling Window Analytics",
+    "simple returns",
+    "log returns",
+    "rolling mean",
+    "rolling min",
+    "rolling max",
+    "rolling count",
+    "Volatility Analytics",
+    "Drawdown Analytics",
+    "sample standard deviation",
+    "population standard deviation",
+    "annualized volatility",
+    "drawdown series",
+    "max drawdown",
+    "drawdown duration",
+    "no backtesting",
+    "no regimes",
+    "Analytics Milestone Audit",
+    "Analytics Boundary Audit",
+    "Analytics No-Signal Audit",
+    "Analytics Dependency Audit",
+    "Analytics Next Phase Plan",
+    "Prompts 26-29",
+    "no heavy dependencies",
+    "no DecisionObject generation",
+    "no buy/sell/hold/watch/avoid outputs",
+    "Correlation Analytics",
+    "Beta Analytics",
+    "Pearson correlation",
+    "sample covariance",
+    "sample variance",
+    "equal length",
+    "minimum observations",
+    "zero variance",
+    "Time-Series Diagnostics",
+    "timestamp diagnostics",
+    "monotonic",
+    "duplicate timestamp",
+    "gap diagnostics",
+    "expected interval",
+    "missing count",
+    "no stationarity tests",
+    "no regime detection",
+    "no indicators",
+    "Regime Analytics",
+    "planning-only",
+    "label placeholders",
+    "evidence requirements",
+    "human review",
+    "no classification",
+    "Regime Feature Preparation",
+    "contracts-only",
+    "feature groups",
+    "provenance",
+    "evidence mapping",
+    "no feature computation",
+    "no feature registry writes",
+    "Analytics/Regime Milestone Audit",
+    "Regime Boundary Audit",
+    "Regime No-Classification Audit",
+    "Regime Feature Preparation Audit",
+    "Analytics/Regime No-Signal Audit",
+    "Analytics/Regime Dependency Audit",
+    "Decision Desk Readiness Plan",
+    "Retail Decision Desk",
+    "action placeholders",
+    "evidence requirements",
+    "human review",
+    "human-review guardrails",
+    "display boundary",
+    "no action generation",
+    "no confidence scoring",
+    "Prompt 36",
+    "Prompts 26-34",
+    "Prompt 38",
+    "DecisionObject Evidence Bundle",
+    "evidence item",
+    "validation checklist",
+    "human review attachment",
+    "Prompt 39",
+    "Decision Safety",
+    "human-review gates",
+    "approval placeholders",
+    "override prohibition",
+    "blocked output policy",
+    "no approvals",
+    "no overrides",
+    "Decision Desk API",
+    "contract skeleton",
+    "request placeholder",
+    "response placeholder",
+    "unavailable response",
+    "Decision Desk Milestone Audit",
+    "Decision Desk Boundary Audit",
+    "Decision Evidence Boundary Audit",
+    "Decision Safety Boundary Audit",
+    "Decision API Skeleton Audit",
+    "Decision No-Recommendation Audit",
+    "Decision Desk Next Phase Plan",
+    "Prompts 36-40",
+    "unavailable-by-default",
+    "no approval",
+    "no override",
+    "no active DecisionObject generation",
+    "no market-data-to-recommendation endpoint",
+    "Prompt 42",
+    "Decision Desk Readiness API",
+    "no readiness-to-trade",
+    "Prompt 43",
+    "Decision Desk Display",
+    "display contract skeleton",
+    "no active UI",
+    "Prompt 44",
+    "Decision Evidence Validation",
+    "validation-only",
+    "validation result",
+    "failure reasons",
+    "no validation-as-recommendation",
+    "no validation-as-readiness-to-trade",
+    "no validation-as-approval",
+    "Prompt 45",
+    "Decision Human Review",
+    "workflow skeleton",
+    "task placeholder",
+    "role placeholder",
+    "queue placeholder",
+    "unavailable response",
+    "no active workflow",
+    "no task assignment",
+    "no reviewer auth",
+    "no notifications",
+    "Prompt 46",
+    "Decision Desk Milestone Audit 2",
+    "Decision Readiness API Boundary Audit",
+    "Decision Display Boundary Audit",
+    "Decision Evidence Validation Boundary Audit",
+    "Decision Human Review Workflow Boundary Audit",
+    "Decision No-Approval Workflow Audit",
+    "Prompts 42-45",
+    "no active approval workflow",
+    "no active override workflow",
+    "Prompt 47",
+    "Decision Desk System Boundary Hardening",
+    "forbidden behavior registry",
+    "endpoint boundary policy",
+    "module boundary policy",
+    "cross-module invariants",
+    "no endpoint boundary bypass",
+    "no cross-module boundary bypass",
+    "no module bypasses forbidden behavior registry",
+    "boundary-hardening-only",
+    "Prompt 48",
+    "Decision API/Display Integration Readiness Audit",
+    "Decision Cross-Endpoint Consistency Audit",
+    "Decision API Display Boundary Audit",
+    "Decision Boundary Integration Audit",
+    "Decision Integration No-Recommendation Audit",
+    "Retail Dashboard Readiness Plan",
+    "Prompt 49",
+    "Retail Dashboard Planning and Guardrails",
+    "planning and guardrails",
+    "no recommendation cards",
+    "no broker controls",
+    "no dashboard-as-recommendation",
+    "no dashboard-as-execution-control",
+    "no placeholder-card-as-decision",
+    "no real market data dashboard display",
+    "retail-dashboard-planning",
+    "Prompt 50",
+    "Retail Dashboard API",
+    "API contract skeleton",
+    "unavailable by default",
+    "no active UI",
+    "no recommendation cards",
+    "no action generation",
+    "no confidence scoring",
+    "no DecisionObject generation",
+    "no readiness-to-trade",
+    "no broker controls",
+    "no execution APIs",
+    "Prompt 51",
+    "Retail Dashboard Display",
+    "display contract skeleton",
+    "unavailable by default",
+    "no active UI",
+    "no frontend component",
+    "no desktop UI component",
+    "no recommendation cards",
+    "no action generation",
+    "no confidence scoring",
+    "no DecisionObject generation",
+    "no readiness-to-trade",
+    "no broker controls",
+    "no execution APIs",
+    "Prompt 52",
+    "Retail Dashboard Safety Boundary Audit",
+    "Prompts 49-51",
+    "Retail Dashboard API Boundary Audit",
+    "Retail Dashboard Display Boundary Audit",
+    "no frontend implementation",
+    "no desktop UI implementation",
+    "no active dashboard widgets",
+    "no dashboard-as-recommendation",
+    "no dashboard-as-execution-control",
+    "Retail Dashboard Milestone Audit",
+    "Prompt 53",
+    "Prompts 49-52",
+    "Retail Dashboard Planning Milestone Audit",
+    "Retail Dashboard API Milestone Audit",
+    "Retail Dashboard Display Milestone Audit",
+    "Retail Dashboard Safety Milestone Audit",
+    "Retail Dashboard Phase No Active UI Audit",
+    "Retail Dashboard Phase No Recommendation Execution Audit",
+    "Retail Dashboard Next Phase Plan",
+    "Retail Dashboard System Boundary Hardening",
+    "Prompt 54",
+    "forbidden behavior registry",
+    "endpoint boundary policy",
+    "module boundary policy",
+    "cross-module invariants",
+    "no frontend components",
+    "no desktop components",
+    "no cross-module dashboard boundary bypass",
+    "no endpoint dashboard boundary bypass",
+    "Retail Dashboard forbidden behavior registry",
+    "boundary-hardening-only",
+    "Prompts 40-47",
+    "Retail Dashboard Planning and Guardrails only",
+    "no API-to-display recommendation path",
+    "no readiness-to-display-trade",
+    "no display-as-decision",
+    "decision-api-display-readiness",
+    "no classifier inputs",
+    "Decision Desk planning",
+    "dependency staging",
     "batch metadata",
     "no full OHLCV bars",
     "no full OHLCV production persistence",
@@ -250,6 +726,1055 @@ REQUIRED_SAFETY_PHRASES = [
     "Mac mini M2",
     "Windows-native",
 ]
+
+REQUIRED_ANALYTICS_FOUNDATION_FILES = [
+    "packages/analytics/stark_terminal_analytics/foundation/__init__.py",
+    "packages/analytics/stark_terminal_analytics/foundation/contracts.py",
+    "packages/analytics/stark_terminal_analytics/foundation/safety.py",
+    "packages/analytics/stark_terminal_analytics/foundation/dependencies.py",
+    "packages/analytics/stark_terminal_analytics/foundation/roadmap.py",
+    "packages/analytics/stark_terminal_analytics/foundation/health.py",
+    "packages/analytics/stark_terminal_analytics/foundation/README.md",
+]
+
+REQUIRED_NUMERICAL_ANALYTICS_FILES = [
+    "packages/analytics/stark_terminal_analytics/numerical/__init__.py",
+    "packages/analytics/stark_terminal_analytics/numerical/contracts.py",
+    "packages/analytics/stark_terminal_analytics/numerical/validation.py",
+    "packages/analytics/stark_terminal_analytics/numerical/dependencies.py",
+    "packages/analytics/stark_terminal_analytics/numerical/summary.py",
+    "packages/analytics/stark_terminal_analytics/numerical/health.py",
+    "packages/analytics/stark_terminal_analytics/numerical/README.md",
+    "apps/api/stark_terminal_api/routes/numerical_analytics.py",
+    "docs/NUMERICAL_ANALYTICS_CORE_CONTRACTS.md",
+    "docs/NUMERICAL_ANALYTICS_VALIDATION_POLICY.md",
+    "docs/NUMERICAL_ANALYTICS_DEPENDENCY_GATE.md",
+    "docs/NUMERICAL_ANALYTICS_SAFETY_BOUNDARY.md",
+]
+
+REQUIRED_RETURNS_ROLLING_ANALYTICS_FILES = [
+    "packages/analytics/stark_terminal_analytics/returns/__init__.py",
+    "packages/analytics/stark_terminal_analytics/returns/contracts.py",
+    "packages/analytics/stark_terminal_analytics/returns/validation.py",
+    "packages/analytics/stark_terminal_analytics/returns/calculations.py",
+    "packages/analytics/stark_terminal_analytics/returns/health.py",
+    "packages/analytics/stark_terminal_analytics/returns/README.md",
+    "packages/analytics/stark_terminal_analytics/rolling/__init__.py",
+    "packages/analytics/stark_terminal_analytics/rolling/contracts.py",
+    "packages/analytics/stark_terminal_analytics/rolling/validation.py",
+    "packages/analytics/stark_terminal_analytics/rolling/calculations.py",
+    "packages/analytics/stark_terminal_analytics/rolling/health.py",
+    "packages/analytics/stark_terminal_analytics/rolling/README.md",
+    "apps/api/stark_terminal_api/routes/returns_analytics.py",
+    "docs/RETURNS_ANALYTICS_V0.md",
+    "docs/ROLLING_WINDOW_ANALYTICS_V0.md",
+    "docs/RETURNS_ROLLING_VALIDATION_POLICY.md",
+    "docs/RETURNS_ROLLING_SAFETY_BOUNDARY.md",
+]
+
+REQUIRED_VOLATILITY_DRAWDOWN_ANALYTICS_FILES = [
+    "packages/analytics/stark_terminal_analytics/volatility/__init__.py",
+    "packages/analytics/stark_terminal_analytics/volatility/contracts.py",
+    "packages/analytics/stark_terminal_analytics/volatility/validation.py",
+    "packages/analytics/stark_terminal_analytics/volatility/calculations.py",
+    "packages/analytics/stark_terminal_analytics/volatility/health.py",
+    "packages/analytics/stark_terminal_analytics/volatility/README.md",
+    "packages/analytics/stark_terminal_analytics/drawdown/__init__.py",
+    "packages/analytics/stark_terminal_analytics/drawdown/contracts.py",
+    "packages/analytics/stark_terminal_analytics/drawdown/validation.py",
+    "packages/analytics/stark_terminal_analytics/drawdown/calculations.py",
+    "packages/analytics/stark_terminal_analytics/drawdown/health.py",
+    "packages/analytics/stark_terminal_analytics/drawdown/README.md",
+    "apps/api/stark_terminal_api/routes/risk_analytics.py",
+    "docs/VOLATILITY_ANALYTICS_V0.md",
+    "docs/DRAWDOWN_ANALYTICS_V0.md",
+    "docs/VOLATILITY_DRAWDOWN_VALIDATION_POLICY.md",
+    "docs/VOLATILITY_DRAWDOWN_SAFETY_BOUNDARY.md",
+]
+
+REQUIRED_ANALYTICS_MILESTONE_AUDIT_FILES = [
+    "docs/ANALYTICS_MILESTONE_AUDIT.md",
+    "docs/ANALYTICS_BOUNDARY_AUDIT.md",
+    "docs/ANALYTICS_NO_SIGNAL_AUDIT.md",
+    "docs/ANALYTICS_DEPENDENCY_AUDIT.md",
+    "docs/ANALYTICS_NEXT_PHASE_PLAN.md",
+]
+
+REQUIRED_CORRELATION_BETA_ANALYTICS_FILES = [
+    "packages/analytics/stark_terminal_analytics/correlation/__init__.py",
+    "packages/analytics/stark_terminal_analytics/correlation/contracts.py",
+    "packages/analytics/stark_terminal_analytics/correlation/validation.py",
+    "packages/analytics/stark_terminal_analytics/correlation/calculations.py",
+    "packages/analytics/stark_terminal_analytics/correlation/health.py",
+    "packages/analytics/stark_terminal_analytics/correlation/README.md",
+    "packages/analytics/stark_terminal_analytics/beta/__init__.py",
+    "packages/analytics/stark_terminal_analytics/beta/contracts.py",
+    "packages/analytics/stark_terminal_analytics/beta/validation.py",
+    "packages/analytics/stark_terminal_analytics/beta/calculations.py",
+    "packages/analytics/stark_terminal_analytics/beta/health.py",
+    "packages/analytics/stark_terminal_analytics/beta/README.md",
+    "apps/api/stark_terminal_api/routes/relationship_analytics.py",
+    "docs/CORRELATION_ANALYTICS_V0.md",
+    "docs/BETA_ANALYTICS_V0.md",
+    "docs/CORRELATION_BETA_VALIDATION_POLICY.md",
+    "docs/CORRELATION_BETA_SAFETY_BOUNDARY.md",
+]
+
+REQUIRED_TIME_SERIES_DIAGNOSTICS_FILES = [
+    "packages/analytics/stark_terminal_analytics/diagnostics/__init__.py",
+    "packages/analytics/stark_terminal_analytics/diagnostics/contracts.py",
+    "packages/analytics/stark_terminal_analytics/diagnostics/validation.py",
+    "packages/analytics/stark_terminal_analytics/diagnostics/calculations.py",
+    "packages/analytics/stark_terminal_analytics/diagnostics/health.py",
+    "packages/analytics/stark_terminal_analytics/diagnostics/README.md",
+    "apps/api/stark_terminal_api/routes/time_series_diagnostics.py",
+    "docs/TIME_SERIES_DIAGNOSTICS_FOUNDATION.md",
+    "docs/TIMESTAMP_DIAGNOSTICS_POLICY.md",
+    "docs/TIME_SERIES_GAP_DIAGNOSTICS.md",
+    "docs/TIME_SERIES_DIAGNOSTICS_SAFETY_BOUNDARY.md",
+    "docs/STATIONARITY_REGIME_DIAGNOSTICS_DEFERRED.md",
+]
+
+REQUIRED_REGIME_ANALYTICS_FILES = [
+    "packages/analytics/stark_terminal_analytics/regime/__init__.py",
+    "packages/analytics/stark_terminal_analytics/regime/contracts.py",
+    "packages/analytics/stark_terminal_analytics/regime/safety.py",
+    "packages/analytics/stark_terminal_analytics/regime/evidence.py",
+    "packages/analytics/stark_terminal_analytics/regime/readiness.py",
+    "packages/analytics/stark_terminal_analytics/regime/dependencies.py",
+    "packages/analytics/stark_terminal_analytics/regime/roadmap.py",
+    "packages/analytics/stark_terminal_analytics/regime/health.py",
+    "packages/analytics/stark_terminal_analytics/regime/README.md",
+    "apps/api/stark_terminal_api/routes/regime_analytics.py",
+    "docs/REGIME_ANALYTICS_PLANNING.md",
+    "docs/REGIME_LABEL_CONTRACTS.md",
+    "docs/REGIME_EVIDENCE_REQUIREMENTS.md",
+    "docs/REGIME_ANALYTICS_SAFETY_POLICY.md",
+    "docs/REGIME_DEPENDENCY_STAGING.md",
+    "docs/REGIME_ANALYTICS_ROADMAP.md",
+]
+
+REQUIRED_REGIME_FEATURE_PREPARATION_FILES = [
+    "packages/analytics/stark_terminal_analytics/regime_features/__init__.py",
+    "packages/analytics/stark_terminal_analytics/regime_features/contracts.py",
+    "packages/analytics/stark_terminal_analytics/regime_features/provenance.py",
+    "packages/analytics/stark_terminal_analytics/regime_features/evidence_mapping.py",
+    "packages/analytics/stark_terminal_analytics/regime_features/readiness.py",
+    "packages/analytics/stark_terminal_analytics/regime_features/safety.py",
+    "packages/analytics/stark_terminal_analytics/regime_features/dependencies.py",
+    "packages/analytics/stark_terminal_analytics/regime_features/health.py",
+    "packages/analytics/stark_terminal_analytics/regime_features/README.md",
+    "apps/api/stark_terminal_api/routes/regime_features.py",
+    "docs/REGIME_FEATURE_PREPARATION_CONTRACTS.md",
+    "docs/REGIME_FEATURE_GROUPS.md",
+    "docs/REGIME_FEATURE_PROVENANCE_POLICY.md",
+    "docs/REGIME_FEATURE_EVIDENCE_MAPPING.md",
+    "docs/REGIME_FEATURE_SAFETY_POLICY.md",
+    "docs/REGIME_FEATURE_DEPENDENCY_STAGING.md",
+]
+
+REQUIRED_ANALYTICS_REGIME_MILESTONE_AUDIT_FILES = [
+    "docs/ANALYTICS_REGIME_MILESTONE_AUDIT.md",
+    "docs/REGIME_BOUNDARY_AUDIT.md",
+    "docs/REGIME_NO_CLASSIFICATION_AUDIT.md",
+    "docs/REGIME_FEATURE_PREPARATION_AUDIT.md",
+    "docs/ANALYTICS_REGIME_NO_SIGNAL_AUDIT.md",
+    "docs/ANALYTICS_REGIME_DEPENDENCY_AUDIT.md",
+    "docs/DECISION_DESK_READINESS_PLAN.md",
+]
+
+REQUIRED_RETAIL_DECISION_DESK_FILES = [
+    "packages/core/stark_terminal_core/decision_desk/__init__.py",
+    "packages/core/stark_terminal_core/decision_desk/planning.py",
+    "packages/core/stark_terminal_core/decision_desk/action_placeholders.py",
+    "packages/core/stark_terminal_core/decision_desk/evidence.py",
+    "packages/core/stark_terminal_core/decision_desk/human_review.py",
+    "packages/core/stark_terminal_core/decision_desk/safety.py",
+    "packages/core/stark_terminal_core/decision_desk/readiness.py",
+    "packages/core/stark_terminal_core/decision_desk/display.py",
+    "packages/core/stark_terminal_core/decision_desk/health.py",
+    "packages/core/stark_terminal_core/decision_desk/README.md",
+    "apps/api/stark_terminal_api/routes/decision_desk.py",
+    "docs/RETAIL_DECISION_DESK_PLANNING.md",
+    "docs/DECISION_DESK_ACTION_PLACEHOLDERS.md",
+    "docs/DECISION_DESK_EVIDENCE_REQUIREMENTS.md",
+    "docs/DECISION_DESK_HUMAN_REVIEW_GUARDRAILS.md",
+    "docs/DECISION_DESK_SAFETY_POLICY.md",
+    "docs/DECISION_DESK_DISPLAY_BOUNDARY.md",
+]
+
+REQUIRED_DECISION_EVIDENCE_FILES = [
+    "packages/core/stark_terminal_core/decision_evidence/__init__.py",
+    "packages/core/stark_terminal_core/decision_evidence/bundle.py",
+    "packages/core/stark_terminal_core/decision_evidence/items.py",
+    "packages/core/stark_terminal_core/decision_evidence/provenance.py",
+    "packages/core/stark_terminal_core/decision_evidence/validation.py",
+    "packages/core/stark_terminal_core/decision_evidence/human_review.py",
+    "packages/core/stark_terminal_core/decision_evidence/safety.py",
+    "packages/core/stark_terminal_core/decision_evidence/readiness.py",
+    "packages/core/stark_terminal_core/decision_evidence/health.py",
+    "packages/core/stark_terminal_core/decision_evidence/README.md",
+    "apps/api/stark_terminal_api/routes/decision_evidence.py",
+    "docs/DECISIONOBJECT_EVIDENCE_BUNDLE_CONTRACTS.md",
+    "docs/DECISION_EVIDENCE_ITEM_SCHEMA.md",
+    "docs/DECISION_EVIDENCE_PROVENANCE_POLICY.md",
+    "docs/DECISION_EVIDENCE_VALIDATION_CHECKLIST.md",
+    "docs/DECISION_EVIDENCE_HUMAN_REVIEW_ATTACHMENTS.md",
+    "docs/DECISION_EVIDENCE_SAFETY_POLICY.md",
+]
+
+REQUIRED_DECISION_SAFETY_FILES = [
+    "packages/core/stark_terminal_core/decision_safety/__init__.py",
+    "packages/core/stark_terminal_core/decision_safety/guardrails.py",
+    "packages/core/stark_terminal_core/decision_safety/human_review.py",
+    "packages/core/stark_terminal_core/decision_safety/approval.py",
+    "packages/core/stark_terminal_core/decision_safety/overrides.py",
+    "packages/core/stark_terminal_core/decision_safety/blocked_outputs.py",
+    "packages/core/stark_terminal_core/decision_safety/readiness.py",
+    "packages/core/stark_terminal_core/decision_safety/health.py",
+    "packages/core/stark_terminal_core/decision_safety/README.md",
+    "apps/api/stark_terminal_api/routes/decision_safety.py",
+    "docs/DECISION_SAFETY_GUARDRAILS.md",
+    "docs/DECISION_HUMAN_REVIEW_GATES.md",
+    "docs/DECISION_APPROVAL_PLACEHOLDERS.md",
+    "docs/DECISION_OVERRIDE_PROHIBITION.md",
+    "docs/DECISION_BLOCKED_OUTPUT_POLICY.md",
+    "docs/DECISION_SAFETY_READINESS_POLICY.md",
+]
+
+REQUIRED_DECISION_API_FILES = [
+    "packages/core/stark_terminal_core/decision_api/__init__.py",
+    "packages/core/stark_terminal_core/decision_api/requests.py",
+    "packages/core/stark_terminal_core/decision_api/responses.py",
+    "packages/core/stark_terminal_core/decision_api/references.py",
+    "packages/core/stark_terminal_core/decision_api/unavailable.py",
+    "packages/core/stark_terminal_core/decision_api/contracts.py",
+    "packages/core/stark_terminal_core/decision_api/health.py",
+    "packages/core/stark_terminal_core/decision_api/README.md",
+    "apps/api/stark_terminal_api/routes/decision_desk_api.py",
+    "docs/DECISION_DESK_API_CONTRACT_SKELETON.md",
+    "docs/DECISION_DESK_REQUEST_RESPONSE_PLACEHOLDERS.md",
+    "docs/DECISION_DESK_UNAVAILABLE_RESPONSES.md",
+    "docs/DECISION_DESK_API_SAFETY_BOUNDARY.md",
+    "docs/DECISION_DESK_API_NO_RECOMMENDATION_POLICY.md",
+]
+
+REQUIRED_DECISION_DESK_MILESTONE_AUDIT_FILES = [
+    "docs/DECISION_DESK_MILESTONE_AUDIT.md",
+    "docs/DECISION_DESK_BOUNDARY_AUDIT.md",
+    "docs/DECISION_EVIDENCE_BOUNDARY_AUDIT.md",
+    "docs/DECISION_SAFETY_BOUNDARY_AUDIT.md",
+    "docs/DECISION_API_SKELETON_AUDIT.md",
+    "docs/DECISION_NO_RECOMMENDATION_AUDIT.md",
+    "docs/DECISION_DESK_NEXT_PHASE_PLAN.md",
+]
+
+REQUIRED_DECISION_READINESS_API_FILES = [
+    "packages/core/stark_terminal_core/decision_readiness_api/__init__.py",
+    "packages/core/stark_terminal_core/decision_readiness_api/requests.py",
+    "packages/core/stark_terminal_core/decision_readiness_api/responses.py",
+    "packages/core/stark_terminal_core/decision_readiness_api/references.py",
+    "packages/core/stark_terminal_core/decision_readiness_api/unavailable.py",
+    "packages/core/stark_terminal_core/decision_readiness_api/contracts.py",
+    "packages/core/stark_terminal_core/decision_readiness_api/health.py",
+    "packages/core/stark_terminal_core/decision_readiness_api/README.md",
+    "apps/api/stark_terminal_api/routes/decision_readiness_api.py",
+    "docs/DECISION_DESK_READINESS_API_SKELETON.md",
+    "docs/DECISION_READINESS_REQUEST_RESPONSE_PLACEHOLDERS.md",
+    "docs/DECISION_READINESS_REFERENCE_PLACEHOLDERS.md",
+    "docs/DECISION_READINESS_UNAVAILABLE_RESPONSES.md",
+    "docs/DECISION_READINESS_API_SAFETY_BOUNDARY.md",
+    "docs/DECISION_READINESS_NO_RECOMMENDATION_POLICY.md",
+]
+
+REQUIRED_DECISION_DISPLAY_FILES = [
+    "packages/core/stark_terminal_core/decision_display/__init__.py",
+    "packages/core/stark_terminal_core/decision_display/contracts.py",
+    "packages/core/stark_terminal_core/decision_display/cards.py",
+    "packages/core/stark_terminal_core/decision_display/sections.py",
+    "packages/core/stark_terminal_core/decision_display/badges.py",
+    "packages/core/stark_terminal_core/decision_display/references.py",
+    "packages/core/stark_terminal_core/decision_display/unavailable.py",
+    "packages/core/stark_terminal_core/decision_display/health.py",
+    "packages/core/stark_terminal_core/decision_display/README.md",
+    "apps/api/stark_terminal_api/routes/decision_display.py",
+    "docs/DECISION_DESK_DISPLAY_CONTRACT_SKELETON.md",
+    "docs/DECISION_DISPLAY_CARD_PLACEHOLDERS.md",
+    "docs/DECISION_DISPLAY_SECTION_PLACEHOLDERS.md",
+    "docs/DECISION_DISPLAY_UNAVAILABLE_RESPONSES.md",
+    "docs/DECISION_DISPLAY_SAFETY_BOUNDARY.md",
+    "docs/DECISION_DISPLAY_NO_RECOMMENDATION_POLICY.md",
+]
+
+REQUIRED_DECISION_EVIDENCE_VALIDATION_FILES = [
+    "packages/core/stark_terminal_core/decision_evidence_validation/__init__.py",
+    "packages/core/stark_terminal_core/decision_evidence_validation/contracts.py",
+    "packages/core/stark_terminal_core/decision_evidence_validation/issues.py",
+    "packages/core/stark_terminal_core/decision_evidence_validation/validators.py",
+    "packages/core/stark_terminal_core/decision_evidence_validation/results.py",
+    "packages/core/stark_terminal_core/decision_evidence_validation/safety.py",
+    "packages/core/stark_terminal_core/decision_evidence_validation/health.py",
+    "packages/core/stark_terminal_core/decision_evidence_validation/README.md",
+    "apps/api/stark_terminal_api/routes/decision_evidence_validation.py",
+    "docs/DECISION_EVIDENCE_VALIDATION_V0.md",
+    "docs/DECISION_EVIDENCE_VALIDATION_RESULT_SCHEMA.md",
+    "docs/DECISION_EVIDENCE_VALIDATION_FAILURE_REASONS.md",
+    "docs/DECISION_EVIDENCE_VALIDATION_SAFETY_BOUNDARY.md",
+    "docs/DECISION_EVIDENCE_VALIDATION_API_SKELETON.md",
+    "docs/DECISION_EVIDENCE_VALIDATION_NO_RECOMMENDATION_POLICY.md",
+]
+
+REQUIRED_DECISION_HUMAN_REVIEW_FILES = [
+    "packages/core/stark_terminal_core/decision_human_review/__init__.py",
+    "packages/core/stark_terminal_core/decision_human_review/workflow.py",
+    "packages/core/stark_terminal_core/decision_human_review/tasks.py",
+    "packages/core/stark_terminal_core/decision_human_review/roles.py",
+    "packages/core/stark_terminal_core/decision_human_review/queues.py",
+    "packages/core/stark_terminal_core/decision_human_review/status.py",
+    "packages/core/stark_terminal_core/decision_human_review/unavailable.py",
+    "packages/core/stark_terminal_core/decision_human_review/safety.py",
+    "packages/core/stark_terminal_core/decision_human_review/health.py",
+    "packages/core/stark_terminal_core/decision_human_review/README.md",
+    "apps/api/stark_terminal_api/routes/decision_human_review.py",
+    "docs/DECISION_HUMAN_REVIEW_WORKFLOW_SKELETON.md",
+    "docs/DECISION_REVIEW_TASK_PLACEHOLDERS.md",
+    "docs/DECISION_REVIEW_ROLE_PLACEHOLDERS.md",
+    "docs/DECISION_REVIEW_QUEUE_PLACEHOLDERS.md",
+    "docs/DECISION_REVIEW_UNAVAILABLE_RESPONSES.md",
+    "docs/DECISION_REVIEW_NO_APPROVAL_POLICY.md",
+]
+
+REQUIRED_DECISION_DESK_MILESTONE_AUDIT_2_FILES = [
+    "docs/DECISION_DESK_MILESTONE_AUDIT_2.md",
+    "docs/DECISION_READINESS_API_BOUNDARY_AUDIT.md",
+    "docs/DECISION_DISPLAY_BOUNDARY_AUDIT.md",
+    "docs/DECISION_EVIDENCE_VALIDATION_BOUNDARY_AUDIT.md",
+    "docs/DECISION_HUMAN_REVIEW_WORKFLOW_BOUNDARY_AUDIT.md",
+    "docs/DECISION_NO_APPROVAL_WORKFLOW_AUDIT.md",
+    "docs/DECISION_DESK_NEXT_PHASE_PLAN_2.md",
+    "tests/test_decision_desk_milestone_audit_2_docs.py",
+    "tests/test_decision_readiness_api_boundary_milestone.py",
+    "tests/test_decision_display_boundary_milestone.py",
+    "tests/test_decision_evidence_validation_boundary_milestone.py",
+    "tests/test_decision_human_review_workflow_boundary_milestone.py",
+    "tests/test_decision_no_approval_workflow_milestone.py",
+    "tests/test_decision_desk_phase2_api_milestone_safety.py",
+    "tests/test_decision_desk_phase2_milestone_readiness.py",
+]
+
+REQUIRED_DECISION_BOUNDARY_FILES = [
+    "packages/core/stark_terminal_core/decision_boundary/__init__.py",
+    "packages/core/stark_terminal_core/decision_boundary/forbidden.py",
+    "packages/core/stark_terminal_core/decision_boundary/endpoints.py",
+    "packages/core/stark_terminal_core/decision_boundary/modules.py",
+    "packages/core/stark_terminal_core/decision_boundary/invariants.py",
+    "packages/core/stark_terminal_core/decision_boundary/health.py",
+    "packages/core/stark_terminal_core/decision_boundary/README.md",
+    "apps/api/stark_terminal_api/routes/decision_boundary.py",
+    "docs/DECISION_DESK_SYSTEM_BOUNDARY_HARDENING.md",
+    "docs/DECISION_FORBIDDEN_BEHAVIOR_REGISTRY.md",
+    "docs/DECISION_ENDPOINT_BOUNDARY_POLICY.md",
+    "docs/DECISION_MODULE_BOUNDARY_POLICY.md",
+    "docs/DECISION_CROSS_MODULE_INVARIANTS.md",
+    "docs/DECISION_BOUNDARY_HARDENING_NO_EXECUTION_POLICY.md",
+    "tests/test_decision_boundary_settings.py",
+    "tests/test_decision_boundary_forbidden_registry.py",
+    "tests/test_decision_boundary_endpoint_policy.py",
+    "tests/test_decision_boundary_module_policy.py",
+    "tests/test_decision_boundary_invariants.py",
+    "tests/test_api_decision_boundary.py",
+    "tests/test_decision_boundary_docs_status.py",
+    "tests/test_decision_boundary_cross_module_no_recommendations.py",
+    "tests/test_decision_boundary_cross_endpoint_no_execution.py",
+    "tests/test_decision_boundary_no_active_ui_or_workflow.py",
+]
+
+REQUIRED_DECISION_API_DISPLAY_INTEGRATION_AUDIT_FILES = [
+    "docs/DECISION_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md",
+    "docs/DECISION_CROSS_ENDPOINT_CONSISTENCY_AUDIT.md",
+    "docs/DECISION_API_DISPLAY_BOUNDARY_AUDIT.md",
+    "docs/DECISION_BOUNDARY_INTEGRATION_AUDIT.md",
+    "docs/DECISION_INTEGRATION_NO_RECOMMENDATION_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_READINESS_PLAN.md",
+    "tests/test_decision_api_display_integration_audit_docs.py",
+    "tests/test_decision_cross_endpoint_consistency.py",
+    "tests/test_decision_api_display_boundary_integration.py",
+    "tests/test_decision_boundary_integration.py",
+    "tests/test_decision_integration_no_recommendation.py",
+    "tests/test_decision_integration_no_active_ui_or_workflow.py",
+    "tests/test_decision_integration_no_execution.py",
+    "tests/test_retail_dashboard_readiness_plan.py",
+]
+
+REQUIRED_RETAIL_DASHBOARD_FILES = [
+    "packages/core/stark_terminal_core/retail_dashboard/__init__.py",
+    "packages/core/stark_terminal_core/retail_dashboard/planning.py",
+    "packages/core/stark_terminal_core/retail_dashboard/sections.py",
+    "packages/core/stark_terminal_core/retail_dashboard/cards.py",
+    "packages/core/stark_terminal_core/retail_dashboard/references.py",
+    "packages/core/stark_terminal_core/retail_dashboard/interactions.py",
+    "packages/core/stark_terminal_core/retail_dashboard/safety.py",
+    "packages/core/stark_terminal_core/retail_dashboard/readiness.py",
+    "packages/core/stark_terminal_core/retail_dashboard/health.py",
+    "packages/core/stark_terminal_core/retail_dashboard/README.md",
+    "apps/api/stark_terminal_api/routes/retail_dashboard.py",
+    "docs/RETAIL_DASHBOARD_PLANNING.md",
+    "docs/RETAIL_DASHBOARD_GUARDRAILS.md",
+    "docs/RETAIL_DASHBOARD_SECTION_PLACEHOLDERS.md",
+    "docs/RETAIL_DASHBOARD_CARD_PLACEHOLDERS.md",
+    "docs/RETAIL_DASHBOARD_FORBIDDEN_INTERACTIONS.md",
+    "docs/RETAIL_DASHBOARD_NO_RECOMMENDATION_POLICY.md",
+    "docs/RETAIL_DASHBOARD_NO_EXECUTION_POLICY.md",
+    "tests/test_retail_dashboard_settings.py",
+    "tests/test_retail_dashboard_planning_contracts.py",
+    "tests/test_retail_dashboard_sections.py",
+    "tests/test_retail_dashboard_cards.py",
+    "tests/test_retail_dashboard_references.py",
+    "tests/test_retail_dashboard_forbidden_interactions.py",
+    "tests/test_retail_dashboard_safety.py",
+    "tests/test_retail_dashboard_readiness.py",
+    "tests/test_api_retail_dashboard.py",
+    "tests/test_retail_dashboard_docs_status.py",
+    "tests/test_retail_dashboard_no_active_ui_or_execution.py",
+]
+
+REQUIRED_RETAIL_DASHBOARD_API_FILES = [
+    "packages/core/stark_terminal_core/retail_dashboard_api/__init__.py",
+    "packages/core/stark_terminal_core/retail_dashboard_api/requests.py",
+    "packages/core/stark_terminal_core/retail_dashboard_api/responses.py",
+    "packages/core/stark_terminal_core/retail_dashboard_api/references.py",
+    "packages/core/stark_terminal_core/retail_dashboard_api/unavailable.py",
+    "packages/core/stark_terminal_core/retail_dashboard_api/contracts.py",
+    "packages/core/stark_terminal_core/retail_dashboard_api/health.py",
+    "packages/core/stark_terminal_core/retail_dashboard_api/README.md",
+    "apps/api/stark_terminal_api/routes/retail_dashboard_api.py",
+    "docs/RETAIL_DASHBOARD_API_CONTRACT_SKELETON.md",
+    "docs/RETAIL_DASHBOARD_API_REQUEST_RESPONSE_PLACEHOLDERS.md",
+    "docs/RETAIL_DASHBOARD_API_REFERENCE_PLACEHOLDERS.md",
+    "docs/RETAIL_DASHBOARD_API_UNAVAILABLE_RESPONSES.md",
+    "docs/RETAIL_DASHBOARD_API_SAFETY_BOUNDARY.md",
+    "docs/RETAIL_DASHBOARD_API_NO_RECOMMENDATION_POLICY.md",
+    "docs/RETAIL_DASHBOARD_API_NO_EXECUTION_POLICY.md",
+    "tests/test_retail_dashboard_api_settings.py",
+    "tests/test_retail_dashboard_api_request_placeholders.py",
+    "tests/test_retail_dashboard_api_response_placeholders.py",
+    "tests/test_retail_dashboard_api_references.py",
+    "tests/test_retail_dashboard_api_unavailable_responses.py",
+    "tests/test_retail_dashboard_api_contracts.py",
+    "tests/test_api_retail_dashboard_api.py",
+    "tests/test_retail_dashboard_api_docs_status.py",
+    "tests/test_retail_dashboard_api_no_active_ui_or_execution.py",
+]
+
+REQUIRED_RETAIL_DASHBOARD_DISPLAY_FILES = [
+    "packages/core/stark_terminal_core/retail_dashboard_display/__init__.py",
+    "packages/core/stark_terminal_core/retail_dashboard_display/contracts.py",
+    "packages/core/stark_terminal_core/retail_dashboard_display/layouts.py",
+    "packages/core/stark_terminal_core/retail_dashboard_display/widgets.py",
+    "packages/core/stark_terminal_core/retail_dashboard_display/sections.py",
+    "packages/core/stark_terminal_core/retail_dashboard_display/badges.py",
+    "packages/core/stark_terminal_core/retail_dashboard_display/unavailable.py",
+    "packages/core/stark_terminal_core/retail_dashboard_display/safety.py",
+    "packages/core/stark_terminal_core/retail_dashboard_display/health.py",
+    "packages/core/stark_terminal_core/retail_dashboard_display/README.md",
+    "apps/api/stark_terminal_api/routes/retail_dashboard_display.py",
+    "docs/RETAIL_DASHBOARD_DISPLAY_CONTRACT_SKELETON.md",
+    "docs/RETAIL_DASHBOARD_LAYOUT_PLACEHOLDERS.md",
+    "docs/RETAIL_DASHBOARD_WIDGET_PLACEHOLDERS.md",
+    "docs/RETAIL_DASHBOARD_VISUAL_SECTION_PLACEHOLDERS.md",
+    "docs/RETAIL_DASHBOARD_DISPLAY_UNAVAILABLE_RESPONSES.md",
+    "docs/RETAIL_DASHBOARD_DISPLAY_SAFETY_BOUNDARY.md",
+    "docs/RETAIL_DASHBOARD_DISPLAY_NO_RECOMMENDATION_POLICY.md",
+    "docs/RETAIL_DASHBOARD_DISPLAY_NO_EXECUTION_POLICY.md",
+    "tests/test_retail_dashboard_display_settings.py",
+    "tests/test_retail_dashboard_display_contracts.py",
+    "tests/test_retail_dashboard_display_layouts.py",
+    "tests/test_retail_dashboard_display_widgets.py",
+    "tests/test_retail_dashboard_display_sections.py",
+    "tests/test_retail_dashboard_display_badges.py",
+    "tests/test_retail_dashboard_display_unavailable_responses.py",
+    "tests/test_retail_dashboard_display_safety.py",
+    "tests/test_api_retail_dashboard_display.py",
+    "tests/test_retail_dashboard_display_docs_status.py",
+    "tests/test_retail_dashboard_display_no_active_ui_or_execution.py",
+]
+
+REQUIRED_RETAIL_DASHBOARD_SAFETY_AUDIT_FILES = [
+    "docs/RETAIL_DASHBOARD_SAFETY_BOUNDARY_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_API_BOUNDARY_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_DISPLAY_BOUNDARY_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_NO_ACTIVE_UI_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_NO_RECOMMENDATION_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_NO_EXECUTION_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_MILESTONE_READINESS.md",
+    "tests/test_retail_dashboard_safety_boundary_audit_docs.py",
+    "tests/test_retail_dashboard_api_boundary_audit.py",
+    "tests/test_retail_dashboard_display_boundary_audit.py",
+    "tests/test_retail_dashboard_no_active_ui_audit.py",
+    "tests/test_retail_dashboard_no_recommendation_audit.py",
+    "tests/test_retail_dashboard_no_execution_audit.py",
+    "tests/test_retail_dashboard_api_surface_safety.py",
+    "tests/test_retail_dashboard_milestone_readiness.py",
+]
+
+REQUIRED_RETAIL_DASHBOARD_MILESTONE_AUDIT_FILES = [
+    "docs/RETAIL_DASHBOARD_MILESTONE_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_PLANNING_MILESTONE_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_API_MILESTONE_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_DISPLAY_MILESTONE_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_SAFETY_MILESTONE_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_PHASE_NO_ACTIVE_UI_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_PHASE_NO_RECOMMENDATION_EXECUTION_AUDIT.md",
+    "docs/RETAIL_DASHBOARD_NEXT_PHASE_PLAN.md",
+    "tests/test_retail_dashboard_milestone_audit_docs.py",
+    "tests/test_retail_dashboard_planning_milestone.py",
+    "tests/test_retail_dashboard_api_milestone.py",
+    "tests/test_retail_dashboard_display_milestone.py",
+    "tests/test_retail_dashboard_safety_milestone.py",
+    "tests/test_retail_dashboard_phase_no_active_ui.py",
+    "tests/test_retail_dashboard_phase_no_recommendation_execution.py",
+    "tests/test_retail_dashboard_next_phase_readiness.py",
+]
+
+REQUIRED_RETAIL_DASHBOARD_BOUNDARY_FILES = [
+    "packages/core/stark_terminal_core/retail_dashboard_boundary/__init__.py",
+    "packages/core/stark_terminal_core/retail_dashboard_boundary/forbidden.py",
+    "packages/core/stark_terminal_core/retail_dashboard_boundary/endpoints.py",
+    "packages/core/stark_terminal_core/retail_dashboard_boundary/modules.py",
+    "packages/core/stark_terminal_core/retail_dashboard_boundary/invariants.py",
+    "packages/core/stark_terminal_core/retail_dashboard_boundary/health.py",
+    "packages/core/stark_terminal_core/retail_dashboard_boundary/README.md",
+    "apps/api/stark_terminal_api/routes/retail_dashboard_boundary.py",
+    "docs/RETAIL_DASHBOARD_SYSTEM_BOUNDARY_HARDENING.md",
+    "docs/RETAIL_DASHBOARD_FORBIDDEN_BEHAVIOR_REGISTRY.md",
+    "docs/RETAIL_DASHBOARD_ENDPOINT_BOUNDARY_POLICY.md",
+    "docs/RETAIL_DASHBOARD_MODULE_BOUNDARY_POLICY.md",
+    "docs/RETAIL_DASHBOARD_CROSS_MODULE_INVARIANTS.md",
+    "docs/RETAIL_DASHBOARD_BOUNDARY_NO_ACTIVE_UI_POLICY.md",
+    "docs/RETAIL_DASHBOARD_BOUNDARY_NO_EXECUTION_POLICY.md",
+    "tests/test_retail_dashboard_boundary_settings.py",
+    "tests/test_retail_dashboard_boundary_forbidden_registry.py",
+    "tests/test_retail_dashboard_boundary_endpoint_policy.py",
+    "tests/test_retail_dashboard_boundary_module_policy.py",
+    "tests/test_retail_dashboard_boundary_invariants.py",
+    "tests/test_api_retail_dashboard_boundary.py",
+    "tests/test_retail_dashboard_boundary_docs_status.py",
+    "tests/test_retail_dashboard_boundary_cross_module_no_recommendations.py",
+    "tests/test_retail_dashboard_boundary_cross_endpoint_no_execution.py",
+    "tests/test_retail_dashboard_boundary_no_active_ui_or_broker_controls.py",
+]
+
+FORBIDDEN_ANALYTICS_FOUNDATION_PHRASES = (
+    "import numpy",
+    "from numpy",
+    "import scipy",
+    "from scipy",
+    "import pandas",
+    "from pandas",
+    "import numba",
+    "from numba",
+    "import jax",
+    "from jax",
+    "import torch",
+    "from torch",
+    "import tensorflow",
+    "from tensorflow",
+    "import statsmodels",
+    "from statsmodels",
+    "def compute_",
+    "def calculate_",
+    "def generate_signal",
+    "def recommend",
+)
+
+FORBIDDEN_NUMERICAL_ANALYTICS_IMPLEMENTATION_PHRASES = (
+    "import numpy",
+    "from numpy",
+    "import scipy",
+    "from scipy",
+    "import pandas",
+    "from pandas",
+    "import numba",
+    "from numba",
+    "import jax",
+    "from jax",
+    "import torch",
+    "from torch",
+    "import tensorflow",
+    "from tensorflow",
+    "import statsmodels",
+    "from statsmodels",
+    "def returns",
+    "def return_",
+    "def volatility",
+    "def drawdown",
+    "def correlation",
+    "def beta",
+    "def indicator",
+    "def generate_signal",
+    "def recommend",
+    "DecisionObject(",
+)
+
+FORBIDDEN_RETURNS_ROLLING_SCOPE_PHRASES = (
+    "import numpy",
+    "from numpy",
+    "import scipy",
+    "from scipy",
+    "import pandas",
+    "from pandas",
+    "import numba",
+    "from numba",
+    "import jax",
+    "from jax",
+    "import torch",
+    "from torch",
+    "import tensorflow",
+    "from tensorflow",
+    "import statsmodels",
+    "from statsmodels",
+    "def volatility",
+    "def drawdown",
+    "def correlation",
+    "def beta",
+    "def indicator",
+    "def backtest",
+    "def generate_signal",
+    "def recommend",
+    "DecisionObject(",
+)
+
+FORBIDDEN_VOLATILITY_DRAWDOWN_SCOPE_PHRASES = (
+    "import numpy",
+    "from numpy",
+    "import scipy",
+    "from scipy",
+    "import pandas",
+    "from pandas",
+    "import numba",
+    "from numba",
+    "import jax",
+    "from jax",
+    "import torch",
+    "from torch",
+    "import tensorflow",
+    "from tensorflow",
+    "import statsmodels",
+    "from statsmodels",
+    "def correlation",
+    "def beta",
+    "def indicator",
+    "def backtest",
+    "def regime",
+    "def generate_signal",
+    "def recommend",
+    "DecisionObject(",
+)
+
+FORBIDDEN_RELATIONSHIP_ANALYTICS_SCOPE_PHRASES = (
+    "import numpy",
+    "from numpy",
+    "import scipy",
+    "from scipy",
+    "import pandas",
+    "from pandas",
+    "import numba",
+    "from numba",
+    "import jax",
+    "from jax",
+    "import torch",
+    "from torch",
+    "import tensorflow",
+    "from tensorflow",
+    "import statsmodels",
+    "from statsmodels",
+    "def indicator",
+    "def backtest",
+    "def regime",
+    "def generate_signal",
+    "def recommend",
+    "DecisionObject(",
+)
+
+FORBIDDEN_TIME_SERIES_DIAGNOSTICS_SCOPE_PHRASES = (
+    "import numpy",
+    "from numpy",
+    "import scipy",
+    "from scipy",
+    "import pandas",
+    "from pandas",
+    "import numba",
+    "from numba",
+    "import jax",
+    "from jax",
+    "import torch",
+    "from torch",
+    "import tensorflow",
+    "from tensorflow",
+    "import statsmodels",
+    "from statsmodels",
+    "adfuller",
+    "kpss",
+    "hurst",
+    "def autocorrelation",
+    "def regime",
+    "def indicator",
+    "def backtest",
+    "def generate_signal",
+    "def recommend",
+    "DecisionObject(",
+)
+
+FORBIDDEN_REGIME_ANALYTICS_SCOPE_PHRASES = (
+    "import numpy",
+    "from numpy",
+    "import scipy",
+    "from scipy",
+    "import pandas",
+    "from pandas",
+    "import numba",
+    "from numba",
+    "import jax",
+    "from jax",
+    "import torch",
+    "from torch",
+    "import tensorflow",
+    "from tensorflow",
+    "import statsmodels",
+    "from statsmodels",
+    "from sklearn",
+    "import sklearn",
+    "from hmmlearn",
+    "import hmmlearn",
+    "from ruptures",
+    "import ruptures",
+    "adfuller",
+    "kpss",
+    "hurst",
+    "def classify_regime",
+    "def detect_regime",
+    "def fit_",
+    "def predict_",
+    "def indicator",
+    "def backtest",
+    "def generate_signal",
+    "def recommend",
+    "DecisionObject(",
+)
+
+FORBIDDEN_REGIME_FEATURE_SCOPE_PHRASES = (
+    "import numpy",
+    "from numpy",
+    "import scipy",
+    "from scipy",
+    "import pandas",
+    "from pandas",
+    "import numba",
+    "from numba",
+    "import jax",
+    "from jax",
+    "import torch",
+    "from torch",
+    "import tensorflow",
+    "from tensorflow",
+    "import statsmodels",
+    "from statsmodels",
+    "from sklearn",
+    "import sklearn",
+    "from hmmlearn",
+    "import hmmlearn",
+    "from ruptures",
+    "import ruptures",
+    "adfuller",
+    "kpss",
+    "hurst",
+    "def compute_feature",
+    "def calculate_feature",
+    "def classify_regime",
+    "def detect_regime",
+    "def fit_",
+    "def predict_",
+    "FeatureValue(",
+    "FeatureSnapshot(",
+    "DecisionObject(",
+    "@router.post",
+)
+
+FORBIDDEN_DECISION_DESK_SCOPE_PHRASES = (
+    "import requests",
+    "from requests",
+    "import httpx",
+    "from httpx",
+    "import aiohttp",
+    "from aiohttp",
+    "import urllib.request",
+    "from urllib.request",
+    "import socket",
+    "def generate_recommendation",
+    "def generate_action",
+    "def score_confidence",
+    "def compute_confidence",
+    "def create_decision_object",
+    "DecisionObject(",
+    "@router.post",
+)
+
+FORBIDDEN_DECISION_EVIDENCE_SCOPE_PHRASES = (
+    "import requests",
+    "from requests",
+    "import httpx",
+    "from httpx",
+    "import aiohttp",
+    "from aiohttp",
+    "import urllib.request",
+    "from urllib.request",
+    "import socket",
+    "def generate_decision_object",
+    "def generate_recommendation",
+    "def generate_action",
+    "def score_confidence",
+    "def compute_confidence",
+    "DecisionObject(",
+    "@router.post",
+)
+
+FORBIDDEN_DECISION_SAFETY_SCOPE_PHRASES = (
+    "import requests",
+    "from requests",
+    "import httpx",
+    "from httpx",
+    "import aiohttp",
+    "from aiohttp",
+    "import urllib.request",
+    "from urllib.request",
+    "import socket",
+    "def approve_decision",
+    "def generate_decision_object",
+    "def generate_recommendation",
+    "def generate_action",
+    "def score_confidence",
+    "def compute_confidence",
+    "DecisionObject(",
+    "@router.post",
+)
+
+FORBIDDEN_DECISION_API_SCOPE_PHRASES = (
+    "import requests",
+    "from requests",
+    "import httpx",
+    "from httpx",
+    "import aiohttp",
+    "from aiohttp",
+    "import urllib.request",
+    "from urllib.request",
+    "import socket",
+    "def approve_decision",
+    "def override_decision",
+    "def generate_decision_object",
+    "def generate_recommendation",
+    "def generate_action",
+    "def score_confidence",
+    "def compute_confidence",
+    "DecisionObject(",
+    "@router.post",
+)
+
+FORBIDDEN_DECISION_READINESS_API_SCOPE_PHRASES = (
+    "import requests",
+    "from requests",
+    "import httpx",
+    "from httpx",
+    "import aiohttp",
+    "from aiohttp",
+    "import urllib.request",
+    "from urllib.request",
+    "import socket",
+    "def approve_decision",
+    "def override_decision",
+    "def generate_decision_object",
+    "def generate_recommendation",
+    "def generate_action",
+    "def generate_readiness_status",
+    "def score_confidence",
+    "def compute_confidence",
+    "def render_active_widget",
+    "DecisionObject(",
+    "@router.post",
+)
+
+FORBIDDEN_DECISION_DISPLAY_SCOPE_PHRASES = (
+    "import requests",
+    "from requests",
+    "import httpx",
+    "from httpx",
+    "import aiohttp",
+    "from aiohttp",
+    "import urllib.request",
+    "from urllib.request",
+    "import socket",
+    "def approve_decision",
+    "def override_decision",
+    "def generate_decision_object",
+    "def generate_recommendation",
+    "def generate_action",
+    "def generate_readiness_status",
+    "def build_active_decision_card",
+    "def score_confidence",
+    "def compute_confidence",
+    "DecisionObject(",
+    "@router.post",
+)
+
+FORBIDDEN_DECISION_EVIDENCE_VALIDATION_SCOPE_PHRASES = (
+    "import requests",
+    "from requests",
+    "import httpx",
+    "from httpx",
+    "import aiohttp",
+    "from aiohttp",
+    "import urllib.request",
+    "from urllib.request",
+    "import socket",
+    "def approve_decision",
+    "def override_decision",
+    "def generate_decision_object",
+    "def generate_recommendation",
+    "def generate_action",
+    "def generate_readiness_status",
+    "def score_confidence",
+    "def compute_confidence",
+    "DecisionObject(",
+    "@router.post",
+)
+
+FORBIDDEN_DECISION_HUMAN_REVIEW_SCOPE_PHRASES = (
+    "import requests",
+    "from requests",
+    "import httpx",
+    "from httpx",
+    "import aiohttp",
+    "from aiohttp",
+    "import urllib.request",
+    "from urllib.request",
+    "import socket",
+    "def approve_decision",
+    "def override_decision",
+    "def assign_review_task",
+    "def authenticate_reviewer",
+    "def send_review_notification",
+    "def generate_decision_object",
+    "def generate_recommendation",
+    "def generate_action",
+    "def generate_readiness_status",
+    "def score_confidence",
+    "def compute_confidence",
+    "DecisionObject(",
+    "@router.post",
+)
+
+FORBIDDEN_DECISION_BOUNDARY_SCOPE_PHRASES = (
+    "import requests",
+    "from requests",
+    "import httpx",
+    "from httpx",
+    "import aiohttp",
+    "from aiohttp",
+    "import urllib.request",
+    "from urllib.request",
+    "import socket",
+    "def approve_decision",
+    "def override_decision",
+    "def assign_review_task",
+    "def authenticate_reviewer",
+    "def send_review_notification",
+    "def generate_decision_object",
+    "def generate_recommendation",
+    "def generate_action",
+    "def generate_readiness_status",
+    "def build_active_decision_card",
+    "def score_confidence",
+    "def compute_confidence",
+    "DecisionObject(",
+    "@router.post",
+)
+
+FORBIDDEN_DECISION_INTEGRATION_SCOPE_PHRASES = (
+    "import requests",
+    "from requests",
+    "import httpx",
+    "from httpx",
+    "import aiohttp",
+    "from aiohttp",
+    "import urllib.request",
+    "from urllib.request",
+    "import socket",
+    "def approve_decision",
+    "def override_decision",
+    "def assign_review_task",
+    "def authenticate_reviewer",
+    "def send_review_notification",
+    "def generate_decision_object",
+    "def generate_recommendation",
+    "def generate_action",
+    "def generate_readiness_status",
+    "def build_active_decision_card",
+    "def score_confidence",
+    "def compute_confidence",
+    "DecisionObject(",
+    "@router.post",
+)
+
+FORBIDDEN_RETAIL_DASHBOARD_SCOPE_PHRASES = (
+    "import requests",
+    "from requests",
+    "import httpx",
+    "from httpx",
+    "import aiohttp",
+    "from aiohttp",
+    "import urllib.request",
+    "from urllib.request",
+    "import socket",
+    "import PySide6",
+    "from PySide6",
+    "import tkinter",
+    "from tkinter",
+    "def generate_dashboard_recommendation",
+    "def build_active_dashboard",
+    "def create_order_button",
+    "def approve_decision",
+    "def override_decision",
+    "def generate_decision_object",
+    "def generate_recommendation",
+    "def generate_action",
+    "def generate_readiness_status",
+    "def score_confidence",
+    "def compute_confidence",
+    "DecisionObject(",
+    "@router.post",
+)
+
+FORBIDDEN_HEAVY_ANALYTICS_DEPENDENCIES = {
+    "numpy",
+    "scipy",
+    "pandas",
+    "numba",
+    "jax",
+    "cupy",
+    "torch",
+    "tensorflow",
+    "xgboost",
+    "lightgbm",
+    "catboost",
+    "quantlib",
+    "statsmodels",
+    "arch",
+    "scikit-learn",
+    "sklearn",
+    "hmmlearn",
+    "ruptures",
+    "vectorbt",
+    "backtrader",
+}
 
 PROVIDER_EXTERNAL_IMPORT_PHRASES = (
     "import requests",
@@ -261,6 +1786,16 @@ PROVIDER_EXTERNAL_IMPORT_PHRASES = (
     "import urllib.request",
     "from urllib.request",
     "import socket",
+)
+
+ANALYTICS_EXTERNAL_IMPORT_PHRASES = PROVIDER_EXTERNAL_IMPORT_PHRASES
+
+FORBIDDEN_ANALYTICS_ACTION_TERMS = (
+    "buy",
+    "sell",
+    "hold",
+    "watch",
+    "avoid",
 )
 
 FORBIDDEN_PROVIDER_DEPENDENCIES = (
@@ -276,6 +1811,27 @@ FORBIDDEN_PROVIDER_DEPENDENCIES = (
     "alpaca-trade-api",
     "ib_insync",
     "ccxt",
+)
+
+FORBIDDEN_DECISION_PHASE2_DEPENDENCIES = (
+    "streamlit",
+    "gradio",
+    "dash",
+    "plotly-dash",
+    "fastapi-users",
+    "authlib",
+    "passlib",
+    "python-jose",
+    "pyjwt",
+    "sendgrid",
+    "twilio",
+    "celery",
+    "dramatiq",
+    "rq",
+    "temporalio",
+    "prefect",
+    "apache-airflow",
+    "airflow",
 )
 
 
@@ -322,6 +1878,194 @@ def _check_required_data_foundation_files() -> AuditResult:
     missing = [path for path in REQUIRED_DATA_FOUNDATION_FILES if not _exists(path)]
     detail = ", ".join(missing) if missing else "Prompt 14-25 data foundation/provider readiness artifacts present"
     return AuditResult("data foundation files", not missing, detail)
+
+
+def _check_required_analytics_foundation_files() -> AuditResult:
+    missing = [path for path in REQUIRED_ANALYTICS_FOUNDATION_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 26 analytics foundation artifacts present"
+    return AuditResult("analytics foundation files", not missing, detail)
+
+
+def _check_required_numerical_analytics_files() -> AuditResult:
+    missing = [path for path in REQUIRED_NUMERICAL_ANALYTICS_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 27 numerical analytics artifacts present"
+    return AuditResult("numerical analytics files", not missing, detail)
+
+
+def _check_required_returns_rolling_analytics_files() -> AuditResult:
+    missing = [path for path in REQUIRED_RETURNS_ROLLING_ANALYTICS_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 28 returns and rolling analytics artifacts present"
+    return AuditResult("returns rolling analytics files", not missing, detail)
+
+
+def _check_required_volatility_drawdown_analytics_files() -> AuditResult:
+    missing = [path for path in REQUIRED_VOLATILITY_DRAWDOWN_ANALYTICS_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 29 volatility/drawdown analytics artifacts present"
+    return AuditResult("volatility drawdown analytics files", not missing, detail)
+
+
+def _check_required_analytics_milestone_audit_files() -> AuditResult:
+    missing = [path for path in REQUIRED_ANALYTICS_MILESTONE_AUDIT_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 30 analytics milestone audit artifacts present"
+    return AuditResult("analytics milestone audit files", not missing, detail)
+
+
+def _check_required_correlation_beta_analytics_files() -> AuditResult:
+    missing = [path for path in REQUIRED_CORRELATION_BETA_ANALYTICS_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 31 correlation/beta analytics artifacts present"
+    return AuditResult("correlation beta analytics files", not missing, detail)
+
+
+def _check_required_time_series_diagnostics_files() -> AuditResult:
+    missing = [path for path in REQUIRED_TIME_SERIES_DIAGNOSTICS_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 32 time-series diagnostics artifacts present"
+    return AuditResult("time-series diagnostics files", not missing, detail)
+
+
+def _check_required_regime_analytics_files() -> AuditResult:
+    missing = [path for path in REQUIRED_REGIME_ANALYTICS_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 33 regime analytics planning artifacts present"
+    return AuditResult("regime analytics files", not missing, detail)
+
+
+def _check_required_regime_feature_preparation_files() -> AuditResult:
+    missing = [path for path in REQUIRED_REGIME_FEATURE_PREPARATION_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 34 regime feature preparation artifacts present"
+    return AuditResult("regime feature preparation files", not missing, detail)
+
+
+def _check_required_analytics_regime_milestone_audit_files() -> AuditResult:
+    missing = [path for path in REQUIRED_ANALYTICS_REGIME_MILESTONE_AUDIT_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 35 analytics/regime milestone audit artifacts present"
+    return AuditResult("analytics regime milestone audit files", not missing, detail)
+
+
+def _check_required_retail_decision_desk_files() -> AuditResult:
+    missing = [path for path in REQUIRED_RETAIL_DECISION_DESK_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 36 Retail Decision Desk planning artifacts present"
+    return AuditResult("retail decision desk files", not missing, detail)
+
+
+def _check_required_decision_evidence_files() -> AuditResult:
+    missing = [path for path in REQUIRED_DECISION_EVIDENCE_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 38 DecisionObject evidence bundle artifacts present"
+    return AuditResult("decision evidence files", not missing, detail)
+
+
+def _check_required_decision_safety_files() -> AuditResult:
+    missing = [path for path in REQUIRED_DECISION_SAFETY_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 39 Decision Safety and Human-Review Guardrail artifacts present"
+    return AuditResult("decision safety files", not missing, detail)
+
+
+def _check_required_decision_api_files() -> AuditResult:
+    missing = [path for path in REQUIRED_DECISION_API_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 40 Decision Desk API Contract Skeleton artifacts present"
+    return AuditResult("decision API files", not missing, detail)
+
+
+def _check_required_decision_desk_milestone_audit_files() -> AuditResult:
+    missing = [path for path in REQUIRED_DECISION_DESK_MILESTONE_AUDIT_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 41 Decision Desk milestone audit artifacts present"
+    return AuditResult("decision desk milestone audit files", not missing, detail)
+
+
+def _check_required_decision_readiness_api_files() -> AuditResult:
+    missing = [path for path in REQUIRED_DECISION_READINESS_API_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 42 Decision Desk Readiness API Skeleton artifacts present"
+    return AuditResult("decision readiness API files", not missing, detail)
+
+
+def _check_required_decision_display_files() -> AuditResult:
+    missing = [path for path in REQUIRED_DECISION_DISPLAY_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 43 Decision Desk Display Contract Skeleton artifacts present"
+    return AuditResult("decision display files", not missing, detail)
+
+
+def _check_required_decision_evidence_validation_files() -> AuditResult:
+    missing = [path for path in REQUIRED_DECISION_EVIDENCE_VALIDATION_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 44 Decision Desk Evidence Bundle Validation v0 artifacts present"
+    return AuditResult("decision evidence validation files", not missing, detail)
+
+
+def _check_required_decision_human_review_files() -> AuditResult:
+    missing = [path for path in REQUIRED_DECISION_HUMAN_REVIEW_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 45 Decision Desk Human Review Workflow Skeleton artifacts present"
+    return AuditResult("decision human review files", not missing, detail)
+
+
+def _check_required_decision_desk_milestone_audit_2_files() -> AuditResult:
+    missing = [path for path in REQUIRED_DECISION_DESK_MILESTONE_AUDIT_2_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 46 Decision Desk Milestone Audit 2 artifacts present"
+    return AuditResult("decision desk milestone audit 2 files", not missing, detail)
+
+
+def _check_required_decision_boundary_files() -> AuditResult:
+    missing = [path for path in REQUIRED_DECISION_BOUNDARY_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 47 Decision Desk System Boundary Hardening artifacts present"
+    return AuditResult("decision boundary files", not missing, detail)
+
+
+def _check_required_decision_api_display_integration_audit_files() -> AuditResult:
+    missing = [path for path in REQUIRED_DECISION_API_DISPLAY_INTEGRATION_AUDIT_FILES if not _exists(path)]
+    detail = (
+        ", ".join(missing)
+        if missing
+        else "Prompt 48 Decision Desk API/Display Integration Readiness Audit artifacts present"
+    )
+    return AuditResult("decision API/display integration audit files", not missing, detail)
+
+
+def _check_required_retail_dashboard_files() -> AuditResult:
+    missing = [path for path in REQUIRED_RETAIL_DASHBOARD_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 49 Retail Dashboard Planning and Guardrails artifacts present"
+    return AuditResult("retail dashboard planning files", not missing, detail)
+
+
+def _check_required_retail_dashboard_api_files() -> AuditResult:
+    missing = [path for path in REQUIRED_RETAIL_DASHBOARD_API_FILES if not _exists(path)]
+    detail = ", ".join(missing) if missing else "Prompt 50 Retail Dashboard API Contract Skeleton artifacts present"
+    return AuditResult("retail dashboard API files", not missing, detail)
+
+
+def _check_required_retail_dashboard_display_files() -> AuditResult:
+    missing = [path for path in REQUIRED_RETAIL_DASHBOARD_DISPLAY_FILES if not _exists(path)]
+    detail = (
+        ", ".join(missing)
+        if missing
+        else "Prompt 51 Retail Dashboard Display Contract Skeleton artifacts present"
+    )
+    return AuditResult("retail dashboard display files", not missing, detail)
+
+
+def _check_required_retail_dashboard_safety_audit_files() -> AuditResult:
+    missing = [path for path in REQUIRED_RETAIL_DASHBOARD_SAFETY_AUDIT_FILES if not _exists(path)]
+    detail = (
+        ", ".join(missing)
+        if missing
+        else "Prompt 52 Retail Dashboard Safety Boundary Audit artifacts present"
+    )
+    return AuditResult("retail dashboard safety boundary audit files", not missing, detail)
+
+
+def _check_required_retail_dashboard_milestone_audit_files() -> AuditResult:
+    missing = [path for path in REQUIRED_RETAIL_DASHBOARD_MILESTONE_AUDIT_FILES if not _exists(path)]
+    detail = (
+        ", ".join(missing)
+        if missing
+        else "Prompt 53 Retail Dashboard Milestone Audit artifacts present"
+    )
+    return AuditResult("retail dashboard milestone audit files", not missing, detail)
+
+
+def _check_required_retail_dashboard_boundary_files() -> AuditResult:
+    missing = [path for path in REQUIRED_RETAIL_DASHBOARD_BOUNDARY_FILES if not _exists(path)]
+    detail = (
+        ", ".join(missing)
+        if missing
+        else "Prompt 54 Retail Dashboard System Boundary Hardening artifacts present"
+    )
+    return AuditResult("retail dashboard boundary hardening files", not missing, detail)
 
 
 def _check_forbidden_data_file_names() -> AuditResult:
@@ -377,6 +2121,500 @@ def _check_provider_dependency_boundaries() -> AuditResult:
     return AuditResult("provider dependencies", not bad, detail)
 
 
+def _check_decision_phase2_dependency_boundaries() -> AuditResult:
+    text = (ROOT / "pyproject.toml").read_text(encoding="utf-8").lower()
+    bad = [dependency for dependency in FORBIDDEN_DECISION_PHASE2_DEPENDENCIES if dependency in text]
+    detail = ", ".join(bad) if bad else "no UI, auth, notification, workflow/orchestration, provider SDK, scraping, or broker/trading dependencies added for decision phase 2"
+    return AuditResult("decision phase 2 dependencies", not bad, detail)
+
+
+def _project_dependencies() -> set[str]:
+    data = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
+    dependencies = data.get("project", {}).get("dependencies", [])
+    names: set[str] = set()
+    for dependency in dependencies:
+        name = dependency.split("[", 1)[0].split(">", 1)[0].split("=", 1)[0].split("<", 1)[0].strip().lower()
+        names.add(name)
+    return names
+
+
+def _check_analytics_foundation_no_calculations() -> AuditResult:
+    bad: list[str] = []
+    foundation_root = ROOT / "packages/analytics/stark_terminal_analytics/foundation"
+    for path in foundation_root.glob("*.py"):
+        text = path.read_text(encoding="utf-8").lower()
+        for phrase in FORBIDDEN_ANALYTICS_FOUNDATION_PHRASES:
+            if phrase in text:
+                bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "analytics foundation contains no calculations or heavy imports"
+    return AuditResult("analytics foundation no calculations", not bad, detail)
+
+
+def _check_numerical_analytics_no_market_calculations() -> AuditResult:
+    bad: list[str] = []
+    numerical_root = ROOT / "packages/analytics/stark_terminal_analytics/numerical"
+    for path in numerical_root.glob("*.py"):
+        text = path.read_text(encoding="utf-8")
+        lowered = text.lower()
+        for phrase in FORBIDDEN_NUMERICAL_ANALYTICS_IMPLEMENTATION_PHRASES:
+            haystack = text if phrase == "DecisionObject(" else lowered
+            needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+            if needle in haystack:
+                bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "numerical analytics contains no market analytics, signals, DecisionObject generation, or heavy imports"
+    return AuditResult("numerical analytics no market calculations", not bad, detail)
+
+
+def _check_returns_rolling_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/analytics/stark_terminal_analytics/returns",
+        ROOT / "packages/analytics/stark_terminal_analytics/rolling",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_RETURNS_ROLLING_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "returns/rolling contains no forbidden analytics, signals, DecisionObject generation, or heavy imports"
+    return AuditResult("returns rolling analytics scope", not bad, detail)
+
+
+def _check_volatility_drawdown_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/analytics/stark_terminal_analytics/volatility",
+        ROOT / "packages/analytics/stark_terminal_analytics/drawdown",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_VOLATILITY_DRAWDOWN_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "volatility/drawdown contains no forbidden analytics, signals, DecisionObject generation, or heavy imports"
+    return AuditResult("volatility drawdown analytics scope", not bad, detail)
+
+
+def _check_relationship_analytics_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/analytics/stark_terminal_analytics/correlation",
+        ROOT / "packages/analytics/stark_terminal_analytics/beta",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_RELATIONSHIP_ANALYTICS_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "correlation/beta contains no indicators, backtests, regimes, signals, DecisionObject generation, or heavy imports"
+    return AuditResult("correlation beta analytics scope", not bad, detail)
+
+
+def _check_time_series_diagnostics_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    root = ROOT / "packages/analytics/stark_terminal_analytics/diagnostics"
+    for path in root.glob("*.py"):
+        text = path.read_text(encoding="utf-8")
+        lowered = text.lower()
+        for phrase in FORBIDDEN_TIME_SERIES_DIAGNOSTICS_SCOPE_PHRASES:
+            haystack = text if phrase == "DecisionObject(" else lowered
+            needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+            if needle in haystack:
+                bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "time-series diagnostics contains no stationarity tests, regimes, indicators, backtests, signals, DecisionObject generation, or heavy imports"
+    return AuditResult("time-series diagnostics scope", not bad, detail)
+
+
+def _check_regime_analytics_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    root = ROOT / "packages/analytics/stark_terminal_analytics/regime"
+    for path in root.glob("*.py"):
+        if path.name == "dependencies.py":
+            continue
+        text = path.read_text(encoding="utf-8")
+        lowered = text.lower()
+        for phrase in FORBIDDEN_REGIME_ANALYTICS_SCOPE_PHRASES:
+            haystack = text if phrase == "DecisionObject(" else lowered
+            needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+            if needle in haystack:
+                bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "regime planning contains no classification, stationarity tests, regimes, indicators, backtests, signals, DecisionObject generation, or heavy imports"
+    return AuditResult("regime analytics scope", not bad, detail)
+
+
+def _check_regime_feature_preparation_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/analytics/stark_terminal_analytics/regime_features",
+        ROOT / "apps/api/stark_terminal_api/routes",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            if root.name == "routes" and path.name != "regime_features.py":
+                continue
+            if path.name == "dependencies.py":
+                continue
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_REGIME_FEATURE_SCOPE_PHRASES:
+                haystack = text if phrase in {"DecisionObject(", "FeatureValue(", "FeatureSnapshot("} else lowered
+                needle = phrase if phrase in {"DecisionObject(", "FeatureValue(", "FeatureSnapshot("} else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "regime feature preparation contains no feature computation, registry writes, classification, signals, DecisionObject generation, or heavy imports"
+    return AuditResult("regime feature preparation scope", not bad, detail)
+
+
+def _check_retail_decision_desk_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/core/stark_terminal_core/decision_desk",
+        ROOT / "apps/api/stark_terminal_api/routes",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            if root.name == "routes" and path.name != "decision_desk.py":
+                continue
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_DECISION_DESK_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "Retail Decision Desk planning contains no recommendation, action generation, confidence scoring, DecisionObject generation, external-call imports, POST routes, or execution implementation"
+    return AuditResult("retail decision desk scope", not bad, detail)
+
+
+def _check_decision_evidence_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/core/stark_terminal_core/decision_evidence",
+        ROOT / "apps/api/stark_terminal_api/routes",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            if root.name == "routes" and path.name != "decision_evidence.py":
+                continue
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_DECISION_EVIDENCE_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "DecisionObject evidence bundle contracts contain no recommendation, action generation, confidence scoring, active DecisionObject generation, external-call imports, POST routes, or execution implementation"
+    return AuditResult("decision evidence scope", not bad, detail)
+
+
+def _check_decision_safety_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/core/stark_terminal_core/decision_safety",
+        ROOT / "apps/api/stark_terminal_api/routes",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            if root.name == "routes" and path.name != "decision_safety.py":
+                continue
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_DECISION_SAFETY_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "Decision Safety guardrails contain no approval workflow, recommendation generation, action generation, confidence scoring, active DecisionObject generation, external-call imports, POST routes, or execution implementation"
+    return AuditResult("decision safety scope", not bad, detail)
+
+
+def _check_decision_api_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/core/stark_terminal_core/decision_api",
+        ROOT / "apps/api/stark_terminal_api/routes",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            if root.name == "routes" and path.name != "decision_desk_api.py":
+                continue
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_DECISION_API_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "Decision Desk API skeleton contains no recommendation generation, action generation, confidence scoring, active DecisionObject generation, approval workflow, override workflow, external-call imports, POST routes, market-data-to-recommendation endpoint, broker behavior, or execution implementation"
+    return AuditResult("decision API scope", not bad, detail)
+
+
+def _check_decision_readiness_api_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/core/stark_terminal_core/decision_readiness_api",
+        ROOT / "apps/api/stark_terminal_api/routes",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            if root.name == "routes" and path.name != "decision_readiness_api.py":
+                continue
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_DECISION_READINESS_API_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "Decision Desk Readiness API skeleton contains no readiness-to-trade generation, recommendation generation, action generation, confidence scoring, active DecisionObject generation, approval workflow, override workflow, external-call imports, POST routes, market-data-to-readiness endpoint, broker behavior, or execution implementation"
+    return AuditResult("decision readiness API scope", not bad, detail)
+
+
+def _check_decision_display_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/core/stark_terminal_core/decision_display",
+        ROOT / "apps/api/stark_terminal_api/routes",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            if root.name == "routes" and path.name != "decision_display.py":
+                continue
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_DECISION_DISPLAY_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "Decision Desk Display skeleton contains no active UI builder, readiness-to-trade generation, recommendation generation, action generation, confidence scoring, active DecisionObject generation, approval workflow, override workflow, external-call imports, POST routes, market-data-to-display-decision endpoint, broker behavior, or execution implementation"
+    return AuditResult("decision display scope", not bad, detail)
+
+
+def _check_decision_evidence_validation_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/core/stark_terminal_core/decision_evidence_validation",
+        ROOT / "apps/api/stark_terminal_api/routes",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            if root.name == "routes" and path.name != "decision_evidence_validation.py":
+                continue
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_DECISION_EVIDENCE_VALIDATION_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "Decision Evidence Validation v0 contains no validation-to-recommendation endpoint, readiness-to-trade generation, recommendation generation, action generation, confidence scoring, active DecisionObject generation, approval workflow, override workflow, external-call imports, POST routes, broker behavior, or execution implementation"
+    return AuditResult("decision evidence validation scope", not bad, detail)
+
+
+def _check_decision_human_review_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/core/stark_terminal_core/decision_human_review",
+        ROOT / "apps/api/stark_terminal_api/routes",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            if root.name == "routes" and path.name != "decision_human_review.py":
+                continue
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_DECISION_HUMAN_REVIEW_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "Decision Human Review workflow skeleton contains no active workflow, task assignment, reviewer auth, notifications, approval workflow, override workflow, recommendation generation, action generation, confidence scoring, active DecisionObject generation, readiness-to-trade generation, external-call imports, POST routes, broker behavior, or execution implementation"
+    return AuditResult("decision human review scope", not bad, detail)
+
+
+def _check_decision_boundary_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/core/stark_terminal_core/decision_boundary",
+        ROOT / "apps/api/stark_terminal_api/routes",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            if root.name == "routes" and path.name != "decision_boundary.py":
+                continue
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_DECISION_BOUNDARY_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "Decision Boundary hardening contains no endpoint boundary bypass, no module bypasses forbidden behavior registry, no active UI, no active workflow, task assignment, reviewer auth, notifications, recommendation generation, action generation, confidence scoring, active DecisionObject generation, approval workflow, override workflow, readiness-to-trade generation, external-call imports, POST routes, broker behavior, or execution implementation"
+    return AuditResult("decision boundary scope", not bad, detail)
+
+
+def _check_decision_api_display_integration_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/core/stark_terminal_core/decision_api",
+        ROOT / "packages/core/stark_terminal_core/decision_readiness_api",
+        ROOT / "packages/core/stark_terminal_core/decision_display",
+        ROOT / "packages/core/stark_terminal_core/decision_boundary",
+        ROOT / "packages/core/stark_terminal_core/decision_evidence_validation",
+        ROOT / "packages/core/stark_terminal_core/decision_human_review",
+        ROOT / "apps/api/stark_terminal_api/routes",
+    ]
+    route_files = {
+        "decision_desk_api.py",
+        "decision_readiness_api.py",
+        "decision_display.py",
+        "decision_boundary.py",
+        "decision_evidence_validation.py",
+        "decision_human_review.py",
+    }
+    for root in roots:
+        for path in root.glob("*.py"):
+            if root.name == "routes" and path.name not in route_files:
+                continue
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_DECISION_INTEGRATION_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "Decision API/display integration contains no API-to-display recommendation path, no readiness-to-display-trade path, no active UI, no active workflow, no recommendation generation, no action generation, no confidence scoring, no active DecisionObject generation, no approval workflow, no override workflow, no readiness-to-trade generation, no external-call imports, POST routes, broker behavior, or execution implementation"
+    return AuditResult("decision API/display integration scope", not bad, detail)
+
+
+def _check_retail_dashboard_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/core/stark_terminal_core/retail_dashboard",
+        ROOT / "apps/api/stark_terminal_api/routes",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            if root.name == "routes" and path.name != "retail_dashboard.py":
+                continue
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_RETAIL_DASHBOARD_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "Retail Dashboard planning contains no active UI, frontend dashboard implementation, broker controls, recommendation generation, action generation, confidence scoring, active DecisionObject generation, readiness-to-trade generation, real market data dashboard display, external-call imports, POST routes, or execution implementation"
+    return AuditResult("retail dashboard scope", not bad, detail)
+
+
+def _check_retail_dashboard_api_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/core/stark_terminal_core/retail_dashboard_api",
+        ROOT / "apps/api/stark_terminal_api/routes",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            if root.name == "routes" and path.name != "retail_dashboard_api.py":
+                continue
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_RETAIL_DASHBOARD_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "Retail Dashboard API skeleton contains no active UI, frontend dashboard implementation, broker controls, recommendation generation, action generation, confidence scoring, active DecisionObject generation, readiness-to-trade generation, real market data dashboard display, external-call imports, POST routes, or execution implementation"
+    return AuditResult("retail dashboard API scope", not bad, detail)
+
+
+def _check_retail_dashboard_display_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/core/stark_terminal_core/retail_dashboard_display",
+        ROOT / "apps/api/stark_terminal_api/routes",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            if root.name == "routes" and path.name != "retail_dashboard_display.py":
+                continue
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_RETAIL_DASHBOARD_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "Retail Dashboard Display skeleton contains no active UI, frontend dashboard implementation, desktop UI implementation, broker controls, recommendation generation, action generation, confidence scoring, active DecisionObject generation, readiness-to-trade generation, real market data dashboard display, external-call imports, POST routes, or execution implementation"
+    return AuditResult("retail dashboard display scope", not bad, detail)
+
+
+def _check_retail_dashboard_boundary_no_forbidden_scope() -> AuditResult:
+    bad: list[str] = []
+    roots = [
+        ROOT / "packages/core/stark_terminal_core/retail_dashboard_boundary",
+        ROOT / "apps/api/stark_terminal_api/routes",
+    ]
+    for root in roots:
+        for path in root.glob("*.py"):
+            if root.name == "routes" and path.name != "retail_dashboard_boundary.py":
+                continue
+            text = path.read_text(encoding="utf-8")
+            lowered = text.lower()
+            for phrase in FORBIDDEN_RETAIL_DASHBOARD_SCOPE_PHRASES:
+                haystack = text if phrase == "DecisionObject(" else lowered
+                needle = phrase if phrase == "DecisionObject(" else phrase.lower()
+                if needle in haystack:
+                    bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "Retail Dashboard Boundary contains no active UI, frontend dashboard implementation, desktop UI implementation, broker controls, recommendation generation, action generation, confidence scoring, active DecisionObject generation, readiness-to-trade generation, real market data dashboard display, external-call imports, POST routes, or execution implementation"
+    return AuditResult("retail dashboard boundary scope", not bad, detail)
+
+
+def _check_analytics_modules_no_external_imports() -> AuditResult:
+    bad: list[str] = []
+    analytics_root = ROOT / "packages/analytics/stark_terminal_analytics"
+    for path in analytics_root.rglob("*.py"):
+        text = path.read_text(encoding="utf-8")
+        for phrase in ANALYTICS_EXTERNAL_IMPORT_PHRASES:
+            if phrase in text:
+                bad.append(f"{path.relative_to(ROOT)}:{phrase}")
+    detail = ", ".join(bad) if bad else "analytics modules import no external-call clients"
+    return AuditResult("analytics external imports", not bad, detail)
+
+
+def _check_analytics_modules_no_action_terms() -> AuditResult:
+    bad: list[str] = []
+    analytics_root = ROOT / "packages/analytics/stark_terminal_analytics"
+    for path in analytics_root.rglob("*.py"):
+        text = path.read_text(encoding="utf-8").lower()
+        for term in FORBIDDEN_ANALYTICS_ACTION_TERMS:
+            if re.search(rf"\b{re.escape(term)}\b", text):
+                bad.append(f"{path.relative_to(ROOT)}:{term}")
+    detail = ", ".join(bad) if bad else "analytics modules expose no buy/sell/hold/watch/avoid action terms"
+    return AuditResult("analytics action terms", not bad, detail)
+
+
+def _check_heavy_analytics_dependencies_not_added() -> AuditResult:
+    dependencies = _project_dependencies()
+    bad = sorted(dependencies & FORBIDDEN_HEAVY_ANALYTICS_DEPENDENCIES)
+    detail = ", ".join(bad) if bad else "no unexpected heavy analytics dependencies"
+    return AuditResult("analytics dependencies", not bad, detail)
+
+
 def _check_prompt_log() -> AuditResult:
     text = (ROOT / "docs/PROMPT_LOG.md").read_text(encoding="utf-8")
     expected = [
@@ -398,26 +2636,171 @@ def _check_prompt_log() -> AuditResult:
         "Prompt 23",
         "Prompt 24",
         "Prompt 25",
+        "Prompt 26",
+        "Prompt 27",
+        "Prompt 28",
+        "Prompt 29",
+        "Prompt 30",
+        "Prompt 31",
+        "Prompt 32",
+        "Prompt 33",
+        "Prompt 34",
+        "Prompt 35",
+        "Prompt 36",
+        "Prompt 37",
+        "Prompt 38",
+        "Prompt 39",
+        "Prompt 40",
+        "Prompt 41",
+        "Prompt 42",
+        "Prompt 43",
+        "Prompt 44",
+        "Prompt 45",
+        "Prompt 46",
+        "Prompt 47",
+        "Prompt 48",
+        "Prompt 49",
+        "Prompt 50",
+        "Prompt 51",
+        "Prompt 52",
+        "Prompt 53",
+        "Prompt 54",
     ]
     missing = [entry for entry in expected if entry not in text]
-    return AuditResult("prompt log", not missing, ", ".join(missing) if missing else "Prompt 00 through Prompt 25 present")
+    return AuditResult("prompt log", not missing, ", ".join(missing) if missing else "Prompt 00 through Prompt 54 present")
 
 
 def _check_north_star_status() -> AuditResult:
     text = (ROOT / "docs/NORTH_STAR.md").read_text(encoding="utf-8")
     required = [
-        "Current Prompt: 25",
-        "Completed Prompts: 25 before this prompt, 26 after completion",
+        "Current Prompt: 54",
+        "Completed Prompts: 54 before this prompt, 55 after completion",
+        "Completed Prompts: 55 after completion",
+        "Historical verifier reference: Current Prompt: 53",
+        "Historical verifier reference: Completed Prompts: 53 before this prompt, 54 after completion",
+        "Historical verifier reference: Completed Prompts: 54 after completion",
+        "Historical verifier reference: Current Prompt: 52",
+        "Historical verifier reference: Completed Prompts: 52 before this prompt, 53 after completion",
+        "Historical verifier reference: Completed Prompts: 53 after completion",
+        "Historical verifier reference: Current Prompt: 51",
+        "Historical verifier reference: Completed Prompts: 51 before this prompt, 52 after completion",
+        "Historical verifier reference: Completed Prompts: 52 after completion",
+        "Historical verifier reference: Current Prompt: 50",
+        "Historical verifier reference: Completed Prompts: 50 before this prompt, 51 after completion",
+        "Historical verifier reference: Completed Prompts: 51 after completion",
+        "Historical verifier reference: Current Prompt: 49",
+        "Historical verifier reference: Completed Prompts: 49 before this prompt, 50 after completion",
+        "Historical verifier reference: Completed Prompts: 50 after completion",
+        "Historical verifier reference: Current Prompt: 48",
+        "Historical verifier reference: Completed Prompts: 48 before this prompt, 49 after completion",
+        "Historical verifier reference: Completed Prompts: 49 after completion",
+        "Historical verifier reference: Current Prompt: 47",
+        "Historical verifier reference: Completed Prompts: 47 before this prompt, 48 after completion",
+        "Historical verifier reference: Completed Prompts: 48 after completion",
+        "Historical verifier reference: Current Prompt: 46",
+        "Historical verifier reference: Completed Prompts: 46 before this prompt, 47 after completion",
+        "Historical verifier reference: Completed Prompts: 47 after completion",
+        "Historical verifier reference: Current Prompt: 45",
+        "Historical verifier reference: Completed Prompts: 45 before this prompt, 46 after completion",
+        "Historical verifier reference: Completed Prompts: 46 after completion",
+        "Historical verifier reference: Current Prompt: 44",
+        "Historical verifier reference: Completed Prompts: 44 before this prompt, 45 after completion",
+        "Historical verifier reference: Completed Prompts: 45 after completion",
+        "Historical verifier reference: Current Prompt: 43",
+        "Historical verifier reference: Completed Prompts: 43 before this prompt, 44 after completion",
+        "Historical verifier reference: Completed Prompts: 44 after completion",
+        "Historical verifier reference: Current Prompt: 42",
+        "Historical verifier reference: Completed Prompts: 42 before this prompt, 43 after completion",
+        "Historical verifier reference: Completed Prompts: 43 after completion",
+        "Historical verifier reference: Current Prompt: 41",
+        "Historical verifier reference: Completed Prompts: 41 before this prompt, 42 after completion",
+        "Historical verifier reference: Completed Prompts: 42 after completion",
+        "Historical verifier reference: Current Prompt: 40",
+        "Historical verifier reference: Completed Prompts: 40 before this prompt, 41 after completion",
+        "Historical verifier reference: Current Prompt: 39",
+        "Historical verifier reference: Completed Prompts: 39 before this prompt, 40 after completion",
+        "Historical verifier reference: Current Prompt: 38",
+        "Historical verifier reference: Completed Prompts: 38 before this prompt, 39 after completion",
+        "Historical verifier reference: Current Prompt: 36",
+        "Historical verifier reference: Completed Prompts: 36 before this prompt, 37 after completion",
         "Event Backbone Status: Kafka/Redpanda contracts/foundation only, no production pipelines",
-        "Data Quality Status: Validation framework active for synthetic/local provider boundaries",
+        "Data Quality Status: Validation framework active for synthetic/local provider and analytics/regime/decision evidence/safety/API/readiness/display/validation/human-review/boundary-hardening/dashboard boundaries",
+        "Historical Data Quality Status: Validation framework active for synthetic/local provider and analytics/regime/decision evidence/safety/API/readiness/display/validation/human-review/boundary-hardening/dashboard/API/display/safety-audit boundaries",
+        "Historical Data Quality Status: Validation framework active for synthetic/local provider and analytics/regime/decision evidence/safety/API/readiness/display/validation/human-review/boundary-hardening/dashboard/API/display boundaries",
+        "Historical Data Quality Status: Validation framework active for synthetic/local provider and analytics/regime/decision evidence/safety/API/readiness/display/validation/human-review/boundary-hardening/dashboard/API boundaries",
+        "Historical Data Quality Status: Validation framework active for synthetic/local provider and analytics/regime/decision evidence/safety/API/readiness/display/validation/human-review/boundary-hardening/dashboard boundaries",
+        "Historical Data Quality Status: Validation framework active for synthetic/local provider and analytics/regime/decision evidence/safety/API/readiness/display/validation/human-review/boundary-hardening boundaries",
+        "Historical Data Quality Status: Validation framework active for synthetic/local provider and analytics/regime/decision evidence/safety/API/readiness/display/validation/human-review boundaries",
+        "Historical Data Quality Status: Validation framework active for synthetic/local provider and analytics/regime/decision evidence/safety/API/readiness/display/validation boundaries",
+        "Historical Data Quality Status: Validation framework active for synthetic/local provider and analytics/regime/decision evidence/safety/API/readiness/display boundaries",
+        "Historical Data Quality Status: Validation framework active for synthetic/local provider and analytics/regime/decision evidence/safety/API/readiness boundaries",
+        "Historical Data Quality Status: Validation framework active for synthetic/local provider and analytics/regime/decision evidence/safety/API boundaries",
+        "Historical Data Quality Status: Validation framework active for synthetic/local provider and analytics/regime/decision evidence/safety boundaries",
+        "Historical Data Quality Status: Validation framework active for synthetic/local provider and analytics/regime/decision evidence boundaries",
+        "Historical Data Quality Status: Validation framework active for synthetic/local provider and analytics/regime/decision-desk planning boundaries",
         "Fixture Status: Synthetic local-only test/dev fixtures implemented and audited",
         "Synthetic OHLCV Storage Status: Synthetic-only repository/service wiring implemented; no real market data",
         "Synthetic OHLCV Export Status: Synthetic-only Parquet export contract with DatasetManifest linkage implemented; no real market data",
         "Provider Status: Guardrails, readiness/candidate selection, local sample provider, and local file provider implemented and audited; no real provider implementation; no external calls",
-        "Audit Verdict: Provider foundation ready for next analytics-planning phase if tests pass",
+        "Quant Engine Status: Descriptive analytics and regime planning complete; no signals, recommendations, decisions, backtests, or execution",
+        "Current Milestone: Retail Dashboard Planning Phase - System Boundary Hardening",
+        "Historical Milestone Reference: Retail Dashboard Planning Phase - Milestone Audit completed",
+        "Historical Milestone Reference: Retail Dashboard Planning Phase - Safety Boundary Audit",
+        "Historical Milestone Reference: Retail Dashboard Planning Phase - Display Contract Skeleton",
+        "Historical Milestone Reference: Retail Dashboard Planning Phase - API Contract Skeleton",
+        "Historical Milestone Reference: Retail Dashboard Planning Phase - Planning and Guardrails",
+        "Historical Milestone Reference: Retail Decision Desk Planning Phase - API/Display Integration Readiness Audit completed",
+        "Historical Milestone Reference: Retail Decision Desk Planning Phase - Decision Desk System Boundary Hardening",
+        "Historical Milestone Reference: Retail Decision Desk Planning Phase - Decision Desk Milestone Audit 2 completed",
+        "Historical Milestone Reference: Retail Decision Desk Planning Phase - Decision Desk Human Review Workflow Skeleton",
+        "Historical Milestone Reference: Retail Decision Desk Planning Phase - Decision Desk Evidence Bundle Validation v0",
+        "Historical Milestone Reference: Retail Decision Desk Planning Phase - Decision Desk Display Contract Skeleton",
+        "Historical Milestone Reference: Retail Decision Desk Planning Phase - Decision Desk Readiness API Skeleton",
+        "Historical Milestone Reference: Retail Decision Desk Planning Phase - Decision Desk Milestone Audit completed",
+        "Historical Milestone Reference: Retail Decision Desk Planning Phase - Decision Desk API Contract Skeleton",
+        "Historical Milestone Reference: Retail Decision Desk Planning Phase - Decision Safety and Human-Review Guardrails",
+        "Historical Milestone Reference: Retail Decision Desk Planning Phase - DecisionObject Evidence Bundle Contracts",
+        "Decision Engine Status: Decision Desk planning/guardrails, evidence contracts, safety guardrails, API/readiness/display skeletons, evidence validation v0, human review workflow skeleton, system boundary hardening, and API/display integration readiness audit complete; no recommendations, no confidence scoring, no active DecisionObject generation, no readiness-to-trade, no approvals, no overrides, no active UI, no active workflow, no execution",
+        "Historical Decision Engine Status: Decision Desk planning/guardrails, evidence contracts, safety guardrails, API/readiness/display skeletons, evidence validation v0, human review workflow skeleton, and system boundary hardening implemented; no recommendations, no confidence scoring, no active DecisionObject generation, no readiness-to-trade, no approvals, no overrides, no active UI, no active workflow, no execution",
+        "Historical Decision Engine Status: Decision Desk planning/guardrails, evidence contracts, safety guardrails, API/readiness/display skeletons, evidence validation v0, and human review workflow skeleton implemented and audited; no recommendations, no confidence scoring, no active DecisionObject generation, no readiness-to-trade, no approvals, no overrides, no active workflow, no execution",
+        "Historical Decision Engine Status: Decision Desk planning/guardrails, DecisionObject evidence bundle contracts, decision safety/human-review guardrails, Decision Desk API/readiness/display skeletons, evidence bundle validation v0, and human review workflow skeleton implemented; no recommendations, no confidence scoring, no active DecisionObject generation, no readiness-to-trade, no approvals, no overrides, no active workflow, no execution",
+        "Historical Decision Engine Status: Decision Desk planning/guardrails, DecisionObject evidence bundle contracts, decision safety/human-review guardrails, Decision Desk API/readiness/display skeletons, and evidence bundle validation v0 implemented; no recommendations, no confidence scoring, no active DecisionObject generation, no readiness-to-trade, no approvals, no overrides, no execution",
+        "Historical Decision Engine Status: Decision Desk planning/guardrails, DecisionObject evidence bundle contracts, decision safety/human-review guardrails, Decision Desk API skeleton, Decision Desk readiness API skeleton, and display contract skeleton implemented; no recommendations, no confidence scoring, no active DecisionObject generation, no readiness-to-trade, no approvals, no overrides, no execution",
+        "Historical Decision Engine Status: Decision Desk planning/guardrails, DecisionObject evidence bundle contracts, decision safety/human-review guardrails, Decision Desk API skeleton, and Decision Desk readiness API skeleton implemented; no recommendations, no confidence scoring, no active DecisionObject generation, no readiness-to-trade, no approvals, no overrides, no execution",
+        "Historical Decision Engine Status: Decision Desk planning/guardrails, DecisionObject evidence bundle contracts, decision safety/human-review guardrails, and Decision Desk API skeleton implemented and audited; no recommendations, no confidence scoring, no active DecisionObject generation, no approvals, no overrides, no execution",
+        "Historical Decision Engine Status: Decision Desk planning/guardrails, DecisionObject evidence bundle contracts, decision safety/human-review guardrails, and Decision Desk API skeleton implemented; no recommendations, no confidence scoring, no active DecisionObject generation, no approvals, no overrides, no execution",
+        "Historical Decision Engine Status: Decision Desk planning/guardrails, DecisionObject evidence bundle contracts, and Decision Safety human-review guardrails implemented; no recommendations, no confidence scoring, no active DecisionObject generation, no approvals, no overrides, no execution",
+        "Historical Decision Engine Status: Decision Desk planning/guardrails and DecisionObject evidence bundle contracts implemented; no recommendations, no confidence scoring, no active DecisionObject generation, no execution",
+        "Historical Decision Engine Status: Decision Desk planning and guardrails implemented; no recommendations, no confidence scoring, no DecisionObject generation, no execution",
+        "Retail Dashboard Status: Planning/guardrails, API/display contract skeletons, safety/milestone audits, and system boundary hardening implemented; no active UI, no recommendation cards, no broker controls, no execution",
+        "Historical Retail Dashboard Status: Planning/guardrails, API contract skeleton, display contract skeleton, safety boundary audit, and milestone audit complete; no active UI, no recommendation cards, no broker controls, no execution",
+        "Historical Retail Dashboard Status: Planning/guardrails, API contract skeleton, display contract skeleton, and safety boundary audit complete; no active UI, no recommendation cards, no broker controls, no execution",
+        "Historical Retail Dashboard Status: Planning/guardrails, API contract skeleton, and display contract skeleton implemented; no active UI, no recommendation cards, no broker controls, no execution",
+        "Historical Retail Dashboard Status: Planning/guardrails and API contract skeleton implemented; no active UI, no recommendation cards, no broker controls, no execution",
+        "Historical Retail Dashboard Status: Planning and guardrails implemented; no active UI, no recommendation cards, no broker controls, no execution",
+        "Historical Retail Dashboard Status: Ready for planning and guardrails only; no implementation yet",
+        "Audit Verdict: Retail Dashboard System Boundary Hardening implemented; ready for API/display integration readiness audit if tests pass",
+        "Historical Audit Verdict: Retail Dashboard planning phase ready for system boundary hardening if tests pass",
+        "Historical Audit Verdict: Retail Dashboard Safety Boundary Audit complete; ready for Retail Dashboard Milestone Audit if tests pass",
+        "Historical Audit Verdict: Retail Dashboard Display Contract Skeleton implemented; ready for Retail Dashboard Safety Boundary Audit if tests pass",
+        "Historical Audit Verdict: Retail Dashboard API Contract Skeleton implemented; ready for Retail Dashboard Display Contract Skeleton if tests pass",
+        "Historical Audit Verdict: Retail Dashboard Planning and Guardrails implemented; ready for Retail Dashboard API Contract Skeleton if tests pass",
+        "Historical Audit Verdict: Ready for Retail Dashboard Planning and Guardrails only if tests pass",
+        "Historical Audit Verdict: Decision Desk System Boundary Hardening implemented; ready for API/display integration readiness audit if tests pass",
+        "Historical Audit Verdict: Decision Desk skeleton phase ready for system boundary hardening if tests pass",
+        "Historical Audit Verdict: Decision Desk Human Review Workflow Skeleton implemented; ready for Decision Desk Milestone Audit 2 if tests pass",
+        "Historical Audit Verdict: Decision Desk Evidence Bundle Validation v0 implemented; ready for Decision Desk Human Review Workflow Skeleton if tests pass",
+        "Historical Audit Verdict: Decision Desk Display Contract Skeleton implemented; ready for Decision Desk Evidence Bundle Validation v0 if tests pass",
+        "Historical Audit Verdict: Decision Desk Readiness API Skeleton implemented; ready for Decision Desk Display Contract Skeleton if tests pass",
+        "Historical Audit Verdict: Decision Desk planning foundation ready for next read-only skeleton phase if tests pass",
+        "Historical Audit Verdict: Decision Desk API Contract Skeleton implemented; ready for Decision Desk Milestone Audit if tests pass",
+        "Historical Audit Verdict: Decision Safety and Human-Review Guardrails implemented; ready for Decision Desk API Contract Skeleton if tests pass",
+        "Historical Audit Verdict: DecisionObject evidence bundle contracts implemented; ready for Decision Safety and Human-Review Guardrails if tests pass",
+        "Historical Audit Verdict: Retail Decision Desk planning and guardrails implemented; ready for DecisionObject evidence bundle contracts if tests pass",
+        "Feature Engine Status: Registry/contracts only; regime feature preparation contracts exist but no feature computation or registry writes",
     ]
     missing = [phrase for phrase in required if phrase not in text]
-    return AuditResult("north star status", not missing, ", ".join(missing) if missing else "North Star Prompt 25 status present")
+    return AuditResult("north star status", not missing, ", ".join(missing) if missing else "North Star Prompt 54 status present")
 
 
 def run_audit() -> list[AuditResult]:
@@ -427,10 +2810,64 @@ def run_audit() -> list[AuditResult]:
         _check_required_routes(),
         _check_forbidden_route_names(),
         _check_required_data_foundation_files(),
+        _check_required_analytics_foundation_files(),
+        _check_required_numerical_analytics_files(),
+        _check_required_returns_rolling_analytics_files(),
+        _check_required_volatility_drawdown_analytics_files(),
+        _check_required_analytics_milestone_audit_files(),
+        _check_required_correlation_beta_analytics_files(),
+        _check_required_time_series_diagnostics_files(),
+        _check_required_regime_analytics_files(),
+        _check_required_regime_feature_preparation_files(),
+        _check_required_analytics_regime_milestone_audit_files(),
+        _check_required_retail_decision_desk_files(),
+        _check_required_decision_evidence_files(),
+        _check_required_decision_safety_files(),
+        _check_required_decision_api_files(),
+        _check_required_decision_desk_milestone_audit_files(),
+        _check_required_decision_readiness_api_files(),
+        _check_required_decision_display_files(),
+        _check_required_decision_evidence_validation_files(),
+        _check_required_decision_human_review_files(),
+        _check_required_decision_desk_milestone_audit_2_files(),
+        _check_required_decision_boundary_files(),
+        _check_required_decision_api_display_integration_audit_files(),
+        _check_required_retail_dashboard_files(),
+        _check_required_retail_dashboard_api_files(),
+        _check_required_retail_dashboard_display_files(),
+        _check_required_retail_dashboard_safety_audit_files(),
+        _check_required_retail_dashboard_milestone_audit_files(),
+        _check_required_retail_dashboard_boundary_files(),
         _check_forbidden_data_file_names(),
         _check_required_safety_phrases(),
         _check_provider_modules_no_external_imports(),
         _check_provider_dependency_boundaries(),
+        _check_decision_phase2_dependency_boundaries(),
+        _check_analytics_foundation_no_calculations(),
+        _check_numerical_analytics_no_market_calculations(),
+        _check_returns_rolling_no_forbidden_scope(),
+        _check_volatility_drawdown_no_forbidden_scope(),
+        _check_relationship_analytics_no_forbidden_scope(),
+        _check_time_series_diagnostics_no_forbidden_scope(),
+        _check_regime_analytics_no_forbidden_scope(),
+        _check_regime_feature_preparation_no_forbidden_scope(),
+        _check_retail_decision_desk_no_forbidden_scope(),
+        _check_decision_evidence_no_forbidden_scope(),
+        _check_decision_safety_no_forbidden_scope(),
+        _check_decision_api_no_forbidden_scope(),
+        _check_decision_readiness_api_no_forbidden_scope(),
+        _check_decision_display_no_forbidden_scope(),
+        _check_decision_evidence_validation_no_forbidden_scope(),
+        _check_decision_human_review_no_forbidden_scope(),
+        _check_decision_boundary_no_forbidden_scope(),
+        _check_decision_api_display_integration_no_forbidden_scope(),
+        _check_retail_dashboard_no_forbidden_scope(),
+        _check_retail_dashboard_api_no_forbidden_scope(),
+        _check_retail_dashboard_display_no_forbidden_scope(),
+        _check_retail_dashboard_boundary_no_forbidden_scope(),
+        _check_analytics_modules_no_external_imports(),
+        _check_analytics_modules_no_action_terms(),
+        _check_heavy_analytics_dependencies_not_added(),
         _check_prompt_log(),
         _check_north_star_status(),
     ]

@@ -1,6 +1,6 @@
 # Provider Next Phase Plan
 
-Prompt 25 completes the Provider Adapter Milestone Audit.
+Prompt 25 completes the Provider Adapter Milestone Audit. Prompt 26 started analytics planning and Prompt 27 completed numerical analytics core contracts.
 
 ## Current Readiness State
 
@@ -16,19 +16,21 @@ The provider foundation now has:
 - read-only provider health/contracts/template/sample API surfaces.
 - audit coverage for no external calls, no scraping, no credentials, no provider SDKs, no real ingestion, no production approval, no arbitrary file read API, no analytics/signals/decisions, and no execution APIs.
 
+Prompt 26 added Quant/Time-Series Analytics Foundation planning contracts and Prompt 27 added Numerical Analytics Core Contracts. Neither loosened provider restrictions, implemented real ingestion, or generated signals/decisions.
+
 ## Recommended Next Prompt
 
-Prompt 26 - Quant/Time-Series Analytics Foundation Plan.
+Prompt 28 - Returns and Rolling Window Analytics v0.
 
-The next phase should move from provider adapter foundations to analytics planning because the provider boundary is now audited and still safely local/governance-only. Prompt 26 should define analytics module boundaries, numerical stack policy, data/safety boundaries, and staged dependency rules without computing actual indicators, features, signals, decisions, backtests, or recommendations.
+The next phase has moved from provider adapter foundations to analytics implementation planning because the provider boundary is audited and still safely local/governance-only. Prompt 28 should implement returns and rolling window analytics using validated synthetic/local inputs only.
 
 ## Proposed Next 5 Prompts
 
-1. Prompt 26 - Quant/Time-Series Analytics Foundation Plan.
-2. Prompt 27 - Numerical Analytics Core Contracts.
-3. Prompt 28 - Returns and Rolling Window Analytics v0.
-4. Prompt 29 - Volatility and Drawdown Analytics v0.
-5. Prompt 30 - Analytics Milestone Audit.
+1. Prompt 28 - Returns and Rolling Window Analytics v0.
+2. Prompt 29 - Volatility and Drawdown Analytics v0.
+3. Prompt 30 - Analytics Milestone Audit.
+4. Prompt 31 - Correlation and Beta Analytics v0.
+5. Prompt 34 - Regime Feature Preparation Contracts.
 
 ## Still Forbidden
 

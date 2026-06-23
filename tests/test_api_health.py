@@ -3,7 +3,7 @@ from fastapi.testclient import TestClient
 from stark_terminal_api.main import app
 
 
-def test_health_endpoint_returns_prompt_00_foundation_status() -> None:
+def test_health_endpoint_returns_prompt_53_retail_dashboard_milestone_status() -> None:
     client = TestClient(app)
 
     response = client.get("/health")
@@ -13,8 +13,8 @@ def test_health_endpoint_returns_prompt_00_foundation_status() -> None:
         "status": "ok",
         "service": "stark-terminal-api",
         "version": "0.1.0",
-            "prompt": "25",
+        "prompt": "54",
         "architecture": "institutional-grade-foundation",
         "execution_apis_enabled": False,
-        "audit_status": "provider-adapter-milestone",
+        "audit_status": "retail-dashboard-boundary-hardening",
     }

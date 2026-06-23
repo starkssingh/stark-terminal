@@ -32,8 +32,8 @@ def test_prompt_22_health_marker() -> None:
     response = client.get("/health")
     assert response.status_code == 200
     body = response.json()
-    assert body["prompt"] == "25"
-    assert body["audit_status"] == "provider-adapter-milestone"
+    assert body["prompt"] == "54"
+    assert body["audit_status"] == "retail-dashboard-boundary-hardening"
     assert body["execution_apis_enabled"] is False
 
 

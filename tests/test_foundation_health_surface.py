@@ -21,6 +21,18 @@ HEALTH_ENDPOINTS = [
     "/provider-readiness/health",
     "/local-sample-provider/health",
     "/local-file-provider/health",
+    "/analytics-foundation/health",
+    "/numerical-analytics/health",
+    "/returns-analytics/health",
+    "/risk-analytics/health",
+    "/relationship-analytics/health",
+    "/time-series-diagnostics/health",
+    "/regime-analytics/health",
+    "/regime-features/health",
+    "/decision-desk/health",
+    "/decision-evidence/health",
+    "/decision-safety/health",
+    "/decision-desk-api/health",
     "/workers/health",
     "/instruments/health",
     "/providers/health",
@@ -52,6 +64,32 @@ OPTIONAL_SAFE_ENDPOINTS = [
     "/local-sample-provider/instruments",
     "/local-sample-provider/sample-bars",
     "/local-file-provider/contracts",
+    "/analytics-foundation/contracts",
+    "/analytics-foundation/dependencies",
+    "/numerical-analytics/contracts",
+    "/numerical-analytics/dependency-gate",
+    "/returns-analytics/contracts",
+    "/risk-analytics/contracts",
+    "/relationship-analytics/contracts",
+    "/time-series-diagnostics/contracts",
+    "/regime-analytics/contracts",
+    "/regime-analytics/readiness-template",
+    "/regime-analytics/dependency-gate",
+    "/regime-features/contracts",
+    "/regime-features/readiness-template",
+    "/regime-features/dependency-gate",
+    "/decision-desk/contracts",
+    "/decision-desk/readiness-template",
+    "/decision-desk/display-boundary",
+    "/decision-evidence/contracts",
+    "/decision-evidence/readiness-template",
+    "/decision-evidence/human-review-template",
+    "/decision-safety/contracts",
+    "/decision-safety/readiness-template",
+    "/decision-safety/human-review-template",
+    "/decision-desk-api/contracts",
+    "/decision-desk-api/unavailable-template",
+    "/decision-desk-api/response-placeholder",
 ]
 
 FORBIDDEN_RESPONSE_KEYS = {
@@ -91,13 +129,13 @@ def test_all_foundation_health_endpoints_return_200() -> None:
         assert response.status_code == 200, endpoint
 
 
-def test_health_endpoint_reports_prompt_22_audit_status() -> None:
+def test_health_endpoint_reports_prompt_34_audit_status() -> None:
     client = TestClient(app)
 
     body = client.get("/health").json()
 
-    assert body["prompt"] == "25"
-    assert body["audit_status"] == "provider-adapter-milestone"
+    assert body["prompt"] == "54"
+    assert body["audit_status"] == "retail-dashboard-boundary-hardening"
     assert body["execution_apis_enabled"] is False
 
 

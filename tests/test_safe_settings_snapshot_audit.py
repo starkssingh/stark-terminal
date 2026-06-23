@@ -90,6 +90,37 @@ def test_safe_settings_snapshot_excludes_raw_sensitive_values() -> None:
     assert snapshot["local_file_provider_allow_symlinks"] is False
     assert snapshot["local_file_provider_max_rows"] == 10000
     assert snapshot["local_file_provider_allow_real_data_claims"] is False
+    assert snapshot["analytics_foundation_enabled"] is True
+    assert snapshot["analytics_schema_version"] == "v1"
+    assert snapshot["analytics_allow_real_data"] is False
+    assert snapshot["analytics_allow_trade_signals"] is False
+    assert snapshot["analytics_allow_recommendations"] is False
+    assert snapshot["analytics_require_validated_inputs"] is True
+    assert snapshot["analytics_require_source_reference"] is True
+    assert snapshot["analytics_dependency_stage"] == "contracts_only"
+    assert snapshot["volatility_analytics_enabled"] is True
+    assert snapshot["volatility_analytics_schema_version"] == "v1"
+    assert snapshot["volatility_analytics_allow_real_data"] is False
+    assert snapshot["volatility_analytics_allow_trade_signals"] is False
+    assert snapshot["volatility_analytics_allow_recommendations"] is False
+    assert snapshot["volatility_analytics_allow_decision_objects"] is False
+    assert snapshot["volatility_analytics_default_stddev_method"] == "sample"
+    assert snapshot["volatility_analytics_allow_annualization"] is True
+    assert snapshot["drawdown_analytics_enabled"] is True
+    assert snapshot["drawdown_analytics_require_positive_values"] is True
+    assert snapshot["drawdown_analytics_allow_signal_labels"] is False
+    assert snapshot["regime_feature_preparation_enabled"] is True
+    assert snapshot["regime_feature_preparation_schema_version"] == "v1"
+    assert snapshot["regime_feature_preparation_allow_real_data"] is False
+    assert snapshot["regime_feature_preparation_allow_feature_computation"] is False
+    assert snapshot["regime_feature_preparation_allow_feature_registry_writes"] is False
+    assert snapshot["regime_feature_preparation_allow_classification"] is False
+    assert snapshot["regime_feature_preparation_allow_trade_signals"] is False
+    assert snapshot["regime_feature_preparation_allow_recommendations"] is False
+    assert snapshot["regime_feature_preparation_allow_decision_objects"] is False
+    assert snapshot["regime_feature_preparation_require_provenance"] is True
+    assert snapshot["regime_feature_preparation_require_evidence_mapping"] is True
+    assert snapshot["regime_feature_preparation_dependency_stage"] == "contracts_only"
     assert snapshot["execution_apis_enabled"] is False
     assert snapshot["broker_integrations_enabled"] is False
     assert snapshot["live_trading_enabled"] is False

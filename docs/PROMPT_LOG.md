@@ -2152,3 +2152,2716 @@ Provider foundation ready for Prompt 26 Quant/Time-Series Analytics Foundation P
 ### Next Recommended Prompt
 
 Prompt 26 - Quant/Time-Series Analytics Foundation Plan
+
+## Prompt 26 - Quant/Time-Series Analytics Foundation Plan
+
+### Objective
+
+Implement the Quant/Time-Series Analytics Foundation Plan. Prompt 26 adds analytics planning contracts, descriptive/research-only output contracts, analytics safety policy, dependency staging, analytics roadmap metadata, safe analytics foundation health/contracts/dependencies API endpoints, docs, audit/verifier coverage, and deterministic tests. It does not implement returns, rolling windows, volatility, drawdown, indicators, features, signals, recommendations, decisions, backtests, model outputs, real market ingestion, external calls, heavy analytics dependencies, or execution APIs.
+
+### Files Created
+
+- `docs/QUANT_ANALYTICS_FOUNDATION_PLAN.md`
+- `docs/TIME_SERIES_ANALYTICS_BOUNDARY.md`
+- `docs/ANALYTICS_SAFETY_POLICY.md`
+- `docs/ANALYTICS_DEPENDENCY_STAGING.md`
+- `docs/ANALYTICS_ROADMAP.md`
+- `packages/analytics/stark_terminal_analytics/foundation/__init__.py`
+- `packages/analytics/stark_terminal_analytics/foundation/contracts.py`
+- `packages/analytics/stark_terminal_analytics/foundation/safety.py`
+- `packages/analytics/stark_terminal_analytics/foundation/dependencies.py`
+- `packages/analytics/stark_terminal_analytics/foundation/roadmap.py`
+- `packages/analytics/stark_terminal_analytics/foundation/health.py`
+- `packages/analytics/stark_terminal_analytics/foundation/README.md`
+- `apps/api/stark_terminal_api/routes/analytics_foundation.py`
+- `tests/test_analytics_foundation_settings.py`
+- `tests/test_analytics_foundation_contracts.py`
+- `tests/test_analytics_safety_policy.py`
+- `tests/test_analytics_dependency_staging.py`
+- `tests/test_api_analytics_foundation.py`
+- `tests/test_analytics_foundation_docs_status.py`
+- `tests/test_analytics_no_signals_or_decisions.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/PROVIDER_NEXT_PHASE_PLAN.md`
+- `docs/TECH_STACK.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/analytics/stark_terminal_analytics/__init__.py`
+- `packages/analytics/stark_terminal_analytics/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- Existing settings/API/status/audit tests
+
+### Tests Added
+
+- Analytics foundation settings and safe snapshot tests.
+- Analytics input/output/module planning contract tests.
+- Analytics safety policy tests for descriptive outputs and blocked signal/recommendation/execution contracts.
+- Analytics dependency staging tests proving the current stage remains `CONTRACTS_ONLY` and heavy dependencies are not required now.
+- API tests for `/analytics-foundation/health`, `/analytics-foundation/contracts`, and `/analytics-foundation/dependencies`.
+- Docs/status tests for Prompt 26 artifacts.
+- Static no-signal/no-recommendation/no-execution tests for analytics foundation modules and routes.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 862 tests. The audit script and foundation verifier passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 27 - Numerical Analytics Core Contracts
+
+## Prompt 27 - Numerical Analytics Core Contracts
+
+### Objective
+
+Implement Numerical Analytics Core Contracts. Prompt 27 adds safe numerical source/vector/table contracts, computation request/result contracts, finite-value validation, shape validation, source-reference validation, no-signal validation, a numerical dependency gate, tiny deterministic stdlib summaries, safe numerical analytics health/contracts/dependency-gate API endpoints, docs, audit/verifier coverage, and deterministic tests. It does not implement returns, rolling windows, volatility, drawdown, correlation, beta, indicators, features, signals, recommendations, DecisionObject generation, decisions, backtests, model outputs, real market ingestion, external calls, heavy analytics dependencies, or execution APIs.
+
+### Files Created
+
+- `docs/NUMERICAL_ANALYTICS_CORE_CONTRACTS.md`
+- `docs/NUMERICAL_ANALYTICS_VALIDATION_POLICY.md`
+- `docs/NUMERICAL_ANALYTICS_DEPENDENCY_GATE.md`
+- `docs/NUMERICAL_ANALYTICS_SAFETY_BOUNDARY.md`
+- `packages/analytics/stark_terminal_analytics/numerical/__init__.py`
+- `packages/analytics/stark_terminal_analytics/numerical/contracts.py`
+- `packages/analytics/stark_terminal_analytics/numerical/validation.py`
+- `packages/analytics/stark_terminal_analytics/numerical/dependencies.py`
+- `packages/analytics/stark_terminal_analytics/numerical/summary.py`
+- `packages/analytics/stark_terminal_analytics/numerical/health.py`
+- `packages/analytics/stark_terminal_analytics/numerical/README.md`
+- `apps/api/stark_terminal_api/routes/numerical_analytics.py`
+- `tests/test_numerical_analytics_settings.py`
+- `tests/test_numerical_analytics_contracts.py`
+- `tests/test_numerical_analytics_validation.py`
+- `tests/test_numerical_analytics_dependency_gate.py`
+- `tests/test_numerical_analytics_summary.py`
+- `tests/test_api_numerical_analytics.py`
+- `tests/test_numerical_analytics_docs_status.py`
+- `tests/test_numerical_analytics_no_signals_or_decisions.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/ANALYTICS_ROADMAP.md`
+- `docs/TECH_STACK.md`
+- `docs/PROVIDER_NEXT_PHASE_PLAN.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/analytics/stark_terminal_analytics/__init__.py`
+- `packages/analytics/stark_terminal_analytics/README.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- Existing settings/API/status/audit tests
+
+### Tests Added
+
+- Numerical analytics settings and safe snapshot tests.
+- Numerical source/vector/table/request/result contract tests.
+- Numerical finite-value, shape, source-reference, table, and no-signal validation tests.
+- Numerical dependency gate tests proving heavy analytics dependencies remain blocked.
+- Tiny stdlib summary tests for count, min, max, and mean only.
+- API tests for `/numerical-analytics/health`, `/numerical-analytics/contracts`, and `/numerical-analytics/dependency-gate`.
+- Docs/status tests for Prompt 27 artifacts.
+- Static no-action-state/no-signal/no-recommendation/no-DecisionObject/no-execution tests.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+```
+
+### Verification Result
+
+Passed with 907 tests. Editable install, foundation audit, foundation verifier, and standalone pytest passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 28 - Returns and Rolling Window Analytics v0
+
+## Prompt 28 - Returns and Rolling Window Analytics v0
+
+### Objective
+
+Implemented Returns and Rolling Window Analytics v0 as descriptive/research-only analytics on top of Prompt 27 numerical contracts.
+
+Prompt 28 adds simple returns, log returns, rolling count, rolling mean, rolling min, and rolling max over validated synthetic/local numerical vectors with source references. It does not add volatility, drawdown, correlation, beta, indicators, factors, feature computation, signals, recommendations, DecisionObject generation, decisions, backtests, real market ingestion, external calls, heavy analytics dependencies, or execution APIs.
+
+### Files Created
+
+- `packages/analytics/stark_terminal_analytics/returns/__init__.py`
+- `packages/analytics/stark_terminal_analytics/returns/contracts.py`
+- `packages/analytics/stark_terminal_analytics/returns/validation.py`
+- `packages/analytics/stark_terminal_analytics/returns/calculations.py`
+- `packages/analytics/stark_terminal_analytics/returns/health.py`
+- `packages/analytics/stark_terminal_analytics/returns/README.md`
+- `packages/analytics/stark_terminal_analytics/rolling/__init__.py`
+- `packages/analytics/stark_terminal_analytics/rolling/contracts.py`
+- `packages/analytics/stark_terminal_analytics/rolling/validation.py`
+- `packages/analytics/stark_terminal_analytics/rolling/calculations.py`
+- `packages/analytics/stark_terminal_analytics/rolling/health.py`
+- `packages/analytics/stark_terminal_analytics/rolling/README.md`
+- `apps/api/stark_terminal_api/routes/returns_analytics.py`
+- `docs/RETURNS_ANALYTICS_V0.md`
+- `docs/ROLLING_WINDOW_ANALYTICS_V0.md`
+- `docs/RETURNS_ROLLING_VALIDATION_POLICY.md`
+- `docs/RETURNS_ROLLING_SAFETY_BOUNDARY.md`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/analytics/stark_terminal_analytics/__init__.py`
+- `packages/analytics/stark_terminal_analytics/README.md`
+- `packages/analytics/stark_terminal_analytics/foundation/roadmap.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/ANALYTICS_ROADMAP.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/TECH_STACK.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_returns_analytics_settings.py`
+- `tests/test_returns_analytics_contracts.py`
+- `tests/test_returns_analytics_validation.py`
+- `tests/test_returns_analytics_calculations.py`
+- `tests/test_rolling_window_contracts.py`
+- `tests/test_rolling_window_validation.py`
+- `tests/test_rolling_window_calculations.py`
+- `tests/test_api_returns_analytics.py`
+- `tests/test_returns_rolling_docs_status.py`
+- `tests/test_returns_rolling_no_signals_or_decisions.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed with 970 tests. Editable install, foundation audit, foundation verifier, and standalone pytest passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 29 - Volatility and Drawdown Analytics v0
+
+## Prompt 29 - Volatility and Drawdown Analytics v0
+
+### Objective
+
+Implemented Volatility and Drawdown Analytics v0 as descriptive/research-only analytics on top of Prompt 27 numerical contracts and Prompt 28 returns/rolling foundations.
+
+Prompt 29 adds sample standard deviation, population standard deviation, optional annualized volatility when explicit positive periods_per_year is supplied, drawdown series, max drawdown, and drawdown duration over validated synthetic/local numerical vectors with source references. It does not add correlation, beta, indicators, factors, feature computation, regimes, signals, recommendations, DecisionObject generation, decisions, backtests, real market ingestion, external calls, heavy analytics dependencies, or execution APIs.
+
+### Files Created
+
+- `packages/analytics/stark_terminal_analytics/volatility/__init__.py`
+- `packages/analytics/stark_terminal_analytics/volatility/contracts.py`
+- `packages/analytics/stark_terminal_analytics/volatility/validation.py`
+- `packages/analytics/stark_terminal_analytics/volatility/calculations.py`
+- `packages/analytics/stark_terminal_analytics/volatility/health.py`
+- `packages/analytics/stark_terminal_analytics/volatility/README.md`
+- `packages/analytics/stark_terminal_analytics/drawdown/__init__.py`
+- `packages/analytics/stark_terminal_analytics/drawdown/contracts.py`
+- `packages/analytics/stark_terminal_analytics/drawdown/validation.py`
+- `packages/analytics/stark_terminal_analytics/drawdown/calculations.py`
+- `packages/analytics/stark_terminal_analytics/drawdown/health.py`
+- `packages/analytics/stark_terminal_analytics/drawdown/README.md`
+- `apps/api/stark_terminal_api/routes/risk_analytics.py`
+- `docs/VOLATILITY_ANALYTICS_V0.md`
+- `docs/DRAWDOWN_ANALYTICS_V0.md`
+- `docs/VOLATILITY_DRAWDOWN_VALIDATION_POLICY.md`
+- `docs/VOLATILITY_DRAWDOWN_SAFETY_BOUNDARY.md`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/analytics/stark_terminal_analytics/__init__.py`
+- `packages/analytics/stark_terminal_analytics/README.md`
+- `packages/analytics/stark_terminal_analytics/foundation/roadmap.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/ANALYTICS_ROADMAP.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/TECH_STACK.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- Existing settings/API/status/audit tests
+
+### Tests Added
+
+- `tests/test_volatility_analytics_settings.py`
+- `tests/test_volatility_analytics_contracts.py`
+- `tests/test_volatility_analytics_validation.py`
+- `tests/test_volatility_analytics_calculations.py`
+- `tests/test_drawdown_analytics_contracts.py`
+- `tests/test_drawdown_analytics_validation.py`
+- `tests/test_drawdown_analytics_calculations.py`
+- `tests/test_api_risk_analytics.py`
+- `tests/test_volatility_drawdown_docs_status.py`
+- `tests/test_volatility_drawdown_no_signals_or_decisions.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed with 1032 tests. Editable install, foundation audit, foundation verifier, and standalone pytest passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 30 - Analytics Milestone Audit
+
+## Prompt 30 - Analytics Milestone Audit
+
+### Objective
+
+Perform the Analytics Milestone Audit for Prompts 26-29. Prompt 30 audits analytics foundation planning, numerical analytics core contracts, returns and rolling analytics v0, volatility and drawdown analytics v0, API safety, dependency posture, no-signal/no-decision boundaries, no heavy dependencies, no real ingestion, no external calls, no DecisionObject generation, and no execution APIs. It adds audit artifacts and invariant tests only.
+
+### Files Created
+
+- `docs/ANALYTICS_MILESTONE_AUDIT.md`
+- `docs/ANALYTICS_BOUNDARY_AUDIT.md`
+- `docs/ANALYTICS_NO_SIGNAL_AUDIT.md`
+- `docs/ANALYTICS_DEPENDENCY_AUDIT.md`
+- `docs/ANALYTICS_NEXT_PHASE_PLAN.md`
+- `tests/test_analytics_milestone_audit_docs.py`
+- `tests/test_analytics_boundary_milestone.py`
+- `tests/test_analytics_no_signal_milestone.py`
+- `tests/test_analytics_dependency_milestone.py`
+- `tests/test_analytics_api_milestone_safety.py`
+- `tests/test_analytics_milestone_readiness.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/ANALYTICS_ROADMAP.md`
+- `docs/TECH_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/analytics/stark_terminal_analytics/foundation/roadmap.py`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- Existing settings/API/status/audit tests
+
+### Tests Added
+
+- Analytics milestone audit document tests for Prompt 26-29 scope, no real ingestion, no external calls, no heavy dependencies, no signals, no recommendations, no DecisionObject generation, no execution APIs, and no backtests/regimes/indicators.
+- Analytics boundary tests for planning/contracts/guardrails, numerical contracts, returns/rolling modules, volatility/drawdown modules, and deferred correlation and beta/backtesting/regime/indicator/feature modules.
+- Analytics no-signal tests for no buy/sell/hold/watch/avoid fields, no DecisionObject generation, no recommendation endpoints, no action-state/confidence trading logic, and no execution APIs.
+- Analytics dependency tests for no heavy analytics dependencies, no provider SDKs, no scraping dependencies, no broker/trading dependencies, and no external-call imports.
+- Analytics API milestone safety tests for analytics health/contracts/dependency endpoints.
+- Readiness tests for audit/verifier coverage, Prompt 30 North Star status, Prompt 31 roadmap, and Prompt 30 prompt log entry.
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed with 1055 tests. Editable install, foundation audit, foundation verifier, and standalone pytest passed. The only warning is the existing dependency-level `StarletteDeprecationWarning` from FastAPI/TestClient.
+
+### Audit Verdict
+
+Analytics foundation is ready for Prompt 31 Correlation and Beta Analytics v0 if verification passes. Prompt 30 confirms Prompts 26-29 remain descriptive/research-only, with no real ingestion, no external calls, no scraping, no credentials, no provider SDKs, no heavy analytics dependencies, no signals/recommendations/decisions, no DecisionObject generation, no backtests/regimes/indicators/features, and no execution APIs.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 31 - Correlation and Beta Analytics v0
+
+## Prompt 31 - Correlation and Beta Analytics v0
+
+### Objective
+
+Implemented Correlation and Beta Analytics v0 as descriptive/research-only analytics on top of Prompt 27 numerical contracts and Prompt 28 returns foundations.
+
+Prompt 31 adds Pearson correlation, sample covariance, sample variance, and sample-covariance beta over validated synthetic/local paired vectors with source references. It does not add indicators, factors, feature computation, regimes, signals, recommendations, DecisionObject generation, decisions, backtests, real market ingestion, external calls, heavy analytics dependencies, or execution APIs.
+
+### Files Created
+
+- `packages/analytics/stark_terminal_analytics/correlation/__init__.py`
+- `packages/analytics/stark_terminal_analytics/correlation/contracts.py`
+- `packages/analytics/stark_terminal_analytics/correlation/validation.py`
+- `packages/analytics/stark_terminal_analytics/correlation/calculations.py`
+- `packages/analytics/stark_terminal_analytics/correlation/health.py`
+- `packages/analytics/stark_terminal_analytics/correlation/README.md`
+- `packages/analytics/stark_terminal_analytics/beta/__init__.py`
+- `packages/analytics/stark_terminal_analytics/beta/contracts.py`
+- `packages/analytics/stark_terminal_analytics/beta/validation.py`
+- `packages/analytics/stark_terminal_analytics/beta/calculations.py`
+- `packages/analytics/stark_terminal_analytics/beta/health.py`
+- `packages/analytics/stark_terminal_analytics/beta/README.md`
+- `apps/api/stark_terminal_api/routes/relationship_analytics.py`
+- `docs/CORRELATION_ANALYTICS_V0.md`
+- `docs/BETA_ANALYTICS_V0.md`
+- `docs/CORRELATION_BETA_VALIDATION_POLICY.md`
+- `docs/CORRELATION_BETA_SAFETY_BOUNDARY.md`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/risk_analytics.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/analytics/stark_terminal_analytics/__init__.py`
+- `packages/analytics/stark_terminal_analytics/README.md`
+- `packages/analytics/stark_terminal_analytics/foundation/roadmap.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/ANALYTICS_NEXT_PHASE_PLAN.md`
+- `docs/ANALYTICS_ROADMAP.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/TECH_STACK.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_correlation_analytics_settings.py`
+- `tests/test_correlation_analytics_contracts.py`
+- `tests/test_correlation_analytics_validation.py`
+- `tests/test_correlation_analytics_calculations.py`
+- `tests/test_beta_analytics_contracts.py`
+- `tests/test_beta_analytics_validation.py`
+- `tests/test_beta_analytics_calculations.py`
+- `tests/test_api_relationship_analytics.py`
+- `tests/test_correlation_beta_docs_status.py`
+- `tests/test_correlation_beta_no_signals_or_decisions.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Final verification reported 1122 tests passed with the existing dependency-level `StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 32 - Time-Series Diagnostics Foundation
+
+## Prompt 32 - Time-Series Diagnostics Foundation
+
+### Objective
+
+Implemented Time-Series Diagnostics Foundation as descriptive/data-quality-only analytics on top of Prompt 27 numerical source-reference contracts.
+
+Prompt 32 adds timestamp series contracts, time-series diagnostics request/result contracts, monotonicity diagnostics, duplicate timestamp diagnostics, fixed-interval gap diagnostics, irregular interval diagnostics, spacing summaries, health helpers, metadata-only API endpoints, docs, tests, and audit/verifier coverage. It does not add stationarity tests, ADF/KPSS, Hurst, autocorrelation analytics, regime detection, indicators, features, signals, recommendations, DecisionObject generation, decisions, backtests, real market ingestion, external calls, heavy analytics dependencies, or execution APIs.
+
+### Files Created
+
+- `packages/analytics/stark_terminal_analytics/diagnostics/__init__.py`
+- `packages/analytics/stark_terminal_analytics/diagnostics/contracts.py`
+- `packages/analytics/stark_terminal_analytics/diagnostics/validation.py`
+- `packages/analytics/stark_terminal_analytics/diagnostics/calculations.py`
+- `packages/analytics/stark_terminal_analytics/diagnostics/health.py`
+- `packages/analytics/stark_terminal_analytics/diagnostics/README.md`
+- `apps/api/stark_terminal_api/routes/time_series_diagnostics.py`
+- `docs/TIME_SERIES_DIAGNOSTICS_FOUNDATION.md`
+- `docs/TIMESTAMP_DIAGNOSTICS_POLICY.md`
+- `docs/TIME_SERIES_GAP_DIAGNOSTICS.md`
+- `docs/TIME_SERIES_DIAGNOSTICS_SAFETY_BOUNDARY.md`
+- `docs/STATIONARITY_REGIME_DIAGNOSTICS_DEFERRED.md`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/analytics/stark_terminal_analytics/__init__.py`
+- `packages/analytics/stark_terminal_analytics/README.md`
+- `packages/analytics/stark_terminal_analytics/foundation/roadmap.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/ANALYTICS_NEXT_PHASE_PLAN.md`
+- `docs/ANALYTICS_ROADMAP.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/TECH_STACK.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_time_series_diagnostics_settings.py`
+- `tests/test_time_series_diagnostics_contracts.py`
+- `tests/test_time_series_diagnostics_validation.py`
+- `tests/test_time_series_diagnostics_calculations.py`
+- `tests/test_time_series_gap_diagnostics.py`
+- `tests/test_api_time_series_diagnostics.py`
+- `tests/test_time_series_diagnostics_docs_status.py`
+- `tests/test_time_series_diagnostics_no_signals_or_decisions.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Final verification reported 1183 tests passed with the existing dependency-level `StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 33 - Regime Analytics Planning and Guardrails
+
+## Prompt 33 - Regime Analytics Planning and Guardrails
+
+### Objective
+
+Implemented Regime Analytics Planning and Guardrails as planning/governance-only
+contracts on top of the descriptive analytics foundation.
+
+Prompt 33 adds label placeholder contracts, evidence requirement contracts,
+evidence checklist helpers, safety policy contracts, readiness report templates,
+dependency staging, roadmap metadata, health helpers, metadata-only API
+endpoints, docs, tests, and audit/verifier coverage. It does not add actual
+regime classification, stationarity tests, HMMs, clustering, ML models,
+indicators, features, backtests, signals, recommendations, DecisionObject
+generation, decisions, real market ingestion, external calls, heavy analytics
+dependencies, or execution APIs.
+
+### Files Created
+
+- `packages/analytics/stark_terminal_analytics/regime/__init__.py`
+- `packages/analytics/stark_terminal_analytics/regime/contracts.py`
+- `packages/analytics/stark_terminal_analytics/regime/safety.py`
+- `packages/analytics/stark_terminal_analytics/regime/evidence.py`
+- `packages/analytics/stark_terminal_analytics/regime/readiness.py`
+- `packages/analytics/stark_terminal_analytics/regime/dependencies.py`
+- `packages/analytics/stark_terminal_analytics/regime/roadmap.py`
+- `packages/analytics/stark_terminal_analytics/regime/health.py`
+- `packages/analytics/stark_terminal_analytics/regime/README.md`
+- `apps/api/stark_terminal_api/routes/regime_analytics.py`
+- `docs/REGIME_ANALYTICS_PLANNING.md`
+- `docs/REGIME_LABEL_CONTRACTS.md`
+- `docs/REGIME_EVIDENCE_REQUIREMENTS.md`
+- `docs/REGIME_ANALYTICS_SAFETY_POLICY.md`
+- `docs/REGIME_DEPENDENCY_STAGING.md`
+- `docs/REGIME_ANALYTICS_ROADMAP.md`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/analytics/stark_terminal_analytics/__init__.py`
+- `packages/analytics/stark_terminal_analytics/README.md`
+- `packages/analytics/stark_terminal_analytics/foundation/roadmap.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/ANALYTICS_NEXT_PHASE_PLAN.md`
+- `docs/ANALYTICS_ROADMAP.md`
+- `docs/STATIONARITY_REGIME_DIAGNOSTICS_DEFERRED.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/TECH_STACK.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_regime_analytics_settings.py`
+- `tests/test_regime_label_contracts.py`
+- `tests/test_regime_evidence_requirements.py`
+- `tests/test_regime_safety_policy.py`
+- `tests/test_regime_readiness.py`
+- `tests/test_regime_dependency_staging.py`
+- `tests/test_api_regime_analytics.py`
+- `tests/test_regime_analytics_docs_status.py`
+- `tests/test_regime_no_classification_or_signals.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, and full
+pytest run completed successfully with 1250 tests passed and the existing
+dependency-level `StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 34 - Regime Feature Preparation Contracts
+
+## Prompt 34 - Regime Feature Preparation Contracts
+
+### Objective
+
+Implemented Regime Feature Preparation Contracts as contracts/governance-only
+metadata on top of Regime Analytics planning guardrails.
+
+Prompt 34 adds regime feature candidate contracts, feature group plans,
+provenance requirements, evidence mapping contracts, readiness report
+templates, safety policy contracts, dependency staging, health helpers,
+metadata-only API endpoints, docs, tests, and audit/verifier coverage. It does
+not add feature computation, feature registry writes, classifier inputs, actual
+regime classification, stationarity tests, HMMs, clustering, ML models,
+indicators, backtests, signals, recommendations, DecisionObject generation,
+decisions, real market ingestion, external calls, heavy analytics dependencies,
+or execution APIs.
+
+### Files Created
+
+- `packages/analytics/stark_terminal_analytics/regime_features/__init__.py`
+- `packages/analytics/stark_terminal_analytics/regime_features/contracts.py`
+- `packages/analytics/stark_terminal_analytics/regime_features/provenance.py`
+- `packages/analytics/stark_terminal_analytics/regime_features/evidence_mapping.py`
+- `packages/analytics/stark_terminal_analytics/regime_features/readiness.py`
+- `packages/analytics/stark_terminal_analytics/regime_features/safety.py`
+- `packages/analytics/stark_terminal_analytics/regime_features/dependencies.py`
+- `packages/analytics/stark_terminal_analytics/regime_features/health.py`
+- `packages/analytics/stark_terminal_analytics/regime_features/README.md`
+- `apps/api/stark_terminal_api/routes/regime_features.py`
+- `docs/REGIME_FEATURE_PREPARATION_CONTRACTS.md`
+- `docs/REGIME_FEATURE_GROUPS.md`
+- `docs/REGIME_FEATURE_PROVENANCE_POLICY.md`
+- `docs/REGIME_FEATURE_EVIDENCE_MAPPING.md`
+- `docs/REGIME_FEATURE_SAFETY_POLICY.md`
+- `docs/REGIME_FEATURE_DEPENDENCY_STAGING.md`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/analytics/stark_terminal_analytics/__init__.py`
+- `packages/analytics/stark_terminal_analytics/README.md`
+- `packages/analytics/stark_terminal_analytics/regime/roadmap.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/ANALYTICS_NEXT_PHASE_PLAN.md`
+- `docs/ANALYTICS_ROADMAP.md`
+- `docs/REGIME_ANALYTICS_ROADMAP.md`
+- `docs/REGIME_EVIDENCE_REQUIREMENTS.md`
+- `docs/REGIME_ANALYTICS_SAFETY_POLICY.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/TECH_STACK.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_regime_feature_settings.py`
+- `tests/test_regime_feature_contracts.py`
+- `tests/test_regime_feature_groups.py`
+- `tests/test_regime_feature_provenance.py`
+- `tests/test_regime_feature_evidence_mapping.py`
+- `tests/test_regime_feature_readiness.py`
+- `tests/test_regime_feature_safety_policy.py`
+- `tests/test_regime_feature_dependency_staging.py`
+- `tests/test_api_regime_features.py`
+- `tests/test_regime_feature_docs_status.py`
+- `tests/test_regime_feature_no_computation_or_signals.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, and full
+pytest run completed successfully with 1362 tests passed and the existing
+dependency-level `StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 35 - Analytics/Regime Milestone Audit
+
+## Prompt 35 - Analytics/Regime Milestone Audit
+
+### Objective
+
+Performed the Analytics/Regime Milestone Audit across Prompts 26-34.
+
+Prompt 35 audits analytics foundation planning, numerical analytics contracts,
+returns/rolling analytics, volatility/drawdown analytics, correlation/beta
+analytics, time-series diagnostics, regime planning/guardrails, and regime
+feature preparation contracts. It adds audit artifacts, status consolidation,
+audit/verifier coverage, and milestone invariant tests. It does not add new
+analytics calculations, feature computation, feature registry writes,
+classifier inputs, actual regime classification, stationarity tests, HMMs,
+clustering, ML models, indicators, backtests, signals, recommendations,
+DecisionObject generation, decisions, real market ingestion, external calls,
+heavy analytics/model dependencies, or execution APIs.
+
+### Files Created
+
+- `docs/ANALYTICS_REGIME_MILESTONE_AUDIT.md`
+- `docs/REGIME_BOUNDARY_AUDIT.md`
+- `docs/REGIME_NO_CLASSIFICATION_AUDIT.md`
+- `docs/REGIME_FEATURE_PREPARATION_AUDIT.md`
+- `docs/ANALYTICS_REGIME_NO_SIGNAL_AUDIT.md`
+- `docs/ANALYTICS_REGIME_DEPENDENCY_AUDIT.md`
+- `docs/DECISION_DESK_READINESS_PLAN.md`
+- `tests/test_analytics_regime_milestone_audit_docs.py`
+- `tests/test_regime_boundary_milestone.py`
+- `tests/test_regime_no_classification_milestone.py`
+- `tests/test_regime_feature_preparation_milestone.py`
+- `tests/test_analytics_regime_no_signal_milestone.py`
+- `tests/test_analytics_regime_dependency_milestone.py`
+- `tests/test_analytics_regime_api_milestone_safety.py`
+- `tests/test_analytics_regime_milestone_readiness.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/ANALYTICS_NEXT_PHASE_PLAN.md`
+- `docs/ANALYTICS_ROADMAP.md`
+- `docs/REGIME_ANALYTICS_ROADMAP.md`
+- `docs/ANALYTICS_STACK.md`
+- `docs/TECH_STACK.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/DATA_POLICY.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_analytics_regime_milestone_audit_docs.py`
+- `tests/test_regime_boundary_milestone.py`
+- `tests/test_regime_no_classification_milestone.py`
+- `tests/test_regime_feature_preparation_milestone.py`
+- `tests/test_analytics_regime_no_signal_milestone.py`
+- `tests/test_analytics_regime_dependency_milestone.py`
+- `tests/test_analytics_regime_api_milestone_safety.py`
+- `tests/test_analytics_regime_milestone_readiness.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, and full
+pytest run completed successfully with 1388 tests passed and the existing
+dependency-level `StarletteDeprecationWarning`.
+
+### Audit Verdict
+
+Passed. Analytics/regime foundation is ready for Decision Desk planning and
+guardrails only. Decision Desk implementation, recommendation generation,
+action-state generation, confidence scoring, DecisionObject generation, and
+execution remain forbidden until future audited prompts explicitly permit them.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 36 - Retail Decision Desk Planning and Guardrails
+
+## Prompt 36 - Retail Decision Desk Planning and Guardrails
+
+### Objective
+
+Implemented Retail Decision Desk Planning and Guardrails only.
+
+Prompt 36 adds planning contracts, action placeholder contracts, evidence
+requirement contracts, human-review guardrails, display boundary contracts,
+readiness report contracts, fail-closed settings, read-only API metadata
+endpoints, documentation, tests, audit coverage, and verifier coverage. It does
+not add recommendations, buy/sell/hold/watch/avoid generated outputs, action
+generation, confidence scoring, DecisionObject generation, Decision Desk UI,
+market state decisions, real market ingestion, external calls, broker behavior,
+new dependencies, or execution APIs.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/decision_desk/__init__.py`
+- `packages/core/stark_terminal_core/decision_desk/planning.py`
+- `packages/core/stark_terminal_core/decision_desk/action_placeholders.py`
+- `packages/core/stark_terminal_core/decision_desk/evidence.py`
+- `packages/core/stark_terminal_core/decision_desk/human_review.py`
+- `packages/core/stark_terminal_core/decision_desk/safety.py`
+- `packages/core/stark_terminal_core/decision_desk/readiness.py`
+- `packages/core/stark_terminal_core/decision_desk/display.py`
+- `packages/core/stark_terminal_core/decision_desk/health.py`
+- `packages/core/stark_terminal_core/decision_desk/README.md`
+- `apps/api/stark_terminal_api/routes/decision_desk.py`
+- `docs/RETAIL_DECISION_DESK_PLANNING.md`
+- `docs/DECISION_DESK_ACTION_PLACEHOLDERS.md`
+- `docs/DECISION_DESK_EVIDENCE_REQUIREMENTS.md`
+- `docs/DECISION_DESK_HUMAN_REVIEW_GUARDRAILS.md`
+- `docs/DECISION_DESK_SAFETY_POLICY.md`
+- `docs/DECISION_DESK_DISPLAY_BOUNDARY.md`
+- `tests/test_decision_desk_settings.py`
+- `tests/test_decision_desk_planning_contracts.py`
+- `tests/test_decision_desk_action_placeholders.py`
+- `tests/test_decision_desk_evidence_requirements.py`
+- `tests/test_decision_desk_human_review.py`
+- `tests/test_decision_desk_safety_policy.py`
+- `tests/test_decision_desk_readiness.py`
+- `tests/test_api_decision_desk.py`
+- `tests/test_decision_desk_docs_status.py`
+- `tests/test_decision_desk_no_recommendations_or_execution.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_READINESS_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_decision_desk_settings.py`
+- `tests/test_decision_desk_planning_contracts.py`
+- `tests/test_decision_desk_action_placeholders.py`
+- `tests/test_decision_desk_evidence_requirements.py`
+- `tests/test_decision_desk_human_review.py`
+- `tests/test_decision_desk_safety_policy.py`
+- `tests/test_decision_desk_readiness.py`
+- `tests/test_api_decision_desk.py`
+- `tests/test_decision_desk_docs_status.py`
+- `tests/test_decision_desk_no_recommendations_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, and full
+pytest run completed successfully with 1466 tests passed and the existing
+dependency-level `StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 37 - DecisionObject Evidence Bundle Contracts
+
+## Prompt 38 - DecisionObject Evidence Bundle Contracts
+
+### Objective
+
+Implemented DecisionObject Evidence Bundle Contracts only.
+
+Prompt 38 adds evidence bundle contract schemas, evidence item schemas,
+source/provenance contracts, validation checklist contracts, human-review
+attachment contracts, readiness report contracts, fail-closed settings,
+read-only API metadata endpoints, documentation, tests, audit coverage, and
+verifier coverage. It does not add recommendations, buy/sell/hold/watch/avoid
+generated outputs, action generation, confidence scoring, active DecisionObject
+generation, Decision Desk UI, market state decisions, real market ingestion,
+external calls, broker behavior, new dependencies, or execution APIs.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/decision_evidence/__init__.py`
+- `packages/core/stark_terminal_core/decision_evidence/bundle.py`
+- `packages/core/stark_terminal_core/decision_evidence/items.py`
+- `packages/core/stark_terminal_core/decision_evidence/provenance.py`
+- `packages/core/stark_terminal_core/decision_evidence/validation.py`
+- `packages/core/stark_terminal_core/decision_evidence/human_review.py`
+- `packages/core/stark_terminal_core/decision_evidence/safety.py`
+- `packages/core/stark_terminal_core/decision_evidence/readiness.py`
+- `packages/core/stark_terminal_core/decision_evidence/health.py`
+- `packages/core/stark_terminal_core/decision_evidence/README.md`
+- `apps/api/stark_terminal_api/routes/decision_evidence.py`
+- `docs/DECISIONOBJECT_EVIDENCE_BUNDLE_CONTRACTS.md`
+- `docs/DECISION_EVIDENCE_ITEM_SCHEMA.md`
+- `docs/DECISION_EVIDENCE_PROVENANCE_POLICY.md`
+- `docs/DECISION_EVIDENCE_VALIDATION_CHECKLIST.md`
+- `docs/DECISION_EVIDENCE_HUMAN_REVIEW_ATTACHMENTS.md`
+- `docs/DECISION_EVIDENCE_SAFETY_POLICY.md`
+- `tests/test_decision_evidence_settings.py`
+- `tests/test_decision_evidence_bundle_contracts.py`
+- `tests/test_decision_evidence_items.py`
+- `tests/test_decision_evidence_provenance.py`
+- `tests/test_decision_evidence_validation_checklist.py`
+- `tests/test_decision_evidence_human_review.py`
+- `tests/test_decision_evidence_safety_policy.py`
+- `tests/test_decision_evidence_readiness.py`
+- `tests/test_api_decision_evidence.py`
+- `tests/test_decision_evidence_docs_status.py`
+- `tests/test_decision_evidence_no_decisionobject_or_execution.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_READINESS_PLAN.md`
+- `docs/DECISION_DESK_EVIDENCE_REQUIREMENTS.md`
+- `docs/DECISION_DESK_HUMAN_REVIEW_GUARDRAILS.md`
+- `docs/DECISION_DESK_SAFETY_POLICY.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_decision_evidence_settings.py`
+- `tests/test_decision_evidence_bundle_contracts.py`
+- `tests/test_decision_evidence_items.py`
+- `tests/test_decision_evidence_provenance.py`
+- `tests/test_decision_evidence_validation_checklist.py`
+- `tests/test_decision_evidence_human_review.py`
+- `tests/test_decision_evidence_safety_policy.py`
+- `tests/test_decision_evidence_readiness.py`
+- `tests/test_api_decision_evidence.py`
+- `tests/test_decision_evidence_docs_status.py`
+- `tests/test_decision_evidence_no_decisionobject_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, and full
+pytest run completed successfully with 1498 tests passed and the existing
+dependency-level `StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Generated local artifacts should be cleaned after verification if created.
+
+### Next Recommended Prompt
+
+Prompt 39 - Decision Safety and Human-Review Guardrails
+
+## Prompt 39 - Decision Safety and Human-Review Guardrails
+
+### Objective
+
+Implement Decision Safety and Human-Review Guardrails as a guardrails-only
+planning layer between DecisionObject evidence bundle contracts and any future
+Decision Desk API Contract Skeleton.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/decision_safety/__init__.py`
+- `packages/core/stark_terminal_core/decision_safety/guardrails.py`
+- `packages/core/stark_terminal_core/decision_safety/human_review.py`
+- `packages/core/stark_terminal_core/decision_safety/approval.py`
+- `packages/core/stark_terminal_core/decision_safety/overrides.py`
+- `packages/core/stark_terminal_core/decision_safety/blocked_outputs.py`
+- `packages/core/stark_terminal_core/decision_safety/readiness.py`
+- `packages/core/stark_terminal_core/decision_safety/health.py`
+- `packages/core/stark_terminal_core/decision_safety/README.md`
+- `apps/api/stark_terminal_api/routes/decision_safety.py`
+- `docs/DECISION_SAFETY_GUARDRAILS.md`
+- `docs/DECISION_HUMAN_REVIEW_GATES.md`
+- `docs/DECISION_APPROVAL_PLACEHOLDERS.md`
+- `docs/DECISION_OVERRIDE_PROHIBITION.md`
+- `docs/DECISION_BLOCKED_OUTPUT_POLICY.md`
+- `docs/DECISION_SAFETY_READINESS_POLICY.md`
+- `tests/test_decision_safety_settings.py`
+- `tests/test_decision_safety_guardrails.py`
+- `tests/test_decision_safety_human_review.py`
+- `tests/test_decision_safety_approval_placeholders.py`
+- `tests/test_decision_safety_overrides.py`
+- `tests/test_decision_safety_blocked_outputs.py`
+- `tests/test_decision_safety_readiness.py`
+- `tests/test_api_decision_safety.py`
+- `tests/test_decision_safety_docs_status.py`
+- `tests/test_decision_safety_no_decisionobject_or_execution.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_READINESS_PLAN.md`
+- `docs/DECISION_DESK_HUMAN_REVIEW_GUARDRAILS.md`
+- `docs/DECISION_DESK_SAFETY_POLICY.md`
+- `docs/DECISION_EVIDENCE_HUMAN_REVIEW_ATTACHMENTS.md`
+- `docs/DECISION_EVIDENCE_SAFETY_POLICY.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_decision_safety_settings.py`
+- `tests/test_decision_safety_guardrails.py`
+- `tests/test_decision_safety_human_review.py`
+- `tests/test_decision_safety_approval_placeholders.py`
+- `tests/test_decision_safety_overrides.py`
+- `tests/test_decision_safety_blocked_outputs.py`
+- `tests/test_decision_safety_readiness.py`
+- `tests/test_api_decision_safety.py`
+- `tests/test_decision_safety_docs_status.py`
+- `tests/test_decision_safety_no_decisionobject_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/pytest tests/test_decision_safety_settings.py tests/test_decision_safety_guardrails.py tests/test_decision_safety_human_review.py tests/test_decision_safety_approval_placeholders.py tests/test_decision_safety_overrides.py tests/test_decision_safety_blocked_outputs.py tests/test_decision_safety_readiness.py tests/test_api_decision_safety.py tests/test_decision_safety_docs_status.py tests/test_decision_safety_no_decisionobject_or_execution.py`
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, and full
+pytest run completed successfully with 1538 tests passed and the existing
+dependency-level `StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+
+### Next Recommended Prompt
+
+Prompt 40 - Decision Desk API Contract Skeleton
+
+## Prompt 40 - Decision Desk API Contract Skeleton
+
+### Objective
+
+Implement the Decision Desk API Contract Skeleton as read-only, unavailable-by-default
+API contract metadata for future Decision Desk interactions.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/decision_api/__init__.py`
+- `packages/core/stark_terminal_core/decision_api/requests.py`
+- `packages/core/stark_terminal_core/decision_api/responses.py`
+- `packages/core/stark_terminal_core/decision_api/references.py`
+- `packages/core/stark_terminal_core/decision_api/unavailable.py`
+- `packages/core/stark_terminal_core/decision_api/contracts.py`
+- `packages/core/stark_terminal_core/decision_api/health.py`
+- `packages/core/stark_terminal_core/decision_api/README.md`
+- `apps/api/stark_terminal_api/routes/decision_desk_api.py`
+- `docs/DECISION_DESK_API_CONTRACT_SKELETON.md`
+- `docs/DECISION_DESK_REQUEST_RESPONSE_PLACEHOLDERS.md`
+- `docs/DECISION_DESK_UNAVAILABLE_RESPONSES.md`
+- `docs/DECISION_DESK_API_SAFETY_BOUNDARY.md`
+- `docs/DECISION_DESK_API_NO_RECOMMENDATION_POLICY.md`
+- `tests/test_decision_api_settings.py`
+- `tests/test_decision_api_request_placeholders.py`
+- `tests/test_decision_api_response_placeholders.py`
+- `tests/test_decision_api_references.py`
+- `tests/test_decision_api_unavailable_responses.py`
+- `tests/test_decision_api_contracts.py`
+- `tests/test_api_decision_desk_skeleton.py`
+- `tests/test_decision_api_docs_status.py`
+- `tests/test_decision_api_no_recommendations_or_execution.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_READINESS_PLAN.md`
+- `docs/DECISION_DESK_SAFETY_POLICY.md`
+- `docs/DECISION_SAFETY_GUARDRAILS.md`
+- `docs/DECISION_BLOCKED_OUTPUT_POLICY.md`
+- `docs/DECISIONOBJECT_EVIDENCE_BUNDLE_CONTRACTS.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_decision_api_settings.py`
+- `tests/test_decision_api_request_placeholders.py`
+- `tests/test_decision_api_response_placeholders.py`
+- `tests/test_decision_api_references.py`
+- `tests/test_decision_api_unavailable_responses.py`
+- `tests/test_decision_api_contracts.py`
+- `tests/test_api_decision_desk_skeleton.py`
+- `tests/test_decision_api_docs_status.py`
+- `tests/test_decision_api_no_recommendations_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/pytest tests/test_decision_api_settings.py tests/test_decision_api_request_placeholders.py tests/test_decision_api_response_placeholders.py tests/test_decision_api_references.py tests/test_decision_api_unavailable_responses.py tests/test_decision_api_contracts.py tests/test_api_decision_desk_skeleton.py tests/test_decision_api_docs_status.py tests/test_decision_api_no_recommendations_or_execution.py`
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, and full
+pytest run completed successfully with 1607 tests passed and the existing
+dependency-level `StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+
+### Next Recommended Prompt
+
+Prompt 41 - Decision Desk Milestone Audit
+
+## Prompt 41 - Decision Desk Milestone Audit
+
+### Objective
+
+Perform the Decision Desk Milestone Audit for Prompts 36-40. Audit Retail
+Decision Desk planning and guardrails, DecisionObject evidence bundle
+contracts, decision safety/human-review guardrails, and the Decision Desk API
+Contract Skeleton. Confirm no recommendations, action generation, confidence
+scoring, active DecisionObject generation, approvals, overrides, execution
+APIs, broker behavior, real ingestion, external calls, or new dependencies were
+introduced.
+
+### Files Created
+
+- `docs/DECISION_DESK_MILESTONE_AUDIT.md`
+- `docs/DECISION_DESK_BOUNDARY_AUDIT.md`
+- `docs/DECISION_EVIDENCE_BOUNDARY_AUDIT.md`
+- `docs/DECISION_SAFETY_BOUNDARY_AUDIT.md`
+- `docs/DECISION_API_SKELETON_AUDIT.md`
+- `docs/DECISION_NO_RECOMMENDATION_AUDIT.md`
+- `docs/DECISION_DESK_NEXT_PHASE_PLAN.md`
+- `tests/test_decision_desk_milestone_audit_docs.py`
+- `tests/test_decision_desk_boundary_milestone.py`
+- `tests/test_decision_evidence_boundary_milestone.py`
+- `tests/test_decision_safety_boundary_milestone.py`
+- `tests/test_decision_api_skeleton_milestone.py`
+- `tests/test_decision_no_recommendation_milestone.py`
+- `tests/test_decision_desk_api_milestone_safety.py`
+- `tests/test_decision_desk_milestone_readiness.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_READINESS_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/TECH_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/DECISION_DESK_SAFETY_POLICY.md`
+- `docs/DECISION_SAFETY_GUARDRAILS.md`
+- `docs/DECISION_BLOCKED_OUTPUT_POLICY.md`
+- `docs/DECISIONOBJECT_EVIDENCE_BUNDLE_CONTRACTS.md`
+- `docs/DECISION_DESK_API_CONTRACT_SKELETON.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_decision_desk_milestone_audit_docs.py`
+- `tests/test_decision_desk_boundary_milestone.py`
+- `tests/test_decision_evidence_boundary_milestone.py`
+- `tests/test_decision_safety_boundary_milestone.py`
+- `tests/test_decision_api_skeleton_milestone.py`
+- `tests/test_decision_no_recommendation_milestone.py`
+- `tests/test_decision_desk_api_milestone_safety.py`
+- `tests/test_decision_desk_milestone_readiness.py`
+
+### Commands Run
+
+- `.venv/bin/pytest tests/test_decision_desk_milestone_audit_docs.py tests/test_decision_desk_boundary_milestone.py tests/test_decision_evidence_boundary_milestone.py tests/test_decision_safety_boundary_milestone.py tests/test_decision_api_skeleton_milestone.py tests/test_decision_no_recommendation_milestone.py tests/test_decision_desk_api_milestone_safety.py tests/test_decision_desk_milestone_readiness.py`
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, and full
+pytest run completed successfully with 1627 tests passed and the existing
+dependency-level `StarletteDeprecationWarning`.
+
+### Audit Verdict
+
+Passed. Decision Desk planning foundation is ready for the next read-only
+skeleton phase only. Recommendations, action generation, confidence scoring,
+active DecisionObject generation, approvals, overrides, broker behavior,
+external calls, real ingestion, and execution APIs remain forbidden.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 42 - Decision Desk Readiness API Skeleton
+
+## Prompt 42 - Decision Desk Readiness API Skeleton
+
+### Objective
+
+Implement the Decision Desk Readiness API Skeleton as a read-only,
+unavailable-by-default contract layer. Add readiness request/response
+placeholders, evidence/safety/human-review/blocked-output reference
+placeholders, unavailable readiness responses, contract metadata, health
+helpers, API endpoints, docs, audit/verifier coverage, and tests while keeping
+recommendations, action generation, confidence scoring, active DecisionObject
+generation, approvals, overrides, readiness-to-trade, broker behavior, real
+market ingestion, external calls, and execution APIs forbidden.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/decision_readiness_api/__init__.py`
+- `packages/core/stark_terminal_core/decision_readiness_api/requests.py`
+- `packages/core/stark_terminal_core/decision_readiness_api/responses.py`
+- `packages/core/stark_terminal_core/decision_readiness_api/references.py`
+- `packages/core/stark_terminal_core/decision_readiness_api/unavailable.py`
+- `packages/core/stark_terminal_core/decision_readiness_api/contracts.py`
+- `packages/core/stark_terminal_core/decision_readiness_api/health.py`
+- `packages/core/stark_terminal_core/decision_readiness_api/README.md`
+- `apps/api/stark_terminal_api/routes/decision_readiness_api.py`
+- `docs/DECISION_DESK_READINESS_API_SKELETON.md`
+- `docs/DECISION_READINESS_REQUEST_RESPONSE_PLACEHOLDERS.md`
+- `docs/DECISION_READINESS_REFERENCE_PLACEHOLDERS.md`
+- `docs/DECISION_READINESS_UNAVAILABLE_RESPONSES.md`
+- `docs/DECISION_READINESS_API_SAFETY_BOUNDARY.md`
+- `docs/DECISION_READINESS_NO_RECOMMENDATION_POLICY.md`
+- `tests/test_decision_readiness_api_settings.py`
+- `tests/test_decision_readiness_api_request_placeholders.py`
+- `tests/test_decision_readiness_api_response_placeholders.py`
+- `tests/test_decision_readiness_api_references.py`
+- `tests/test_decision_readiness_api_unavailable_responses.py`
+- `tests/test_decision_readiness_api_contracts.py`
+- `tests/test_api_decision_readiness_skeleton.py`
+- `tests/test_decision_readiness_api_docs_status.py`
+- `tests/test_decision_readiness_api_no_recommendations_or_execution.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_READINESS_PLAN.md`
+- `docs/DECISION_DESK_NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_MILESTONE_AUDIT.md`
+- `docs/DECISION_DESK_SAFETY_POLICY.md`
+- `docs/DECISION_SAFETY_READINESS_POLICY.md`
+- `docs/DECISION_DESK_API_CONTRACT_SKELETON.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_decision_readiness_api_settings.py`
+- `tests/test_decision_readiness_api_request_placeholders.py`
+- `tests/test_decision_readiness_api_response_placeholders.py`
+- `tests/test_decision_readiness_api_references.py`
+- `tests/test_decision_readiness_api_unavailable_responses.py`
+- `tests/test_decision_readiness_api_contracts.py`
+- `tests/test_api_decision_readiness_skeleton.py`
+- `tests/test_decision_readiness_api_docs_status.py`
+- `tests/test_decision_readiness_api_no_recommendations_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pytest tests/test_decision_readiness_api_settings.py tests/test_decision_readiness_api_request_placeholders.py tests/test_decision_readiness_api_references.py tests/test_decision_readiness_api_unavailable_responses.py tests/test_decision_readiness_api_response_placeholders.py tests/test_decision_readiness_api_contracts.py tests/test_api_decision_readiness_skeleton.py tests/test_decision_readiness_api_docs_status.py tests/test_decision_readiness_api_no_recommendations_or_execution.py`
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, and full
+pytest run completed successfully with 1711 tests passed and the existing
+dependency-level `StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 43 - Decision Desk Display Contract Skeleton
+
+## Prompt 43 - Decision Desk Display Contract Skeleton
+
+### Objective
+
+Implement the Decision Desk Display Contract Skeleton as a read-only,
+unavailable-by-default display contract layer. Add display contract metadata,
+card placeholders, section placeholders, badge placeholders, evidence/safety
+display references, unavailable display responses, health helpers, API
+endpoints, docs, audit/verifier coverage, and tests while keeping active UI,
+recommendation cards, readiness-to-trade, recommendations, action generation,
+confidence scoring, active DecisionObject generation, approvals, overrides,
+broker behavior, real market ingestion, external calls, and execution APIs
+forbidden.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/decision_display/__init__.py`
+- `packages/core/stark_terminal_core/decision_display/contracts.py`
+- `packages/core/stark_terminal_core/decision_display/cards.py`
+- `packages/core/stark_terminal_core/decision_display/sections.py`
+- `packages/core/stark_terminal_core/decision_display/badges.py`
+- `packages/core/stark_terminal_core/decision_display/references.py`
+- `packages/core/stark_terminal_core/decision_display/unavailable.py`
+- `packages/core/stark_terminal_core/decision_display/health.py`
+- `packages/core/stark_terminal_core/decision_display/README.md`
+- `apps/api/stark_terminal_api/routes/decision_display.py`
+- `docs/DECISION_DESK_DISPLAY_CONTRACT_SKELETON.md`
+- `docs/DECISION_DISPLAY_CARD_PLACEHOLDERS.md`
+- `docs/DECISION_DISPLAY_SECTION_PLACEHOLDERS.md`
+- `docs/DECISION_DISPLAY_UNAVAILABLE_RESPONSES.md`
+- `docs/DECISION_DISPLAY_SAFETY_BOUNDARY.md`
+- `docs/DECISION_DISPLAY_NO_RECOMMENDATION_POLICY.md`
+- `tests/test_decision_display_settings.py`
+- `tests/test_decision_display_contracts.py`
+- `tests/test_decision_display_cards.py`
+- `tests/test_decision_display_sections.py`
+- `tests/test_decision_display_badges.py`
+- `tests/test_decision_display_references.py`
+- `tests/test_decision_display_unavailable_responses.py`
+- `tests/test_api_decision_display.py`
+- `tests/test_decision_display_docs_status.py`
+- `tests/test_decision_display_no_recommendations_or_execution.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_READINESS_PLAN.md`
+- `docs/DECISION_DESK_NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_DISPLAY_BOUNDARY.md`
+- `docs/DECISION_DESK_MILESTONE_AUDIT.md`
+- `docs/DECISION_DESK_API_CONTRACT_SKELETON.md`
+- `docs/DECISION_DESK_READINESS_API_SKELETON.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_decision_display_settings.py`
+- `tests/test_decision_display_contracts.py`
+- `tests/test_decision_display_cards.py`
+- `tests/test_decision_display_sections.py`
+- `tests/test_decision_display_badges.py`
+- `tests/test_decision_display_references.py`
+- `tests/test_decision_display_unavailable_responses.py`
+- `tests/test_api_decision_display.py`
+- `tests/test_decision_display_docs_status.py`
+- `tests/test_decision_display_no_recommendations_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pytest tests/test_decision_display_settings.py tests/test_decision_display_contracts.py tests/test_decision_display_cards.py tests/test_decision_display_sections.py tests/test_decision_display_badges.py tests/test_decision_display_references.py tests/test_decision_display_unavailable_responses.py tests/test_api_decision_display.py tests/test_decision_display_docs_status.py tests/test_decision_display_no_recommendations_or_execution.py`
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, and full pytest
+completed successfully. Final full pytest result: 1806 tests passed with the
+existing dependency-level `StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 44 - Decision Desk Evidence Bundle Validation v0
+
+## Prompt 44 - Decision Desk Evidence Bundle Validation v0
+
+### Objective
+
+Implement Decision Desk Evidence Bundle Validation v0 as validation-only
+contracts, deterministic validators, safety policy helpers, read-only API
+metadata, docs, audit/verifier coverage, and tests. Validation pass remains not
+a recommendation, not approval, not readiness-to-trade, and not active
+DecisionObject readiness.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/decision_evidence_validation/__init__.py`
+- `packages/core/stark_terminal_core/decision_evidence_validation/contracts.py`
+- `packages/core/stark_terminal_core/decision_evidence_validation/issues.py`
+- `packages/core/stark_terminal_core/decision_evidence_validation/results.py`
+- `packages/core/stark_terminal_core/decision_evidence_validation/validators.py`
+- `packages/core/stark_terminal_core/decision_evidence_validation/safety.py`
+- `packages/core/stark_terminal_core/decision_evidence_validation/health.py`
+- `packages/core/stark_terminal_core/decision_evidence_validation/README.md`
+- `apps/api/stark_terminal_api/routes/decision_evidence_validation.py`
+- `docs/DECISION_EVIDENCE_VALIDATION_V0.md`
+- `docs/DECISION_EVIDENCE_VALIDATION_RESULT_SCHEMA.md`
+- `docs/DECISION_EVIDENCE_VALIDATION_FAILURE_REASONS.md`
+- `docs/DECISION_EVIDENCE_VALIDATION_SAFETY_BOUNDARY.md`
+- `docs/DECISION_EVIDENCE_VALIDATION_API_SKELETON.md`
+- `docs/DECISION_EVIDENCE_VALIDATION_NO_RECOMMENDATION_POLICY.md`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_READINESS_PLAN.md`
+- `docs/DECISION_DESK_NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_MILESTONE_AUDIT.md`
+- `docs/DECISION_EVIDENCE_VALIDATION_CHECKLIST.md`
+- `docs/DECISIONOBJECT_EVIDENCE_BUNDLE_CONTRACTS.md`
+- `docs/DECISION_EVIDENCE_SAFETY_POLICY.md`
+- `docs/DECISION_DESK_API_CONTRACT_SKELETON.md`
+- `docs/DECISION_DESK_DISPLAY_CONTRACT_SKELETON.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_decision_evidence_validation_settings.py`
+- `tests/test_decision_evidence_validation_contracts.py`
+- `tests/test_decision_evidence_validation_issues.py`
+- `tests/test_decision_evidence_validation_results.py`
+- `tests/test_decision_evidence_validators.py`
+- `tests/test_decision_evidence_validation_safety.py`
+- `tests/test_api_decision_evidence_validation.py`
+- `tests/test_decision_evidence_validation_docs_status.py`
+- `tests/test_decision_evidence_validation_no_recommendations_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, and full pytest
+completed successfully. Final full pytest result: 1857 tests passed with the
+existing dependency-level `StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 45 - Decision Desk Human Review Workflow Skeleton
+
+## Prompt 45 - Decision Desk Human Review Workflow Skeleton
+
+### Objective
+
+Implement Decision Desk Human Review Workflow Skeleton as workflow-skeleton-only
+contracts, review task placeholders, reviewer role placeholders, review queue
+placeholders, review status placeholders, unavailable workflow responses,
+no-approval safety helpers, read-only API metadata, docs, audit/verifier
+coverage, and tests. Human review workflow output remains not approval, not
+override, not recommendation, not readiness-to-trade, not active DecisionObject
+readiness, and not execution readiness.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/decision_human_review/__init__.py`
+- `packages/core/stark_terminal_core/decision_human_review/workflow.py`
+- `packages/core/stark_terminal_core/decision_human_review/tasks.py`
+- `packages/core/stark_terminal_core/decision_human_review/roles.py`
+- `packages/core/stark_terminal_core/decision_human_review/queues.py`
+- `packages/core/stark_terminal_core/decision_human_review/status.py`
+- `packages/core/stark_terminal_core/decision_human_review/unavailable.py`
+- `packages/core/stark_terminal_core/decision_human_review/safety.py`
+- `packages/core/stark_terminal_core/decision_human_review/health.py`
+- `packages/core/stark_terminal_core/decision_human_review/README.md`
+- `apps/api/stark_terminal_api/routes/decision_human_review.py`
+- `docs/DECISION_HUMAN_REVIEW_WORKFLOW_SKELETON.md`
+- `docs/DECISION_REVIEW_TASK_PLACEHOLDERS.md`
+- `docs/DECISION_REVIEW_ROLE_PLACEHOLDERS.md`
+- `docs/DECISION_REVIEW_QUEUE_PLACEHOLDERS.md`
+- `docs/DECISION_REVIEW_UNAVAILABLE_RESPONSES.md`
+- `docs/DECISION_REVIEW_NO_APPROVAL_POLICY.md`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_READINESS_PLAN.md`
+- `docs/DECISION_DESK_NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_MILESTONE_AUDIT.md`
+- `docs/DECISION_DESK_HUMAN_REVIEW_GUARDRAILS.md`
+- `docs/DECISION_EVIDENCE_HUMAN_REVIEW_ATTACHMENTS.md`
+- `docs/DECISION_HUMAN_REVIEW_GATES.md`
+- `docs/DECISION_APPROVAL_PLACEHOLDERS.md`
+- `docs/DECISION_SAFETY_READINESS_POLICY.md`
+- `docs/DECISION_EVIDENCE_VALIDATION_V0.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_decision_human_review_settings.py`
+- `tests/test_decision_human_review_workflow_contracts.py`
+- `tests/test_decision_human_review_tasks.py`
+- `tests/test_decision_human_review_roles.py`
+- `tests/test_decision_human_review_queues.py`
+- `tests/test_decision_human_review_status.py`
+- `tests/test_decision_human_review_unavailable_responses.py`
+- `tests/test_decision_human_review_safety.py`
+- `tests/test_api_decision_human_review.py`
+- `tests/test_decision_human_review_docs_status.py`
+- `tests/test_decision_human_review_no_approvals_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, and full pytest
+completed successfully. Final full pytest result: 1962 tests passed with the
+existing dependency-level `StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 46 - Decision Desk Milestone Audit 2
+
+## Prompt 46 - Decision Desk Milestone Audit 2
+
+### Objective
+
+Perform Decision Desk Milestone Audit 2 as audit/consolidation only for
+Prompts 42-45. Audit the Decision Desk Readiness API Skeleton, Decision Desk
+Display Contract Skeleton, Decision Evidence Bundle Validation v0, and Decision
+Human Review Workflow Skeleton while keeping active UI, active workflow, task
+assignment, reviewer auth, notifications, approvals, overrides,
+recommendations, action generation, confidence scoring, active DecisionObject
+generation, readiness-to-trade, broker behavior, real ingestion, external
+calls, and execution APIs forbidden.
+
+### Files Created
+
+- `docs/DECISION_DESK_MILESTONE_AUDIT_2.md`
+- `docs/DECISION_READINESS_API_BOUNDARY_AUDIT.md`
+- `docs/DECISION_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/DECISION_EVIDENCE_VALIDATION_BOUNDARY_AUDIT.md`
+- `docs/DECISION_HUMAN_REVIEW_WORKFLOW_BOUNDARY_AUDIT.md`
+- `docs/DECISION_NO_APPROVAL_WORKFLOW_AUDIT.md`
+- `docs/DECISION_DESK_NEXT_PHASE_PLAN_2.md`
+- `tests/test_decision_desk_milestone_audit_2_docs.py`
+- `tests/test_decision_readiness_api_boundary_milestone.py`
+- `tests/test_decision_display_boundary_milestone.py`
+- `tests/test_decision_evidence_validation_boundary_milestone.py`
+- `tests/test_decision_human_review_workflow_boundary_milestone.py`
+- `tests/test_decision_no_approval_workflow_milestone.py`
+- `tests/test_decision_desk_phase2_api_milestone_safety.py`
+- `tests/test_decision_desk_phase2_milestone_readiness.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_READINESS_PLAN.md`
+- `docs/DECISION_DESK_NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_MILESTONE_AUDIT.md`
+- `docs/DECISION_DESK_READINESS_API_SKELETON.md`
+- `docs/DECISION_DESK_DISPLAY_CONTRACT_SKELETON.md`
+- `docs/DECISION_EVIDENCE_VALIDATION_V0.md`
+- `docs/DECISION_HUMAN_REVIEW_WORKFLOW_SKELETON.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_decision_desk_milestone_audit_2_docs.py`
+- `tests/test_decision_readiness_api_boundary_milestone.py`
+- `tests/test_decision_display_boundary_milestone.py`
+- `tests/test_decision_evidence_validation_boundary_milestone.py`
+- `tests/test_decision_human_review_workflow_boundary_milestone.py`
+- `tests/test_decision_no_approval_workflow_milestone.py`
+- `tests/test_decision_desk_phase2_api_milestone_safety.py`
+- `tests/test_decision_desk_phase2_milestone_readiness.py`
+
+### Commands Run
+
+- `.venv/bin/pytest tests/test_decision_desk_milestone_audit_2_docs.py tests/test_decision_readiness_api_boundary_milestone.py tests/test_decision_display_boundary_milestone.py tests/test_decision_evidence_validation_boundary_milestone.py tests/test_decision_human_review_workflow_boundary_milestone.py tests/test_decision_no_approval_workflow_milestone.py tests/test_decision_desk_phase2_api_milestone_safety.py tests/test_decision_desk_phase2_milestone_readiness.py`
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, focused Prompt
+46 audit tests, and full pytest completed successfully. Final full pytest
+result: 1983 tests passed with the existing dependency-level
+`StarletteDeprecationWarning`.
+
+### Audit Verdict
+
+Decision Desk skeleton phase is ready for Decision Desk System Boundary
+Hardening as the next contract/skeleton boundary-hardening phase. No active UI,
+active workflow, task assignment, reviewer auth, notifications, approvals,
+overrides, recommendations, action generation, confidence scoring, active
+DecisionObject generation, readiness-to-trade, broker behavior, real ingestion,
+external calls, or execution APIs were introduced.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 47 - Decision Desk System Boundary Hardening
+
+## Prompt 47 - Decision Desk System Boundary Hardening
+
+### Objective
+
+Implement Decision Desk System Boundary Hardening as a boundary-hardening-only
+layer across the Decision Desk skeleton stack. Add a forbidden behavior
+registry, endpoint boundary policies, module boundary policies, cross-module
+invariants, read-only boundary endpoints, docs, audit/verifier coverage, and
+tests while keeping active UI, active workflow, task assignment, reviewer auth,
+notifications, approvals, overrides, recommendations, action generation,
+confidence scoring, active DecisionObject generation, readiness-to-trade,
+broker behavior, real ingestion, external calls, and execution APIs forbidden.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/decision_boundary/__init__.py`
+- `packages/core/stark_terminal_core/decision_boundary/forbidden.py`
+- `packages/core/stark_terminal_core/decision_boundary/endpoints.py`
+- `packages/core/stark_terminal_core/decision_boundary/modules.py`
+- `packages/core/stark_terminal_core/decision_boundary/invariants.py`
+- `packages/core/stark_terminal_core/decision_boundary/health.py`
+- `packages/core/stark_terminal_core/decision_boundary/README.md`
+- `apps/api/stark_terminal_api/routes/decision_boundary.py`
+- `docs/DECISION_DESK_SYSTEM_BOUNDARY_HARDENING.md`
+- `docs/DECISION_FORBIDDEN_BEHAVIOR_REGISTRY.md`
+- `docs/DECISION_ENDPOINT_BOUNDARY_POLICY.md`
+- `docs/DECISION_MODULE_BOUNDARY_POLICY.md`
+- `docs/DECISION_CROSS_MODULE_INVARIANTS.md`
+- `docs/DECISION_BOUNDARY_HARDENING_NO_EXECUTION_POLICY.md`
+- `tests/test_decision_boundary_settings.py`
+- `tests/test_decision_boundary_forbidden_registry.py`
+- `tests/test_decision_boundary_endpoint_policy.py`
+- `tests/test_decision_boundary_module_policy.py`
+- `tests/test_decision_boundary_invariants.py`
+- `tests/test_api_decision_boundary.py`
+- `tests/test_decision_boundary_docs_status.py`
+- `tests/test_decision_boundary_cross_module_no_recommendations.py`
+- `tests/test_decision_boundary_cross_endpoint_no_execution.py`
+- `tests/test_decision_boundary_no_active_ui_or_workflow.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_READINESS_PLAN.md`
+- `docs/DECISION_DESK_NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_NEXT_PHASE_PLAN_2.md`
+- `docs/DECISION_DESK_MILESTONE_AUDIT_2.md`
+- `docs/DECISION_NO_RECOMMENDATION_AUDIT.md`
+- `docs/DECISION_NO_APPROVAL_WORKFLOW_AUDIT.md`
+- `docs/DECISION_BLOCKED_OUTPUT_POLICY.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_decision_boundary_settings.py`
+- `tests/test_decision_boundary_forbidden_registry.py`
+- `tests/test_decision_boundary_endpoint_policy.py`
+- `tests/test_decision_boundary_module_policy.py`
+- `tests/test_decision_boundary_invariants.py`
+- `tests/test_api_decision_boundary.py`
+- `tests/test_decision_boundary_docs_status.py`
+- `tests/test_decision_boundary_cross_module_no_recommendations.py`
+- `tests/test_decision_boundary_cross_endpoint_no_execution.py`
+- `tests/test_decision_boundary_no_active_ui_or_workflow.py`
+
+### Commands Run
+
+- `.venv/bin/pytest tests/test_decision_boundary_settings.py tests/test_decision_boundary_forbidden_registry.py tests/test_decision_boundary_endpoint_policy.py tests/test_decision_boundary_module_policy.py tests/test_decision_boundary_invariants.py tests/test_api_decision_boundary.py tests/test_decision_boundary_docs_status.py tests/test_decision_boundary_cross_module_no_recommendations.py tests/test_decision_boundary_cross_endpoint_no_execution.py tests/test_decision_boundary_no_active_ui_or_workflow.py`
+- `.venv/bin/pytest tests/test_api_health.py tests/test_api_config.py tests/test_foundation_health_surface.py tests/test_decision_desk_phase2_api_milestone_safety.py tests/test_settings.py tests/test_decision_desk_phase2_milestone_readiness.py tests/test_decision_desk_milestone_audit_2_docs.py`
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, focused
+Prompt 47 boundary tests, status regression tests, and full pytest completed
+successfully. Final full pytest result: 2059 tests passed with the existing
+dependency-level `StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 48 - Decision Desk API/Display Integration Readiness Audit
+
+## Prompt 48 - Decision Desk API/Display Integration Readiness Audit
+
+### Objective
+
+Perform Decision Desk API/Display Integration Readiness Audit across Prompts
+40-47. Audit the Decision Desk API Contract Skeleton, Decision Desk Readiness
+API Skeleton, Decision Desk Display Contract Skeleton, Decision Evidence Bundle
+Validation v0, Decision Human Review Workflow Skeleton, Decision Desk System
+Boundary Hardening, cross-endpoint consistency, and API/display boundary
+readiness. Confirm readiness for Retail Dashboard Planning and Guardrails only.
+
+### Files Created
+
+- `docs/DECISION_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`
+- `docs/DECISION_CROSS_ENDPOINT_CONSISTENCY_AUDIT.md`
+- `docs/DECISION_API_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/DECISION_BOUNDARY_INTEGRATION_AUDIT.md`
+- `docs/DECISION_INTEGRATION_NO_RECOMMENDATION_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_READINESS_PLAN.md`
+- `tests/test_decision_api_display_integration_audit_docs.py`
+- `tests/test_decision_cross_endpoint_consistency.py`
+- `tests/test_decision_api_display_boundary_integration.py`
+- `tests/test_decision_boundary_integration.py`
+- `tests/test_decision_integration_no_recommendation.py`
+- `tests/test_decision_integration_no_active_ui_or_workflow.py`
+- `tests/test_decision_integration_no_execution.py`
+- `tests/test_retail_dashboard_readiness_plan.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/decision_boundary/endpoints.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_READINESS_PLAN.md`
+- `docs/DECISION_DESK_NEXT_PHASE_PLAN.md`
+- `docs/DECISION_DESK_NEXT_PHASE_PLAN_2.md`
+- `docs/DECISION_DESK_MILESTONE_AUDIT_2.md`
+- `docs/DECISION_DESK_SYSTEM_BOUNDARY_HARDENING.md`
+- `docs/DECISION_CROSS_MODULE_INVARIANTS.md`
+- `docs/DECISION_ENDPOINT_BOUNDARY_POLICY.md`
+- `docs/DECISION_MODULE_BOUNDARY_POLICY.md`
+- `docs/DECISION_DESK_API_CONTRACT_SKELETON.md`
+- `docs/DECISION_DESK_READINESS_API_SKELETON.md`
+- `docs/DECISION_DESK_DISPLAY_CONTRACT_SKELETON.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_decision_api_display_integration_audit_docs.py`
+- `tests/test_decision_cross_endpoint_consistency.py`
+- `tests/test_decision_api_display_boundary_integration.py`
+- `tests/test_decision_boundary_integration.py`
+- `tests/test_decision_integration_no_recommendation.py`
+- `tests/test_decision_integration_no_active_ui_or_workflow.py`
+- `tests/test_decision_integration_no_execution.py`
+- `tests/test_retail_dashboard_readiness_plan.py`
+
+### Commands Run
+
+- `.venv/bin/pytest tests/test_decision_api_display_integration_audit_docs.py tests/test_decision_cross_endpoint_consistency.py tests/test_decision_api_display_boundary_integration.py tests/test_decision_boundary_integration.py tests/test_decision_integration_no_recommendation.py tests/test_decision_integration_no_active_ui_or_workflow.py tests/test_decision_integration_no_execution.py tests/test_retail_dashboard_readiness_plan.py`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Focused Prompt 48 integration audit tests passed. Editable install,
+foundation audit, foundation verifier, and full pytest completed successfully.
+Final full pytest result: 2085 tests passed with the existing dependency-level
+`StarletteDeprecationWarning`.
+
+### Audit Verdict
+
+Ready for Retail Dashboard Planning and Guardrails only. Retail Dashboard
+implementation, active UI, recommendation cards, action generation, confidence
+scoring, active DecisionObject generation, approvals, overrides, active
+workflow, readiness-to-trade, broker controls, and execution APIs remain
+forbidden.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 49 - Retail Dashboard Planning and Guardrails
+
+## Prompt 49 - Retail Dashboard Planning and Guardrails
+
+### Objective
+
+Implement Retail Dashboard Planning and Guardrails. Add planning contracts,
+dashboard section placeholders, dashboard card placeholders, data-source
+reference placeholders, decision-reference placeholders, forbidden interaction
+contracts, safety helpers, readiness helpers, read-only planning endpoints,
+documentation, audit coverage, verifier coverage, and tests while preserving
+no active UI, no recommendation cards, no action generation, no confidence
+scoring, no active DecisionObject generation, no readiness-to-trade, no broker
+controls, no approvals, no overrides, and no execution APIs.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_dashboard/__init__.py`
+- `packages/core/stark_terminal_core/retail_dashboard/planning.py`
+- `packages/core/stark_terminal_core/retail_dashboard/sections.py`
+- `packages/core/stark_terminal_core/retail_dashboard/cards.py`
+- `packages/core/stark_terminal_core/retail_dashboard/references.py`
+- `packages/core/stark_terminal_core/retail_dashboard/interactions.py`
+- `packages/core/stark_terminal_core/retail_dashboard/safety.py`
+- `packages/core/stark_terminal_core/retail_dashboard/readiness.py`
+- `packages/core/stark_terminal_core/retail_dashboard/health.py`
+- `packages/core/stark_terminal_core/retail_dashboard/README.md`
+- `apps/api/stark_terminal_api/routes/retail_dashboard.py`
+- `docs/RETAIL_DASHBOARD_PLANNING.md`
+- `docs/RETAIL_DASHBOARD_GUARDRAILS.md`
+- `docs/RETAIL_DASHBOARD_SECTION_PLACEHOLDERS.md`
+- `docs/RETAIL_DASHBOARD_CARD_PLACEHOLDERS.md`
+- `docs/RETAIL_DASHBOARD_FORBIDDEN_INTERACTIONS.md`
+- `docs/RETAIL_DASHBOARD_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_DASHBOARD_NO_EXECUTION_POLICY.md`
+- `tests/test_retail_dashboard_settings.py`
+- `tests/test_retail_dashboard_planning_contracts.py`
+- `tests/test_retail_dashboard_sections.py`
+- `tests/test_retail_dashboard_cards.py`
+- `tests/test_retail_dashboard_references.py`
+- `tests/test_retail_dashboard_forbidden_interactions.py`
+- `tests/test_retail_dashboard_safety.py`
+- `tests/test_retail_dashboard_readiness.py`
+- `tests/test_api_retail_dashboard.py`
+- `tests/test_retail_dashboard_docs_status.py`
+- `tests/test_retail_dashboard_no_active_ui_or_execution.py`
+
+### Files Modified
+
+- `README.md`
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/decision_boundary/endpoints.py`
+- `packages/core/stark_terminal_core/decision_boundary/modules.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_DASHBOARD_READINESS_PLAN.md`
+- `docs/DECISION_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`
+- `docs/DECISION_API_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/DECISION_DESK_SYSTEM_BOUNDARY_HARDENING.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_retail_dashboard_settings.py`
+- `tests/test_retail_dashboard_planning_contracts.py`
+- `tests/test_retail_dashboard_sections.py`
+- `tests/test_retail_dashboard_cards.py`
+- `tests/test_retail_dashboard_references.py`
+- `tests/test_retail_dashboard_forbidden_interactions.py`
+- `tests/test_retail_dashboard_safety.py`
+- `tests/test_retail_dashboard_readiness.py`
+- `tests/test_api_retail_dashboard.py`
+- `tests/test_retail_dashboard_docs_status.py`
+- `tests/test_retail_dashboard_no_active_ui_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, focused Prompt
+49 retail dashboard tests, status regression tests, and full pytest completed
+successfully. Final full pytest result: 2187 tests passed with the existing
+dependency-level `StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 50 - Retail Dashboard API Contract Skeleton
+
+## Prompt 50 - Retail Dashboard API Contract Skeleton
+
+### Objective
+
+Implement a read-only Retail Dashboard API Contract Skeleton with request and
+response placeholders, data/decision/safety reference placeholders,
+unavailable-by-default responses, contract metadata, health helpers, and safe
+API endpoints. The implementation remains API-contract-skeleton-only and does
+not create active UI, recommendation cards, action generation, confidence
+scoring, DecisionObject generation or display, readiness-to-trade, broker
+controls, approvals, overrides, or execution APIs.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_dashboard_api/__init__.py`
+- `packages/core/stark_terminal_core/retail_dashboard_api/requests.py`
+- `packages/core/stark_terminal_core/retail_dashboard_api/responses.py`
+- `packages/core/stark_terminal_core/retail_dashboard_api/references.py`
+- `packages/core/stark_terminal_core/retail_dashboard_api/unavailable.py`
+- `packages/core/stark_terminal_core/retail_dashboard_api/contracts.py`
+- `packages/core/stark_terminal_core/retail_dashboard_api/health.py`
+- `packages/core/stark_terminal_core/retail_dashboard_api/README.md`
+- `apps/api/stark_terminal_api/routes/retail_dashboard_api.py`
+- `docs/RETAIL_DASHBOARD_API_CONTRACT_SKELETON.md`
+- `docs/RETAIL_DASHBOARD_API_REQUEST_RESPONSE_PLACEHOLDERS.md`
+- `docs/RETAIL_DASHBOARD_API_REFERENCE_PLACEHOLDERS.md`
+- `docs/RETAIL_DASHBOARD_API_UNAVAILABLE_RESPONSES.md`
+- `docs/RETAIL_DASHBOARD_API_SAFETY_BOUNDARY.md`
+- `docs/RETAIL_DASHBOARD_API_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_DASHBOARD_API_NO_EXECUTION_POLICY.md`
+- `tests/test_retail_dashboard_api_settings.py`
+- `tests/test_retail_dashboard_api_request_placeholders.py`
+- `tests/test_retail_dashboard_api_response_placeholders.py`
+- `tests/test_retail_dashboard_api_references.py`
+- `tests/test_retail_dashboard_api_unavailable_responses.py`
+- `tests/test_retail_dashboard_api_contracts.py`
+- `tests/test_api_retail_dashboard_api.py`
+- `tests/test_retail_dashboard_api_docs_status.py`
+- `tests/test_retail_dashboard_api_no_active_ui_or_execution.py`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/decision_boundary/endpoints.py`
+- `packages/core/stark_terminal_core/decision_boundary/modules.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_DASHBOARD_READINESS_PLAN.md`
+- `docs/RETAIL_DASHBOARD_PLANNING.md`
+- `docs/RETAIL_DASHBOARD_GUARDRAILS.md`
+- `docs/RETAIL_DASHBOARD_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_DASHBOARD_NO_EXECUTION_POLICY.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_retail_dashboard_api_settings.py`
+- `tests/test_retail_dashboard_api_request_placeholders.py`
+- `tests/test_retail_dashboard_api_response_placeholders.py`
+- `tests/test_retail_dashboard_api_references.py`
+- `tests/test_retail_dashboard_api_unavailable_responses.py`
+- `tests/test_retail_dashboard_api_contracts.py`
+- `tests/test_api_retail_dashboard_api.py`
+- `tests/test_retail_dashboard_api_docs_status.py`
+- `tests/test_retail_dashboard_api_no_active_ui_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Editable install, foundation audit, foundation verifier, focused Prompt
+50 retail dashboard API tests, status regression tests, and full pytest
+completed successfully. Final full pytest result: 2283 tests passed with the
+existing dependency-level `StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 51 - Retail Dashboard Display Contract Skeleton
+
+## Prompt 51 - Retail Dashboard Display Contract Skeleton
+
+### Objective
+
+Implement a read-only Retail Dashboard Display Contract Skeleton with display
+contract metadata, layout placeholders, widget placeholders, visual section
+placeholders, badge/status placeholders, unavailable display responses, safety
+helpers, and safe API endpoints. The implementation remains
+display-contract-skeleton-only and does not create active UI, frontend
+components, desktop UI components, recommendation cards, action generation,
+confidence scoring, DecisionObject generation or display, readiness-to-trade,
+broker controls, approvals, overrides, or execution APIs.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_dashboard_display/__init__.py`
+- `packages/core/stark_terminal_core/retail_dashboard_display/contracts.py`
+- `packages/core/stark_terminal_core/retail_dashboard_display/layouts.py`
+- `packages/core/stark_terminal_core/retail_dashboard_display/widgets.py`
+- `packages/core/stark_terminal_core/retail_dashboard_display/sections.py`
+- `packages/core/stark_terminal_core/retail_dashboard_display/badges.py`
+- `packages/core/stark_terminal_core/retail_dashboard_display/unavailable.py`
+- `packages/core/stark_terminal_core/retail_dashboard_display/safety.py`
+- `packages/core/stark_terminal_core/retail_dashboard_display/health.py`
+- `packages/core/stark_terminal_core/retail_dashboard_display/README.md`
+- `apps/api/stark_terminal_api/routes/retail_dashboard_display.py`
+- `docs/RETAIL_DASHBOARD_DISPLAY_CONTRACT_SKELETON.md`
+- `docs/RETAIL_DASHBOARD_LAYOUT_PLACEHOLDERS.md`
+- `docs/RETAIL_DASHBOARD_WIDGET_PLACEHOLDERS.md`
+- `docs/RETAIL_DASHBOARD_VISUAL_SECTION_PLACEHOLDERS.md`
+- `docs/RETAIL_DASHBOARD_DISPLAY_UNAVAILABLE_RESPONSES.md`
+- `docs/RETAIL_DASHBOARD_DISPLAY_SAFETY_BOUNDARY.md`
+- `docs/RETAIL_DASHBOARD_DISPLAY_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_DASHBOARD_DISPLAY_NO_EXECUTION_POLICY.md`
+- `tests/test_retail_dashboard_display_settings.py`
+- `tests/test_retail_dashboard_display_contracts.py`
+- `tests/test_retail_dashboard_display_layouts.py`
+- `tests/test_retail_dashboard_display_widgets.py`
+- `tests/test_retail_dashboard_display_sections.py`
+- `tests/test_retail_dashboard_display_badges.py`
+- `tests/test_retail_dashboard_display_unavailable_responses.py`
+- `tests/test_retail_dashboard_display_safety.py`
+- `tests/test_api_retail_dashboard_display.py`
+- `tests/test_retail_dashboard_display_docs_status.py`
+- `tests/test_retail_dashboard_display_no_active_ui_or_execution.py`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/decision_boundary/endpoints.py`
+- `packages/core/stark_terminal_core/decision_boundary/modules.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_DASHBOARD_READINESS_PLAN.md`
+- `docs/RETAIL_DASHBOARD_PLANNING.md`
+- `docs/RETAIL_DASHBOARD_GUARDRAILS.md`
+- `docs/RETAIL_DASHBOARD_SECTION_PLACEHOLDERS.md`
+- `docs/RETAIL_DASHBOARD_CARD_PLACEHOLDERS.md`
+- `docs/RETAIL_DASHBOARD_API_CONTRACT_SKELETON.md`
+- `docs/RETAIL_DASHBOARD_API_SAFETY_BOUNDARY.md`
+- `docs/RETAIL_DASHBOARD_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_DASHBOARD_NO_EXECUTION_POLICY.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_retail_dashboard_display_settings.py`
+- `tests/test_retail_dashboard_display_contracts.py`
+- `tests/test_retail_dashboard_display_layouts.py`
+- `tests/test_retail_dashboard_display_widgets.py`
+- `tests/test_retail_dashboard_display_sections.py`
+- `tests/test_retail_dashboard_display_badges.py`
+- `tests/test_retail_dashboard_display_unavailable_responses.py`
+- `tests/test_retail_dashboard_display_safety.py`
+- `tests/test_api_retail_dashboard_display.py`
+- `tests/test_retail_dashboard_display_docs_status.py`
+- `tests/test_retail_dashboard_display_no_active_ui_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Focused Prompt 51 tests, foundation audit, foundation verifier, and
+full pytest completed successfully during verification. Full pytest result:
+2405 tests passed with the existing dependency-level
+`StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 52 - Retail Dashboard Safety Boundary Audit
+
+## Prompt 52 - Retail Dashboard Safety Boundary Audit
+
+### Objective
+
+Perform Retail Dashboard Safety Boundary Audit for Prompts 49-51. Audit and
+consolidate Retail Dashboard Planning and Guardrails, Retail Dashboard API
+Contract Skeleton, and Retail Dashboard Display Contract Skeleton. Confirm no
+active UI, no frontend implementation, no desktop UI implementation, no
+recommendation cards, no action generation, no confidence scoring, no active
+DecisionObject generation or display, no readiness-to-trade, no broker
+controls, no approvals, no overrides, and no execution APIs.
+
+### Files Created
+
+- `docs/RETAIL_DASHBOARD_SAFETY_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_API_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_NO_RECOMMENDATION_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_NO_EXECUTION_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_MILESTONE_READINESS.md`
+- `tests/test_retail_dashboard_safety_boundary_audit_docs.py`
+- `tests/test_retail_dashboard_api_boundary_audit.py`
+- `tests/test_retail_dashboard_display_boundary_audit.py`
+- `tests/test_retail_dashboard_no_active_ui_audit.py`
+- `tests/test_retail_dashboard_no_recommendation_audit.py`
+- `tests/test_retail_dashboard_no_execution_audit.py`
+- `tests/test_retail_dashboard_api_surface_safety.py`
+- `tests/test_retail_dashboard_milestone_readiness.py`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_DASHBOARD_READINESS_PLAN.md`
+- `docs/RETAIL_DASHBOARD_PLANNING.md`
+- `docs/RETAIL_DASHBOARD_GUARDRAILS.md`
+- `docs/RETAIL_DASHBOARD_API_CONTRACT_SKELETON.md`
+- `docs/RETAIL_DASHBOARD_DISPLAY_CONTRACT_SKELETON.md`
+- `docs/RETAIL_DASHBOARD_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_DASHBOARD_NO_EXECUTION_POLICY.md`
+- `docs/RETAIL_DASHBOARD_API_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_DASHBOARD_API_NO_EXECUTION_POLICY.md`
+- `docs/RETAIL_DASHBOARD_DISPLAY_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_DASHBOARD_DISPLAY_NO_EXECUTION_POLICY.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_retail_dashboard_safety_boundary_audit_docs.py`
+- `tests/test_retail_dashboard_api_boundary_audit.py`
+- `tests/test_retail_dashboard_display_boundary_audit.py`
+- `tests/test_retail_dashboard_no_active_ui_audit.py`
+- `tests/test_retail_dashboard_no_recommendation_audit.py`
+- `tests/test_retail_dashboard_no_execution_audit.py`
+- `tests/test_retail_dashboard_api_surface_safety.py`
+- `tests/test_retail_dashboard_milestone_readiness.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Focused Prompt 52 tests, foundation audit, foundation verifier, and
+full pytest completed successfully during verification. Full pytest result:
+2436 tests passed with the existing dependency-level
+`StarletteDeprecationWarning`.
+
+### Audit Verdict
+
+Retail Dashboard planning, API skeleton, and display skeleton safety boundaries
+remain intact. Ready for Retail Dashboard Milestone Audit only if verification
+passes.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 53 - Retail Dashboard Milestone Audit
+
+## Prompt 53 - Retail Dashboard Milestone Audit
+
+### Objective
+
+Perform Retail Dashboard Milestone Audit for Prompts 49-52. Audit and
+consolidate Retail Dashboard Planning and Guardrails, Retail Dashboard API
+Contract Skeleton, Retail Dashboard Display Contract Skeleton, and Retail
+Dashboard Safety Boundary Audit. Confirm no active UI, no frontend
+implementation, no desktop UI implementation, no recommendation cards, no
+action generation, no confidence scoring, no active DecisionObject generation
+or display, no readiness-to-trade, no broker controls, no approvals, no
+overrides, and no execution APIs.
+
+### Files Created
+
+- `docs/RETAIL_DASHBOARD_MILESTONE_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_PLANNING_MILESTONE_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_API_MILESTONE_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_DISPLAY_MILESTONE_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_SAFETY_MILESTONE_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_PHASE_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_PHASE_NO_RECOMMENDATION_EXECUTION_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_NEXT_PHASE_PLAN.md`
+- `tests/test_retail_dashboard_milestone_audit_docs.py`
+- `tests/test_retail_dashboard_planning_milestone.py`
+- `tests/test_retail_dashboard_api_milestone.py`
+- `tests/test_retail_dashboard_display_milestone.py`
+- `tests/test_retail_dashboard_safety_milestone.py`
+- `tests/test_retail_dashboard_phase_no_active_ui.py`
+- `tests/test_retail_dashboard_phase_no_recommendation_execution.py`
+- `tests/test_retail_dashboard_next_phase_readiness.py`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_DASHBOARD_READINESS_PLAN.md`
+- `docs/RETAIL_DASHBOARD_MILESTONE_READINESS.md`
+- `docs/RETAIL_DASHBOARD_SAFETY_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_API_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_NO_RECOMMENDATION_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_NO_EXECUTION_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_retail_dashboard_milestone_audit_docs.py`
+- `tests/test_retail_dashboard_planning_milestone.py`
+- `tests/test_retail_dashboard_api_milestone.py`
+- `tests/test_retail_dashboard_display_milestone.py`
+- `tests/test_retail_dashboard_safety_milestone.py`
+- `tests/test_retail_dashboard_phase_no_active_ui.py`
+- `tests/test_retail_dashboard_phase_no_recommendation_execution.py`
+- `tests/test_retail_dashboard_next_phase_readiness.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Passed. Focused Prompt 53 tests, foundation audit, foundation verifier, and
+full pytest completed successfully during verification. Full pytest result:
+2463 tests passed with the existing dependency-level
+`StarletteDeprecationWarning`.
+
+### Audit Verdict
+
+Retail Dashboard planning phase remains contract/skeleton/audit-only and is
+ready for Retail Dashboard System Boundary Hardening only.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 54 - Retail Dashboard System Boundary Hardening
+
+## Prompt 54 - Retail Dashboard System Boundary Hardening
+
+### Objective
+
+Implement Retail Dashboard System Boundary Hardening for the Retail Dashboard
+planning/API/display stack. Add boundary-hardening-only contracts for forbidden
+behavior registry, endpoint boundary policies, module boundary policies,
+cross-module invariants, boundary health metadata, read-only boundary endpoints,
+docs, tests, audit coverage, and verifier coverage.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_dashboard_boundary/__init__.py`
+- `packages/core/stark_terminal_core/retail_dashboard_boundary/forbidden.py`
+- `packages/core/stark_terminal_core/retail_dashboard_boundary/endpoints.py`
+- `packages/core/stark_terminal_core/retail_dashboard_boundary/modules.py`
+- `packages/core/stark_terminal_core/retail_dashboard_boundary/invariants.py`
+- `packages/core/stark_terminal_core/retail_dashboard_boundary/health.py`
+- `packages/core/stark_terminal_core/retail_dashboard_boundary/README.md`
+- `apps/api/stark_terminal_api/routes/retail_dashboard_boundary.py`
+- `docs/RETAIL_DASHBOARD_SYSTEM_BOUNDARY_HARDENING.md`
+- `docs/RETAIL_DASHBOARD_FORBIDDEN_BEHAVIOR_REGISTRY.md`
+- `docs/RETAIL_DASHBOARD_ENDPOINT_BOUNDARY_POLICY.md`
+- `docs/RETAIL_DASHBOARD_MODULE_BOUNDARY_POLICY.md`
+- `docs/RETAIL_DASHBOARD_CROSS_MODULE_INVARIANTS.md`
+- `docs/RETAIL_DASHBOARD_BOUNDARY_NO_ACTIVE_UI_POLICY.md`
+- `docs/RETAIL_DASHBOARD_BOUNDARY_NO_EXECUTION_POLICY.md`
+- `tests/test_retail_dashboard_boundary_settings.py`
+- `tests/test_retail_dashboard_boundary_forbidden_registry.py`
+- `tests/test_retail_dashboard_boundary_endpoint_policy.py`
+- `tests/test_retail_dashboard_boundary_module_policy.py`
+- `tests/test_retail_dashboard_boundary_invariants.py`
+- `tests/test_api_retail_dashboard_boundary.py`
+- `tests/test_retail_dashboard_boundary_docs_status.py`
+- `tests/test_retail_dashboard_boundary_cross_module_no_recommendations.py`
+- `tests/test_retail_dashboard_boundary_cross_endpoint_no_execution.py`
+- `tests/test_retail_dashboard_boundary_no_active_ui_or_broker_controls.py`
+
+### Files Modified
+
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_DASHBOARD_READINESS_PLAN.md`
+- `docs/RETAIL_DASHBOARD_NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_DASHBOARD_MILESTONE_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_PHASE_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_PHASE_NO_RECOMMENDATION_EXECUTION_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_DASHBOARD_NO_EXECUTION_POLICY.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_retail_dashboard_boundary_settings.py`
+- `tests/test_retail_dashboard_boundary_forbidden_registry.py`
+- `tests/test_retail_dashboard_boundary_endpoint_policy.py`
+- `tests/test_retail_dashboard_boundary_module_policy.py`
+- `tests/test_retail_dashboard_boundary_invariants.py`
+- `tests/test_api_retail_dashboard_boundary.py`
+- `tests/test_retail_dashboard_boundary_docs_status.py`
+- `tests/test_retail_dashboard_boundary_cross_module_no_recommendations.py`
+- `tests/test_retail_dashboard_boundary_cross_endpoint_no_execution.py`
+- `tests/test_retail_dashboard_boundary_no_active_ui_or_broker_controls.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+Pending final verification.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 55 - Retail Dashboard API/Display Integration Readiness Audit

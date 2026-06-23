@@ -9,7 +9,7 @@ def test_settings_defaults_load() -> None:
 
     assert settings.app_name == "Stark Terminal"
     assert settings.app_version == "0.1.0"
-    assert settings.prompt_number == "25"
+    assert settings.prompt_number == "54"
     assert settings.api_port == 8000
     assert settings.feature_store_mode == "custom"
     assert settings.market_data_batch_persistence_enabled is True
@@ -59,6 +59,14 @@ def test_settings_defaults_load() -> None:
     assert settings.local_file_provider_allow_symlinks is False
     assert settings.local_file_provider_max_rows == 10000
     assert settings.local_file_provider_allow_real_data_claims is False
+    assert settings.analytics_foundation_enabled is True
+    assert settings.analytics_schema_version == "v1"
+    assert settings.analytics_allow_real_data is False
+    assert settings.analytics_allow_trade_signals is False
+    assert settings.analytics_allow_recommendations is False
+    assert settings.analytics_require_validated_inputs is True
+    assert settings.analytics_require_source_reference is True
+    assert settings.analytics_dependency_stage == "contracts_only"
 
 
 def test_execution_flags_default_false() -> None:
@@ -203,6 +211,14 @@ def test_safe_snapshot_does_not_expose_raw_urls() -> None:
     assert snapshot["local_file_provider_allow_symlinks"] is False
     assert snapshot["local_file_provider_max_rows"] == 10000
     assert snapshot["local_file_provider_allow_real_data_claims"] is False
+    assert snapshot["analytics_foundation_enabled"] is True
+    assert snapshot["analytics_schema_version"] == "v1"
+    assert snapshot["analytics_allow_real_data"] is False
+    assert snapshot["analytics_allow_trade_signals"] is False
+    assert snapshot["analytics_allow_recommendations"] is False
+    assert snapshot["analytics_require_validated_inputs"] is True
+    assert snapshot["analytics_require_source_reference"] is True
+    assert snapshot["analytics_dependency_stage"] == "contracts_only"
     assert "clickhouse_user" not in snapshot
     assert "clickhouse_password" not in snapshot
 
@@ -303,3 +319,20 @@ def test_local_file_provider_settings_validation() -> None:
         Settings(local_file_provider_max_rows=0)
     with pytest.raises(ValidationError):
         Settings(local_file_provider_allow_real_data_claims=True)
+
+
+def test_analytics_foundation_settings_validation() -> None:
+    with pytest.raises(ValidationError):
+        Settings(analytics_schema_version="")
+    with pytest.raises(ValidationError):
+        Settings(analytics_allow_real_data=True)
+    with pytest.raises(ValidationError):
+        Settings(analytics_allow_trade_signals=True)
+    with pytest.raises(ValidationError):
+        Settings(analytics_allow_recommendations=True)
+    with pytest.raises(ValidationError):
+        Settings(analytics_require_validated_inputs=False)
+    with pytest.raises(ValidationError):
+        Settings(analytics_require_source_reference=False)
+    with pytest.raises(ValidationError):
+        Settings(analytics_dependency_stage="calculations_enabled")

@@ -14,8 +14,8 @@ def test_event_backbone_docs_exist_and_prompt_status_is_current() -> None:
     project_map = (ROOT / "PROJECT_MAP.md").read_text(encoding="utf-8")
 
     assert "Prompt 12 - Kafka/Redpanda Event Backbone Foundation" in prompt_log
-    assert "Current Prompt: 25" in north_star
-    assert "Completed Prompts: 25 before this prompt, 26 after completion" in north_star
+    assert "Current Prompt: 36" in north_star
+    assert "Completed Prompts: 35 before this prompt, 36 after completion" in north_star
     assert "event_backbone/topics.py" in project_map
     assert "Kafka/Redpanda Event Backbone foundation" in project_map
 

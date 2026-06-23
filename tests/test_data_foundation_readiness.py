@@ -62,13 +62,13 @@ def test_next_phase_and_status_docs_reflect_prompt_19_readiness() -> None:
     prompt_log = (ROOT / "docs/PROMPT_LOG.md").read_text(encoding="utf-8")
     next_phase = (ROOT / "docs/NEXT_PHASE_PLAN.md").read_text(encoding="utf-8")
 
-    assert "Current Prompt: 25" in north_star
-    assert "Completed Prompts: 25 before this prompt, 26 after completion" in north_star
+    assert "Current Prompt: 36" in north_star
+    assert "Completed Prompts: 35 before this prompt, 36 after completion" in north_star
     assert "Local Sample Provider and Local File Provider implemented and audited" in north_star
     assert "Prompt 17 - Data Foundation Audit and Readiness Check" in prompt_log
     assert "Prompt 18 - TimescaleDB Synthetic OHLCV Storage Foundation" in prompt_log
     assert "Prompt 19 - Synthetic OHLCV to Research Lake Export Contract" in prompt_log
     assert "Prompt 20 - Data Provider Adapter Implementation Plan and Guardrails" in prompt_log
     assert "Prompt 21 - Local Sample Provider Adapter v0" in prompt_log
-    assert "Prompt 26 - Quant/Time-Series Analytics Foundation Plan" in next_phase
+    assert "Prompt 34 - Regime Feature Preparation Contracts" in next_phase
     assert "Real ingestion remains forbidden" in next_phase

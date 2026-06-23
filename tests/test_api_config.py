@@ -13,7 +13,7 @@ def test_config_endpoint_returns_safe_settings_snapshot() -> None:
     assert body["app_name"] == "Stark Terminal"
     assert body["app_version"] == "0.1.0"
     assert body["stark_env"] == "development"
-    assert body["prompt_number"] == "25"
+    assert body["prompt_number"] == "54"
     assert body["timescale_enabled"] is False
     assert body["timescale_create_extension"] is False
     assert body["timescale_create_hypertables"] is False
@@ -122,6 +122,37 @@ def test_config_endpoint_returns_safe_settings_snapshot() -> None:
     assert body["local_file_provider_allow_symlinks"] is False
     assert body["local_file_provider_max_rows"] == 10000
     assert body["local_file_provider_allow_real_data_claims"] is False
+    assert body["analytics_foundation_enabled"] is True
+    assert body["analytics_schema_version"] == "v1"
+    assert body["analytics_allow_real_data"] is False
+    assert body["analytics_allow_trade_signals"] is False
+    assert body["analytics_allow_recommendations"] is False
+    assert body["analytics_require_validated_inputs"] is True
+    assert body["analytics_require_source_reference"] is True
+    assert body["analytics_dependency_stage"] == "contracts_only"
+    assert body["volatility_analytics_enabled"] is True
+    assert body["volatility_analytics_schema_version"] == "v1"
+    assert body["volatility_analytics_allow_real_data"] is False
+    assert body["volatility_analytics_allow_trade_signals"] is False
+    assert body["volatility_analytics_allow_recommendations"] is False
+    assert body["volatility_analytics_allow_decision_objects"] is False
+    assert body["volatility_analytics_default_stddev_method"] == "sample"
+    assert body["volatility_analytics_allow_annualization"] is True
+    assert body["drawdown_analytics_enabled"] is True
+    assert body["drawdown_analytics_require_positive_values"] is True
+    assert body["drawdown_analytics_allow_signal_labels"] is False
+    assert body["regime_feature_preparation_enabled"] is True
+    assert body["regime_feature_preparation_schema_version"] == "v1"
+    assert body["regime_feature_preparation_allow_real_data"] is False
+    assert body["regime_feature_preparation_allow_feature_computation"] is False
+    assert body["regime_feature_preparation_allow_feature_registry_writes"] is False
+    assert body["regime_feature_preparation_allow_classification"] is False
+    assert body["regime_feature_preparation_allow_trade_signals"] is False
+    assert body["regime_feature_preparation_allow_recommendations"] is False
+    assert body["regime_feature_preparation_allow_decision_objects"] is False
+    assert body["regime_feature_preparation_require_provenance"] is True
+    assert body["regime_feature_preparation_require_evidence_mapping"] is True
+    assert body["regime_feature_preparation_dependency_stage"] == "contracts_only"
     assert body["api_host"] == "127.0.0.1"
     assert body["api_port"] == 8000
     assert body["feature_store_mode"] == "custom"
@@ -167,3 +198,4 @@ def test_config_endpoint_does_not_expose_raw_url_keys() -> None:
     assert "provider_guardrails_enabled" in body
     assert "local_sample_provider_enabled" in body
     assert "local_file_provider_enabled" in body
+    assert "analytics_foundation_enabled" in body

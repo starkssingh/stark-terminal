@@ -37,8 +37,8 @@ def test_prompt_15_status_docs_updated() -> None:
     prompt_log = (ROOT / "docs/PROMPT_LOG.md").read_text(encoding="utf-8")
     project_map = (ROOT / "PROJECT_MAP.md").read_text(encoding="utf-8")
 
-    assert "Current Prompt: 25" in north_star
-    assert "Completed Prompts: 25 before this prompt, 26 after completion" in north_star
+    assert "Current Prompt: 36" in north_star
+    assert "Completed Prompts: 35 before this prompt, 36 after completion" in north_star
     assert "Instrument Persistence Status" in north_star
     assert "Prompt 15 - Instrument Metadata Persistence Wiring" in prompt_log
     assert "InstrumentRepository" in project_map

@@ -7,7 +7,7 @@ from stark_terminal_core.config.settings import Settings
 def test_event_backbone_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "25"
+    assert settings.prompt_number == "54"
     assert settings.event_backbone_mode == "memory"
     assert settings.kafka_enabled is False
     assert settings.kafka_use_memory_fallback is True
@@ -57,4 +57,3 @@ def test_event_backbone_settings_validation(field: str, value: object) -> None:
 @pytest.mark.parametrize("mode", ["memory", "kafka", "redpanda", "disabled"])
 def test_event_backbone_supported_modes(mode: str) -> None:
     assert Settings(event_backbone_mode=mode).event_backbone_mode == mode
-

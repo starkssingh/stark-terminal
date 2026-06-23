@@ -39,7 +39,7 @@ def test_provider_guardrail_status_docs_are_current() -> None:
     project_map = (ROOT / "PROJECT_MAP.md").read_text(encoding="utf-8")
 
     assert "Prompt 20 - Data Provider Adapter Implementation Plan and Guardrails" in prompt_log
-    assert "Current Prompt: 25" in north_star
+    assert "Current Prompt: 36" in north_star
     assert "Provider Status: Guardrails, readiness/candidate selection, local sample provider, and local file provider implemented and audited; no real provider implementation; no external calls" in north_star
     assert "Provider Adapter Guardrails" in project_map
     assert "provider_guardrails.py" in project_map

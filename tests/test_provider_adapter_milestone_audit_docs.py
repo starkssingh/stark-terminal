@@ -54,7 +54,7 @@ def test_provider_adapter_milestone_docs_state_required_boundaries() -> None:
 def test_provider_next_phase_plan_recommends_prompt_26() -> None:
     text = _read("docs/PROVIDER_NEXT_PHASE_PLAN.md")
 
-    assert "Prompt 26 - Quant/Time-Series Analytics Foundation Plan" in text
-    assert "Prompt 27 - Numerical Analytics Core Contracts" in text
-    assert "Prompt 30 - Analytics Milestone Audit" in text
+    assert "Prompt 28 - Returns and Rolling Window Analytics v0" in text
+    assert "Prompt 28 - Returns and Rolling Window Analytics v0" in text
+    assert "Prompt 34 - Regime Feature Preparation Contracts" in text
     assert "Real provider integration remains forbidden" in text

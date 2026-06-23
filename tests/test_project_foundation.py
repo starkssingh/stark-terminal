@@ -70,8 +70,8 @@ def test_prompt_10_docs_reflect_current_status() -> None:
     project_map = (ROOT / "PROJECT_MAP.md").read_text(encoding="utf-8")
 
     assert "Prompt 10 - Feature Store / Stark Feature Registry Foundation" in prompt_log
-    assert "Current Prompt: 25" in north_star
-    assert "Completed Prompts: 25 before this prompt, 26 after completion" in north_star
+    assert "Current Prompt: 36" in north_star
+    assert "Completed Prompts: 35 before this prompt, 36 after completion" in north_star
     assert "Feature Registry foundation" in project_map
     assert "Kafka/Redpanda Event Backbone foundation" in project_map
     assert "Data Quality + Validation Framework" in project_map

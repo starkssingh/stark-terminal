@@ -27,7 +27,7 @@ def test_local_sample_provider_status_docs_are_updated() -> None:
     project_map = (ROOT / "PROJECT_MAP.md").read_text(encoding="utf-8")
 
     assert "Prompt 21 - Local Sample Provider Adapter v0" in prompt_log
-    assert "Current Prompt: 25" in north_star
+    assert "Current Prompt: 36" in north_star
     assert "Local Sample Provider and Local File Provider implemented and audited" in north_star
     assert "local_sample.py" in project_map
     assert "local_sample_provider.py" in project_map

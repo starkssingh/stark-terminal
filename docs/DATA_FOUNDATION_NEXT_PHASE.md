@@ -24,17 +24,17 @@ The foundation remains free of real market ingestion, external provider calls, s
 
 ## Recommended Next Prompt
 
-Prompt 26 - Quant/Time-Series Analytics Foundation Plan.
+Prompt 28 - Returns and Rolling Window Analytics v0.
 
 This follows naturally because Prompt 25 completes the provider adapter milestone audit while preserving no external calls, no SDKs, no scraping, no credentials, no real ingestion, no arbitrary file read API, no production approval, no analytics signals, no decisions, and no execution APIs.
 
 ## Proposed Next 5 Prompts
 
-1. Prompt 26 - Quant/Time-Series Analytics Foundation Plan.
-2. Prompt 27 - Numerical Analytics Core Contracts.
-3. Prompt 28 - Returns and Rolling Window Analytics v0.
-4. Prompt 29 - Volatility and Drawdown Analytics v0.
-5. Prompt 30 - Analytics Milestone Audit.
+1. Prompt 28 - Returns and Rolling Window Analytics v0.
+2. Prompt 29 - Volatility and Drawdown Analytics v0.
+3. Prompt 30 - Analytics Milestone Audit.
+4. Prompt 31 - Correlation and Beta Analytics v0.
+5. Prompt 34 - Regime Feature Preparation Contracts.
 
 ## Still Forbidden
 
@@ -94,3 +94,13 @@ Prompt 25 completes the Provider Adapter Milestone Audit with documentation, aud
 ## Readiness Verdict
 
 The data foundation is ready for Prompt 26 Quant/Time-Series Analytics Foundation Plan if Prompt 25 verification passes. This is reconciled with `DATA_FOUNDATION_MILESTONE_NEXT_PHASE.md` and `PROVIDER_NEXT_PHASE_PLAN.md`; real ingestion remains forbidden until provider readiness review, local-file provider testing, provider adapter milestone audit, terms/compliance review, source reference policy, and explicit future implementation prompts approve it.
+
+## Prompt 26 Completion
+
+Prompt 26 completes the Quant/Time-Series Analytics Foundation Plan with analytics planning contracts, safety policy, dependency staging, roadmap metadata, docs, API metadata endpoints, and deterministic tests. It does not compute analytics, features, signals, recommendations, decisions, or backtests.
+
+## Prompt 27 Completion
+
+Prompt 27 completes Numerical Analytics Core Contracts with source/vector/table contracts, computation request/result contracts, validation helpers, dependency gates, tiny descriptive stdlib summaries, docs, API metadata endpoints, and deterministic tests. It does not compute returns, volatility, drawdown, correlation, indicators, features, signals, recommendations, DecisionObjects, decisions, or backtests.
+
+The data foundation is ready for Prompt 28 Returns and Rolling Window Analytics v0 if Prompt 27 verification passes. Real ingestion remains forbidden until future explicit approval.

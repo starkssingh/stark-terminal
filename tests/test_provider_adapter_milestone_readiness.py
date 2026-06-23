@@ -53,12 +53,12 @@ def test_prompt_25_status_docs_are_current() -> None:
     prompt_log = _read("docs/PROMPT_LOG.md")
     project_map = _read("PROJECT_MAP.md")
 
-    assert "Current Prompt: 25" in north_star
-    assert "Completed Prompts: 25 before this prompt, 26 after completion" in north_star
-    assert "Provider Adapter Milestone Audit completed" in north_star
-    assert "Prompt 26 - Quant/Time-Series Analytics Foundation Plan" in next_phase
-    assert "Prompt 26 - Quant/Time-Series Analytics Foundation Plan" in data_next_phase
-    assert "Prompt 26 - Quant/Time-Series Analytics Foundation Plan" in provider_next_phase
+    assert "Current Prompt: 36" in north_star
+    assert "Completed Prompts: 35 before this prompt, 36 after completion" in north_star
+    assert "Quant/Time-Series Analytics Foundation Phase - Numerical Core Contracts" in north_star
+    assert "Prompt 34 - Regime Feature Preparation Contracts" in next_phase
+    assert "Prompt 28 - Returns and Rolling Window Analytics v0" in data_next_phase
+    assert "Prompt 28 - Returns and Rolling Window Analytics v0" in provider_next_phase
     assert "## Prompt 25 - Provider Adapter Milestone Audit" in prompt_log
     assert "Prompt 25 Provider Adapter Milestone Audit Artifacts" in project_map
 

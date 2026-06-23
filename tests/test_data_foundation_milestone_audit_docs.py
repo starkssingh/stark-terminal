@@ -55,11 +55,11 @@ def test_prompt_22_milestone_docs_cover_required_safety_scope() -> None:
 def test_prompt_22_next_phase_doc_recommends_prompt_23_sequence() -> None:
     text = _read_doc("DATA_FOUNDATION_MILESTONE_NEXT_PHASE.md")
     required = [
-        "Prompt 26 - Quant/Time-Series Analytics Foundation Plan",
-        "Prompt 27 - Numerical Analytics Core Contracts",
+        "Prompt 28 - Returns and Rolling Window Analytics v0",
+        "Prompt 28 - Returns and Rolling Window Analytics v0",
         "Prompt 28 - Returns and Rolling Window Analytics v0",
         "Prompt 29 - Volatility and Drawdown Analytics v0",
-        "Prompt 30 - Analytics Milestone Audit",
+        "Prompt 34 - Regime Feature Preparation Contracts",
     ]
     for phrase in required:
         assert phrase in text

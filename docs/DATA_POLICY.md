@@ -252,6 +252,25 @@ Real provider implementation remains forbidden until provider readiness, approva
 
 Local File Provider Adapter v0 is allowed only for explicitly supplied local CSV/Parquet test/dev files. Local file inputs are not trusted real market data by default and must not be presented as live, provider-sourced, tradable, production, or investment data.
 
+## Prompt 50 Retail Dashboard API Policy
+
+Retail Dashboard API placeholders are unavailable by default and contract-only.
+
+Policy rules:
+
+- no dashboard API as recommendation.
+- no dashboard API as execution control.
+- no dashboard API live data claim.
+- no dashboard API market-data input for decisions.
+- no API placeholder as active UI.
+- no API placeholder as DecisionObject display.
+- no API placeholder as readiness-to-trade.
+- no API reference as approval or override.
+
+The Retail Dashboard API returns request/response/reference placeholders only.
+It must not treat synthetic/local data as real market data and must not expose
+broker controls, secrets, or execution APIs.
+
 Policy rules:
 
 - file paths must remain under the configured allowed root.
@@ -292,3 +311,647 @@ Prompt 25 confirms the provider boundary after Prompts 20-24:
 - no execution APIs are allowed.
 
 Real provider work remains forbidden until a future explicit prompt completes approval, terms/compliance review, data-policy review, source reference policy, Data Quality gates, and audit logging.
+
+## Prompt 26 Analytics Foundation Policy
+
+Prompt 26 adds Quant Analytics and Time-Series Analytics planning contracts only. Analytics is descriptive/research-only at this stage.
+
+Policy rules:
+
+- future analytics must require validated input data.
+- future analytics must require source references.
+- analytics outputs must be descriptive/research-only.
+- analytics outputs must not be trade calls.
+- indicators must not be treated as signals.
+- no buy, sell, hold, watch, avoid, reduce, or action-state recommendations.
+- no hidden decision logic.
+- no execution APIs.
+- no broker integration.
+- no real market data assumption.
+- no analytics calculations in Prompt 26.
+- no heavy analytics dependency installation in Prompt 26.
+
+Synthetic/local data can support deterministic tests, but it is not real market data, not provider-sourced production data, not trading data, not investment advice, and not decision evidence. Future analytics results require explicit prompt scope, validation gates, source references, documentation, and audit coverage before they can become evidence for any future Decision Desk workflow.
+
+## Prompt 27 Numerical Analytics Policy
+
+Prompt 27 adds Numerical Analytics Core Contracts. Numerical inputs must carry source references, remain synthetic/local/test-compatible in the current phase, and reject real market data claims.
+
+Policy rules:
+
+- numerical inputs must require source references.
+- numerical vectors must require finite values by default.
+- numerical outputs must be descriptive/research-only.
+- numerical metrics must not become trade calls.
+- count, min, max, and mean are generic descriptive summaries only.
+- no returns, volatility, drawdown, correlation, beta, indicators, factors, or features in Prompt 27.
+- no buy, sell, hold, watch, avoid, reduce, or action-state recommendations.
+- no DecisionObject generation.
+- no hidden decision logic.
+- no execution APIs.
+- no broker integration.
+- no real market data assumption.
+- no heavy analytics dependency installation in Prompt 27.
+
+Future returns and rolling analytics must use validated inputs, source references, explicit docs, tests, and audit coverage before they can be added. Numerical metrics alone are not decision evidence, trading data, investment advice, or execution approval.
+
+## Prompt 28 Returns and Rolling Analytics Policy
+
+Prompt 28 adds Returns Analytics v0 and Rolling Window Analytics v0. Inputs must carry source references, remain synthetic/local/test-compatible in the current phase, and reject real market data claims.
+
+Policy rules:
+
+- returns and rolling inputs must require source references.
+- price vectors must require finite values.
+- positive prices are required by default and mandatory for log returns.
+- rolling windows must be positive and bounded.
+- returns outputs must be descriptive/research-only.
+- rolling outputs must be descriptive/research-only.
+- returns must not become trade calls.
+- rolling metrics must not become signals.
+- no volatility, drawdown, correlation, beta, indicators, factors, or features in Prompt 28.
+- no buy, sell, hold, watch, avoid, reduce, or action-state recommendations.
+- no DecisionObject generation.
+- no hidden decision logic.
+- no execution APIs.
+- no broker integration.
+- no real market data assumption.
+- no heavy analytics dependency installation in Prompt 28.
+
+Returns and rolling metrics are not decision evidence, trading data, investment advice, or execution approval.
+
+## Prompt 29 Volatility and Drawdown Analytics Policy
+
+Prompt 29 adds Volatility Analytics v0 and Drawdown Analytics v0. Inputs must carry source references, remain synthetic/local/test-compatible in the current phase, and reject real market data claims.
+
+Policy rules:
+
+- volatility inputs must require source references.
+- return vectors must require finite values.
+- annualized volatility requires explicit positive periods_per_year.
+- drawdown inputs must require source references.
+- drawdown value vectors must require finite and positive values by default.
+- volatility outputs must be descriptive/research-only.
+- drawdown outputs must be descriptive/research-only.
+- volatility must not become a trade call.
+- drawdown must not become a signal.
+- risk metrics must not become recommendations.
+- no correlation, beta, indicators, factors, or features in Prompt 29.
+- no buy, sell, hold, watch, avoid, reduce, or action-state recommendations.
+- no DecisionObject generation.
+- no hidden decision logic.
+- no execution APIs.
+- no broker integration.
+- no real market data assumption.
+- no heavy analytics dependency installation in Prompt 29.
+
+Volatility and drawdown metrics are not decision evidence, trading data, investment advice, or execution approval.
+
+## Prompt 30 Analytics Milestone Policy
+
+Prompt 30 audits the analytics milestone across Prompts 26-29. It confirms current analytics outputs are descriptive/research-only artifacts with source-reference and validation boundaries.
+
+Policy rules:
+
+- analytics outputs remain research-only until future decision-engine audit.
+- no real market ingestion is available to analytics.
+- no external calls are allowed from analytics modules.
+- no heavy analytics dependencies are added by Prompt 30.
+- no signals, recommendations, decisions, or DecisionObject generation.
+- no buy/sell/hold/watch/avoid outputs.
+- no hidden action-state or confidence trading logic.
+- no execution APIs.
+- no correlation, beta, indicators, backtests, regimes, ML models, or feature computation in Prompt 30.
+
+Descriptive analytics metrics are not decision evidence, trading data, investment advice, recommendation payloads, or execution approval.
+
+## Prompt 31 Correlation and Beta Analytics Policy
+
+Prompt 31 adds Correlation Analytics v0 and Beta Analytics v0. Inputs must carry source references, remain synthetic/local/test-compatible in the current phase, and reject real market data claims.
+
+Policy rules:
+
+- correlation and beta inputs must require source references.
+- paired vectors must require equal length.
+- paired vectors must require finite values.
+- paired vectors must satisfy the configured minimum observations.
+- zero variance must fail safely.
+- correlation outputs must be descriptive/research-only.
+- beta outputs must be descriptive/research-only.
+- correlation must not become a trade call.
+- beta must not become a signal.
+- relationship metrics must not become recommendations.
+- no indicators, factors, features, backtests, or regimes in Prompt 31.
+- no buy, sell, hold, watch, avoid, reduce, or action-state recommendations.
+- no DecisionObject generation.
+- no hidden decision logic.
+- no execution APIs.
+- no broker integration.
+- no real market data assumption.
+- no heavy analytics dependency installation in Prompt 31.
+
+Correlation and beta metrics are not decision evidence, trading data, investment advice, or execution approval.
+
+## Prompt 32 Time-Series Diagnostics Policy
+
+Prompt 32 adds Time-Series Diagnostics Foundation. Inputs must carry source
+references, remain synthetic/local/test-compatible in the current phase, reject
+real market data claims, and use timezone-aware timestamps by default.
+
+Policy rules:
+
+- diagnostics inputs must require source references.
+- timestamp series must require timezone-aware timestamps by default.
+- real market data claims must be rejected.
+- monotonicity diagnostics are descriptive/data-quality-only.
+- duplicate timestamp diagnostics are descriptive/data-quality-only.
+- gap diagnostics are descriptive/data-quality-only.
+- irregular interval diagnostics are descriptive/data-quality-only.
+- timestamp gaps must not become trade calls.
+- diagnostics must not become recommendations.
+- no stationarity tests in Prompt 32.
+- no regime detection in Prompt 32.
+- no indicators, factors, features, backtests, or regimes in Prompt 32.
+- no buy, sell, hold, watch, avoid, reduce, or action-state recommendations.
+- no DecisionObject generation.
+- no hidden decision logic.
+- no execution APIs.
+- no broker integration.
+- no real market data assumption.
+- no heavy analytics dependency installation in Prompt 32.
+
+Time-series diagnostics are not decision evidence, trading data, investment
+advice, or execution approval.
+
+## Prompt 33 Regime Analytics Planning Policy
+
+Prompt 33 adds Regime Analytics Planning and Guardrails. Regime evidence
+requirements must carry source-reference expectations, remain
+synthetic/local/test-compatible in the current phase, and reject real market
+data assumptions until a future provider phase is separately approved.
+
+Policy rules:
+
+- regime evidence must require source references.
+- regime evidence must require validated inputs before future use.
+- missing required evidence blocks readiness.
+- human review is required.
+- regime label placeholders must not be assigned in Prompt 33.
+- regime readiness must not become a recommendation.
+- regime labels must not become trade calls.
+- no actual regime classification in Prompt 33.
+- no stationarity tests, HMMs, clustering, or ML models in Prompt 33.
+- no indicators, factors, features, backtests, or computed regimes in Prompt 33.
+- no buy, sell, hold, watch, avoid, reduce, or action-state recommendations.
+- no DecisionObject generation.
+- no hidden decision logic.
+- no execution APIs.
+- no broker integration.
+- no real market data assumption.
+- no heavy analytics dependency installation in Prompt 33.
+
+Regime planning contracts are not decision evidence, trading data, investment
+advice, or execution approval.
+
+## Prompt 34 Regime Feature Preparation Policy
+
+Prompt 34 adds Regime Feature Preparation Contracts. Regime feature candidates
+are metadata-only names/contracts that map future feature ideas to provenance
+and evidence requirements. They do not contain feature values and they cannot be
+treated as trusted real market data.
+
+Policy rules:
+
+- regime feature provenance is required before any future feature computation.
+- regime feature evidence mapping is required before any future feature computation.
+- source references and analytics family references are required by contract.
+- synthetic/local-only scope remains in force until a future real-data phase is separately approved.
+- no feature computation in Prompt 34.
+- no feature registry writes in Prompt 34.
+- no classifier inputs in Prompt 34.
+- no actual regime classification in Prompt 34.
+- no feature-as-trade-call rule: feature candidates must not become trading guidance.
+- no feature-readiness-as-recommendation rule: readiness reports must not become advice.
+- no buy, sell, hold, watch, avoid, reduce, or action-state recommendations.
+- no DecisionObject generation.
+- no hidden decision logic.
+- no execution APIs.
+- no broker integration.
+- no real market data assumption.
+- no heavy analytics dependency installation in Prompt 34.
+
+Regime feature preparation contracts are governance metadata only. They are not
+decision evidence, trading data, investment advice, classifier input, or
+execution approval.
+
+## Prompt 35 Analytics/Regime Milestone Audit Policy
+
+Prompt 35 audits the analytics/regime milestone across Prompts 26-34. It
+confirms current analytics outputs remain descriptive/research/data-quality-only
+artifacts with source-reference and validation boundaries, and regime outputs
+remain planning/contracts-only artifacts.
+
+Rules after Prompt 35:
+
+- analytics outputs remain research-only until future decision-engine audit.
+- regime planning outputs remain planning-only until future regime audit.
+- regime feature preparation outputs remain contracts-only until future feature audit.
+- no real market ingestion is available to analytics/regime modules.
+- no external calls are allowed from analytics/regime modules.
+- no heavy analytics/model dependencies are added by Prompt 35.
+- no feature computation is implemented.
+- no feature registry writes are implemented.
+- no classifier inputs are generated.
+- no actual regime classification is implemented.
+- no signals, recommendations, decisions, or DecisionObject generation are implemented.
+- no execution APIs are implemented.
+- Decision Desk work remains planning-only until future safety audit.
+
+Descriptive analytics metrics, regime label placeholders, evidence mappings,
+provenance requirements, and readiness reports are not decision evidence,
+trading data, investment advice, recommendation payloads, or execution approval.
+
+## Prompt 36 Retail Decision Desk Planning Policy
+
+Prompt 36 adds Retail Decision Desk planning and guardrails. Decision Desk
+evidence requirements must retain source-reference expectations, validated
+input expectations, and synthetic/local-only scope until a future real-data
+phase is separately approved.
+
+Policy rules:
+
+- decision desk evidence source references are required before future use.
+- action placeholders must not be treated as recommendations.
+- readiness reports must not be treated as approval.
+- human-review checklists must not be bypassed or interpreted as automatic approval.
+- no recommendation generation in Prompt 36.
+- no action-state generation in Prompt 36.
+- no confidence scoring in Prompt 36.
+- no DecisionObject generation in Prompt 36.
+- no execution APIs.
+- no broker integration.
+- no real market data assumption.
+
+Retail Decision Desk planning contracts are governance metadata only. They are
+not decision evidence, trading data, investment advice, recommendation payloads,
+or execution approval.
+
+## Prompt 38 DecisionObject Evidence Bundle Policy
+
+Prompt 38 adds DecisionObject evidence bundle contracts. Decision evidence
+items, source/provenance maps, validation checklists, human-review attachments,
+and readiness reports remain contracts-only and do not contain trusted real
+market data or active decision payloads.
+
+Policy rules:
+
+- decision evidence source references are required.
+- decision evidence validation checklists are required.
+- human-review attachments are required.
+- real market data remains disallowed until a future real-data phase is separately approved.
+- evidence bundle readiness must not be treated as a recommendation.
+- evidence item presence must not be treated as decision approval.
+- human-review attachment completion must not be treated as approval.
+- bundle completeness must not be treated as action readiness.
+- no recommendation generation in Prompt 38.
+- no action-state generation in Prompt 38.
+- no confidence scoring in Prompt 38.
+- no active DecisionObject generation in Prompt 38.
+- no execution APIs.
+- no broker integration.
+- no real market data assumption.
+
+DecisionObject evidence bundle contracts are governance metadata only. They are
+not trading data, investment advice, recommendation payloads, active
+DecisionObjects, or execution approval.
+
+## Prompt 39 Decision Safety Policy
+
+Prompt 39 adds Decision Safety and Human-Review Guardrails. Decision safety
+guardrails, human-review gates, approval placeholders, override prohibition
+contracts, blocked output policies, and readiness reports remain governance
+metadata only.
+
+Policy rules:
+
+- decision safety blocked output policy is required.
+- human-review gates are not approvals.
+- approval placeholders are inactive and must not grant output permissions.
+- overrides are prohibited.
+- emergency bypass is not implemented.
+- readiness reports must not be treated as recommendations, approvals, or trade readiness.
+- no recommendation generation in Prompt 39.
+- no action-state generation in Prompt 39.
+- no confidence scoring in Prompt 39.
+- no active DecisionObject generation in Prompt 39.
+- no approvals in Prompt 39.
+- no overrides in Prompt 39.
+- no execution APIs.
+- no broker integration.
+- no real market data assumption.
+
+Decision Safety outputs are not trading data, investment advice,
+recommendation payloads, active DecisionObjects, approval records, override
+records, or execution approval.
+
+## Prompt 40 Decision Desk API Contract Skeleton Policy
+
+Prompt 40 adds Decision Desk API request/response placeholders, evidence
+reference placeholders, safety reference placeholders, unavailable responses,
+and API contract metadata. These are contract metadata only.
+
+Policy rules:
+
+- no Decision Desk API input-for-recommendation endpoint is allowed.
+- Decision Desk API responses must be unavailable by default.
+- request placeholders must not be treated as recommendation requests.
+- response placeholders must not be treated as decisions.
+- evidence references must not be treated as complete bundles.
+- safety references must not be treated as passed checks.
+- unavailable responses must not be treated as recommendations, approvals, or trade readiness.
+- no recommendation generation in Prompt 40.
+- no action-state generation in Prompt 40.
+- no confidence scoring in Prompt 40.
+- no active DecisionObject generation in Prompt 40.
+- no approvals in Prompt 40.
+- no overrides in Prompt 40.
+- no execution APIs.
+- no broker integration.
+- no real market data assumption.
+
+Decision Desk API skeleton outputs are not trading data, investment advice,
+recommendation payloads, active DecisionObjects, approval records, override
+records, safety approvals, or execution approval.
+
+## Prompt 41 Decision Desk Milestone Audit Policy
+
+Prompt 41 audits the Decision Desk planning milestone and confirms Prompts
+36-40 remain planning, contract, guardrail, and unavailable metadata only.
+
+Policy rules:
+
+- Decision Desk API responses remain unavailable by default.
+- no Decision Desk API input-for-recommendation endpoint is allowed.
+- placeholders must not be treated as decisions.
+- readiness templates must not be treated as recommendations.
+- human-review gates and attachments must not be treated as approvals.
+- approval placeholders must remain inactive.
+- override prohibition must remain fail-closed.
+- no recommendation generation is allowed.
+- no action-state generation is allowed.
+- no confidence scoring is allowed.
+- no active DecisionObject generation is allowed.
+- no execution APIs are allowed.
+
+Decision Desk milestone audit artifacts are governance records only. They are
+not trading data, investment advice, approval, override, execution readiness,
+or production market-data evidence.
+
+## Prompt 42 Decision Readiness API Policy
+
+Prompt 42 adds read-only Decision Desk Readiness API skeleton endpoints and
+settings.
+
+Policy rules:
+
+- no Decision Readiness API input-for-recommendation endpoint is allowed.
+- no Decision Readiness API input-for-readiness-to-trade endpoint is allowed.
+- readiness responses remain unavailable by default.
+- readiness placeholders must not be treated as trade readiness.
+- evidence references must not be treated as complete evidence bundles.
+- safety references must not be treated as passed safety checks.
+- human-review references must not be treated as approvals.
+- blocked-output references must not be treated as bypass permission.
+- no recommendation generation is allowed.
+- no action-state generation is allowed.
+- no confidence scoring is allowed.
+- no active DecisionObject generation is allowed.
+- no approval or override is allowed.
+- no execution APIs are allowed.
+
+Decision readiness API artifacts are contract metadata only. They are not
+trading data, investment advice, approval, override, execution readiness,
+recommendation readiness, or production market-data evidence.
+
+## Prompt 43 Decision Display Policy
+
+Prompt 43 adds read-only Decision Desk Display Contract Skeleton endpoints and
+settings.
+
+Policy rules:
+
+- no display-as-recommendation is allowed.
+- no Decision Display input-for-recommendation endpoint is allowed.
+- no Decision Display input-for-readiness-to-trade endpoint is allowed.
+- display responses remain unavailable by default.
+- display placeholders must not be treated as decisions.
+- display cards must not be treated as recommendation cards.
+- display sections must not be treated as active UI.
+- evidence references must not be treated as complete evidence bundles.
+- safety references must not be treated as passed safety checks.
+- no recommendation generation is allowed.
+- no action-state generation is allowed.
+- no confidence scoring is allowed.
+- no active DecisionObject generation is allowed.
+- no approval or override is allowed.
+- no execution APIs are allowed.
+
+Decision display artifacts are contract metadata only. They are not trading
+data, investment advice, active UI, approval, override, execution readiness,
+recommendation readiness, readiness-to-trade, or production market-data
+evidence.
+
+## Prompt 44 Decision Evidence Validation Policy
+
+Prompt 44 adds Decision Evidence Validation v0 as validation-only inspection of
+DecisionObject evidence bundle contracts, evidence items, source references,
+provenance, validation checklists, and human-review attachments.
+
+Policy rules:
+
+- no validation-pass-as-recommendation is allowed.
+- no validation-pass-as-readiness-to-trade is allowed.
+- no validation-pass-as-approval is allowed.
+- validation results must not be treated as active DecisionObject readiness.
+- evidence bundle completeness must not be treated as decision approval.
+- human-review attachment completeness must not be treated as human approval.
+- no validation endpoint may accept market data to produce recommendations.
+- no recommendation generation is allowed.
+- no action-state generation is allowed.
+- no confidence scoring is allowed.
+- no active DecisionObject generation is allowed.
+- no approval or override is allowed.
+- no execution APIs are allowed.
+
+Decision evidence validation artifacts are contract validation metadata only.
+They are not trading data, investment advice, approval, override, execution
+readiness, recommendation readiness, readiness-to-trade, or production
+market-data evidence.
+
+## Prompt 45 Decision Human Review Workflow Policy
+
+Prompt 45 adds Decision Human Review workflow skeleton endpoints and settings.
+
+Policy rules:
+
+- no human-review-workflow-as-approval is allowed.
+- human review workflow responses remain unavailable by default.
+- review placeholders must not be treated as decisions.
+- review task placeholders must not be treated as assigned or completed tasks.
+- reviewer role placeholders must not be treated as authenticated users.
+- review queue placeholders must not be treated as active queues.
+- no task assignment is allowed.
+- no reviewer auth is allowed.
+- no notifications are allowed.
+- no active workflow persistence is allowed.
+- no recommendation generation is allowed.
+- no action-state generation is allowed.
+- no confidence scoring is allowed.
+- no active DecisionObject generation is allowed.
+- no readiness-to-trade is allowed.
+- no approval or override is allowed.
+- no execution APIs are allowed.
+
+Decision human review artifacts are workflow skeleton metadata only. They are
+not trading data, investment advice, approval, override, execution readiness,
+recommendation readiness, readiness-to-trade, or production market-data
+evidence.
+
+## Prompt 46 Decision Desk Milestone Audit 2 Policy
+
+Prompt 46 confirms the second Decision Desk skeleton phase remains audit-only.
+Readiness responses must not be treated as recommendations. Display placeholders
+must not be treated as decisions. Validation passes must not be treated as
+approvals. Human review workflow placeholders must not be treated as approvals.
+No readiness-as-recommendation, display-as-decision, validation-as-approval, or
+review-workflow-as-approval rule is allowed. None of these layers may ingest
+real market data, claim live data, publish events, or enable execution APIs.
+
+## Prompt 47 Decision Boundary Policy
+
+Prompt 47 adds a no cross-module boundary bypass rule. Decision Desk modules may
+only expose their documented contract, validation, display, workflow, or
+boundary-hardening purpose. A module must not use another module as a shortcut
+to generate recommendations, action states, confidence scores, active
+DecisionObjects, approvals, overrides, active UI, active workflow,
+readiness-to-trade, broker behavior, or execution.
+
+Prompt 47 also adds a no endpoint boundary bypass rule. Decision endpoints must
+remain read-only, unavailable-by-default or placeholder-only, and must not
+accept market data to generate decisions. They must not expose secrets, claim
+live market data, publish events, or create execution APIs.
+
+The forbidden behavior registry is policy metadata only. It records behaviors
+that remain forbidden and require a future prompt plus audit-before-unlock. It
+does not enable recommendations, approval, override, readiness-to-trade, active
+UI, active workflow, or execution.
+
+No endpoint boundary bypass is allowed, and no module bypasses forbidden
+behavior registry policy. These rules are explicit Prompt 47 safety invariants.
+
+no module bypasses forbidden behavior registry controls in Prompt 47.
+
+## Prompt 48 Decision API Display Integration Readiness Policy
+
+Prompt 48 confirms Decision API/display integration readiness without changing
+data trust boundaries. No API-to-display recommendation path is allowed. No
+readiness-to-display-trade path is allowed. No display-as-decision rule is
+allowed. no display-as-decision is allowed. No validation-as-approval and no
+review-workflow-as-approval behavior is allowed.
+
+Retail Dashboard readiness is planning-only. Dashboard planning must not treat
+synthetic/local file data as trusted real market data, must not create
+recommendation cards, must not create trading controls, must not expose broker
+linkage, and must not add execution APIs.
+
+## Prompt 49 Retail Dashboard Planning Policy
+
+Prompt 49 adds a no dashboard-as-recommendation rule, a no dashboard-as-execution-control rule, a no placeholder-card-as-decision rule, and a no real market data dashboard display yet rule.
+
+Retail Dashboard placeholders must not be treated as validated recommendations, active DecisionObjects, readiness-to-trade, broker controls, or execution controls.
+
+## Prompt 50 Retail Dashboard API Policy
+
+Prompt 50 adds a no dashboard API as recommendation rule, a no dashboard API as
+execution control rule, a no dashboard API live data rule, and an
+unavailable-by-default dashboard API policy.
+
+Retail Dashboard API placeholders, data references, decision references, safety
+references, and unavailable responses must not be treated as live market data,
+recommendations, active DecisionObjects, readiness-to-trade, broker controls,
+approvals, overrides, or execution controls.
+
+## Prompt 51 Retail Dashboard Display Policy
+
+Prompt 51 adds a no dashboard display as recommendation rule, a no dashboard
+display as execution control rule, a no dashboard display live data rule, and an
+unavailable-by-default dashboard display policy.
+
+Retail Dashboard Display layout placeholders, widget placeholders, visual
+section placeholders, badge placeholders, and unavailable responses must not be
+treated as active UI, frontend components, desktop UI components, live market
+data, recommendation cards, action generation, confidence scoring, active
+DecisionObjects, readiness-to-trade, broker controls, approvals, overrides, or
+execution controls.
+
+## Prompt 52 Retail Dashboard Safety Boundary Audit Policy
+
+Prompt 52 confirms the Retail Dashboard safety boundary across planning, API,
+and display artifacts.
+
+Policy confirmations:
+
+- no dashboard-as-recommendation rule.
+- no dashboard-as-execution-control rule.
+- no live data display rule.
+- no placeholder-as-dashboard-output rule.
+- no API placeholder as active dashboard output.
+- no display placeholder as active UI.
+- no widget or badge as recommendation, readiness-to-trade, broker control, or execution control.
+
+Retail Dashboard planning/API/display artifacts are not trading data,
+investment advice, recommendation payloads, active DecisionObjects, live market
+data, approval records, override records, broker controls, or execution
+approval.
+
+## Prompt 53 Retail Dashboard Milestone Audit Policy
+
+Prompt 53 confirms the Retail Dashboard milestone boundary across planning,
+API, display, and safety audit artifacts.
+
+Policy confirmations:
+
+- no dashboard-as-recommendation rule.
+- no dashboard-as-execution-control rule.
+- No live data display rule.
+- no placeholder-as-dashboard-output rule.
+- no API placeholder as active dashboard output.
+- no display placeholder as active UI.
+- no widget or badge as recommendation, readiness-to-trade, broker control, or execution control.
+
+Retail Dashboard planning/API/display artifacts remain placeholders and audit
+records only. They are not live market data, trading data, recommendation
+payloads, active DecisionObjects, approval records, override records, broker
+controls, or execution approval.
+
+## Prompt 54 Retail Dashboard Boundary Policy
+
+Prompt 54 adds a no cross-module dashboard boundary bypass rule, a no endpoint
+dashboard boundary bypass rule, and a Retail Dashboard forbidden behavior
+registry policy.
+
+Policy shorthand: no endpoint dashboard boundary bypass, no cross-module
+dashboard boundary bypass, and no module bypasses the Retail Dashboard
+forbidden behavior registry.
+
+Retail Dashboard planning/API/display/boundary modules must not bypass the
+forbidden behavior registry. Endpoint families must remain read-only metadata
+surfaces and must not accept market data for dashboard decisions, generate
+recommendations, create active UI, generate DecisionObjects, expose broker
+controls, or execute trades.
+
+The Retail Dashboard forbidden behavior registry is policy metadata only. It
+does not make synthetic/local file data trusted real market data, does not
+enable live data display, and does not unlock recommendations, action
+generation, confidence scoring, readiness-to-trade, broker controls, approvals,
+overrides, or execution APIs.

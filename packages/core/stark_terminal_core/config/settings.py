@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     stark_env: str = "development"
     app_name: str = "Stark Terminal"
     app_version: str = "0.1.0"
-    prompt_number: str = "25"
+    prompt_number: str = "54"
 
     api_host: str = "127.0.0.1"
     api_port: int = Field(default=8000, ge=1, le=65535)
@@ -166,6 +166,256 @@ class Settings(BaseSettings):
     local_file_provider_allow_symlinks: bool = False
     local_file_provider_max_rows: int = Field(default=10000, gt=0)
     local_file_provider_allow_real_data_claims: bool = False
+    analytics_foundation_enabled: bool = True
+    analytics_schema_version: str = "v1"
+    analytics_allow_real_data: bool = False
+    analytics_allow_trade_signals: bool = False
+    analytics_allow_recommendations: bool = False
+    analytics_require_validated_inputs: bool = True
+    analytics_require_source_reference: bool = True
+    analytics_dependency_stage: str = "contracts_only"
+    numerical_analytics_enabled: bool = True
+    numerical_analytics_schema_version: str = "v1"
+    numerical_analytics_allow_real_data: bool = False
+    numerical_analytics_allow_trade_signals: bool = False
+    numerical_analytics_allow_recommendations: bool = False
+    numerical_analytics_allow_decision_objects: bool = False
+    numerical_analytics_require_source_reference: bool = True
+    numerical_analytics_require_finite_values: bool = True
+    numerical_analytics_max_vector_length: int = Field(default=100000, gt=0)
+    numerical_analytics_dependency_stage: str = "contracts_and_safe_stdlib"
+    returns_analytics_enabled: bool = True
+    returns_analytics_schema_version: str = "v1"
+    returns_analytics_allow_real_data: bool = False
+    returns_analytics_allow_trade_signals: bool = False
+    returns_analytics_allow_recommendations: bool = False
+    returns_analytics_allow_decision_objects: bool = False
+    returns_analytics_require_positive_prices: bool = True
+    returns_analytics_require_source_reference: bool = True
+    rolling_analytics_enabled: bool = True
+    rolling_analytics_max_window: int = Field(default=252, gt=0)
+    rolling_analytics_allow_signal_labels: bool = False
+    volatility_analytics_enabled: bool = True
+    volatility_analytics_schema_version: str = "v1"
+    volatility_analytics_allow_real_data: bool = False
+    volatility_analytics_allow_trade_signals: bool = False
+    volatility_analytics_allow_recommendations: bool = False
+    volatility_analytics_allow_decision_objects: bool = False
+    volatility_analytics_default_stddev_method: str = "sample"
+    volatility_analytics_allow_annualization: bool = True
+    drawdown_analytics_enabled: bool = True
+    drawdown_analytics_require_positive_values: bool = True
+    drawdown_analytics_allow_signal_labels: bool = False
+    correlation_analytics_enabled: bool = True
+    correlation_analytics_schema_version: str = "v1"
+    correlation_analytics_allow_real_data: bool = False
+    correlation_analytics_allow_trade_signals: bool = False
+    correlation_analytics_allow_recommendations: bool = False
+    correlation_analytics_allow_decision_objects: bool = False
+    correlation_analytics_min_observations: int = Field(default=2, ge=2)
+    beta_analytics_enabled: bool = True
+    beta_analytics_min_observations: int = Field(default=2, ge=2)
+    beta_analytics_allow_signal_labels: bool = False
+    time_series_diagnostics_enabled: bool = True
+    time_series_diagnostics_schema_version: str = "v1"
+    time_series_diagnostics_allow_real_data: bool = False
+    time_series_diagnostics_allow_trade_signals: bool = False
+    time_series_diagnostics_allow_recommendations: bool = False
+    time_series_diagnostics_allow_decision_objects: bool = False
+    time_series_diagnostics_require_source_reference: bool = True
+    time_series_diagnostics_require_timezone_aware: bool = True
+    time_series_diagnostics_default_expected_interval_seconds: int = Field(default=60, gt=0)
+    time_series_diagnostics_max_observations: int = Field(default=100000, gt=0)
+    time_series_diagnostics_allow_signal_labels: bool = False
+    regime_analytics_enabled: bool = True
+    regime_analytics_schema_version: str = "v1"
+    regime_analytics_allow_real_data: bool = False
+    regime_analytics_allow_classification: bool = False
+    regime_analytics_allow_trade_signals: bool = False
+    regime_analytics_allow_recommendations: bool = False
+    regime_analytics_allow_decision_objects: bool = False
+    regime_analytics_require_evidence: bool = True
+    regime_analytics_require_human_review: bool = True
+    regime_analytics_dependency_stage: str = "planning_only"
+    regime_analytics_allow_signal_labels: bool = False
+    regime_feature_preparation_enabled: bool = True
+    regime_feature_preparation_schema_version: str = "v1"
+    regime_feature_preparation_allow_real_data: bool = False
+    regime_feature_preparation_allow_feature_computation: bool = False
+    regime_feature_preparation_allow_feature_registry_writes: bool = False
+    regime_feature_preparation_allow_classification: bool = False
+    regime_feature_preparation_allow_trade_signals: bool = False
+    regime_feature_preparation_allow_recommendations: bool = False
+    regime_feature_preparation_allow_decision_objects: bool = False
+    regime_feature_preparation_require_provenance: bool = True
+    regime_feature_preparation_require_evidence_mapping: bool = True
+    regime_feature_preparation_dependency_stage: str = "contracts_only"
+    retail_decision_desk_enabled: bool = True
+    retail_decision_desk_schema_version: str = "v1"
+    retail_decision_desk_allow_real_data: bool = False
+    retail_decision_desk_allow_recommendations: bool = False
+    retail_decision_desk_allow_action_generation: bool = False
+    retail_decision_desk_allow_confidence_scoring: bool = False
+    retail_decision_desk_allow_decision_objects: bool = False
+    retail_decision_desk_allow_execution: bool = False
+    retail_decision_desk_require_evidence: bool = True
+    retail_decision_desk_require_human_review: bool = True
+    retail_decision_desk_planning_stage: str = "planning_only"
+    decision_evidence_enabled: bool = True
+    decision_evidence_schema_version: str = "v1"
+    decision_evidence_allow_real_data: bool = False
+    decision_evidence_allow_recommendations: bool = False
+    decision_evidence_allow_action_generation: bool = False
+    decision_evidence_allow_confidence_scoring: bool = False
+    decision_evidence_allow_decision_object_generation: bool = False
+    decision_evidence_allow_execution: bool = False
+    decision_evidence_require_source_reference: bool = True
+    decision_evidence_require_validation_checklist: bool = True
+    decision_evidence_require_human_review_attachment: bool = True
+    decision_evidence_planning_stage: str = "contracts_only"
+    decision_safety_enabled: bool = True
+    decision_safety_schema_version: str = "v1"
+    decision_safety_allow_recommendations: bool = False
+    decision_safety_allow_action_generation: bool = False
+    decision_safety_allow_confidence_scoring: bool = False
+    decision_safety_allow_decision_object_generation: bool = False
+    decision_safety_allow_execution: bool = False
+    decision_safety_allow_human_approval: bool = False
+    decision_safety_allow_overrides: bool = False
+    decision_safety_require_human_review: bool = True
+    decision_safety_require_blocked_output_policy: bool = True
+    decision_safety_stage: str = "guardrails_only"
+    decision_api_enabled: bool = True
+    decision_api_schema_version: str = "v1"
+    decision_api_allow_recommendations: bool = False
+    decision_api_allow_action_generation: bool = False
+    decision_api_allow_confidence_scoring: bool = False
+    decision_api_allow_decision_object_generation: bool = False
+    decision_api_allow_execution: bool = False
+    decision_api_allow_approval: bool = False
+    decision_api_allow_override: bool = False
+    decision_api_return_unavailable_by_default: bool = True
+    decision_api_stage: str = "contract_skeleton"
+    decision_readiness_api_enabled: bool = True
+    decision_readiness_api_schema_version: str = "v1"
+    decision_readiness_api_allow_recommendations: bool = False
+    decision_readiness_api_allow_action_generation: bool = False
+    decision_readiness_api_allow_confidence_scoring: bool = False
+    decision_readiness_api_allow_decision_object_generation: bool = False
+    decision_readiness_api_allow_execution: bool = False
+    decision_readiness_api_allow_approval: bool = False
+    decision_readiness_api_allow_override: bool = False
+    decision_readiness_api_return_unavailable_by_default: bool = True
+    decision_readiness_api_stage: str = "readiness_contract_skeleton"
+    decision_display_enabled: bool = True
+    decision_display_schema_version: str = "v1"
+    decision_display_allow_recommendations: bool = False
+    decision_display_allow_action_generation: bool = False
+    decision_display_allow_confidence_scoring: bool = False
+    decision_display_allow_decision_object_generation: bool = False
+    decision_display_allow_execution: bool = False
+    decision_display_allow_approval: bool = False
+    decision_display_allow_override: bool = False
+    decision_display_allow_readiness_to_trade: bool = False
+    decision_display_return_unavailable_by_default: bool = True
+    decision_display_stage: str = "display_contract_skeleton"
+    decision_evidence_validation_enabled: bool = True
+    decision_evidence_validation_schema_version: str = "v1"
+    decision_evidence_validation_allow_recommendations: bool = False
+    decision_evidence_validation_allow_action_generation: bool = False
+    decision_evidence_validation_allow_confidence_scoring: bool = False
+    decision_evidence_validation_allow_decision_object_generation: bool = False
+    decision_evidence_validation_allow_execution: bool = False
+    decision_evidence_validation_allow_approval: bool = False
+    decision_evidence_validation_allow_override: bool = False
+    decision_evidence_validation_allow_readiness_to_trade: bool = False
+    decision_evidence_validation_stage: str = "validation_v0"
+    decision_human_review_enabled: bool = True
+    decision_human_review_schema_version: str = "v1"
+    decision_human_review_allow_active_workflow: bool = False
+    decision_human_review_allow_task_assignment: bool = False
+    decision_human_review_allow_reviewer_auth: bool = False
+    decision_human_review_allow_notifications: bool = False
+    decision_human_review_allow_approval: bool = False
+    decision_human_review_allow_override: bool = False
+    decision_human_review_allow_recommendations: bool = False
+    decision_human_review_allow_action_generation: bool = False
+    decision_human_review_allow_confidence_scoring: bool = False
+    decision_human_review_allow_decision_object_generation: bool = False
+    decision_human_review_allow_execution: bool = False
+    decision_human_review_allow_readiness_to_trade: bool = False
+    decision_human_review_return_unavailable_by_default: bool = True
+    decision_human_review_stage: str = "workflow_skeleton"
+    decision_boundary_enabled: bool = True
+    decision_boundary_schema_version: str = "v1"
+    decision_boundary_allow_recommendations: bool = False
+    decision_boundary_allow_action_generation: bool = False
+    decision_boundary_allow_confidence_scoring: bool = False
+    decision_boundary_allow_decision_object_generation: bool = False
+    decision_boundary_allow_execution: bool = False
+    decision_boundary_allow_approval: bool = False
+    decision_boundary_allow_override: bool = False
+    decision_boundary_allow_active_ui: bool = False
+    decision_boundary_allow_active_workflow: bool = False
+    decision_boundary_allow_readiness_to_trade: bool = False
+    decision_boundary_stage: str = "boundary_hardening"
+    retail_dashboard_enabled: bool = True
+    retail_dashboard_schema_version: str = "v1"
+    retail_dashboard_allow_active_ui: bool = False
+    retail_dashboard_allow_recommendations: bool = False
+    retail_dashboard_allow_action_generation: bool = False
+    retail_dashboard_allow_confidence_scoring: bool = False
+    retail_dashboard_allow_decision_object_generation: bool = False
+    retail_dashboard_allow_readiness_to_trade: bool = False
+    retail_dashboard_allow_broker_controls: bool = False
+    retail_dashboard_allow_execution: bool = False
+    retail_dashboard_allow_approval: bool = False
+    retail_dashboard_allow_override: bool = False
+    retail_dashboard_return_unavailable_by_default: bool = True
+    retail_dashboard_stage: str = "planning_and_guardrails"
+    retail_dashboard_api_enabled: bool = True
+    retail_dashboard_api_schema_version: str = "v1"
+    retail_dashboard_api_allow_active_ui: bool = False
+    retail_dashboard_api_allow_recommendations: bool = False
+    retail_dashboard_api_allow_action_generation: bool = False
+    retail_dashboard_api_allow_confidence_scoring: bool = False
+    retail_dashboard_api_allow_decision_object_generation: bool = False
+    retail_dashboard_api_allow_readiness_to_trade: bool = False
+    retail_dashboard_api_allow_broker_controls: bool = False
+    retail_dashboard_api_allow_execution: bool = False
+    retail_dashboard_api_allow_approval: bool = False
+    retail_dashboard_api_allow_override: bool = False
+    retail_dashboard_api_return_unavailable_by_default: bool = True
+    retail_dashboard_api_stage: str = "api_contract_skeleton"
+    retail_dashboard_display_enabled: bool = True
+    retail_dashboard_display_schema_version: str = "v1"
+    retail_dashboard_display_allow_active_ui: bool = False
+    retail_dashboard_display_allow_recommendations: bool = False
+    retail_dashboard_display_allow_action_generation: bool = False
+    retail_dashboard_display_allow_confidence_scoring: bool = False
+    retail_dashboard_display_allow_decision_object_generation: bool = False
+    retail_dashboard_display_allow_readiness_to_trade: bool = False
+    retail_dashboard_display_allow_broker_controls: bool = False
+    retail_dashboard_display_allow_execution: bool = False
+    retail_dashboard_display_allow_approval: bool = False
+    retail_dashboard_display_allow_override: bool = False
+    retail_dashboard_display_return_unavailable_by_default: bool = True
+    retail_dashboard_display_stage: str = "display_contract_skeleton"
+    retail_dashboard_boundary_enabled: bool = True
+    retail_dashboard_boundary_schema_version: str = "v1"
+    retail_dashboard_boundary_allow_active_ui: bool = False
+    retail_dashboard_boundary_allow_frontend_components: bool = False
+    retail_dashboard_boundary_allow_desktop_components: bool = False
+    retail_dashboard_boundary_allow_recommendations: bool = False
+    retail_dashboard_boundary_allow_action_generation: bool = False
+    retail_dashboard_boundary_allow_confidence_scoring: bool = False
+    retail_dashboard_boundary_allow_decision_object_generation: bool = False
+    retail_dashboard_boundary_allow_readiness_to_trade: bool = False
+    retail_dashboard_boundary_allow_broker_controls: bool = False
+    retail_dashboard_boundary_allow_execution: bool = False
+    retail_dashboard_boundary_allow_approval: bool = False
+    retail_dashboard_boundary_allow_override: bool = False
+    retail_dashboard_boundary_stage: str = "boundary_hardening"
 
     feature_store_mode: str = "custom"
     feature_registry_enabled: bool = False
@@ -326,12 +576,268 @@ class Settings(BaseSettings):
         "provider_candidate_selection_schema_version",
         "local_file_provider_schema_version",
         "local_file_provider_allowed_root",
+        "analytics_schema_version",
+        "numerical_analytics_schema_version",
+        "returns_analytics_schema_version",
+        "volatility_analytics_schema_version",
+        "correlation_analytics_schema_version",
+        "time_series_diagnostics_schema_version",
+        "regime_analytics_schema_version",
+        "regime_feature_preparation_schema_version",
+        "retail_decision_desk_schema_version",
+        "decision_evidence_schema_version",
+        "decision_safety_schema_version",
+        "decision_api_schema_version",
+        "decision_readiness_api_schema_version",
+        "decision_display_schema_version",
+        "decision_evidence_validation_schema_version",
+        "decision_human_review_schema_version",
+        "decision_boundary_schema_version",
+        "retail_dashboard_schema_version",
+        "retail_dashboard_api_schema_version",
+        "retail_dashboard_display_schema_version",
+        "retail_dashboard_boundary_schema_version",
     )
     @classmethod
     def persistence_schema_version_must_be_non_empty(cls, value: str) -> str:
         normalized = value.strip()
         if not normalized:
             raise ValueError("persistence/export text settings cannot be empty")
+        return normalized
+
+    @field_validator("analytics_dependency_stage")
+    @classmethod
+    def analytics_dependency_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "contracts_only",
+            "numerical_core_planned",
+            "time_series_planned",
+            "ml_planned",
+        }:
+            raise ValueError("analytics_dependency_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("numerical_analytics_dependency_stage")
+    @classmethod
+    def numerical_analytics_dependency_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "contracts_and_safe_stdlib",
+            "numpy_planned",
+            "scipy_planned",
+            "gpu_planned",
+        }:
+            raise ValueError("numerical_analytics_dependency_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("regime_analytics_dependency_stage")
+    @classmethod
+    def regime_analytics_dependency_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "planning_only",
+            "feature_preparation_planned",
+            "classifier_planned",
+            "validation_planned",
+        }:
+            raise ValueError("regime_analytics_dependency_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("regime_feature_preparation_dependency_stage")
+    @classmethod
+    def regime_feature_preparation_dependency_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "contracts_only",
+            "feature_computation_planned",
+            "feature_registry_integration_planned",
+            "classifier_input_planned",
+        }:
+            raise ValueError("regime_feature_preparation_dependency_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("retail_decision_desk_planning_stage")
+    @classmethod
+    def retail_decision_desk_planning_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "planning_only",
+            "evidence_contracts_planned",
+            "display_contracts_planned",
+            "decision_object_contracts_planned",
+            "blocked",
+        }:
+            raise ValueError("retail_decision_desk_planning_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("decision_evidence_planning_stage")
+    @classmethod
+    def decision_evidence_planning_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "contracts_only",
+            "bundle_validation_planned",
+            "human_review_planned",
+            "decision_object_generation_planned",
+            "blocked",
+        }:
+            raise ValueError("decision_evidence_planning_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("decision_safety_stage")
+    @classmethod
+    def decision_safety_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "guardrails_only",
+            "human_review_planned",
+            "approval_workflow_planned",
+            "decision_object_generation_planned",
+            "blocked",
+        }:
+            raise ValueError("decision_safety_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("decision_api_stage")
+    @classmethod
+    def decision_api_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "contract_skeleton",
+            "unavailable_only",
+            "evidence_bundle_reference_planned",
+            "decision_object_generation_planned",
+            "blocked",
+        }:
+            raise ValueError("decision_api_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("decision_readiness_api_stage")
+    @classmethod
+    def decision_readiness_api_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "readiness_contract_skeleton",
+            "unavailable_only",
+            "evidence_reference_planned",
+            "safety_reference_planned",
+            "decision_object_generation_planned",
+            "blocked",
+        }:
+            raise ValueError("decision_readiness_api_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("decision_display_stage")
+    @classmethod
+    def decision_display_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "display_contract_skeleton",
+            "unavailable_only",
+            "card_placeholders",
+            "section_placeholders",
+            "frontend_ui_planned",
+            "blocked",
+        }:
+            raise ValueError("decision_display_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("decision_evidence_validation_stage")
+    @classmethod
+    def decision_evidence_validation_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "validation_v0",
+            "unavailable_only",
+            "bundle_validation_planned",
+            "decision_object_generation_planned",
+            "blocked",
+        }:
+            raise ValueError("decision_evidence_validation_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("decision_human_review_stage")
+    @classmethod
+    def decision_human_review_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "workflow_skeleton",
+            "unavailable_only",
+            "task_placeholders",
+            "queue_placeholders",
+            "active_workflow_planned",
+            "blocked",
+        }:
+            raise ValueError("decision_human_review_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("decision_boundary_stage")
+    @classmethod
+    def decision_boundary_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {"boundary_hardening", "audit_only", "blocked"}:
+            raise ValueError("decision_boundary_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("retail_dashboard_stage")
+    @classmethod
+    def retail_dashboard_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "planning_and_guardrails",
+            "unavailable_only",
+            "section_placeholders",
+            "card_placeholders",
+            "active_ui_planned",
+            "blocked",
+        }:
+            raise ValueError("retail_dashboard_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("retail_dashboard_api_stage")
+    @classmethod
+    def retail_dashboard_api_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "api_contract_skeleton",
+            "unavailable_only",
+            "reference_placeholders",
+            "active_ui_planned",
+            "blocked",
+        }:
+            raise ValueError("retail_dashboard_api_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("retail_dashboard_display_stage")
+    @classmethod
+    def retail_dashboard_display_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "display_contract_skeleton",
+            "unavailable_only",
+            "layout_placeholders",
+            "widget_placeholders",
+            "active_ui_planned",
+            "blocked",
+        }:
+            raise ValueError("retail_dashboard_display_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("retail_dashboard_boundary_stage")
+    @classmethod
+    def retail_dashboard_boundary_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {"boundary_hardening", "audit_only", "blocked"}:
+            raise ValueError("retail_dashboard_boundary_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("volatility_analytics_default_stddev_method")
+    @classmethod
+    def volatility_stddev_method_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {"sample", "population"}:
+            raise ValueError("volatility_analytics_default_stddev_method must be sample or population")
         return normalized
 
     @field_validator("synthetic_ohlcv_export_default_zone")
@@ -398,39 +904,399 @@ class Settings(BaseSettings):
     @model_validator(mode="after")
     def execution_flags_must_remain_disabled(self) -> Settings:
         if self.execution_apis_enabled:
-            raise ValueError("execution APIs are forbidden in Prompt 25")
+            raise ValueError("execution APIs are forbidden in Prompt 33")
         if self.broker_integrations_enabled:
-            raise ValueError("broker integrations are forbidden in Prompt 25")
+            raise ValueError("broker integrations are forbidden in Prompt 33")
         if self.live_trading_enabled:
-            raise ValueError("live trading is forbidden in Prompt 25")
+            raise ValueError("live trading is forbidden in Prompt 33")
         if self.allow_external_market_data_calls:
-            raise ValueError("external market data calls are forbidden in Prompt 25")
+            raise ValueError("external market data calls are forbidden in Prompt 33")
         if self.allow_provider_network_calls:
-            raise ValueError("provider network calls are forbidden in Prompt 25")
+            raise ValueError("provider network calls are forbidden in Prompt 33")
         if self.provider_network_calls_default_allowed:
-            raise ValueError("provider network calls are disabled by default in Prompt 25")
+            raise ValueError("provider network calls are disabled by default in Prompt 33")
         if self.provider_scraping_default_allowed:
-            raise ValueError("provider scraping is disabled by default in Prompt 25")
+            raise ValueError("provider scraping is disabled by default in Prompt 33")
         if self.provider_credentials_allowed:
-            raise ValueError("provider credentials are forbidden in Prompt 25")
+            raise ValueError("provider credentials are forbidden in Prompt 33")
         if self.local_sample_provider_allow_network:
-            raise ValueError("local sample provider network calls are forbidden in Prompt 25")
+            raise ValueError("local sample provider network calls are forbidden in Prompt 33")
         if self.local_sample_provider_allow_real_data:
-            raise ValueError("local sample provider real data is forbidden in Prompt 25")
+            raise ValueError("local sample provider real data is forbidden in Prompt 33")
         if self.provider_candidate_real_implementation_allowed:
-            raise ValueError("real provider implementation is forbidden in Prompt 25")
+            raise ValueError("real provider implementation is forbidden in Prompt 33")
         if self.provider_candidate_network_checks_allowed:
-            raise ValueError("provider candidate network checks are forbidden in Prompt 25")
+            raise ValueError("provider candidate network checks are forbidden in Prompt 33")
         if self.provider_candidate_scraping_checks_allowed:
-            raise ValueError("provider candidate scraping checks are forbidden in Prompt 25")
+            raise ValueError("provider candidate scraping checks are forbidden in Prompt 33")
         if self.provider_candidate_credentials_allowed:
-            raise ValueError("provider candidate credentials are forbidden in Prompt 25")
+            raise ValueError("provider candidate credentials are forbidden in Prompt 33")
         if self.local_file_provider_allow_network_paths:
-            raise ValueError("local file provider network paths are forbidden in Prompt 25")
+            raise ValueError("local file provider network paths are forbidden in Prompt 33")
         if self.local_file_provider_allow_symlinks:
-            raise ValueError("local file provider symlinks are forbidden in Prompt 25")
+            raise ValueError("local file provider symlinks are forbidden in Prompt 33")
         if self.local_file_provider_allow_real_data_claims:
-            raise ValueError("local file provider real data claims are forbidden in Prompt 25")
+            raise ValueError("local file provider real data claims are forbidden in Prompt 33")
+        if self.analytics_allow_real_data:
+            raise ValueError("analytics real data usage is forbidden in Prompt 33")
+        if self.analytics_allow_trade_signals:
+            raise ValueError("analytics trade signals are forbidden in Prompt 33")
+        if self.analytics_allow_recommendations:
+            raise ValueError("analytics recommendations are forbidden in Prompt 33")
+        if not self.analytics_require_validated_inputs:
+            raise ValueError("analytics must require validated inputs in Prompt 33")
+        if not self.analytics_require_source_reference:
+            raise ValueError("analytics must require source references in Prompt 33")
+        if self.numerical_analytics_allow_real_data:
+            raise ValueError("numerical analytics real data usage is forbidden in Prompt 33")
+        if self.numerical_analytics_allow_trade_signals:
+            raise ValueError("numerical analytics trade signals are forbidden in Prompt 33")
+        if self.numerical_analytics_allow_recommendations:
+            raise ValueError("numerical analytics recommendations are forbidden in Prompt 33")
+        if self.numerical_analytics_allow_decision_objects:
+            raise ValueError("numerical analytics DecisionObject generation is forbidden in Prompt 33")
+        if not self.numerical_analytics_require_source_reference:
+            raise ValueError("numerical analytics must require source references in Prompt 33")
+        if not self.numerical_analytics_require_finite_values:
+            raise ValueError("numerical analytics must require finite values in Prompt 33")
+        if self.returns_analytics_allow_real_data:
+            raise ValueError("returns analytics real data usage is forbidden in Prompt 33")
+        if self.returns_analytics_allow_trade_signals:
+            raise ValueError("returns analytics trade signals are forbidden in Prompt 33")
+        if self.returns_analytics_allow_recommendations:
+            raise ValueError("returns analytics recommendations are forbidden in Prompt 33")
+        if self.returns_analytics_allow_decision_objects:
+            raise ValueError("returns analytics DecisionObject generation is forbidden in Prompt 33")
+        if not self.returns_analytics_require_positive_prices:
+            raise ValueError("returns analytics must require positive prices in Prompt 33")
+        if not self.returns_analytics_require_source_reference:
+            raise ValueError("returns analytics must require source references in Prompt 33")
+        if self.rolling_analytics_allow_signal_labels:
+            raise ValueError("rolling analytics signal labels are forbidden in Prompt 33")
+        if self.volatility_analytics_allow_real_data:
+            raise ValueError("volatility analytics real data usage is forbidden in Prompt 33")
+        if self.volatility_analytics_allow_trade_signals:
+            raise ValueError("volatility analytics trade signals are forbidden in Prompt 33")
+        if self.volatility_analytics_allow_recommendations:
+            raise ValueError("volatility analytics recommendations are forbidden in Prompt 33")
+        if self.volatility_analytics_allow_decision_objects:
+            raise ValueError("volatility analytics DecisionObject generation is forbidden in Prompt 33")
+        if self.drawdown_analytics_allow_signal_labels:
+            raise ValueError("drawdown analytics signal labels are forbidden in Prompt 33")
+        if not self.drawdown_analytics_require_positive_values:
+            raise ValueError("drawdown analytics must require positive values in Prompt 33")
+        if self.correlation_analytics_allow_real_data:
+            raise ValueError("correlation analytics real data usage is forbidden in Prompt 33")
+        if self.correlation_analytics_allow_trade_signals:
+            raise ValueError("correlation analytics trade signals are forbidden in Prompt 33")
+        if self.correlation_analytics_allow_recommendations:
+            raise ValueError("correlation analytics recommendations are forbidden in Prompt 33")
+        if self.correlation_analytics_allow_decision_objects:
+            raise ValueError("correlation analytics DecisionObject generation is forbidden in Prompt 33")
+        if self.beta_analytics_allow_signal_labels:
+            raise ValueError("beta analytics signal labels are forbidden in Prompt 33")
+        if self.time_series_diagnostics_allow_real_data:
+            raise ValueError("time-series diagnostics real data usage is forbidden in Prompt 33")
+        if self.time_series_diagnostics_allow_trade_signals:
+            raise ValueError("time-series diagnostics trade signals are forbidden in Prompt 33")
+        if self.time_series_diagnostics_allow_recommendations:
+            raise ValueError("time-series diagnostics recommendations are forbidden in Prompt 33")
+        if self.time_series_diagnostics_allow_decision_objects:
+            raise ValueError("time-series diagnostics DecisionObject generation is forbidden in Prompt 33")
+        if not self.time_series_diagnostics_require_source_reference:
+            raise ValueError("time-series diagnostics must require source references in Prompt 33")
+        if not self.time_series_diagnostics_require_timezone_aware:
+            raise ValueError("time-series diagnostics must require timezone-aware timestamps in Prompt 33")
+        if self.time_series_diagnostics_allow_signal_labels:
+            raise ValueError("time-series diagnostics signal labels are forbidden in Prompt 33")
+        if self.regime_analytics_allow_real_data:
+            raise ValueError("regime analytics real data usage is forbidden in Prompt 33")
+        if self.regime_analytics_allow_classification:
+            raise ValueError("regime analytics classification is forbidden in Prompt 33")
+        if self.regime_analytics_allow_trade_signals:
+            raise ValueError("regime analytics trade signals are forbidden in Prompt 33")
+        if self.regime_analytics_allow_recommendations:
+            raise ValueError("regime analytics recommendations are forbidden in Prompt 33")
+        if self.regime_analytics_allow_decision_objects:
+            raise ValueError("regime analytics DecisionObject generation is forbidden in Prompt 33")
+        if not self.regime_analytics_require_evidence:
+            raise ValueError("regime analytics must require evidence in Prompt 33")
+        if not self.regime_analytics_require_human_review:
+            raise ValueError("regime analytics must require human review in Prompt 33")
+        if self.regime_analytics_allow_signal_labels:
+            raise ValueError("regime analytics signal labels are forbidden in Prompt 33")
+        if self.regime_feature_preparation_allow_real_data:
+            raise ValueError("regime feature preparation real data usage is forbidden in Prompt 34")
+        if self.regime_feature_preparation_allow_feature_computation:
+            raise ValueError("regime feature computation is forbidden in Prompt 34")
+        if self.regime_feature_preparation_allow_feature_registry_writes:
+            raise ValueError("regime feature registry writes are forbidden in Prompt 34")
+        if self.regime_feature_preparation_allow_classification:
+            raise ValueError("regime feature preparation classification is forbidden in Prompt 34")
+        if self.regime_feature_preparation_allow_trade_signals:
+            raise ValueError("regime feature preparation trade signals are forbidden in Prompt 34")
+        if self.regime_feature_preparation_allow_recommendations:
+            raise ValueError("regime feature preparation recommendations are forbidden in Prompt 34")
+        if self.regime_feature_preparation_allow_decision_objects:
+            raise ValueError("regime feature preparation DecisionObject generation is forbidden in Prompt 34")
+        if not self.regime_feature_preparation_require_provenance:
+            raise ValueError("regime feature preparation must require provenance in Prompt 34")
+        if not self.regime_feature_preparation_require_evidence_mapping:
+            raise ValueError("regime feature preparation must require evidence mapping in Prompt 34")
+        if self.retail_decision_desk_allow_real_data:
+            raise ValueError("Retail Decision Desk real data usage is forbidden in Prompt 36")
+        if self.retail_decision_desk_allow_recommendations:
+            raise ValueError("Retail Decision Desk recommendations are forbidden in Prompt 36")
+        if self.retail_decision_desk_allow_action_generation:
+            raise ValueError("Retail Decision Desk action generation is forbidden in Prompt 36")
+        if self.retail_decision_desk_allow_confidence_scoring:
+            raise ValueError("Retail Decision Desk confidence scoring is forbidden in Prompt 36")
+        if self.retail_decision_desk_allow_decision_objects:
+            raise ValueError("Retail Decision Desk DecisionObject generation is forbidden in Prompt 36")
+        if self.retail_decision_desk_allow_execution:
+            raise ValueError("Retail Decision Desk execution is forbidden in Prompt 36")
+        if not self.retail_decision_desk_require_evidence:
+            raise ValueError("Retail Decision Desk must require evidence in Prompt 36")
+        if not self.retail_decision_desk_require_human_review:
+            raise ValueError("Retail Decision Desk must require human review in Prompt 36")
+        if self.decision_evidence_allow_real_data:
+            raise ValueError("Decision evidence real data usage is forbidden in Prompt 38")
+        if self.decision_evidence_allow_recommendations:
+            raise ValueError("Decision evidence recommendations are forbidden in Prompt 38")
+        if self.decision_evidence_allow_action_generation:
+            raise ValueError("Decision evidence action generation is forbidden in Prompt 38")
+        if self.decision_evidence_allow_confidence_scoring:
+            raise ValueError("Decision evidence confidence scoring is forbidden in Prompt 38")
+        if self.decision_evidence_allow_decision_object_generation:
+            raise ValueError("Decision evidence DecisionObject generation is forbidden in Prompt 38")
+        if self.decision_evidence_allow_execution:
+            raise ValueError("Decision evidence execution is forbidden in Prompt 38")
+        if not self.decision_evidence_require_source_reference:
+            raise ValueError("Decision evidence must require source references in Prompt 38")
+        if not self.decision_evidence_require_validation_checklist:
+            raise ValueError("Decision evidence must require validation checklists in Prompt 38")
+        if not self.decision_evidence_require_human_review_attachment:
+            raise ValueError("Decision evidence must require human-review attachments in Prompt 38")
+        if self.decision_safety_allow_recommendations:
+            raise ValueError("Decision safety recommendations are forbidden in Prompt 39")
+        if self.decision_safety_allow_action_generation:
+            raise ValueError("Decision safety action generation is forbidden in Prompt 39")
+        if self.decision_safety_allow_confidence_scoring:
+            raise ValueError("Decision safety confidence scoring is forbidden in Prompt 39")
+        if self.decision_safety_allow_decision_object_generation:
+            raise ValueError("Decision safety DecisionObject generation is forbidden in Prompt 39")
+        if self.decision_safety_allow_execution:
+            raise ValueError("Decision safety execution is forbidden in Prompt 39")
+        if self.decision_safety_allow_human_approval:
+            raise ValueError("Decision safety human approval is forbidden in Prompt 39")
+        if self.decision_safety_allow_overrides:
+            raise ValueError("Decision safety overrides are forbidden in Prompt 39")
+        if not self.decision_safety_require_human_review:
+            raise ValueError("Decision safety must require human review in Prompt 39")
+        if not self.decision_safety_require_blocked_output_policy:
+            raise ValueError("Decision safety must require blocked output policy in Prompt 39")
+        if self.decision_api_allow_recommendations:
+            raise ValueError("Decision Desk API recommendations are forbidden in Prompt 40")
+        if self.decision_api_allow_action_generation:
+            raise ValueError("Decision Desk API action generation is forbidden in Prompt 40")
+        if self.decision_api_allow_confidence_scoring:
+            raise ValueError("Decision Desk API confidence scoring is forbidden in Prompt 40")
+        if self.decision_api_allow_decision_object_generation:
+            raise ValueError("Decision Desk API DecisionObject generation is forbidden in Prompt 40")
+        if self.decision_api_allow_execution:
+            raise ValueError("Decision Desk API execution is forbidden in Prompt 40")
+        if self.decision_api_allow_approval:
+            raise ValueError("Decision Desk API approval is forbidden in Prompt 40")
+        if self.decision_api_allow_override:
+            raise ValueError("Decision Desk API override is forbidden in Prompt 40")
+        if not self.decision_api_return_unavailable_by_default:
+            raise ValueError("Decision Desk API must return unavailable by default in Prompt 40")
+        if self.decision_readiness_api_allow_recommendations:
+            raise ValueError("Decision Readiness API recommendations are forbidden in Prompt 42")
+        if self.decision_readiness_api_allow_action_generation:
+            raise ValueError("Decision Readiness API action generation is forbidden in Prompt 42")
+        if self.decision_readiness_api_allow_confidence_scoring:
+            raise ValueError("Decision Readiness API confidence scoring is forbidden in Prompt 42")
+        if self.decision_readiness_api_allow_decision_object_generation:
+            raise ValueError("Decision Readiness API DecisionObject generation is forbidden in Prompt 42")
+        if self.decision_readiness_api_allow_execution:
+            raise ValueError("Decision Readiness API execution is forbidden in Prompt 42")
+        if self.decision_readiness_api_allow_approval:
+            raise ValueError("Decision Readiness API approval is forbidden in Prompt 42")
+        if self.decision_readiness_api_allow_override:
+            raise ValueError("Decision Readiness API override is forbidden in Prompt 42")
+        if not self.decision_readiness_api_return_unavailable_by_default:
+            raise ValueError("Decision Readiness API must return unavailable by default in Prompt 42")
+        if self.decision_display_allow_recommendations:
+            raise ValueError("Decision Display recommendations are forbidden in Prompt 43")
+        if self.decision_display_allow_action_generation:
+            raise ValueError("Decision Display action generation is forbidden in Prompt 43")
+        if self.decision_display_allow_confidence_scoring:
+            raise ValueError("Decision Display confidence scoring is forbidden in Prompt 43")
+        if self.decision_display_allow_decision_object_generation:
+            raise ValueError("Decision Display DecisionObject generation is forbidden in Prompt 43")
+        if self.decision_display_allow_execution:
+            raise ValueError("Decision Display execution is forbidden in Prompt 43")
+        if self.decision_display_allow_approval:
+            raise ValueError("Decision Display approval is forbidden in Prompt 43")
+        if self.decision_display_allow_override:
+            raise ValueError("Decision Display override is forbidden in Prompt 43")
+        if self.decision_display_allow_readiness_to_trade:
+            raise ValueError("Decision Display readiness-to-trade is forbidden in Prompt 43")
+        if not self.decision_display_return_unavailable_by_default:
+            raise ValueError("Decision Display must return unavailable by default in Prompt 43")
+        if self.decision_evidence_validation_allow_recommendations:
+            raise ValueError("Decision evidence validation recommendations are forbidden in Prompt 44")
+        if self.decision_evidence_validation_allow_action_generation:
+            raise ValueError("Decision evidence validation action generation is forbidden in Prompt 44")
+        if self.decision_evidence_validation_allow_confidence_scoring:
+            raise ValueError("Decision evidence validation confidence scoring is forbidden in Prompt 44")
+        if self.decision_evidence_validation_allow_decision_object_generation:
+            raise ValueError("Decision evidence validation DecisionObject generation is forbidden in Prompt 44")
+        if self.decision_evidence_validation_allow_execution:
+            raise ValueError("Decision evidence validation execution is forbidden in Prompt 44")
+        if self.decision_evidence_validation_allow_approval:
+            raise ValueError("Decision evidence validation approval is forbidden in Prompt 44")
+        if self.decision_evidence_validation_allow_override:
+            raise ValueError("Decision evidence validation override is forbidden in Prompt 44")
+        if self.decision_evidence_validation_allow_readiness_to_trade:
+            raise ValueError("Decision evidence validation readiness-to-trade is forbidden in Prompt 44")
+        if self.decision_human_review_allow_active_workflow:
+            raise ValueError("Decision human review active workflow is forbidden in Prompt 45")
+        if self.decision_human_review_allow_task_assignment:
+            raise ValueError("Decision human review task assignment is forbidden in Prompt 45")
+        if self.decision_human_review_allow_reviewer_auth:
+            raise ValueError("Decision human review reviewer auth is forbidden in Prompt 45")
+        if self.decision_human_review_allow_notifications:
+            raise ValueError("Decision human review notifications are forbidden in Prompt 45")
+        if self.decision_human_review_allow_approval:
+            raise ValueError("Decision human review approval is forbidden in Prompt 45")
+        if self.decision_human_review_allow_override:
+            raise ValueError("Decision human review override is forbidden in Prompt 45")
+        if self.decision_human_review_allow_recommendations:
+            raise ValueError("Decision human review recommendations are forbidden in Prompt 45")
+        if self.decision_human_review_allow_action_generation:
+            raise ValueError("Decision human review action generation is forbidden in Prompt 45")
+        if self.decision_human_review_allow_confidence_scoring:
+            raise ValueError("Decision human review confidence scoring is forbidden in Prompt 45")
+        if self.decision_human_review_allow_decision_object_generation:
+            raise ValueError("Decision human review DecisionObject generation is forbidden in Prompt 45")
+        if self.decision_human_review_allow_execution:
+            raise ValueError("Decision human review execution is forbidden in Prompt 45")
+        if self.decision_human_review_allow_readiness_to_trade:
+            raise ValueError("Decision human review readiness-to-trade is forbidden in Prompt 45")
+        if not self.decision_human_review_return_unavailable_by_default:
+            raise ValueError("Decision human review must return unavailable by default in Prompt 45")
+        if self.decision_boundary_allow_recommendations:
+            raise ValueError("Decision boundary recommendations are forbidden in Prompt 47")
+        if self.decision_boundary_allow_action_generation:
+            raise ValueError("Decision boundary action generation is forbidden in Prompt 47")
+        if self.decision_boundary_allow_confidence_scoring:
+            raise ValueError("Decision boundary confidence scoring is forbidden in Prompt 47")
+        if self.decision_boundary_allow_decision_object_generation:
+            raise ValueError("Decision boundary DecisionObject generation is forbidden in Prompt 47")
+        if self.decision_boundary_allow_execution:
+            raise ValueError("Decision boundary execution is forbidden in Prompt 47")
+        if self.decision_boundary_allow_approval:
+            raise ValueError("Decision boundary approval is forbidden in Prompt 47")
+        if self.decision_boundary_allow_override:
+            raise ValueError("Decision boundary override is forbidden in Prompt 47")
+        if self.decision_boundary_allow_active_ui:
+            raise ValueError("Decision boundary active UI is forbidden in Prompt 47")
+        if self.decision_boundary_allow_active_workflow:
+            raise ValueError("Decision boundary active workflow is forbidden in Prompt 47")
+        if self.decision_boundary_allow_readiness_to_trade:
+            raise ValueError("Decision boundary readiness-to-trade is forbidden in Prompt 47")
+        if self.retail_dashboard_allow_active_ui:
+            raise ValueError("Retail Dashboard active UI is forbidden in Prompt 49")
+        if self.retail_dashboard_allow_recommendations:
+            raise ValueError("Retail Dashboard recommendations are forbidden in Prompt 49")
+        if self.retail_dashboard_allow_action_generation:
+            raise ValueError("Retail Dashboard action generation is forbidden in Prompt 49")
+        if self.retail_dashboard_allow_confidence_scoring:
+            raise ValueError("Retail Dashboard confidence scoring is forbidden in Prompt 49")
+        if self.retail_dashboard_allow_decision_object_generation:
+            raise ValueError("Retail Dashboard DecisionObject generation is forbidden in Prompt 49")
+        if self.retail_dashboard_allow_readiness_to_trade:
+            raise ValueError("Retail Dashboard readiness-to-trade is forbidden in Prompt 49")
+        if self.retail_dashboard_allow_broker_controls:
+            raise ValueError("Retail Dashboard broker controls are forbidden in Prompt 49")
+        if self.retail_dashboard_allow_execution:
+            raise ValueError("Retail Dashboard execution is forbidden in Prompt 49")
+        if self.retail_dashboard_allow_approval:
+            raise ValueError("Retail Dashboard approval is forbidden in Prompt 49")
+        if self.retail_dashboard_allow_override:
+            raise ValueError("Retail Dashboard override is forbidden in Prompt 49")
+        if not self.retail_dashboard_return_unavailable_by_default:
+            raise ValueError("Retail Dashboard must return unavailable by default in Prompt 49")
+        if self.retail_dashboard_api_allow_active_ui:
+            raise ValueError("Retail Dashboard API active UI is forbidden in Prompt 50")
+        if self.retail_dashboard_api_allow_recommendations:
+            raise ValueError("Retail Dashboard API recommendations are forbidden in Prompt 50")
+        if self.retail_dashboard_api_allow_action_generation:
+            raise ValueError("Retail Dashboard API action generation is forbidden in Prompt 50")
+        if self.retail_dashboard_api_allow_confidence_scoring:
+            raise ValueError("Retail Dashboard API confidence scoring is forbidden in Prompt 50")
+        if self.retail_dashboard_api_allow_decision_object_generation:
+            raise ValueError("Retail Dashboard API DecisionObject generation is forbidden in Prompt 50")
+        if self.retail_dashboard_api_allow_readiness_to_trade:
+            raise ValueError("Retail Dashboard API readiness-to-trade is forbidden in Prompt 50")
+        if self.retail_dashboard_api_allow_broker_controls:
+            raise ValueError("Retail Dashboard API broker controls are forbidden in Prompt 50")
+        if self.retail_dashboard_api_allow_execution:
+            raise ValueError("Retail Dashboard API execution is forbidden in Prompt 50")
+        if self.retail_dashboard_api_allow_approval:
+            raise ValueError("Retail Dashboard API approval is forbidden in Prompt 50")
+        if self.retail_dashboard_api_allow_override:
+            raise ValueError("Retail Dashboard API override is forbidden in Prompt 50")
+        if not self.retail_dashboard_api_return_unavailable_by_default:
+            raise ValueError("Retail Dashboard API must return unavailable by default in Prompt 50")
+        if self.retail_dashboard_display_allow_active_ui:
+            raise ValueError("Retail Dashboard Display active UI is forbidden in Prompt 51")
+        if self.retail_dashboard_display_allow_recommendations:
+            raise ValueError("Retail Dashboard Display recommendations are forbidden in Prompt 51")
+        if self.retail_dashboard_display_allow_action_generation:
+            raise ValueError("Retail Dashboard Display action generation is forbidden in Prompt 51")
+        if self.retail_dashboard_display_allow_confidence_scoring:
+            raise ValueError("Retail Dashboard Display confidence scoring is forbidden in Prompt 51")
+        if self.retail_dashboard_display_allow_decision_object_generation:
+            raise ValueError("Retail Dashboard Display DecisionObject generation is forbidden in Prompt 51")
+        if self.retail_dashboard_display_allow_readiness_to_trade:
+            raise ValueError("Retail Dashboard Display readiness-to-trade is forbidden in Prompt 51")
+        if self.retail_dashboard_display_allow_broker_controls:
+            raise ValueError("Retail Dashboard Display broker controls are forbidden in Prompt 51")
+        if self.retail_dashboard_display_allow_execution:
+            raise ValueError("Retail Dashboard Display execution is forbidden in Prompt 51")
+        if self.retail_dashboard_display_allow_approval:
+            raise ValueError("Retail Dashboard Display approval is forbidden in Prompt 51")
+        if self.retail_dashboard_display_allow_override:
+            raise ValueError("Retail Dashboard Display override is forbidden in Prompt 51")
+        if not self.retail_dashboard_display_return_unavailable_by_default:
+            raise ValueError("Retail Dashboard Display must return unavailable by default in Prompt 51")
+        if self.retail_dashboard_boundary_allow_active_ui:
+            raise ValueError("Retail Dashboard Boundary active UI is forbidden in Prompt 54")
+        if self.retail_dashboard_boundary_allow_frontend_components:
+            raise ValueError("Retail Dashboard Boundary frontend components are forbidden in Prompt 54")
+        if self.retail_dashboard_boundary_allow_desktop_components:
+            raise ValueError("Retail Dashboard Boundary desktop components are forbidden in Prompt 54")
+        if self.retail_dashboard_boundary_allow_recommendations:
+            raise ValueError("Retail Dashboard Boundary recommendations are forbidden in Prompt 54")
+        if self.retail_dashboard_boundary_allow_action_generation:
+            raise ValueError("Retail Dashboard Boundary action generation is forbidden in Prompt 54")
+        if self.retail_dashboard_boundary_allow_confidence_scoring:
+            raise ValueError("Retail Dashboard Boundary confidence scoring is forbidden in Prompt 54")
+        if self.retail_dashboard_boundary_allow_decision_object_generation:
+            raise ValueError("Retail Dashboard Boundary DecisionObject generation is forbidden in Prompt 54")
+        if self.retail_dashboard_boundary_allow_readiness_to_trade:
+            raise ValueError("Retail Dashboard Boundary readiness-to-trade is forbidden in Prompt 54")
+        if self.retail_dashboard_boundary_allow_broker_controls:
+            raise ValueError("Retail Dashboard Boundary broker controls are forbidden in Prompt 54")
+        if self.retail_dashboard_boundary_allow_execution:
+            raise ValueError("Retail Dashboard Boundary execution is forbidden in Prompt 54")
+        if self.retail_dashboard_boundary_allow_approval:
+            raise ValueError("Retail Dashboard Boundary approval is forbidden in Prompt 54")
+        if self.retail_dashboard_boundary_allow_override:
+            raise ValueError("Retail Dashboard Boundary override is forbidden in Prompt 54")
         if (
             self.provider_candidate_minimum_score_for_network_tests
             < self.provider_candidate_minimum_score_for_design
@@ -598,6 +1464,314 @@ class Settings(BaseSettings):
             "local_file_provider_allow_symlinks": self.local_file_provider_allow_symlinks,
             "local_file_provider_max_rows": self.local_file_provider_max_rows,
             "local_file_provider_allow_real_data_claims": self.local_file_provider_allow_real_data_claims,
+            "analytics_foundation_enabled": self.analytics_foundation_enabled,
+            "analytics_schema_version": self.analytics_schema_version,
+            "analytics_allow_real_data": self.analytics_allow_real_data,
+            "analytics_allow_trade_signals": self.analytics_allow_trade_signals,
+            "analytics_allow_recommendations": self.analytics_allow_recommendations,
+            "analytics_require_validated_inputs": self.analytics_require_validated_inputs,
+            "analytics_require_source_reference": self.analytics_require_source_reference,
+            "analytics_dependency_stage": self.analytics_dependency_stage,
+            "numerical_analytics_enabled": self.numerical_analytics_enabled,
+            "numerical_analytics_schema_version": self.numerical_analytics_schema_version,
+            "numerical_analytics_allow_real_data": self.numerical_analytics_allow_real_data,
+            "numerical_analytics_allow_trade_signals": self.numerical_analytics_allow_trade_signals,
+            "numerical_analytics_allow_recommendations": self.numerical_analytics_allow_recommendations,
+            "numerical_analytics_allow_decision_objects": self.numerical_analytics_allow_decision_objects,
+            "numerical_analytics_require_source_reference": self.numerical_analytics_require_source_reference,
+            "numerical_analytics_require_finite_values": self.numerical_analytics_require_finite_values,
+            "numerical_analytics_max_vector_length": self.numerical_analytics_max_vector_length,
+            "numerical_analytics_dependency_stage": self.numerical_analytics_dependency_stage,
+            "returns_analytics_enabled": self.returns_analytics_enabled,
+            "returns_analytics_schema_version": self.returns_analytics_schema_version,
+            "returns_analytics_allow_real_data": self.returns_analytics_allow_real_data,
+            "returns_analytics_allow_trade_signals": self.returns_analytics_allow_trade_signals,
+            "returns_analytics_allow_recommendations": self.returns_analytics_allow_recommendations,
+            "returns_analytics_allow_decision_objects": self.returns_analytics_allow_decision_objects,
+            "returns_analytics_require_positive_prices": self.returns_analytics_require_positive_prices,
+            "returns_analytics_require_source_reference": self.returns_analytics_require_source_reference,
+            "rolling_analytics_enabled": self.rolling_analytics_enabled,
+            "rolling_analytics_max_window": self.rolling_analytics_max_window,
+            "rolling_analytics_allow_signal_labels": self.rolling_analytics_allow_signal_labels,
+            "volatility_analytics_enabled": self.volatility_analytics_enabled,
+            "volatility_analytics_schema_version": self.volatility_analytics_schema_version,
+            "volatility_analytics_allow_real_data": self.volatility_analytics_allow_real_data,
+            "volatility_analytics_allow_trade_signals": self.volatility_analytics_allow_trade_signals,
+            "volatility_analytics_allow_recommendations": self.volatility_analytics_allow_recommendations,
+            "volatility_analytics_allow_decision_objects": self.volatility_analytics_allow_decision_objects,
+            "volatility_analytics_default_stddev_method": self.volatility_analytics_default_stddev_method,
+            "volatility_analytics_allow_annualization": self.volatility_analytics_allow_annualization,
+            "drawdown_analytics_enabled": self.drawdown_analytics_enabled,
+            "drawdown_analytics_require_positive_values": self.drawdown_analytics_require_positive_values,
+            "drawdown_analytics_allow_signal_labels": self.drawdown_analytics_allow_signal_labels,
+            "correlation_analytics_enabled": self.correlation_analytics_enabled,
+            "correlation_analytics_schema_version": self.correlation_analytics_schema_version,
+            "correlation_analytics_allow_real_data": self.correlation_analytics_allow_real_data,
+            "correlation_analytics_allow_trade_signals": self.correlation_analytics_allow_trade_signals,
+            "correlation_analytics_allow_recommendations": self.correlation_analytics_allow_recommendations,
+            "correlation_analytics_allow_decision_objects": self.correlation_analytics_allow_decision_objects,
+            "correlation_analytics_min_observations": self.correlation_analytics_min_observations,
+            "beta_analytics_enabled": self.beta_analytics_enabled,
+            "beta_analytics_min_observations": self.beta_analytics_min_observations,
+            "beta_analytics_allow_signal_labels": self.beta_analytics_allow_signal_labels,
+            "time_series_diagnostics_enabled": self.time_series_diagnostics_enabled,
+            "time_series_diagnostics_schema_version": self.time_series_diagnostics_schema_version,
+            "time_series_diagnostics_allow_real_data": self.time_series_diagnostics_allow_real_data,
+            "time_series_diagnostics_allow_trade_signals": self.time_series_diagnostics_allow_trade_signals,
+            "time_series_diagnostics_allow_recommendations": self.time_series_diagnostics_allow_recommendations,
+            "time_series_diagnostics_allow_decision_objects": self.time_series_diagnostics_allow_decision_objects,
+            "time_series_diagnostics_require_source_reference": self.time_series_diagnostics_require_source_reference,
+            "time_series_diagnostics_require_timezone_aware": self.time_series_diagnostics_require_timezone_aware,
+            "time_series_diagnostics_default_expected_interval_seconds": self.time_series_diagnostics_default_expected_interval_seconds,
+            "time_series_diagnostics_max_observations": self.time_series_diagnostics_max_observations,
+            "time_series_diagnostics_allow_signal_labels": self.time_series_diagnostics_allow_signal_labels,
+            "regime_analytics_enabled": self.regime_analytics_enabled,
+            "regime_analytics_schema_version": self.regime_analytics_schema_version,
+            "regime_analytics_allow_real_data": self.regime_analytics_allow_real_data,
+            "regime_analytics_allow_classification": self.regime_analytics_allow_classification,
+            "regime_analytics_allow_trade_signals": self.regime_analytics_allow_trade_signals,
+            "regime_analytics_allow_recommendations": self.regime_analytics_allow_recommendations,
+            "regime_analytics_allow_decision_objects": self.regime_analytics_allow_decision_objects,
+            "regime_analytics_require_evidence": self.regime_analytics_require_evidence,
+            "regime_analytics_require_human_review": self.regime_analytics_require_human_review,
+            "regime_analytics_dependency_stage": self.regime_analytics_dependency_stage,
+            "regime_analytics_allow_signal_labels": self.regime_analytics_allow_signal_labels,
+            "regime_feature_preparation_enabled": self.regime_feature_preparation_enabled,
+            "regime_feature_preparation_schema_version": self.regime_feature_preparation_schema_version,
+            "regime_feature_preparation_allow_real_data": self.regime_feature_preparation_allow_real_data,
+            "regime_feature_preparation_allow_feature_computation": self.regime_feature_preparation_allow_feature_computation,
+            "regime_feature_preparation_allow_feature_registry_writes": self.regime_feature_preparation_allow_feature_registry_writes,
+            "regime_feature_preparation_allow_classification": self.regime_feature_preparation_allow_classification,
+            "regime_feature_preparation_allow_trade_signals": self.regime_feature_preparation_allow_trade_signals,
+            "regime_feature_preparation_allow_recommendations": self.regime_feature_preparation_allow_recommendations,
+            "regime_feature_preparation_allow_decision_objects": self.regime_feature_preparation_allow_decision_objects,
+            "regime_feature_preparation_require_provenance": self.regime_feature_preparation_require_provenance,
+            "regime_feature_preparation_require_evidence_mapping": self.regime_feature_preparation_require_evidence_mapping,
+            "regime_feature_preparation_dependency_stage": self.regime_feature_preparation_dependency_stage,
+            "retail_decision_desk_enabled": self.retail_decision_desk_enabled,
+            "retail_decision_desk_schema_version": self.retail_decision_desk_schema_version,
+            "retail_decision_desk_allow_real_data": self.retail_decision_desk_allow_real_data,
+            "retail_decision_desk_allow_recommendations": self.retail_decision_desk_allow_recommendations,
+            "retail_decision_desk_allow_action_generation": self.retail_decision_desk_allow_action_generation,
+            "retail_decision_desk_allow_confidence_scoring": self.retail_decision_desk_allow_confidence_scoring,
+            "retail_decision_desk_allow_decision_objects": self.retail_decision_desk_allow_decision_objects,
+            "retail_decision_desk_allow_execution": self.retail_decision_desk_allow_execution,
+            "retail_decision_desk_require_evidence": self.retail_decision_desk_require_evidence,
+            "retail_decision_desk_require_human_review": self.retail_decision_desk_require_human_review,
+            "retail_decision_desk_planning_stage": self.retail_decision_desk_planning_stage,
+            "decision_evidence_enabled": self.decision_evidence_enabled,
+            "decision_evidence_schema_version": self.decision_evidence_schema_version,
+            "decision_evidence_allow_real_data": self.decision_evidence_allow_real_data,
+            "decision_evidence_allow_recommendations": self.decision_evidence_allow_recommendations,
+            "decision_evidence_allow_action_generation": self.decision_evidence_allow_action_generation,
+            "decision_evidence_allow_confidence_scoring": self.decision_evidence_allow_confidence_scoring,
+            "decision_evidence_allow_decision_object_generation": self.decision_evidence_allow_decision_object_generation,
+            "decision_evidence_allow_execution": self.decision_evidence_allow_execution,
+            "decision_evidence_require_source_reference": self.decision_evidence_require_source_reference,
+            "decision_evidence_require_validation_checklist": self.decision_evidence_require_validation_checklist,
+            "decision_evidence_require_human_review_attachment": self.decision_evidence_require_human_review_attachment,
+            "decision_evidence_planning_stage": self.decision_evidence_planning_stage,
+            "decision_safety_enabled": self.decision_safety_enabled,
+            "decision_safety_schema_version": self.decision_safety_schema_version,
+            "decision_safety_allow_recommendations": self.decision_safety_allow_recommendations,
+            "decision_safety_allow_action_generation": self.decision_safety_allow_action_generation,
+            "decision_safety_allow_confidence_scoring": self.decision_safety_allow_confidence_scoring,
+            "decision_safety_allow_decision_object_generation": self.decision_safety_allow_decision_object_generation,
+            "decision_safety_allow_execution": self.decision_safety_allow_execution,
+            "decision_safety_allow_human_approval": self.decision_safety_allow_human_approval,
+            "decision_safety_allow_overrides": self.decision_safety_allow_overrides,
+            "decision_safety_require_human_review": self.decision_safety_require_human_review,
+            "decision_safety_require_blocked_output_policy": self.decision_safety_require_blocked_output_policy,
+            "decision_safety_stage": self.decision_safety_stage,
+            "decision_api_enabled": self.decision_api_enabled,
+            "decision_api_schema_version": self.decision_api_schema_version,
+            "decision_api_allow_recommendations": self.decision_api_allow_recommendations,
+            "decision_api_allow_action_generation": self.decision_api_allow_action_generation,
+            "decision_api_allow_confidence_scoring": self.decision_api_allow_confidence_scoring,
+            "decision_api_allow_decision_object_generation": self.decision_api_allow_decision_object_generation,
+            "decision_api_allow_execution": self.decision_api_allow_execution,
+            "decision_api_allow_approval": self.decision_api_allow_approval,
+            "decision_api_allow_override": self.decision_api_allow_override,
+            "decision_api_return_unavailable_by_default": self.decision_api_return_unavailable_by_default,
+            "decision_api_stage": self.decision_api_stage,
+            "decision_readiness_api_enabled": self.decision_readiness_api_enabled,
+            "decision_readiness_api_schema_version": self.decision_readiness_api_schema_version,
+            "decision_readiness_api_allow_recommendations": self.decision_readiness_api_allow_recommendations,
+            "decision_readiness_api_allow_action_generation": self.decision_readiness_api_allow_action_generation,
+            "decision_readiness_api_allow_confidence_scoring": self.decision_readiness_api_allow_confidence_scoring,
+            "decision_readiness_api_allow_decision_object_generation": (
+                self.decision_readiness_api_allow_decision_object_generation
+            ),
+            "decision_readiness_api_allow_execution": self.decision_readiness_api_allow_execution,
+            "decision_readiness_api_allow_approval": self.decision_readiness_api_allow_approval,
+            "decision_readiness_api_allow_override": self.decision_readiness_api_allow_override,
+            "decision_readiness_api_return_unavailable_by_default": (
+                self.decision_readiness_api_return_unavailable_by_default
+            ),
+            "decision_readiness_api_stage": self.decision_readiness_api_stage,
+            "decision_display_enabled": self.decision_display_enabled,
+            "decision_display_schema_version": self.decision_display_schema_version,
+            "decision_display_allow_recommendations": self.decision_display_allow_recommendations,
+            "decision_display_allow_action_generation": self.decision_display_allow_action_generation,
+            "decision_display_allow_confidence_scoring": self.decision_display_allow_confidence_scoring,
+            "decision_display_allow_decision_object_generation": (
+                self.decision_display_allow_decision_object_generation
+            ),
+            "decision_display_allow_execution": self.decision_display_allow_execution,
+            "decision_display_allow_approval": self.decision_display_allow_approval,
+            "decision_display_allow_override": self.decision_display_allow_override,
+            "decision_display_allow_readiness_to_trade": self.decision_display_allow_readiness_to_trade,
+            "decision_display_return_unavailable_by_default": self.decision_display_return_unavailable_by_default,
+            "decision_display_stage": self.decision_display_stage,
+            "decision_evidence_validation_enabled": self.decision_evidence_validation_enabled,
+            "decision_evidence_validation_schema_version": self.decision_evidence_validation_schema_version,
+            "decision_evidence_validation_allow_recommendations": (
+                self.decision_evidence_validation_allow_recommendations
+            ),
+            "decision_evidence_validation_allow_action_generation": (
+                self.decision_evidence_validation_allow_action_generation
+            ),
+            "decision_evidence_validation_allow_confidence_scoring": (
+                self.decision_evidence_validation_allow_confidence_scoring
+            ),
+            "decision_evidence_validation_allow_decision_object_generation": (
+                self.decision_evidence_validation_allow_decision_object_generation
+            ),
+            "decision_evidence_validation_allow_execution": self.decision_evidence_validation_allow_execution,
+            "decision_evidence_validation_allow_approval": self.decision_evidence_validation_allow_approval,
+            "decision_evidence_validation_allow_override": self.decision_evidence_validation_allow_override,
+            "decision_evidence_validation_allow_readiness_to_trade": (
+                self.decision_evidence_validation_allow_readiness_to_trade
+            ),
+            "decision_evidence_validation_stage": self.decision_evidence_validation_stage,
+            "decision_human_review_enabled": self.decision_human_review_enabled,
+            "decision_human_review_schema_version": self.decision_human_review_schema_version,
+            "decision_human_review_allow_active_workflow": self.decision_human_review_allow_active_workflow,
+            "decision_human_review_allow_task_assignment": self.decision_human_review_allow_task_assignment,
+            "decision_human_review_allow_reviewer_auth": self.decision_human_review_allow_reviewer_auth,
+            "decision_human_review_allow_notifications": self.decision_human_review_allow_notifications,
+            "decision_human_review_allow_approval": self.decision_human_review_allow_approval,
+            "decision_human_review_allow_override": self.decision_human_review_allow_override,
+            "decision_human_review_allow_recommendations": self.decision_human_review_allow_recommendations,
+            "decision_human_review_allow_action_generation": self.decision_human_review_allow_action_generation,
+            "decision_human_review_allow_confidence_scoring": self.decision_human_review_allow_confidence_scoring,
+            "decision_human_review_allow_decision_object_generation": (
+                self.decision_human_review_allow_decision_object_generation
+            ),
+            "decision_human_review_allow_execution": self.decision_human_review_allow_execution,
+            "decision_human_review_allow_readiness_to_trade": (
+                self.decision_human_review_allow_readiness_to_trade
+            ),
+            "decision_human_review_return_unavailable_by_default": (
+                self.decision_human_review_return_unavailable_by_default
+            ),
+            "decision_human_review_stage": self.decision_human_review_stage,
+            "decision_boundary_enabled": self.decision_boundary_enabled,
+            "decision_boundary_schema_version": self.decision_boundary_schema_version,
+            "decision_boundary_allow_recommendations": self.decision_boundary_allow_recommendations,
+            "decision_boundary_allow_action_generation": self.decision_boundary_allow_action_generation,
+            "decision_boundary_allow_confidence_scoring": self.decision_boundary_allow_confidence_scoring,
+            "decision_boundary_allow_decision_object_generation": (
+                self.decision_boundary_allow_decision_object_generation
+            ),
+            "decision_boundary_allow_execution": self.decision_boundary_allow_execution,
+            "decision_boundary_allow_approval": self.decision_boundary_allow_approval,
+            "decision_boundary_allow_override": self.decision_boundary_allow_override,
+            "decision_boundary_allow_active_ui": self.decision_boundary_allow_active_ui,
+            "decision_boundary_allow_active_workflow": self.decision_boundary_allow_active_workflow,
+            "decision_boundary_allow_readiness_to_trade": self.decision_boundary_allow_readiness_to_trade,
+            "decision_boundary_stage": self.decision_boundary_stage,
+            "retail_dashboard_enabled": self.retail_dashboard_enabled,
+            "retail_dashboard_schema_version": self.retail_dashboard_schema_version,
+            "retail_dashboard_allow_active_ui": self.retail_dashboard_allow_active_ui,
+            "retail_dashboard_allow_recommendations": self.retail_dashboard_allow_recommendations,
+            "retail_dashboard_allow_action_generation": self.retail_dashboard_allow_action_generation,
+            "retail_dashboard_allow_confidence_scoring": self.retail_dashboard_allow_confidence_scoring,
+            "retail_dashboard_allow_decision_object_generation": (
+                self.retail_dashboard_allow_decision_object_generation
+            ),
+            "retail_dashboard_allow_readiness_to_trade": self.retail_dashboard_allow_readiness_to_trade,
+            "retail_dashboard_allow_broker_controls": self.retail_dashboard_allow_broker_controls,
+            "retail_dashboard_allow_execution": self.retail_dashboard_allow_execution,
+            "retail_dashboard_allow_approval": self.retail_dashboard_allow_approval,
+            "retail_dashboard_allow_override": self.retail_dashboard_allow_override,
+            "retail_dashboard_return_unavailable_by_default": self.retail_dashboard_return_unavailable_by_default,
+            "retail_dashboard_stage": self.retail_dashboard_stage,
+            "retail_dashboard_api_enabled": self.retail_dashboard_api_enabled,
+            "retail_dashboard_api_schema_version": self.retail_dashboard_api_schema_version,
+            "retail_dashboard_api_allow_active_ui": self.retail_dashboard_api_allow_active_ui,
+            "retail_dashboard_api_allow_recommendations": self.retail_dashboard_api_allow_recommendations,
+            "retail_dashboard_api_allow_action_generation": self.retail_dashboard_api_allow_action_generation,
+            "retail_dashboard_api_allow_confidence_scoring": self.retail_dashboard_api_allow_confidence_scoring,
+            "retail_dashboard_api_allow_decision_object_generation": (
+                self.retail_dashboard_api_allow_decision_object_generation
+            ),
+            "retail_dashboard_api_allow_readiness_to_trade": self.retail_dashboard_api_allow_readiness_to_trade,
+            "retail_dashboard_api_allow_broker_controls": self.retail_dashboard_api_allow_broker_controls,
+            "retail_dashboard_api_allow_execution": self.retail_dashboard_api_allow_execution,
+            "retail_dashboard_api_allow_approval": self.retail_dashboard_api_allow_approval,
+            "retail_dashboard_api_allow_override": self.retail_dashboard_api_allow_override,
+            "retail_dashboard_api_return_unavailable_by_default": (
+                self.retail_dashboard_api_return_unavailable_by_default
+            ),
+            "retail_dashboard_api_stage": self.retail_dashboard_api_stage,
+            "retail_dashboard_display_enabled": self.retail_dashboard_display_enabled,
+            "retail_dashboard_display_schema_version": self.retail_dashboard_display_schema_version,
+            "retail_dashboard_display_allow_active_ui": self.retail_dashboard_display_allow_active_ui,
+            "retail_dashboard_display_allow_recommendations": self.retail_dashboard_display_allow_recommendations,
+            "retail_dashboard_display_allow_action_generation": (
+                self.retail_dashboard_display_allow_action_generation
+            ),
+            "retail_dashboard_display_allow_confidence_scoring": (
+                self.retail_dashboard_display_allow_confidence_scoring
+            ),
+            "retail_dashboard_display_allow_decision_object_generation": (
+                self.retail_dashboard_display_allow_decision_object_generation
+            ),
+            "retail_dashboard_display_allow_readiness_to_trade": (
+                self.retail_dashboard_display_allow_readiness_to_trade
+            ),
+            "retail_dashboard_display_allow_broker_controls": (
+                self.retail_dashboard_display_allow_broker_controls
+            ),
+            "retail_dashboard_display_allow_execution": self.retail_dashboard_display_allow_execution,
+            "retail_dashboard_display_allow_approval": self.retail_dashboard_display_allow_approval,
+            "retail_dashboard_display_allow_override": self.retail_dashboard_display_allow_override,
+            "retail_dashboard_display_return_unavailable_by_default": (
+                self.retail_dashboard_display_return_unavailable_by_default
+            ),
+            "retail_dashboard_display_stage": self.retail_dashboard_display_stage,
+            "retail_dashboard_boundary_enabled": self.retail_dashboard_boundary_enabled,
+            "retail_dashboard_boundary_schema_version": self.retail_dashboard_boundary_schema_version,
+            "retail_dashboard_boundary_allow_active_ui": self.retail_dashboard_boundary_allow_active_ui,
+            "retail_dashboard_boundary_allow_frontend_components": (
+                self.retail_dashboard_boundary_allow_frontend_components
+            ),
+            "retail_dashboard_boundary_allow_desktop_components": (
+                self.retail_dashboard_boundary_allow_desktop_components
+            ),
+            "retail_dashboard_boundary_allow_recommendations": (
+                self.retail_dashboard_boundary_allow_recommendations
+            ),
+            "retail_dashboard_boundary_allow_action_generation": (
+                self.retail_dashboard_boundary_allow_action_generation
+            ),
+            "retail_dashboard_boundary_allow_confidence_scoring": (
+                self.retail_dashboard_boundary_allow_confidence_scoring
+            ),
+            "retail_dashboard_boundary_allow_decision_object_generation": (
+                self.retail_dashboard_boundary_allow_decision_object_generation
+            ),
+            "retail_dashboard_boundary_allow_readiness_to_trade": (
+                self.retail_dashboard_boundary_allow_readiness_to_trade
+            ),
+            "retail_dashboard_boundary_allow_broker_controls": (
+                self.retail_dashboard_boundary_allow_broker_controls
+            ),
+            "retail_dashboard_boundary_allow_execution": self.retail_dashboard_boundary_allow_execution,
+            "retail_dashboard_boundary_allow_approval": self.retail_dashboard_boundary_allow_approval,
+            "retail_dashboard_boundary_allow_override": self.retail_dashboard_boundary_allow_override,
+            "retail_dashboard_boundary_stage": self.retail_dashboard_boundary_stage,
         }
 
 

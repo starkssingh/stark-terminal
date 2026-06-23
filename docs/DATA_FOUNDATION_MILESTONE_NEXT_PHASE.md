@@ -19,17 +19,27 @@ The data foundation now has:
 
 ## Recommended Next Prompt
 
-Prompt 26 - Quant/Time-Series Analytics Foundation Plan.
+Prompt 28 - Returns and Rolling Window Analytics v0.
 
-Prompt 26 should define quant/time-series analytics planning docs, analytics module boundaries, numerical stack policy, analytics safety rules, and staged dependency rules without computing actual indicators, features, signals, decisions, recommendations, or backtests.
+Prompt 27 completed numerical analytics core contracts without computing returns, volatility, drawdown, correlation, indicators, features, signals, decisions, recommendations, or backtests.
 
 ## Proposed Next 5 Prompts
 
-1. Prompt 26 - Quant/Time-Series Analytics Foundation Plan.
-2. Prompt 27 - Numerical Analytics Core Contracts.
-3. Prompt 28 - Returns and Rolling Window Analytics v0.
-4. Prompt 29 - Volatility and Drawdown Analytics v0.
-5. Prompt 30 - Analytics Milestone Audit.
+1. Prompt 28 - Returns and Rolling Window Analytics v0.
+2. Prompt 29 - Volatility and Drawdown Analytics v0.
+3. Prompt 30 - Analytics Milestone Audit.
+4. Prompt 31 - Correlation and Beta Analytics v0.
+5. Prompt 34 - Regime Feature Preparation Contracts.
+
+## Prompt 26 Completion
+
+Prompt 26 completes the Quant/Time-Series Analytics Foundation Plan after the provider adapter milestone audit. It adds analytics planning contracts, safety policy, dependency staging, roadmap metadata, and safe read-only analytics foundation endpoints. It does not compute analytics, indicators, features, signals, recommendations, decisions, or backtests.
+
+## Prompt 27 Completion
+
+Prompt 27 completes Numerical Analytics Core Contracts with source/vector/table contracts, computation request/result contracts, validation helpers, dependency gates, tiny descriptive stdlib summaries, docs, API metadata endpoints, and deterministic tests. It does not compute returns, volatility, drawdown, correlation, indicators, features, signals, recommendations, DecisionObjects, decisions, or backtests.
+
+Prompt 28 should implement Returns and Rolling Window Analytics v0. Real ingestion, external calls, scraping, credentials, SDKs, provider integration, trading signals, recommendations, and execution APIs remain forbidden.
 
 ## Still Forbidden
 

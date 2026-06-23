@@ -43,12 +43,12 @@ def test_prompt_23_status_docs_are_current() -> None:
     project_map = _read("PROJECT_MAP.md")
     next_phase = _read("docs/NEXT_PHASE_PLAN.md")
 
-    assert "Current Prompt: 25" in north_star
-    assert "Completed Prompts: 25 before this prompt, 26 after completion" in north_star
-    assert "Provider Adapter Milestone Audit completed" in north_star
+    assert "Current Prompt: 36" in north_star
+    assert "Completed Prompts: 35 before this prompt, 36 after completion" in north_star
+    assert "Quant/Time-Series Analytics Foundation Phase - Planning and Guardrails" in north_star
     assert "## Prompt 23 - Real Provider Readiness Checklist and Candidate Selection" in prompt_log
     assert "Prompt 23 Real Provider Readiness Checklist And Candidate Selection Artifacts" in project_map
-    assert "Prompt 26 - Quant/Time-Series Analytics Foundation Plan" in next_phase
+    assert "Prompt 34 - Regime Feature Preparation Contracts" in next_phase
 
 
 def test_verify_and_audit_scripts_track_prompt_23_artifacts() -> None:

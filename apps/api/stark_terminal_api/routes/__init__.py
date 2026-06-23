@@ -1,1 +1,1 @@
-"""API route modules for the Stark Terminal foundation and safe provider surfaces."""
+"""API route modules for Stark Terminal foundation, analytics, decision skeleton, boundary, and retail dashboard surfaces."""

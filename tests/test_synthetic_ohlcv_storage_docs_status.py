@@ -33,7 +33,7 @@ def test_prompt_18_status_docs_and_project_map_are_current() -> None:
     prompt_log = (ROOT / "docs/PROMPT_LOG.md").read_text(encoding="utf-8")
     project_map = (ROOT / "PROJECT_MAP.md").read_text(encoding="utf-8")
 
-    assert "Current Prompt: 25" in north_star
+    assert "Current Prompt: 36" in north_star
     assert "Synthetic OHLCV Storage Status" in north_star
     assert "Prompt 18 - TimescaleDB Synthetic OHLCV Storage Foundation" in prompt_log
     assert "OHLCVBarRepository" in project_map

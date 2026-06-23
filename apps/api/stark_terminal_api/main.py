@@ -1,9 +1,21 @@
 from fastapi import FastAPI
 
+from stark_terminal_api.routes.analytics_foundation import router as analytics_foundation_router
 from stark_terminal_api.routes.cache import router as cache_router
 from stark_terminal_api.routes.config import router as config_router
 from stark_terminal_api.routes.data_quality import router as data_quality_router
 from stark_terminal_api.routes.database import router as database_router
+from stark_terminal_api.routes.decision_boundary import router as decision_boundary_router
+from stark_terminal_api.routes.decision_desk import router as decision_desk_router
+from stark_terminal_api.routes.decision_desk_api import router as decision_desk_api_router
+from stark_terminal_api.routes.decision_display import router as decision_display_router
+from stark_terminal_api.routes.decision_evidence import router as decision_evidence_router
+from stark_terminal_api.routes.decision_evidence_validation import (
+    router as decision_evidence_validation_router,
+)
+from stark_terminal_api.routes.decision_human_review import router as decision_human_review_router
+from stark_terminal_api.routes.decision_readiness_api import router as decision_readiness_api_router
+from stark_terminal_api.routes.decision_safety import router as decision_safety_router
 from stark_terminal_api.routes.event_backbone import router as event_backbone_router
 from stark_terminal_api.routes.features import router as features_router
 from stark_terminal_api.routes.fixtures import router as fixtures_router
@@ -13,12 +25,23 @@ from stark_terminal_api.routes.instruments import router as instruments_router
 from stark_terminal_api.routes.local_file_provider import router as local_file_provider_router
 from stark_terminal_api.routes.local_sample_provider import router as local_sample_provider_router
 from stark_terminal_api.routes.market_data_batches import router as market_data_batches_router
+from stark_terminal_api.routes.numerical_analytics import router as numerical_analytics_router
 from stark_terminal_api.routes.provider_guardrails import router as provider_guardrails_router
 from stark_terminal_api.routes.provider_readiness import router as provider_readiness_router
+from stark_terminal_api.routes.regime_analytics import router as regime_analytics_router
+from stark_terminal_api.routes.regime_features import router as regime_features_router
+from stark_terminal_api.routes.relationship_analytics import router as relationship_analytics_router
+from stark_terminal_api.routes.retail_dashboard import router as retail_dashboard_router
+from stark_terminal_api.routes.retail_dashboard_api import router as retail_dashboard_api_router
+from stark_terminal_api.routes.retail_dashboard_boundary import router as retail_dashboard_boundary_router
+from stark_terminal_api.routes.retail_dashboard_display import router as retail_dashboard_display_router
 from stark_terminal_api.routes.research_lake import router as research_lake_router
+from stark_terminal_api.routes.returns_analytics import router as returns_analytics_router
+from stark_terminal_api.routes.risk_analytics import router as risk_analytics_router
 from stark_terminal_api.routes.streams import router as streams_router
 from stark_terminal_api.routes.synthetic_ohlcv_storage import router as synthetic_ohlcv_storage_router
 from stark_terminal_api.routes.synthetic_ohlcv_exports import router as synthetic_ohlcv_exports_router
+from stark_terminal_api.routes.time_series_diagnostics import router as time_series_diagnostics_router
 from stark_terminal_api.routes.timeseries import router as timeseries_router
 from stark_terminal_api.routes.warehouse import router as warehouse_router
 from stark_terminal_api.routes.workers import router as workers_router
@@ -26,10 +49,31 @@ from stark_terminal_api.routes.workers import router as workers_router
 app = FastAPI(
     title="Stark Terminal API",
     version="0.1.0",
-    description="Prompt 25 institutional-grade foundation API shell.",
+    description="Prompt 54 institutional-grade foundation API shell.",
 )
 
 app.include_router(health_router)
+app.include_router(analytics_foundation_router)
+app.include_router(numerical_analytics_router)
+app.include_router(returns_analytics_router)
+app.include_router(risk_analytics_router)
+app.include_router(relationship_analytics_router)
+app.include_router(time_series_diagnostics_router)
+app.include_router(regime_analytics_router)
+app.include_router(regime_features_router)
+app.include_router(decision_desk_router)
+app.include_router(decision_evidence_router)
+app.include_router(decision_safety_router)
+app.include_router(decision_desk_api_router)
+app.include_router(decision_readiness_api_router)
+app.include_router(decision_display_router)
+app.include_router(decision_evidence_validation_router)
+app.include_router(decision_human_review_router)
+app.include_router(decision_boundary_router)
+app.include_router(retail_dashboard_router)
+app.include_router(retail_dashboard_api_router)
+app.include_router(retail_dashboard_display_router)
+app.include_router(retail_dashboard_boundary_router)
 app.include_router(config_router)
 app.include_router(database_router)
 app.include_router(timeseries_router)
