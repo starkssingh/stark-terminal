@@ -1,10 +1,11 @@
 # Retail Dashboard Readiness Plan
 
-Prompt 54 completes Retail Dashboard System Boundary Hardening after Prompt 53
-Retail Dashboard Milestone Audit, Prompt 52
-Retail Dashboard Safety Boundary Audit, Prompt 51
-Retail Dashboard Display Contract Skeleton, Prompt 50 Retail Dashboard API
-Contract Skeleton, and Prompt 49 Retail Dashboard Planning and Guardrails.
+Prompt 55 completes Retail Dashboard API/Display Integration Readiness Audit
+after Prompt 54 Retail Dashboard System Boundary Hardening, Prompt 53 Retail
+Dashboard Milestone Audit, Prompt 52 Retail Dashboard Safety Boundary Audit,
+Prompt 51 Retail Dashboard Display Contract Skeleton, Prompt 50 Retail
+Dashboard API Contract Skeleton, and Prompt 49 Retail Dashboard Planning and
+Guardrails.
 
 Retail Dashboard implementation is not allowed yet. No active UI, recommendation cards, action generation, confidence scoring, active DecisionObject generation, readiness-to-trade, broker controls, approvals, overrides, active human review workflow, task assignment, reviewer auth, notifications, or execution APIs may be introduced by Prompt 49.
 
@@ -20,6 +21,7 @@ The Decision Desk API/display stack now has audited skeletons, placeholders, val
 - safety boundary audit - completed in Prompt 52
 - milestone audit - completed in Prompt 53
 - system boundary hardening - completed in Prompt 54
+- API/display integration readiness audit - completed in Prompt 55
 - no trading controls
 - no recommendation cards
 - no broker linkage
@@ -28,11 +30,13 @@ The Decision Desk API/display stack now has audited skeletons, placeholders, val
 
 ## Recommended Next Sequence
 
-1. Prompt 55 - Retail Dashboard API/Display Integration Readiness Audit
-2. Prompt 56 - Retail Trader Experience Planning and Guardrails
-3. Prompt 57 - Retail Trader Experience API Contract Skeleton
-4. Prompt 58 - Retail Trader Experience Display Contract Skeleton
-5. Prompt 59 - Retail Trader Experience Safety Boundary Audit
+1. Prompt 56 - Retail Trader Experience Planning and Guardrails
+2. Prompt 57 - Retail Trader Experience API Contract Skeleton
+3. Prompt 58 - Retail Trader Experience Display Contract Skeleton
+4. Prompt 59 - Retail Trader Experience Safety Boundary Audit
+5. Prompt 60 - Retail Trader Experience Milestone Audit
+
+Historical status marker: Prompt 55 - Retail Dashboard API/Display Integration Readiness Audit is completed; Prompt 56 - Retail Trader Experience Planning and Guardrails is next.
 
 Historical status marker: Prompt 54 - Retail Dashboard System Boundary Hardening is completed; Prompt 55 - Retail Dashboard API/Display Integration Readiness Audit is next.
 
@@ -54,6 +58,6 @@ Development remains Mac mini M2 on macOS / Apple Silicon. The target desktop pro
 
 ## Readiness Verdict
 
-Ready for Retail Dashboard API/Display Integration Readiness Audit only. Retail Dashboard UI, active widgets, frontend components, desktop UI components, recommendation cards, confidence displays, broker controls, order controls, and execution APIs remain forbidden.
+Ready for Retail Trader Experience Planning and Guardrails only. Retail Dashboard UI, Retail Trader Experience implementation, active widgets, frontend components, desktop UI components, recommendation cards, confidence displays, broker controls, order controls, and execution APIs remain forbidden.
 
 execution APIs remain forbidden.

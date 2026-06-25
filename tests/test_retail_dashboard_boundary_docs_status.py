@@ -48,7 +48,10 @@ def test_retail_dashboard_boundary_docs_contain_required_safety_language() -> No
 
 def test_retail_dashboard_boundary_status_docs_are_updated() -> None:
     assert "Prompt 54" in (ROOT / "docs/PROMPT_LOG.md").read_text(encoding="utf-8")
-    assert "Current Prompt: 54" in (ROOT / "docs/NORTH_STAR.md").read_text(encoding="utf-8")
+    assert "Current Prompt: 60" in (ROOT / "docs/NORTH_STAR.md").read_text(encoding="utf-8")
+    assert "Historical verifier reference: Current Prompt: 54" in (
+        ROOT / "docs/NORTH_STAR.md"
+    ).read_text(encoding="utf-8")
     assert "Retail Dashboard System Boundary Hardening" in (ROOT / "PROJECT_MAP.md").read_text(
         encoding="utf-8"
     )

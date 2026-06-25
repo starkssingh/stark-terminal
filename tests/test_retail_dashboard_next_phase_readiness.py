@@ -16,7 +16,7 @@ def test_retail_dashboard_milestone_audit_foundation_checks_pass() -> None:
     assert not failed, [f"{result.name}: {result.detail}" for result in failed]
 
 
-def test_verify_foundation_includes_prompt_49_through_54_artifacts() -> None:
+def test_verify_foundation_includes_prompt_49_through_55_artifacts() -> None:
     verify_text = (ROOT / "scripts/verify_foundation.py").read_text(encoding="utf-8")
     for phrase in [
         "RETAIL_DASHBOARD_PLANNING.md",
@@ -25,23 +25,26 @@ def test_verify_foundation_includes_prompt_49_through_54_artifacts() -> None:
         "RETAIL_DASHBOARD_SAFETY_BOUNDARY_AUDIT.md",
         "RETAIL_DASHBOARD_MILESTONE_AUDIT.md",
         "RETAIL_DASHBOARD_SYSTEM_BOUNDARY_HARDENING.md",
+        "RETAIL_DASHBOARD_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md",
         "test_retail_dashboard_next_phase_readiness.py",
+        "test_retail_dashboard_api_display_integration_audit_docs.py",
         "test_retail_dashboard_boundary_invariants.py",
     ]:
         assert phrase in verify_text
 
 
-def test_retail_dashboard_next_phase_plan_recommends_prompt_55() -> None:
+def test_retail_dashboard_next_phase_plan_recommends_prompt_56() -> None:
     dashboard_next = (ROOT / "docs/RETAIL_DASHBOARD_NEXT_PHASE_PLAN.md").read_text(encoding="utf-8")
     next_phase = (ROOT / "docs/NEXT_PHASE_PLAN.md").read_text(encoding="utf-8")
     north_star = (ROOT / "docs/NORTH_STAR.md").read_text(encoding="utf-8")
     prompt_log = (ROOT / "docs/PROMPT_LOG.md").read_text(encoding="utf-8")
 
-    assert "Prompt 55 - Retail Dashboard API/Display Integration Readiness Audit" in dashboard_next
-    assert "Prompt 55 - Retail Dashboard API/Display Integration Readiness Audit" in next_phase
-    assert "Current Prompt: 54" in north_star
+    assert "Prompt 56 - Retail Trader Experience Planning and Guardrails" in dashboard_next
+    assert "Prompt 56 - Retail Trader Experience Planning and Guardrails" in next_phase
+    assert "Current Prompt: 60" in north_star
+    assert "Prompt 55 - Retail Dashboard API/Display Integration Readiness Audit" in prompt_log
     assert "Prompt 54 - Retail Dashboard System Boundary Hardening" in prompt_log
-    assert "Retail Dashboard API/Display Integration Readiness Audit only" in dashboard_next
+    assert "Retail Trader Experience Planning and Guardrails only" in dashboard_next
 
 
 def test_retail_dashboard_next_phase_keeps_active_surfaces_forbidden() -> None:

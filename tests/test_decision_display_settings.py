@@ -9,7 +9,7 @@ from stark_terminal_core.config.settings import Settings
 def test_decision_display_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "54"
+    assert settings.prompt_number == "67"
     assert settings.decision_display_enabled is True
     assert settings.decision_display_schema_version == "v1"
     assert settings.decision_display_allow_recommendations is False

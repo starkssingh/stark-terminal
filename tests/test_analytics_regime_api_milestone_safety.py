@@ -88,9 +88,9 @@ def test_health_endpoint_reports_prompt_35_analytics_regime_audit_status() -> No
 
     body = client.get("/health").json()
 
-    assert body["prompt"] == "54"
+    assert body["prompt"] == "67"
     assert body["execution_apis_enabled"] is False
-    assert body["audit_status"] == "retail-dashboard-boundary-hardening"
+    assert body["audit_status"] == "strategy-research-workspace-milestone"
 
 
 def test_analytics_regime_api_responses_do_not_expose_secrets_or_actions() -> None:

@@ -2362,6 +2362,7 @@ Prompt 28 adds simple returns, log returns, rolling count, rolling mean, rolling
 - `README.md`
 - `.env.example`
 - `PROJECT_MAP.md`
+- `README.md`
 - `apps/api/stark_terminal_api/main.py`
 - `apps/api/stark_terminal_api/routes/__init__.py`
 - `apps/api/stark_terminal_api/routes/health.py`
@@ -2382,6 +2383,9 @@ Prompt 28 adds simple returns, log returns, rolling count, rolling mean, rolling
 - `docs/PROMPT_LOG.md`
 - `scripts/audit_foundation.py`
 - `scripts/verify_foundation.py`
+- Existing status/settings/API health tests updated for Prompt 61 prompt number
+  and boundary-hardening audit status expectations.
+- existing settings/status tests updated for Prompt 55 health and config metadata
 
 ### Tests Added
 
@@ -4854,7 +4858,10 @@ docs, tests, audit coverage, and verifier coverage.
 
 ### Verification Result
 
-Pending final verification.
+Passed. Prompt 54 verification completed successfully with editable install,
+foundation audit, foundation verifier, full pytest, and git diff check. Full
+pytest result: 2566 tests passed with the existing dependency-level
+`StarletteDeprecationWarning`.
 
 ### Known Issues
 
@@ -4865,3 +4872,1509 @@ Pending final verification.
 ### Next Recommended Prompt
 
 Prompt 55 - Retail Dashboard API/Display Integration Readiness Audit
+
+## Prompt 55 - Retail Dashboard API/Display Integration Readiness Audit
+
+### Objective
+
+Perform Retail Dashboard API/Display Integration Readiness Audit across Retail
+Dashboard planning/guardrails, API contract skeleton, display contract
+skeleton, safety boundary audit, milestone audit, system boundary hardening,
+cross-endpoint consistency, and cross-module invariants. Decide readiness for
+Retail Trader Experience Planning and Guardrails only.
+
+### Files Created
+
+- `docs/RETAIL_DASHBOARD_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_CROSS_ENDPOINT_CONSISTENCY_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_API_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_BOUNDARY_INTEGRATION_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_INTEGRATION_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_INTEGRATION_NO_RECOMMENDATION_EXECUTION_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_READINESS_PLAN.md`
+- `tests/test_retail_dashboard_api_display_integration_audit_docs.py`
+- `tests/test_retail_dashboard_cross_endpoint_consistency.py`
+- `tests/test_retail_dashboard_api_display_boundary_integration.py`
+- `tests/test_retail_dashboard_boundary_integration.py`
+- `tests/test_retail_dashboard_integration_no_active_ui.py`
+- `tests/test_retail_dashboard_integration_no_recommendation_execution.py`
+- `tests/test_retail_dashboard_integration_api_surface_safety.py`
+- `tests/test_retail_trader_experience_readiness_plan.py`
+
+### Files Modified
+
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_DASHBOARD_READINESS_PLAN.md`
+- `docs/RETAIL_DASHBOARD_NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_DASHBOARD_SYSTEM_BOUNDARY_HARDENING.md`
+- `docs/RETAIL_DASHBOARD_FORBIDDEN_BEHAVIOR_REGISTRY.md`
+- `docs/RETAIL_DASHBOARD_ENDPOINT_BOUNDARY_POLICY.md`
+- `docs/RETAIL_DASHBOARD_MODULE_BOUNDARY_POLICY.md`
+- `docs/RETAIL_DASHBOARD_CROSS_MODULE_INVARIANTS.md`
+- `docs/RETAIL_DASHBOARD_MILESTONE_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_SAFETY_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_PHASE_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_PHASE_NO_RECOMMENDATION_EXECUTION_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_retail_dashboard_api_display_integration_audit_docs.py`
+- `tests/test_retail_dashboard_cross_endpoint_consistency.py`
+- `tests/test_retail_dashboard_api_display_boundary_integration.py`
+- `tests/test_retail_dashboard_boundary_integration.py`
+- `tests/test_retail_dashboard_integration_no_active_ui.py`
+- `tests/test_retail_dashboard_integration_no_recommendation_execution.py`
+- `tests/test_retail_dashboard_integration_api_surface_safety.py`
+- `tests/test_retail_trader_experience_readiness_plan.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+Partial pass with environment install blocker. The required editable install
+command `.venv/bin/python -m pip install -e .` failed because the virtualenv is
+missing `setuptools` and the sandbox cannot resolve/fetch PyPI build
+dependencies. A retry with `--no-build-isolation` also failed because
+`setuptools.build_meta` is not importable in the virtualenv.
+
+All code and repository verification commands that do not require fetching
+missing build dependencies passed: `.venv/bin/python scripts/audit_foundation.py`,
+`.venv/bin/python scripts/verify_foundation.py`, `.venv/bin/pytest`, and
+`git diff --check`. Full pytest result: 2587 tests passed with the existing
+dependency-level `StarletteDeprecationWarning`.
+
+### Audit Verdict
+
+Retail Dashboard API/display integration readiness is audit-only and ready for
+Retail Trader Experience Planning and Guardrails only. No active UI,
+frontend implementation, desktop implementation, recommendation cards, action
+generation, confidence scoring, active DecisionObject display,
+readiness-to-trade, broker controls, approvals, overrides, real market data
+display, or execution APIs were added.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 56 - Retail Trader Experience Planning and Guardrails
+
+## Prompt 56 - Retail Trader Experience Planning and Guardrails
+
+### Objective
+
+Implement Retail Trader Experience Planning and Guardrails as a planning-only
+contract layer for future trader-facing experience work.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_trader_experience/__init__.py`
+- `packages/core/stark_terminal_core/retail_trader_experience/planning.py`
+- `packages/core/stark_terminal_core/retail_trader_experience/personas.py`
+- `packages/core/stark_terminal_core/retail_trader_experience/journeys.py`
+- `packages/core/stark_terminal_core/retail_trader_experience/sections.py`
+- `packages/core/stark_terminal_core/retail_trader_experience/cards.py`
+- `packages/core/stark_terminal_core/retail_trader_experience/references.py`
+- `packages/core/stark_terminal_core/retail_trader_experience/interactions.py`
+- `packages/core/stark_terminal_core/retail_trader_experience/safety.py`
+- `packages/core/stark_terminal_core/retail_trader_experience/readiness.py`
+- `packages/core/stark_terminal_core/retail_trader_experience/health.py`
+- `packages/core/stark_terminal_core/retail_trader_experience/README.md`
+- `apps/api/stark_terminal_api/routes/retail_trader_experience.py`
+- `docs/RETAIL_TRADER_EXPERIENCE_PLANNING.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_GUARDRAILS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_PERSONA_PLACEHOLDERS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_JOURNEY_PLACEHOLDERS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_SECTION_PLACEHOLDERS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_CARD_PLACEHOLDERS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_FORBIDDEN_INTERACTIONS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_EXECUTION_POLICY.md`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_READINESS_PLAN.md`
+- `docs/RETAIL_DASHBOARD_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_API_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_BOUNDARY_INTEGRATION_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_retail_trader_experience_settings.py`
+- `tests/test_retail_trader_experience_planning_contracts.py`
+- `tests/test_retail_trader_experience_personas.py`
+- `tests/test_retail_trader_experience_journeys.py`
+- `tests/test_retail_trader_experience_sections.py`
+- `tests/test_retail_trader_experience_cards.py`
+- `tests/test_retail_trader_experience_references.py`
+- `tests/test_retail_trader_experience_forbidden_interactions.py`
+- `tests/test_retail_trader_experience_safety.py`
+- `tests/test_retail_trader_experience_readiness.py`
+- `tests/test_api_retail_trader_experience.py`
+- `tests/test_retail_trader_experience_docs_status.py`
+- `tests/test_retail_trader_experience_no_active_ui_or_execution.py`
+
+### Commands Run
+
+- Focused Prompt 56 tests.
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+Partial pass with environment install blocker. The required editable install
+command `.venv/bin/python -m pip install -e .` failed because the sandbox could
+not resolve PyPI to fetch `setuptools>=68` for build isolation.
+
+All local repository verification commands passed: focused Prompt 56 tests,
+`.venv/bin/python scripts/audit_foundation.py`, `.venv/bin/python
+scripts/verify_foundation.py`, `.venv/bin/pytest`, and `git diff --check`.
+Full pytest result: 2722 tests passed with the existing dependency-level
+`StarletteDeprecationWarning`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Editable install may be blocked in restricted environments if `setuptools.build_meta` is absent locally.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 57 - Retail Trader Experience API Contract Skeleton
+
+## Prompt 57 - Retail Trader Experience API Contract Skeleton
+
+### Objective
+
+Implement Retail Trader Experience API Contract Skeleton as a read-only,
+unavailable-by-default API contract layer. The work adds API request
+placeholders, response placeholders, persona reference placeholders, journey
+reference placeholders, dashboard reference placeholders, decision reference
+placeholders, safety reference placeholders, unavailable responses, contract
+metadata, health metadata, docs, tests, audit coverage, and verifier coverage.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_trader_experience_api/__init__.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_api/requests.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_api/responses.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_api/references.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_api/unavailable.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_api/contracts.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_api/health.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_api/README.md`
+- `apps/api/stark_terminal_api/routes/retail_trader_experience_api.py`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_CONTRACT_SKELETON.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_REQUEST_RESPONSE_PLACEHOLDERS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_REFERENCE_PLACEHOLDERS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_UNAVAILABLE_RESPONSES.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_SAFETY_BOUNDARY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_NO_EXECUTION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_NO_SUITABILITY_PROFILING_POLICY.md`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_READINESS_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_PLANNING.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_GUARDRAILS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_EXECUTION_POLICY.md`
+- `docs/RETAIL_DASHBOARD_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_API_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_DASHBOARD_BOUNDARY_INTEGRATION_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_retail_trader_experience_api_settings.py`
+- `tests/test_retail_trader_experience_api_request_placeholders.py`
+- `tests/test_retail_trader_experience_api_response_placeholders.py`
+- `tests/test_retail_trader_experience_api_references.py`
+- `tests/test_retail_trader_experience_api_unavailable_responses.py`
+- `tests/test_retail_trader_experience_api_contracts.py`
+- `tests/test_api_retail_trader_experience_api.py`
+- `tests/test_retail_trader_experience_api_docs_status.py`
+- `tests/test_retail_trader_experience_api_no_active_ui_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+- `.venv/bin/python -m pip install -e .` was attempted and failed because the
+  restricted environment could not resolve `pypi.org` to fetch
+  `setuptools>=68`.
+- Focused Prompt 57 tests passed: 124 passed, 1 existing dependency-level
+  `StarletteDeprecationWarning`.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed, 2846 tests passed,
+  1 existing dependency-level `StarletteDeprecationWarning`.
+- `.venv/bin/pytest`: passed, 2846 tests passed, 1 existing dependency-level
+  `StarletteDeprecationWarning`.
+- `git diff --check`: passed.
+
+### Audit Verdict
+
+Retail Trader Experience API Contract Skeleton is contract-only and
+unavailable-by-default. No active UI, frontend implementation, desktop
+implementation, recommendation cards, action generation, confidence scoring,
+active DecisionObject generation or display, readiness-to-trade, suitability
+profiling, broker controls, approvals, overrides, real market data display,
+external calls, or execution APIs are added.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments if the build backend is unavailable locally.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 58 - Retail Trader Experience Display Contract Skeleton
+
+## Prompt 58 - Retail Trader Experience Display Contract Skeleton
+
+### Objective
+
+Implement Retail Trader Experience Display Contract Skeleton as a read-only,
+unavailable-by-default display contract layer. The work adds display contract
+metadata, persona visual placeholders, journey visual placeholders, visual
+section placeholders, widget placeholders, badge/status placeholders,
+unavailable display responses, display safety helpers, health metadata, docs,
+tests, audit coverage, and verifier coverage.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_trader_experience_display/__init__.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_display/contracts.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_display/personas.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_display/journeys.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_display/sections.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_display/widgets.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_display/badges.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_display/unavailable.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_display/safety.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_display/health.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_display/README.md`
+- `apps/api/stark_terminal_api/routes/retail_trader_experience_display.py`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_CONTRACT_SKELETON.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_PERSONA_PLACEHOLDERS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_JOURNEY_PLACEHOLDERS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_SECTION_PLACEHOLDERS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_WIDGET_PLACEHOLDERS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_UNAVAILABLE_RESPONSES.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_SAFETY_BOUNDARY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_NO_EXECUTION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_NO_SUITABILITY_PROFILING_POLICY.md`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_READINESS_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_PLANNING.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_GUARDRAILS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_CONTRACT_SKELETON.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_SAFETY_BOUNDARY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_EXECUTION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_NO_SUITABILITY_PROFILING_POLICY.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_retail_trader_experience_display_settings.py`
+- `tests/test_retail_trader_experience_display_contracts.py`
+- `tests/test_retail_trader_experience_display_personas.py`
+- `tests/test_retail_trader_experience_display_journeys.py`
+- `tests/test_retail_trader_experience_display_sections.py`
+- `tests/test_retail_trader_experience_display_widgets.py`
+- `tests/test_retail_trader_experience_display_badges.py`
+- `tests/test_retail_trader_experience_display_unavailable_responses.py`
+- `tests/test_retail_trader_experience_display_safety.py`
+- `tests/test_api_retail_trader_experience_display.py`
+- `tests/test_retail_trader_experience_display_docs_status.py`
+- `tests/test_retail_trader_experience_display_no_active_ui_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+- `.venv/bin/python -m pip install -e .` was attempted and failed because the
+  restricted environment could not resolve `pypi.org` to fetch
+  `setuptools>=68`.
+- Focused Prompt 58 tests passed: 151 passed, 1 existing dependency-level
+  `StarletteDeprecationWarning`.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed, 2997 tests passed,
+  1 existing dependency-level `StarletteDeprecationWarning`.
+- `.venv/bin/pytest`: passed, 2997 tests passed, 1 existing dependency-level
+  `StarletteDeprecationWarning`.
+- `git diff --check`: passed.
+
+### Audit Verdict
+
+Retail Trader Experience Display Contract Skeleton is display-contract-only
+and unavailable-by-default. No active UI, frontend implementation, desktop
+implementation, recommendation cards or widgets, action generation, confidence
+scoring, active DecisionObject generation or display, readiness-to-trade,
+suitability profiling, broker controls, approvals, overrides, real market data
+display, external calls, or execution APIs are added.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments if the build backend is unavailable locally.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 59 - Retail Trader Experience Safety Boundary Audit
+
+## Prompt 59 - Retail Trader Experience Safety Boundary Audit
+
+### Objective
+
+Perform Retail Trader Experience Safety Boundary Audit across Prompt 56
+planning and guardrails, Prompt 57 API contract skeleton, and Prompt 58 display
+contract skeleton. Consolidate safety-boundary docs, API surface policy,
+audit/verifier coverage, tests, and next-phase readiness for Prompt 60.
+
+### Files Created
+
+- `docs/RETAIL_TRADER_EXPERIENCE_SAFETY_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_RECOMMENDATION_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_EXECUTION_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_SUITABILITY_PROFILING_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_MILESTONE_READINESS.md`
+- `tests/test_retail_trader_experience_safety_boundary_audit_docs.py`
+- `tests/test_retail_trader_experience_api_boundary_audit.py`
+- `tests/test_retail_trader_experience_display_boundary_audit.py`
+- `tests/test_retail_trader_experience_no_active_ui_audit.py`
+- `tests/test_retail_trader_experience_no_recommendation_audit.py`
+- `tests/test_retail_trader_experience_no_execution_audit.py`
+- `tests/test_retail_trader_experience_no_suitability_profiling_audit.py`
+- `tests/test_retail_trader_experience_api_surface_safety.py`
+- `tests/test_retail_trader_experience_milestone_readiness.py`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_READINESS_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_PLANNING.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_GUARDRAILS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_CONTRACT_SKELETON.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_CONTRACT_SKELETON.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_EXECUTION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_NO_EXECUTION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_NO_SUITABILITY_PROFILING_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_NO_EXECUTION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_NO_SUITABILITY_PROFILING_POLICY.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_retail_trader_experience_safety_boundary_audit_docs.py`
+- `tests/test_retail_trader_experience_api_boundary_audit.py`
+- `tests/test_retail_trader_experience_display_boundary_audit.py`
+- `tests/test_retail_trader_experience_no_active_ui_audit.py`
+- `tests/test_retail_trader_experience_no_recommendation_audit.py`
+- `tests/test_retail_trader_experience_no_execution_audit.py`
+- `tests/test_retail_trader_experience_no_suitability_profiling_audit.py`
+- `tests/test_retail_trader_experience_api_surface_safety.py`
+- `tests/test_retail_trader_experience_milestone_readiness.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .` - failed in restricted environment because PyPI DNS/network access could not resolve `setuptools>=68`.
+- `.venv/bin/python scripts/audit_foundation.py` - passed.
+- `.venv/bin/python scripts/verify_foundation.py` - passed; verifier ran 3033 tests.
+- `.venv/bin/pytest` - passed; 3033 tests, 1 existing `StarletteDeprecationWarning`.
+- `git diff --check` - passed.
+
+### Verification Result
+
+Audit and verifier passed. Full pytest passed with 3033 tests and the existing
+dependency-level `StarletteDeprecationWarning`. Editable install remains
+blocked by restricted network/DNS while fetching `setuptools>=68`; dependency
+metadata was not changed.
+
+### Audit Verdict
+
+Retail Trader Experience safety boundary remains intact across planning, API,
+and display skeleton layers. No active UI, frontend implementation, desktop
+implementation, recommendation cards or widgets, action generation, confidence
+scoring, active DecisionObject generation or display, readiness-to-trade,
+suitability profiling, broker controls, approvals, overrides, real market data
+display, external calls, or execution APIs are added.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments if the build backend is unavailable locally.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 60 - Retail Trader Experience Milestone Audit
+
+## Prompt 60 - Retail Trader Experience Milestone Audit
+
+### Objective
+
+Perform Retail Trader Experience Milestone Audit across Prompt 56 planning and
+guardrails, Prompt 57 API contract skeleton, Prompt 58 display contract
+skeleton, and Prompt 59 safety boundary audit. Consolidate milestone docs, API
+surface policy, audit/verifier coverage, tests, and next-phase readiness for
+Prompt 61.
+
+### Files Created
+
+- `docs/RETAIL_TRADER_EXPERIENCE_MILESTONE_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_PLANNING_MILESTONE_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_MILESTONE_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_MILESTONE_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_SAFETY_MILESTONE_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_PHASE_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_PHASE_NO_RECOMMENDATION_EXECUTION_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_PHASE_NO_SUITABILITY_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NEXT_PHASE_PLAN.md`
+- `tests/test_retail_trader_experience_milestone_audit_docs.py`
+- `tests/test_retail_trader_experience_planning_milestone.py`
+- `tests/test_retail_trader_experience_api_milestone.py`
+- `tests/test_retail_trader_experience_display_milestone.py`
+- `tests/test_retail_trader_experience_safety_milestone.py`
+- `tests/test_retail_trader_experience_phase_no_active_ui.py`
+- `tests/test_retail_trader_experience_phase_no_recommendation_execution.py`
+- `tests/test_retail_trader_experience_phase_no_suitability.py`
+- `tests/test_retail_trader_experience_next_phase_readiness.py`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_READINESS_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_MILESTONE_READINESS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_SAFETY_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_RECOMMENDATION_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_EXECUTION_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_SUITABILITY_PROFILING_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_retail_trader_experience_milestone_audit_docs.py`
+- `tests/test_retail_trader_experience_planning_milestone.py`
+- `tests/test_retail_trader_experience_api_milestone.py`
+- `tests/test_retail_trader_experience_display_milestone.py`
+- `tests/test_retail_trader_experience_safety_milestone.py`
+- `tests/test_retail_trader_experience_phase_no_active_ui.py`
+- `tests/test_retail_trader_experience_phase_no_recommendation_execution.py`
+- `tests/test_retail_trader_experience_phase_no_suitability.py`
+- `tests/test_retail_trader_experience_next_phase_readiness.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .` - failed in restricted environment because PyPI DNS/network access could not resolve `setuptools>=68`.
+- `.venv/bin/python scripts/audit_foundation.py` - passed.
+- `.venv/bin/python scripts/verify_foundation.py` - passed; verifier ran 3065 tests.
+- `.venv/bin/pytest` - passed; 3065 tests, 1 existing `StarletteDeprecationWarning`.
+- `git diff --check` - passed.
+
+### Verification Result
+
+Audit and verifier passed. Full pytest passed with 3065 tests and the existing
+dependency-level `StarletteDeprecationWarning`. Editable install remains
+blocked by restricted network/DNS while fetching `setuptools>=68`; dependency
+metadata was not changed.
+
+### Audit Verdict
+
+Retail Trader Experience planning phase is ready for Retail Trader Experience
+System Boundary Hardening only. No active UI, frontend implementation, desktop
+implementation, recommendation cards or widgets, action generation, confidence
+scoring, active DecisionObject generation or display, readiness-to-trade,
+suitability profiling, broker controls, approvals, overrides, real market data
+display, external calls, or execution APIs are added.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments if the build backend is unavailable locally.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 61 - Retail Trader Experience System Boundary Hardening
+
+## Prompt 61 - Retail Trader Experience System Boundary Hardening
+
+### Objective
+
+Implement Retail Trader Experience System Boundary Hardening as a
+boundary-hardening-only layer over the Retail Trader Experience planning, API,
+and display skeleton stack.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_trader_experience_boundary/__init__.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_boundary/forbidden.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_boundary/endpoints.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_boundary/modules.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_boundary/invariants.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_boundary/health.py`
+- `packages/core/stark_terminal_core/retail_trader_experience_boundary/README.md`
+- `apps/api/stark_terminal_api/routes/retail_trader_experience_boundary.py`
+- `docs/RETAIL_TRADER_EXPERIENCE_SYSTEM_BOUNDARY_HARDENING.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_FORBIDDEN_BEHAVIOR_REGISTRY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_ENDPOINT_BOUNDARY_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_MODULE_BOUNDARY_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_CROSS_MODULE_INVARIANTS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_BOUNDARY_NO_ACTIVE_UI_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_BOUNDARY_NO_EXECUTION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_BOUNDARY_NO_SUITABILITY_PROFILING_POLICY.md`
+- `tests/test_retail_trader_experience_boundary_settings.py`
+- `tests/test_retail_trader_experience_boundary_forbidden_registry.py`
+- `tests/test_retail_trader_experience_boundary_endpoint_policy.py`
+- `tests/test_retail_trader_experience_boundary_module_policy.py`
+- `tests/test_retail_trader_experience_boundary_invariants.py`
+- `tests/test_api_retail_trader_experience_boundary.py`
+- `tests/test_retail_trader_experience_boundary_docs_status.py`
+- `tests/test_retail_trader_experience_boundary_cross_module_no_recommendations.py`
+- `tests/test_retail_trader_experience_boundary_cross_endpoint_no_execution.py`
+- `tests/test_retail_trader_experience_boundary_no_active_ui_or_broker_controls.py`
+- `tests/test_retail_trader_experience_boundary_no_suitability_profiling.py`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_READINESS_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_MILESTONE_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_PHASE_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_PHASE_NO_RECOMMENDATION_EXECUTION_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_PHASE_NO_SUITABILITY_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_RECOMMENDATION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_EXECUTION_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_SUITABILITY_PROFILING_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_retail_trader_experience_boundary_settings.py`
+- `tests/test_retail_trader_experience_boundary_forbidden_registry.py`
+- `tests/test_retail_trader_experience_boundary_endpoint_policy.py`
+- `tests/test_retail_trader_experience_boundary_module_policy.py`
+- `tests/test_retail_trader_experience_boundary_invariants.py`
+- `tests/test_api_retail_trader_experience_boundary.py`
+- `tests/test_retail_trader_experience_boundary_docs_status.py`
+- `tests/test_retail_trader_experience_boundary_cross_module_no_recommendations.py`
+- `tests/test_retail_trader_experience_boundary_cross_endpoint_no_execution.py`
+- `tests/test_retail_trader_experience_boundary_no_active_ui_or_broker_controls.py`
+- `tests/test_retail_trader_experience_boundary_no_suitability_profiling.py`
+
+### Commands Run
+
+- `.venv/bin/pytest tests/test_retail_trader_experience_boundary_settings.py tests/test_retail_trader_experience_boundary_forbidden_registry.py tests/test_retail_trader_experience_boundary_endpoint_policy.py tests/test_retail_trader_experience_boundary_module_policy.py tests/test_retail_trader_experience_boundary_invariants.py tests/test_api_retail_trader_experience_boundary.py tests/test_retail_trader_experience_boundary_docs_status.py tests/test_retail_trader_experience_boundary_cross_module_no_recommendations.py tests/test_retail_trader_experience_boundary_cross_endpoint_no_execution.py tests/test_retail_trader_experience_boundary_no_active_ui_or_broker_controls.py tests/test_retail_trader_experience_boundary_no_suitability_profiling.py`
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+- Focused Prompt 61 tests passed: 116 tests with the existing Starlette warning.
+- `.venv/bin/python -m pip install -e .` failed because restricted DNS/PyPI access could not fetch `setuptools>=68`.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 3181 tests and the existing Starlette warning.
+- `.venv/bin/pytest` passed with 3181 tests and the existing Starlette warning.
+- `git diff --check` passed.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments if the build backend is unavailable locally.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 62 - Retail Trader Experience API/Display Integration Readiness Audit
+
+## Prompt 62 - Retail Trader Experience API/Display Integration Readiness Audit
+
+### Objective
+
+Perform Retail Trader Experience API/Display Integration Readiness Audit across
+Prompts 56-61. Confirm planning, API, display, safety, milestone, and boundary
+hardening layers remain contract/skeleton/audit-only and are ready for
+Strategy Research Workspace Planning and Guardrails only.
+
+### Files Created
+
+- `docs/RETAIL_TRADER_EXPERIENCE_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_CROSS_ENDPOINT_CONSISTENCY_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_BOUNDARY_INTEGRATION_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_INTEGRATION_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_INTEGRATION_NO_RECOMMENDATION_EXECUTION_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_INTEGRATION_NO_SUITABILITY_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_READINESS_PLAN.md`
+- `tests/test_retail_trader_experience_api_display_integration_audit_docs.py`
+- `tests/test_retail_trader_experience_cross_endpoint_consistency.py`
+- `tests/test_retail_trader_experience_api_display_boundary_integration.py`
+- `tests/test_retail_trader_experience_boundary_integration.py`
+- `tests/test_retail_trader_experience_integration_no_active_ui.py`
+- `tests/test_retail_trader_experience_integration_no_recommendation_execution.py`
+- `tests/test_retail_trader_experience_integration_no_suitability.py`
+- `tests/test_retail_trader_experience_integration_api_surface_safety.py`
+- `tests/test_strategy_research_workspace_readiness_plan.py`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_READINESS_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_NEXT_PHASE_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_SYSTEM_BOUNDARY_HARDENING.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_FORBIDDEN_BEHAVIOR_REGISTRY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_ENDPOINT_BOUNDARY_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_MODULE_BOUNDARY_POLICY.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_CROSS_MODULE_INVARIANTS.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_MILESTONE_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_SAFETY_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_PHASE_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_PHASE_NO_RECOMMENDATION_EXECUTION_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_PHASE_NO_SUITABILITY_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_retail_trader_experience_api_display_integration_audit_docs.py`
+- `tests/test_retail_trader_experience_cross_endpoint_consistency.py`
+- `tests/test_retail_trader_experience_api_display_boundary_integration.py`
+- `tests/test_retail_trader_experience_boundary_integration.py`
+- `tests/test_retail_trader_experience_integration_no_active_ui.py`
+- `tests/test_retail_trader_experience_integration_no_recommendation_execution.py`
+- `tests/test_retail_trader_experience_integration_no_suitability.py`
+- `tests/test_retail_trader_experience_integration_api_surface_safety.py`
+- `tests/test_strategy_research_workspace_readiness_plan.py`
+
+### Commands Run
+
+- `.venv/bin/pytest tests/test_retail_trader_experience_api_display_integration_audit_docs.py tests/test_retail_trader_experience_cross_endpoint_consistency.py tests/test_retail_trader_experience_api_display_boundary_integration.py tests/test_retail_trader_experience_boundary_integration.py tests/test_retail_trader_experience_integration_no_active_ui.py tests/test_retail_trader_experience_integration_no_recommendation_execution.py tests/test_retail_trader_experience_integration_no_suitability.py tests/test_retail_trader_experience_integration_api_surface_safety.py tests/test_strategy_research_workspace_readiness_plan.py`
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+- Focused Prompt 62 tests passed: 23 tests with the existing Starlette warning.
+- `.venv/bin/python -m pip install -e .` failed because restricted DNS/PyPI access could not fetch `setuptools>=68`.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 3204 tests and the existing Starlette warning.
+- `.venv/bin/pytest` passed with 3204 tests and the existing Starlette warning.
+- `git diff --check` passed.
+
+### Audit Verdict
+
+Ready for Strategy Research Workspace Planning and Guardrails only if tests
+pass. Active UI, frontend implementation, desktop implementation,
+recommendations, action generation, confidence scoring, DecisionObject
+generation or display, readiness-to-trade, suitability profiling, broker
+controls, approvals, overrides, real/live market data display, Strategy
+Research Workspace implementation, and execution APIs remain forbidden.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments if the build backend is unavailable locally.
+- FastAPI/TestClient emits the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 63 - Strategy Research Workspace Planning and Guardrails
+
+## Prompt 63 - Strategy Research Workspace Planning and Guardrails
+
+### Objective
+
+Implement Strategy Research Workspace planning and guardrails only.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/strategy_research_workspace/`
+- `apps/api/stark_terminal_api/routes/strategy_research_workspace.py`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PLANNING.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_GUARDRAILS.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PLACEHOLDERS.md`
+- `docs/STRATEGY_RESEARCH_ARTIFACT_PLACEHOLDERS.md`
+- `docs/STRATEGY_RESEARCH_PAPER_REFERENCE_PLACEHOLDERS.md`
+- `docs/STRATEGY_RESEARCH_HYPOTHESIS_PLACEHOLDERS.md`
+- `docs/STRATEGY_RESEARCH_DATASET_REFERENCE_PLACEHOLDERS.md`
+- `docs/STRATEGY_RESEARCH_EXPERIMENT_PLACEHOLDERS.md`
+- `docs/STRATEGY_RESEARCH_FORBIDDEN_INTERACTIONS.md`
+- `docs/STRATEGY_RESEARCH_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_NO_BACKTESTING_POLICY.md`
+- `docs/STRATEGY_RESEARCH_NO_RECOMMENDATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_NO_EXECUTION_POLICY.md`
+- `tests/test_strategy_research_workspace_settings.py`
+- `tests/test_strategy_research_workspace_planning_contracts.py`
+- `tests/test_strategy_research_workspace_placeholders.py`
+- `tests/test_strategy_research_artifacts.py`
+- `tests/test_strategy_research_paper_references.py`
+- `tests/test_strategy_research_hypotheses.py`
+- `tests/test_strategy_research_dataset_references.py`
+- `tests/test_strategy_research_experiments.py`
+- `tests/test_strategy_research_forbidden_interactions.py`
+- `tests/test_strategy_research_safety.py`
+- `tests/test_strategy_research_readiness.py`
+- `tests/test_api_strategy_research_workspace.py`
+- `tests/test_strategy_research_workspace_docs_status.py`
+- `tests/test_strategy_research_workspace_no_active_ui_or_execution.py`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_READINESS_PLAN.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_API_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/RETAIL_TRADER_EXPERIENCE_BOUNDARY_INTEGRATION_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_strategy_research_workspace_settings.py`
+- `tests/test_strategy_research_workspace_planning_contracts.py`
+- `tests/test_strategy_research_workspace_placeholders.py`
+- `tests/test_strategy_research_artifacts.py`
+- `tests/test_strategy_research_paper_references.py`
+- `tests/test_strategy_research_hypotheses.py`
+- `tests/test_strategy_research_dataset_references.py`
+- `tests/test_strategy_research_experiments.py`
+- `tests/test_strategy_research_forbidden_interactions.py`
+- `tests/test_strategy_research_safety.py`
+- `tests/test_strategy_research_readiness.py`
+- `tests/test_api_strategy_research_workspace.py`
+- `tests/test_strategy_research_workspace_docs_status.py`
+- `tests/test_strategy_research_workspace_no_active_ui_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/pytest tests/test_strategy_research_workspace_settings.py tests/test_strategy_research_workspace_planning_contracts.py tests/test_strategy_research_workspace_placeholders.py tests/test_strategy_research_artifacts.py tests/test_strategy_research_paper_references.py tests/test_strategy_research_hypotheses.py tests/test_strategy_research_dataset_references.py tests/test_strategy_research_experiments.py tests/test_strategy_research_forbidden_interactions.py tests/test_strategy_research_safety.py tests/test_strategy_research_readiness.py tests/test_api_strategy_research_workspace.py tests/test_strategy_research_workspace_docs_status.py tests/test_strategy_research_workspace_no_active_ui_or_execution.py`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `git diff --check`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+
+### Verification Result
+
+- Focused Prompt 63 tests passed: 128 tests with the existing Starlette warning.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 3332 tests and the existing Starlette warning.
+- `.venv/bin/python -m pip install -e .` failed because restricted DNS/PyPI access could not fetch `setuptools>=68`.
+- `git diff --check` passed.
+- `.venv/bin/pytest` passed with 3332 tests and the existing Starlette warning.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments if the build backend is unavailable locally.
+- FastAPI/TestClient may emit the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 64 - Strategy Research Workspace API Contract Skeleton
+
+## Prompt 64 - Strategy Research Workspace API Contract Skeleton
+
+### Objective
+
+Implement the Strategy Research Workspace API Contract Skeleton as
+read-only, unavailable-by-default contract metadata only. Prompt 64 adds API
+request placeholders, response placeholders, workspace reference placeholders,
+artifact reference placeholders, paper reference placeholders, hypothesis
+reference placeholders, dataset reference placeholders, experiment reference
+placeholders, safety reference placeholders, unavailable responses, contract
+metadata, health metadata, docs, tests, audit coverage, verifier coverage, and
+read-only `/strategy-research-workspace-api/*` endpoints.
+
+Prompt 64 does not add active UI, frontend components, desktop components,
+paper ingestion, paper parsing, arXiv ingestion, LLM research analysis,
+paper-to-strategy conversion, strategy generation, strategy code generation,
+backtesting, optimization, recommendation generation, action generation,
+confidence scoring, active DecisionObject generation, readiness-to-trade,
+broker controls, approvals, overrides, real market data display, provider
+SDKs, scraping, new dependencies, or execution APIs.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/`
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/__init__.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/requests.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/responses.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/references.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/unavailable.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/contracts.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/health.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/README.md`
+- `apps/api/stark_terminal_api/routes/strategy_research_workspace_api.py`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_CONTRACT_SKELETON.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_REQUEST_RESPONSE_PLACEHOLDERS.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_REFERENCE_PLACEHOLDERS.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_UNAVAILABLE_RESPONSES.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_SAFETY_BOUNDARY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_NO_PAPER_PARSING_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_NO_BACKTESTING_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_NO_RECOMMENDATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_NO_EXECUTION_POLICY.md`
+- `tests/test_strategy_research_workspace_api_settings.py`
+- `tests/test_strategy_research_workspace_api_request_placeholders.py`
+- `tests/test_strategy_research_workspace_api_response_placeholders.py`
+- `tests/test_strategy_research_workspace_api_references.py`
+- `tests/test_strategy_research_workspace_api_unavailable_responses.py`
+- `tests/test_strategy_research_workspace_api_contracts.py`
+- `tests/test_api_strategy_research_workspace_api.py`
+- `tests/test_strategy_research_workspace_api_docs_status.py`
+- `tests/test_strategy_research_workspace_api_no_active_ui_or_execution.py`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_READINESS_PLAN.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PLANNING.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_GUARDRAILS.md`
+- `docs/STRATEGY_RESEARCH_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_NO_BACKTESTING_POLICY.md`
+- `docs/STRATEGY_RESEARCH_NO_RECOMMENDATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_NO_EXECUTION_POLICY.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_strategy_research_workspace_api_settings.py`
+- `tests/test_strategy_research_workspace_api_request_placeholders.py`
+- `tests/test_strategy_research_workspace_api_response_placeholders.py`
+- `tests/test_strategy_research_workspace_api_references.py`
+- `tests/test_strategy_research_workspace_api_unavailable_responses.py`
+- `tests/test_strategy_research_workspace_api_contracts.py`
+- `tests/test_api_strategy_research_workspace_api.py`
+- `tests/test_strategy_research_workspace_api_docs_status.py`
+- `tests/test_strategy_research_workspace_api_no_active_ui_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/pytest tests/test_strategy_research_workspace_api_settings.py tests/test_strategy_research_workspace_api_request_placeholders.py tests/test_strategy_research_workspace_api_response_placeholders.py tests/test_strategy_research_workspace_api_references.py tests/test_strategy_research_workspace_api_unavailable_responses.py tests/test_strategy_research_workspace_api_contracts.py tests/test_api_strategy_research_workspace_api.py tests/test_strategy_research_workspace_api_docs_status.py tests/test_strategy_research_workspace_api_no_active_ui_or_execution.py`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+- Focused Prompt 64 tests passed: 125 tests with the existing Starlette warning.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 3457 tests and the existing Starlette warning.
+- `.venv/bin/pytest` passed with 3457 tests and the existing Starlette warning.
+- `git diff --check` passed.
+- `.venv/bin/python -m pip install -e .` failed because restricted DNS/PyPI access could not fetch `setuptools>=68`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments if the build backend is unavailable locally.
+- FastAPI/TestClient may emit the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 65 - Strategy Research Workspace Display Contract Skeleton
+
+## Prompt 65 - Strategy Research Workspace Display Contract Skeleton
+
+### Objective
+
+Implement the Strategy Research Workspace Display Contract Skeleton as
+read-only, unavailable-by-default display contract metadata only. Prompt 65
+adds display contract metadata, workspace visual placeholders, artifact visual
+placeholders, paper reference visual placeholders, hypothesis visual
+placeholders, dataset reference visual placeholders, experiment visual
+placeholders, badge/status placeholders, unavailable display responses,
+display safety helpers, health metadata, docs, tests, audit coverage,
+verifier coverage, and read-only `/strategy-research-workspace-display/*`
+endpoints.
+
+Prompt 65 does not add active UI, frontend components, desktop components,
+paper ingestion, paper parsing, arXiv ingestion, LLM research analysis,
+paper-to-strategy conversion, strategy generation, strategy code generation,
+backtesting, optimization, recommendation generation, action generation,
+confidence scoring, active DecisionObject generation or display,
+readiness-to-trade, broker controls, approvals, overrides, real market data
+display, provider SDKs, scraping, new dependencies, or execution APIs.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/`
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/__init__.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/contracts.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/workspaces.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/artifacts.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/papers.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/hypotheses.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/datasets.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/experiments.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/badges.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/unavailable.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/safety.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/health.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/README.md`
+- `apps/api/stark_terminal_api/routes/strategy_research_workspace_display.py`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_CONTRACT_SKELETON.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_WORKSPACE_PLACEHOLDERS.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ARTIFACT_PLACEHOLDERS.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_PAPER_REFERENCE_PLACEHOLDERS.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_HYPOTHESIS_PLACEHOLDERS.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_DATASET_REFERENCE_PLACEHOLDERS.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_EXPERIMENT_PLACEHOLDERS.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_UNAVAILABLE_RESPONSES.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_SAFETY_BOUNDARY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_NO_PAPER_PARSING_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_NO_BACKTESTING_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_NO_RECOMMENDATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_NO_EXECUTION_POLICY.md`
+- `tests/test_strategy_research_workspace_display_settings.py`
+- `tests/test_strategy_research_workspace_display_contracts.py`
+- `tests/test_strategy_research_workspace_display_workspaces.py`
+- `tests/test_strategy_research_workspace_display_artifacts.py`
+- `tests/test_strategy_research_workspace_display_papers.py`
+- `tests/test_strategy_research_workspace_display_hypotheses.py`
+- `tests/test_strategy_research_workspace_display_datasets.py`
+- `tests/test_strategy_research_workspace_display_experiments.py`
+- `tests/test_strategy_research_workspace_display_badges.py`
+- `tests/test_strategy_research_workspace_display_unavailable_responses.py`
+- `tests/test_strategy_research_workspace_display_safety.py`
+- `tests/test_api_strategy_research_workspace_display.py`
+- `tests/test_strategy_research_workspace_display_docs_status.py`
+- `tests/test_strategy_research_workspace_display_no_active_ui_or_execution.py`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/__init__.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_READINESS_PLAN.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PLANNING.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_GUARDRAILS.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_CONTRACT_SKELETON.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_SAFETY_BOUNDARY.md`
+- `docs/STRATEGY_RESEARCH_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_NO_BACKTESTING_POLICY.md`
+- `docs/STRATEGY_RESEARCH_NO_RECOMMENDATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_NO_EXECUTION_POLICY.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- `tests/test_strategy_research_workspace_display_settings.py`
+- `tests/test_strategy_research_workspace_display_contracts.py`
+- `tests/test_strategy_research_workspace_display_workspaces.py`
+- `tests/test_strategy_research_workspace_display_artifacts.py`
+- `tests/test_strategy_research_workspace_display_papers.py`
+- `tests/test_strategy_research_workspace_display_hypotheses.py`
+- `tests/test_strategy_research_workspace_display_datasets.py`
+- `tests/test_strategy_research_workspace_display_experiments.py`
+- `tests/test_strategy_research_workspace_display_badges.py`
+- `tests/test_strategy_research_workspace_display_unavailable_responses.py`
+- `tests/test_strategy_research_workspace_display_safety.py`
+- `tests/test_api_strategy_research_workspace_display.py`
+- `tests/test_strategy_research_workspace_display_docs_status.py`
+- `tests/test_strategy_research_workspace_display_no_active_ui_or_execution.py`
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/pytest tests/test_strategy_research_workspace_display_settings.py tests/test_strategy_research_workspace_display_contracts.py tests/test_strategy_research_workspace_display_workspaces.py tests/test_strategy_research_workspace_display_artifacts.py tests/test_strategy_research_workspace_display_papers.py tests/test_strategy_research_workspace_display_hypotheses.py tests/test_strategy_research_workspace_display_datasets.py tests/test_strategy_research_workspace_display_experiments.py tests/test_strategy_research_workspace_display_badges.py tests/test_strategy_research_workspace_display_unavailable_responses.py tests/test_strategy_research_workspace_display_safety.py tests/test_api_strategy_research_workspace_display.py tests/test_strategy_research_workspace_display_docs_status.py tests/test_strategy_research_workspace_display_no_active_ui_or_execution.py`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+- Focused Prompt 65 tests passed: 224 tests with the existing Starlette warning.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 3643 tests and the existing Starlette warning.
+- `.venv/bin/pytest` passed with 3643 tests and the existing Starlette warning.
+- `git diff --check` passed.
+- `.venv/bin/python -m pip install -e .` failed because restricted DNS/PyPI access could not fetch `setuptools>=68`.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments if the build backend is unavailable locally.
+- FastAPI/TestClient may emit the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 66 - Strategy Research Workspace Safety Boundary Audit
+
+## Prompt 66 - Strategy Research Workspace Safety Boundary Audit
+
+### Objective
+
+Perform Strategy Research Workspace Safety Boundary Audit across Prompt 63
+planning/guardrails, Prompt 64 API contract skeleton, and Prompt 65 display
+contract skeleton. Prompt 66 consolidates no-active-UI, no-paper-ingestion,
+no-paper-parsing, no-strategy-generation, no-backtesting, no-recommendation,
+no-confidence, no-DecisionObject, no-readiness-to-trade, no-broker-control,
+and no-execution invariants.
+
+Prompt 66 does not add active UI, frontend components, desktop components,
+paper ingestion, paper parsing, arXiv ingestion, LLM research analysis,
+paper-to-strategy conversion, strategy generation, strategy code generation,
+backtesting, optimization, recommendation generation, action generation,
+confidence scoring, active DecisionObject generation or display,
+readiness-to-trade, broker controls, approvals, overrides, real market data
+display, provider SDKs, scraping, new dependencies, or execution APIs.
+
+### Files Created
+
+- `docs/STRATEGY_RESEARCH_WORKSPACE_SAFETY_BOUNDARY_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_BOUNDARY_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_ACTIVE_UI_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_PAPER_PARSING_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_STRATEGY_GENERATION_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_BACKTESTING_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_RECOMMENDATION_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_EXECUTION_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_MILESTONE_READINESS.md`
+- `tests/test_strategy_research_workspace_safety_boundary_audit_docs.py`
+- `tests/test_strategy_research_workspace_api_boundary_audit.py`
+- `tests/test_strategy_research_workspace_display_boundary_audit.py`
+- `tests/test_strategy_research_workspace_no_active_ui_audit.py`
+- `tests/test_strategy_research_workspace_no_paper_parsing_audit.py`
+- `tests/test_strategy_research_workspace_no_strategy_generation_audit.py`
+- `tests/test_strategy_research_workspace_no_backtesting_audit.py`
+- `tests/test_strategy_research_workspace_no_recommendation_audit.py`
+- `tests/test_strategy_research_workspace_no_execution_audit.py`
+- `tests/test_strategy_research_workspace_api_surface_safety.py`
+- `tests/test_strategy_research_workspace_milestone_readiness.py`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_READINESS_PLAN.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PLANNING.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_GUARDRAILS.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_CONTRACT_SKELETON.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_CONTRACT_SKELETON.md`
+- `docs/STRATEGY_RESEARCH_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_NO_BACKTESTING_POLICY.md`
+- `docs/STRATEGY_RESEARCH_NO_RECOMMENDATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_NO_EXECUTION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_NO_PAPER_PARSING_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_NO_BACKTESTING_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_NO_RECOMMENDATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_NO_EXECUTION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_NO_PAPER_PARSING_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_NO_BACKTESTING_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_NO_RECOMMENDATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_NO_EXECUTION_POLICY.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- Prompt 66 audit docs tests.
+- Strategy Research Workspace API boundary audit tests.
+- Strategy Research Workspace display boundary audit tests.
+- No-active-UI audit tests.
+- No-paper-parsing audit tests.
+- No-strategy-generation audit tests.
+- No-backtesting audit tests.
+- No-recommendation audit tests.
+- No-execution audit tests.
+- API surface safety tests.
+- Milestone readiness tests.
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/pytest tests/test_strategy_research_workspace_safety_boundary_audit_docs.py tests/test_strategy_research_workspace_api_boundary_audit.py tests/test_strategy_research_workspace_display_boundary_audit.py tests/test_strategy_research_workspace_no_active_ui_audit.py tests/test_strategy_research_workspace_no_paper_parsing_audit.py tests/test_strategy_research_workspace_no_strategy_generation_audit.py tests/test_strategy_research_workspace_no_backtesting_audit.py tests/test_strategy_research_workspace_no_recommendation_audit.py tests/test_strategy_research_workspace_no_execution_audit.py tests/test_strategy_research_workspace_api_surface_safety.py tests/test_strategy_research_workspace_milestone_readiness.py`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+Focused Prompt 66 pytest passed with 38 tests. `.venv/bin/python
+scripts/audit_foundation.py` passed. `.venv/bin/python
+scripts/verify_foundation.py` passed with 3681 tests. Full
+`.venv/bin/pytest` passed with 3681 tests. `git diff --check` passed.
+`.venv/bin/python -m pip install -e .` failed because restricted DNS/PyPI
+access could not fetch `setuptools>=68`.
+
+### Audit Verdict
+
+Strategy Research Workspace planning, API, and display layers remain
+contract/skeleton/audit-only. The project is ready for Strategy Research
+Workspace Milestone Audit only. Active UI, paper ingestion/parsing, strategy
+generation, backtesting, recommendations, broker controls, approvals,
+overrides, and execution APIs remain forbidden.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments if the build backend is unavailable locally.
+- FastAPI/TestClient may emit the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 67 - Strategy Research Workspace Milestone Audit
+
+## Prompt 67 - Strategy Research Workspace Milestone Audit
+
+### Objective
+
+Perform Strategy Research Workspace Milestone Audit for Prompts 63-66:
+Planning and Guardrails, API Contract Skeleton, Display Contract Skeleton,
+and Safety Boundary Audit. Confirm the phase remains
+contract/skeleton/audit-only and ready for Strategy Research Workspace System
+Boundary Hardening only.
+
+### Files Created
+
+- `docs/STRATEGY_RESEARCH_WORKSPACE_MILESTONE_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PLANNING_MILESTONE_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_MILESTONE_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_MILESTONE_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_SAFETY_MILESTONE_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PHASE_NO_ACTIVE_UI_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PHASE_NO_PAPER_PARSING_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PHASE_NO_STRATEGY_GENERATION_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PHASE_NO_BACKTESTING_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PHASE_NO_RECOMMENDATION_EXECUTION_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NEXT_PHASE_PLAN.md`
+- `tests/test_strategy_research_workspace_milestone_audit_docs.py`
+- `tests/test_strategy_research_workspace_planning_milestone.py`
+- `tests/test_strategy_research_workspace_api_milestone.py`
+- `tests/test_strategy_research_workspace_display_milestone.py`
+- `tests/test_strategy_research_workspace_safety_milestone.py`
+- `tests/test_strategy_research_workspace_phase_no_active_ui.py`
+- `tests/test_strategy_research_workspace_phase_no_paper_parsing.py`
+- `tests/test_strategy_research_workspace_phase_no_strategy_generation.py`
+- `tests/test_strategy_research_workspace_phase_no_backtesting.py`
+- `tests/test_strategy_research_workspace_phase_no_recommendation_execution.py`
+- `tests/test_strategy_research_workspace_next_phase_readiness.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_READINESS_PLAN.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_MILESTONE_READINESS.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_SAFETY_BOUNDARY_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_BOUNDARY_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_ACTIVE_UI_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_PAPER_PARSING_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_STRATEGY_GENERATION_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_BACKTESTING_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_RECOMMENDATION_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_EXECUTION_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PLANNING.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_GUARDRAILS.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_CONTRACT_SKELETON.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_CONTRACT_SKELETON.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- Milestone audit documentation tests.
+- Planning milestone tests.
+- API milestone tests.
+- Display milestone tests.
+- Safety milestone tests.
+- Phase no-active-UI tests.
+- Phase no-paper-parsing tests.
+- Phase no-strategy-generation tests.
+- Phase no-backtesting tests.
+- Phase no-recommendation/no-execution tests.
+- Next-phase readiness tests.
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/pytest tests/test_strategy_research_workspace_milestone_audit_docs.py tests/test_strategy_research_workspace_planning_milestone.py tests/test_strategy_research_workspace_api_milestone.py tests/test_strategy_research_workspace_display_milestone.py tests/test_strategy_research_workspace_safety_milestone.py tests/test_strategy_research_workspace_phase_no_active_ui.py tests/test_strategy_research_workspace_phase_no_paper_parsing.py tests/test_strategy_research_workspace_phase_no_strategy_generation.py tests/test_strategy_research_workspace_phase_no_backtesting.py tests/test_strategy_research_workspace_phase_no_recommendation_execution.py tests/test_strategy_research_workspace_next_phase_readiness.py`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+Focused Prompt 67 pytest passed with 28 tests. `.venv/bin/python
+scripts/audit_foundation.py` passed. `.venv/bin/python
+scripts/verify_foundation.py` passed with 3709 tests. Full
+`.venv/bin/pytest` passed with 3709 tests. `git diff --check` passed.
+`.venv/bin/python -m pip install -e .` failed because restricted DNS/PyPI
+access could not fetch `setuptools>=68`.
+
+### Audit Verdict
+
+Strategy Research Workspace planning, API, display, and safety audit layers
+remain contract/skeleton/audit-only. Active UI, frontend implementation,
+desktop implementation, paper ingestion/parsing, arXiv ingestion, LLM paper
+analysis, strategy generation, strategy code generation, signal/factor/alpha
+generation, backtesting, optimization, recommendation generation, action
+generation, confidence scoring, active DecisionObject generation/display,
+readiness-to-trade, broker controls, approvals, overrides, and execution APIs
+remain forbidden.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments if the build backend is unavailable locally.
+- FastAPI/TestClient may emit the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 68 - Strategy Research Workspace System Boundary Hardening

@@ -1,6 +1,6 @@
 # Configuration
 
-Prompt 50 maintains typed application settings through `stark_terminal_core.config.settings.Settings` and adds safe Retail Dashboard API Contract Skeleton settings. Prompt 49 added safe Retail Dashboard Planning and Guardrails settings. Prompt 48 completed Decision API/Display Integration Readiness Audit status metadata. Prompt 47 added safe Decision Boundary settings. Prompt 44 maintains safe Decision Evidence Validation v0 settings. Prompt 43 added safe Decision Desk Display Contract Skeleton settings. Prompt 42 added safe Decision Desk Readiness API Skeleton settings. Prompt 41 maintained the Decision Desk Milestone Audit status. Prompt 40 added safe Decision Desk API Contract Skeleton settings. Prompt 39 added safe Decision Safety and Human-Review Guardrails settings. Prompt 38 added safe DecisionObject evidence bundle settings. Prompt 36 added Retail Decision Desk planning settings. Prompt 35 maintained analytics/regime milestone audit status metadata. Prompt 34 added safe regime feature preparation settings. Prompt 33 added safe regime analytics planning settings. Prompt 32 added safe time-series diagnostics settings. Prompt 31 added safe correlation/beta analytics settings. Prompt 30 added analytics milestone audit status metadata. Prompt 29 added safe volatility/drawdown analytics settings, Prompt 28 added safe returns/rolling analytics settings, Prompt 27 added safe numerical analytics settings, Prompt 26 added safe analytics foundation settings, Prompt 24 added safe Local File Provider settings, Prompt 23 added safe Provider Readiness settings, Prompt 21 added safe Local Sample Provider settings, Prompt 20 added Provider Guardrail settings, Prompt 19 added Synthetic OHLCV Export settings, Prompt 18 added Synthetic OHLCV Storage settings, Prompt 14 added Synthetic Fixture settings, Prompt 15 added Instrument Persistence settings, and Prompt 16 added Market Data Batch Persistence settings.
+Prompt 67 maintains Strategy Research Workspace Milestone Audit status metadata. Prompt 66 maintains Strategy Research Workspace Safety Boundary Audit status metadata. Prompt 65 added safe Strategy Research Workspace Display Contract Skeleton settings. Prompt 64 adds safe Strategy Research Workspace API Contract Skeleton settings. Prompt 63 added safe Strategy Research Workspace Planning and Guardrails settings. Prompt 62 maintained Retail Trader Experience API/Display Integration Readiness Audit status metadata. Prompt 61 added safe Retail Trader Experience System Boundary Hardening settings. Prompt 60 maintained Retail Trader Experience Milestone Audit status metadata. Prompt 59 maintained Retail Trader Experience Safety Boundary Audit status metadata. Prompt 58 added safe Retail Trader Experience Display Contract Skeleton settings. Prompt 57 added safe Retail Trader Experience API Contract Skeleton settings. Prompt 56 added safe Retail Trader Experience Planning and Guardrails settings. Prompt 55 maintained Retail Dashboard API/Display Integration Readiness Audit status metadata. Prompt 54 added safe Retail Dashboard System Boundary Hardening settings. Prompt 50 added safe Retail Dashboard API Contract Skeleton settings. Prompt 49 added safe Retail Dashboard Planning and Guardrails settings. Prompt 48 completed Decision API/Display Integration Readiness Audit status metadata. Prompt 47 added safe Decision Boundary settings. Prompt 44 maintains safe Decision Evidence Validation v0 settings. Prompt 43 added safe Decision Desk Display Contract Skeleton settings. Prompt 42 added safe Decision Desk Readiness API Skeleton settings. Prompt 41 maintained the Decision Desk Milestone Audit status. Prompt 40 added safe Decision Desk API Contract Skeleton settings. Prompt 39 added safe Decision Safety and Human-Review Guardrails settings. Prompt 38 added safe DecisionObject evidence bundle settings. Prompt 36 added Retail Decision Desk planning settings. Prompt 35 maintained analytics/regime milestone audit status metadata. Prompt 34 added safe regime feature preparation settings. Prompt 33 added safe regime analytics planning settings. Prompt 32 added safe time-series diagnostics settings. Prompt 31 added safe correlation/beta analytics settings. Prompt 30 added analytics milestone audit status metadata. Prompt 29 added safe volatility/drawdown analytics settings, Prompt 28 added safe returns/rolling analytics settings, Prompt 27 added safe numerical analytics settings, Prompt 26 added safe analytics foundation settings, Prompt 24 added safe Local File Provider settings, Prompt 23 added safe Provider Readiness settings, Prompt 21 added safe Local Sample Provider settings, Prompt 20 added Provider Guardrail settings, Prompt 19 added Synthetic OHLCV Export settings, Prompt 18 added Synthetic OHLCV Storage settings, Prompt 14 added Synthetic Fixture settings, Prompt 15 added Instrument Persistence settings, and Prompt 16 added Market Data Batch Persistence settings.
 
 ## Settings
 
@@ -11,7 +11,7 @@ Important defaults:
 - `STARK_ENV=development`
 - `APP_NAME=Stark Terminal`
 - `APP_VERSION=0.1.0`
-- `PROMPT_NUMBER=50`
+- `PROMPT_NUMBER=66`
 - `API_HOST=127.0.0.1`
 - `API_PORT=8000`
 - `FEATURE_STORE_MODE=custom`
@@ -1054,6 +1054,58 @@ Hardening: `PROMPT_NUMBER=54` and API health
 `audit_status=retail-dashboard-boundary-hardening` while execution APIs remain
 disabled.
 
+## Prompt 55 Status Metadata
+
+Prompt 55 updates project status metadata for the Retail Dashboard API/Display
+Integration Readiness Audit: `PROMPT_NUMBER=55` and API health
+`audit_status=retail-dashboard-api-display-readiness` while execution APIs
+remain disabled.
+
+Prompt 55 adds no new settings and no credentials. It does not unlock active
+UI, frontend components, desktop components, recommendations, action
+generation, confidence scoring, DecisionObject generation, readiness-to-trade,
+broker controls, approvals, overrides, or execution APIs.
+
+## Prompt 56 Retail Trader Experience Settings
+
+Prompt 56 adds Retail Trader Experience Planning and Guardrails settings:
+
+- `RETAIL_TRADER_EXPERIENCE_ENABLED=true`
+- `RETAIL_TRADER_EXPERIENCE_SCHEMA_VERSION=v1`
+- `RETAIL_TRADER_EXPERIENCE_ALLOW_ACTIVE_UI=false`
+- `RETAIL_TRADER_EXPERIENCE_ALLOW_FRONTEND_COMPONENTS=false`
+- `RETAIL_TRADER_EXPERIENCE_ALLOW_DESKTOP_COMPONENTS=false`
+- `RETAIL_TRADER_EXPERIENCE_ALLOW_RECOMMENDATIONS=false`
+- `RETAIL_TRADER_EXPERIENCE_ALLOW_ACTION_GENERATION=false`
+- `RETAIL_TRADER_EXPERIENCE_ALLOW_CONFIDENCE_SCORING=false`
+- `RETAIL_TRADER_EXPERIENCE_ALLOW_DECISION_OBJECT_GENERATION=false`
+- `RETAIL_TRADER_EXPERIENCE_ALLOW_READINESS_TO_TRADE=false`
+- `RETAIL_TRADER_EXPERIENCE_ALLOW_BROKER_CONTROLS=false`
+- `RETAIL_TRADER_EXPERIENCE_ALLOW_EXECUTION=false`
+- `RETAIL_TRADER_EXPERIENCE_ALLOW_APPROVAL=false`
+- `RETAIL_TRADER_EXPERIENCE_ALLOW_OVERRIDE=false`
+- `RETAIL_TRADER_EXPERIENCE_RETURN_UNAVAILABLE_BY_DEFAULT=true`
+- `RETAIL_TRADER_EXPERIENCE_STAGE=planning_and_guardrails`
+
+The Retail Trader Experience settings are exposed through
+`safe_settings_snapshot()` and contain no credentials. All dangerous allow
+flags default false and fail closed. The stage supports
+`planning_and_guardrails`, `unavailable_only`, `persona_placeholders`,
+`journey_placeholders`, `active_ui_planned`, and `blocked`.
+
+Prompt 56 implements no active UI, no frontend component, no desktop component,
+no recommendation cards, no action generation, no confidence scoring, no
+DecisionObject generation or display, no readiness-to-trade, no suitability
+profiling, no broker controls, no approvals, no overrides, and no execution
+APIs.
+
+## Prompt 56 Status Metadata
+
+Prompt 56 updates project status metadata for Retail Trader Experience
+Planning and Guardrails: `PROMPT_NUMBER=56` and API health
+`audit_status=retail-trader-experience-planning` while execution APIs remain
+disabled.
+
 ## Prompt 48 Status Metadata
 
 Prompt 48 updates only project status metadata for the Decision Desk
@@ -1064,3 +1116,284 @@ No credentials are added. No new settings unlock recommendations, action
 generation, confidence scoring, active DecisionObject generation, approvals,
 overrides, active UI, active workflow, readiness-to-trade, broker behavior, or
 execution APIs.
+
+## Retail Trader Experience API Settings - Prompt 57
+
+Prompt 57 adds safe Retail Trader Experience API settings:
+
+- `retail_trader_experience_api_enabled=true`
+- `retail_trader_experience_api_schema_version=v1`
+- all `retail_trader_experience_api_allow_*` dangerous flags default `false`
+- `retail_trader_experience_api_allow_suitability_profiling=false`
+- `retail_trader_experience_api_return_unavailable_by_default=true`
+- `retail_trader_experience_api_stage=api_contract_skeleton`
+
+These settings expose no credentials and do not enable active UI,
+recommendations, action generation, confidence scoring, active DecisionObjects,
+readiness-to-trade, suitability profiling, broker controls, approvals,
+overrides, or execution APIs.
+
+## Prompt 57 Status Metadata
+
+Prompt 57 updates project status metadata for the Retail Trader Experience API
+Contract Skeleton: `PROMPT_NUMBER=57` and API health
+`audit_status=retail-trader-experience-api-skeleton` while execution APIs
+remain disabled.
+
+## Retail Trader Experience Display Settings - Prompt 58
+
+Prompt 58 adds safe Retail Trader Experience Display settings:
+
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_ENABLED=true`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_SCHEMA_VERSION=v1`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_ALLOW_ACTIVE_UI=false`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_ALLOW_FRONTEND_COMPONENTS=false`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_ALLOW_DESKTOP_COMPONENTS=false`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_ALLOW_RECOMMENDATIONS=false`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_ALLOW_ACTION_GENERATION=false`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_ALLOW_CONFIDENCE_SCORING=false`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_ALLOW_DECISION_OBJECT_GENERATION=false`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_ALLOW_READINESS_TO_TRADE=false`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_ALLOW_BROKER_CONTROLS=false`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_ALLOW_EXECUTION=false`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_ALLOW_APPROVAL=false`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_ALLOW_OVERRIDE=false`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_ALLOW_SUITABILITY_PROFILING=false`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_RETURN_UNAVAILABLE_BY_DEFAULT=true`
+- `RETAIL_TRADER_EXPERIENCE_DISPLAY_STAGE=display_contract_skeleton`
+
+These settings expose no credentials and do not enable active UI, frontend
+components, desktop components, recommendations, action generation, confidence
+scoring, active DecisionObjects, readiness-to-trade, suitability profiling,
+broker controls, approvals, overrides, or execution APIs.
+
+## Prompt 58 Status Metadata
+
+Prompt 58 updates project status metadata for the Retail Trader Experience
+Display Contract Skeleton: `PROMPT_NUMBER=58` and API health
+`audit_status=retail-trader-experience-display-skeleton` while execution APIs
+remain disabled.
+
+## Prompt 59 Status Metadata
+
+Prompt 59 updates project status metadata for the Retail Trader Experience
+Safety Boundary Audit: `PROMPT_NUMBER=59` and API health
+`audit_status=retail-trader-experience-safety-boundary` while execution APIs
+remain disabled.
+
+Prompt 59 adds no new settings and no credentials. It does not unlock active
+UI, frontend components, desktop components, recommendations, action
+generation, confidence scoring, DecisionObject generation, readiness-to-trade,
+suitability profiling, broker controls, approvals, overrides, or execution
+APIs.
+
+## Prompt 60 Status Metadata
+
+Prompt 60 updates project status metadata for the Retail Trader Experience
+Milestone Audit: `PROMPT_NUMBER=60` and API health
+`audit_status=retail-trader-experience-milestone` while execution APIs remain
+disabled.
+
+Prompt 60 adds no new settings and no credentials. It does not unlock active
+UI, frontend components, desktop components, recommendations, action
+generation, confidence scoring, DecisionObject generation, readiness-to-trade,
+suitability profiling, broker controls, approvals, overrides, or execution
+APIs.
+
+## Retail Trader Experience Boundary Settings - Prompt 61
+
+Prompt 61 adds safe Retail Trader Experience Boundary settings:
+
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_ENABLED=true`
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_SCHEMA_VERSION=v1`
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_ALLOW_ACTIVE_UI=false`
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_ALLOW_FRONTEND_COMPONENTS=false`
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_ALLOW_DESKTOP_COMPONENTS=false`
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_ALLOW_RECOMMENDATIONS=false`
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_ALLOW_ACTION_GENERATION=false`
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_ALLOW_CONFIDENCE_SCORING=false`
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_ALLOW_DECISION_OBJECT_GENERATION=false`
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_ALLOW_READINESS_TO_TRADE=false`
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_ALLOW_BROKER_CONTROLS=false`
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_ALLOW_EXECUTION=false`
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_ALLOW_APPROVAL=false`
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_ALLOW_OVERRIDE=false`
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_ALLOW_SUITABILITY_PROFILING=false`
+- `RETAIL_TRADER_EXPERIENCE_BOUNDARY_STAGE=boundary_hardening`
+
+These settings expose no credentials and do not enable active UI, frontend
+components, desktop components, recommendations, action generation, confidence
+scoring, active DecisionObjects, readiness-to-trade, suitability profiling,
+broker controls, approvals, overrides, or execution APIs.
+
+## Prompt 61 Status Metadata
+
+Prompt 61 updates project status metadata for Retail Trader Experience System
+Boundary Hardening: `PROMPT_NUMBER=61` and API health
+`audit_status=retail-trader-experience-boundary-hardening` while execution
+APIs remain disabled.
+
+## Prompt 62 Status Metadata
+
+Prompt 62 updates project status metadata for Retail Trader Experience
+API/Display Integration Readiness Audit: `PROMPT_NUMBER=62` and API health
+`audit_status=retail-trader-experience-api-display-readiness` while execution
+APIs remain disabled.
+
+Prompt 62 adds no new settings and no credentials. It does not unlock active
+UI, frontend components, desktop components, recommendations, action
+generation, confidence scoring, DecisionObject generation, readiness-to-trade,
+suitability profiling, broker controls, approvals, overrides, or execution
+APIs.
+
+## Strategy Research Workspace Settings - Prompt 63
+
+Prompt 63 adds safe Strategy Research Workspace settings:
+
+- `STRATEGY_RESEARCH_WORKSPACE_ENABLED=true`
+- `STRATEGY_RESEARCH_WORKSPACE_SCHEMA_VERSION=v1`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_ACTIVE_UI=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_FRONTEND_COMPONENTS=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_DESKTOP_COMPONENTS=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_PAPER_INGESTION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_PAPER_PARSING=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_STRATEGY_GENERATION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_STRATEGY_CODE_GENERATION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_BACKTESTING=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_OPTIMIZATION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_RECOMMENDATIONS=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_ACTION_GENERATION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_CONFIDENCE_SCORING=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_DECISION_OBJECT_GENERATION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_READINESS_TO_TRADE=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_BROKER_CONTROLS=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_EXECUTION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_APPROVAL=false`
+- `STRATEGY_RESEARCH_WORKSPACE_ALLOW_OVERRIDE=false`
+- `STRATEGY_RESEARCH_WORKSPACE_RETURN_UNAVAILABLE_BY_DEFAULT=true`
+- `STRATEGY_RESEARCH_WORKSPACE_STAGE=planning_and_guardrails`
+
+These settings expose no credentials and do not enable active UI, frontend
+components, desktop components, paper ingestion, paper parsing, strategy
+generation, strategy code generation, backtesting, optimization,
+recommendations, action generation, confidence scoring, active
+DecisionObjects, readiness-to-trade, broker controls, approvals, overrides, or
+execution APIs.
+
+## Prompt 63 Status Metadata
+
+Prompt 63 updates project status metadata for Strategy Research Workspace
+Planning and Guardrails: `PROMPT_NUMBER=63` and API health
+`audit_status=strategy-research-workspace-planning` while execution APIs
+remain disabled.
+
+## Strategy Research Workspace API Settings - Prompt 64
+
+Prompt 64 adds safe Strategy Research Workspace API Contract Skeleton settings:
+
+- `STRATEGY_RESEARCH_WORKSPACE_API_ENABLED=true`
+- `STRATEGY_RESEARCH_WORKSPACE_API_SCHEMA_VERSION=v1`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_ACTIVE_UI=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_FRONTEND_COMPONENTS=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_DESKTOP_COMPONENTS=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_PAPER_INGESTION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_PAPER_PARSING=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_STRATEGY_GENERATION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_STRATEGY_CODE_GENERATION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_BACKTESTING=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_OPTIMIZATION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_RECOMMENDATIONS=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_ACTION_GENERATION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_CONFIDENCE_SCORING=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_DECISION_OBJECT_GENERATION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_READINESS_TO_TRADE=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_BROKER_CONTROLS=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_EXECUTION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_APPROVAL=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_ALLOW_OVERRIDE=false`
+- `STRATEGY_RESEARCH_WORKSPACE_API_RETURN_UNAVAILABLE_BY_DEFAULT=true`
+- `STRATEGY_RESEARCH_WORKSPACE_API_STAGE=api_contract_skeleton`
+
+These settings expose no credentials and do not enable active UI, frontend
+components, desktop components, paper ingestion, paper parsing, strategy
+generation, strategy code generation, backtesting, optimization,
+recommendations, action generation, confidence scoring, active
+DecisionObjects, readiness-to-trade, broker controls, approvals, overrides, or
+execution APIs.
+
+## Prompt 64 Status Metadata
+
+Prompt 64 updates project status metadata for Strategy Research Workspace API
+Contract Skeleton: `PROMPT_NUMBER=64` and API health
+`audit_status=strategy-research-workspace-api-skeleton` while execution APIs
+remain disabled.
+
+## Strategy Research Workspace Display Settings - Prompt 65
+
+Prompt 65 adds safe Strategy Research Workspace Display Contract Skeleton settings:
+
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ENABLED=true`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_SCHEMA_VERSION=v1`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_ACTIVE_UI=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_FRONTEND_COMPONENTS=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_DESKTOP_COMPONENTS=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_PAPER_INGESTION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_PAPER_PARSING=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_STRATEGY_GENERATION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_STRATEGY_CODE_GENERATION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_BACKTESTING=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_OPTIMIZATION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_RECOMMENDATIONS=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_ACTION_GENERATION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_CONFIDENCE_SCORING=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_DECISION_OBJECT_GENERATION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_READINESS_TO_TRADE=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_BROKER_CONTROLS=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_EXECUTION=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_APPROVAL=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ALLOW_OVERRIDE=false`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_RETURN_UNAVAILABLE_BY_DEFAULT=true`
+- `STRATEGY_RESEARCH_WORKSPACE_DISPLAY_STAGE=display_contract_skeleton`
+
+These settings expose no credentials and do not enable active UI, frontend
+components, desktop components, paper ingestion, paper parsing, strategy
+generation, strategy code generation, backtesting, optimization,
+recommendations, action generation, confidence scoring, active
+DecisionObjects, readiness-to-trade, broker controls, approvals, overrides, or
+execution APIs.
+
+## Prompt 66 Status Metadata
+
+Prompt 66 updates project status metadata for Strategy Research Workspace
+Safety Boundary Audit: `PROMPT_NUMBER=66` and API health
+`audit_status=strategy-research-workspace-safety-boundary` while execution
+APIs remain disabled.
+
+## Prompt 67 Status Metadata
+
+Prompt 67 updates project status metadata for Strategy Research Workspace
+Milestone Audit: `PROMPT_NUMBER=67` and API health
+`audit_status=strategy-research-workspace-milestone` while execution APIs
+remain disabled. `.venv/bin/python -m pip install -e .` may fail in
+restricted environments when DNS/PyPI access cannot fetch `setuptools>=68`.
+
+### Audit Verdict
+
+Strategy Research Workspace planning, API, display, and safety audit layers
+remain contract/skeleton/audit-only. The project is ready for Strategy
+Research Workspace System Boundary Hardening only. Active UI, frontend
+components, desktop components, paper ingestion/parsing, strategy generation,
+strategy code generation, backtesting, optimization, recommendations, action
+generation, confidence scoring, DecisionObjects, readiness-to-trade, broker
+controls, approvals, overrides, and execution APIs remain forbidden.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments if the build backend is unavailable locally.
+- FastAPI/TestClient may emit the existing dependency-level `StarletteDeprecationWarning`.
+- Prior prompt worktree changes remain and were not reverted.
+
+### Next Recommended Prompt
+
+Prompt 68 - Strategy Research Workspace System Boundary Hardening

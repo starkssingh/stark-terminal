@@ -595,6 +595,169 @@ generation, confidence scoring, active DecisionObject display,
 readiness-to-trade, broker controls, approvals, overrides, live market data
 display, and execution APIs remain forbidden.
 
+## Prompt 67 Strategy Research Workspace Milestone Audit
+
+Prompt 67 adds Strategy Research Workspace milestone audit artifacts as an
+audit layer over planning, API contract skeleton, display contract skeleton,
+and safety boundary audit modules. These modules are contract/skeleton/audit
+layers only. They are not active UI, not frontend implementation, not desktop
+implementation, not paper ingestion, not paper parsing, not strategy
+generation, not backtesting, not recommendation generation, not broker
+controls, and not execution APIs.
+
+The next infrastructure step is Strategy Research Workspace System Boundary
+Hardening only: forbidden behavior registry, endpoint boundary policies,
+module boundary policies, cross-module invariants, and stricter audit checks.
+
+## Prompt 66 Strategy Research Workspace Safety Boundary Audit
+
+Strategy Research Workspace planning, API, and display modules are core
+research contract, skeleton, placeholder, unavailable-response, safety, and
+audit layers. They are not active UI layers, not frontend implementation, not
+desktop implementation, not paper ingestion infrastructure, not paper parsing
+infrastructure, not strategy generation infrastructure, not strategy code
+generation infrastructure, not backtesting infrastructure, not optimization
+infrastructure, not recommendation infrastructure, not broker-control
+infrastructure, and not execution infrastructure.
+
+Prompt 66 confirms the Strategy Research Workspace remains read-only,
+unavailable by default, and ready for Strategy Research Workspace Milestone
+Audit only. Real ingestion, external calls, provider SDKs, scraping, LLM
+research analysis, PDF parsing, arXiv ingestion, active UI, and execution APIs
+remain deferred.
+
+## Prompt 63 Strategy Research Workspace Planning Layer
+
+Prompt 63 adds `strategy_research_workspace` as a core research contract layer,
+not an active UI layer, not a paper-ingestion layer, not a strategy-generation
+layer, not a backtesting layer, not a broker-control layer, and not an
+execution layer. It defines planning contracts, workspace placeholders,
+research artifact placeholders, paper reference placeholders, strategy
+hypothesis placeholders, dataset reference placeholders, experiment plan
+placeholders, forbidden interactions, safety helpers, readiness templates,
+health metadata, and read-only `/strategy-research-workspace/*` endpoints.
+
+This planning layer performs no external calls, reads no market data, writes
+no files, publishes no events, creates no frontend components, creates no
+desktop components, ingests no papers, parses no papers, generates no
+strategies, generates no strategy code, runs no backtests, performs no
+optimization, generates no recommendations, scores no confidence, generates no
+DecisionObjects, exposes no broker controls, and creates no execution APIs.
+
+## Prompt 64 Strategy Research Workspace API Contract Layer
+
+Prompt 64 adds `strategy_research_workspace_api` as a core research API
+contract layer, not an active UI layer, not a frontend layer, not a desktop
+layer, not a paper-ingestion layer, not a paper-parsing layer, not a
+strategy-generation layer, not a backtesting layer, not an optimization layer,
+not a recommendation layer, not a broker-control layer, and not an execution
+layer. It defines request placeholders, response placeholders, workspace
+reference placeholders, artifact reference placeholders, paper reference
+placeholders, hypothesis reference placeholders, dataset reference
+placeholders, experiment reference placeholders, safety reference placeholders,
+unavailable responses, contract metadata, health metadata, and read-only
+`/strategy-research-workspace-api/*` endpoints.
+
+This API contract layer performs no external calls, accepts no papers, accepts
+no PDFs, accepts no URLs, accepts no arXiv IDs, accepts no market data, reads
+no market data, writes no files, publishes no events, creates no frontend
+components, creates no desktop components, ingests no papers, parses no
+papers, generates no strategies, generates no strategy code, runs no
+backtests, performs no optimization, generates no recommendations, generates
+no action states, scores no confidence, generates no DecisionObjects,
+generates no readiness-to-trade, grants no approvals, grants no overrides,
+exposes no broker controls, and creates no execution APIs.
+
+## Retail Trader Experience API Contract Layer - Prompt 57
+
+Retail Trader Experience API is a core experience contract layer. It is not an
+active UI layer, not a frontend layer, not a desktop layer, not a market-data
+ingestion layer, not a recommendation layer, not a suitability profiling layer,
+not a broker-control layer, and not an execution layer.
+
+The layer exposes read-only metadata endpoints under
+`/retail-trader-experience-api/*` and keeps all dangerous flags fail-closed.
+
+## Retail Trader Experience Display Contract Layer - Prompt 58
+
+Retail Trader Experience Display is a core experience display contract layer.
+It is not an active UI layer, not a frontend layer, not a desktop layer, not a
+market-data ingestion layer, not a recommendation layer, not a suitability
+profiling layer, not a broker-control layer, and not an execution layer.
+
+The layer exposes read-only metadata endpoints under
+`/retail-trader-experience-display/*` and keeps all dangerous flags
+fail-closed. It defines display contract metadata, persona visual placeholders,
+journey visual placeholders, visual section placeholders, widget placeholders,
+badge placeholders, unavailable display responses, display safety helpers, and
+health metadata only.
+
+## Retail Trader Experience Safety Boundary Audit - Prompt 59
+
+Retail Trader Experience Safety Boundary Audit is an audit layer over the
+planning, API, and display contract layers. It is not an active UI layer, not a
+frontend implementation, not a desktop implementation, not a market-data
+ingestion layer, not a recommendation layer, not a suitability profiling layer,
+not a broker-control layer, and not an execution layer.
+
+The audited modules remain contract, skeleton, placeholder, unavailable
+response, safety-helper, and audit layers only. Active UI, frontend
+components, desktop components, recommendation cards or widgets, action
+generation, confidence scoring, active DecisionObject display,
+readiness-to-trade, suitability profiling, broker controls, approvals,
+overrides, live market data display, and execution APIs remain forbidden.
+
+## Prompt 62 Retail Trader Experience API/Display Integration Readiness Audit
+
+Prompt 62 adds Retail Trader Experience API/Display Integration Readiness
+Audit artifacts as an audit layer over Retail Trader Experience planning, API
+skeleton, display skeleton, safety boundary audit, milestone audit, and
+system boundary hardening modules. It is not an active UI layer, not a
+frontend implementation, not a desktop implementation, not a market-data
+ingestion layer, not a recommendation layer, not a suitability profiling
+layer, not a broker-control layer, and not an execution layer.
+
+The audited modules remain contract, skeleton, placeholder, unavailable
+response, boundary metadata, safety-helper, and audit layers only. Active UI,
+frontend components, desktop components, recommendation cards or widgets,
+action generation, confidence scoring, active DecisionObject display,
+readiness-to-trade, suitability profiling, broker controls, approvals,
+overrides, live market data display, API-to-display recommendation paths,
+display-to-decision paths, persona-to-suitability-profile paths,
+journey-to-trading-advice paths, boundary bypass paths, and execution APIs
+remain forbidden.
+
+## Retail Trader Experience Boundary Hardening - Prompt 61
+
+Retail Trader Experience System Boundary Hardening adds the
+`retail_trader_experience_boundary` package as a core experience hardening
+layer, not an active UI layer, not a suitability layer, and not an execution
+layer. It defines a forbidden behavior registry, endpoint boundary policies,
+module boundary policies, cross-module invariant helpers, health metadata, and
+read-only `/retail-trader-experience-boundary/*` endpoints.
+
+This boundary layer performs no external calls, reads no market data, writes no
+files, publishes no events, creates no frontend components, creates no desktop
+components, generates no recommendations, scores no confidence, generates no
+DecisionObjects, generates no readiness-to-trade, performs no suitability
+profiling, exposes no broker controls, grants no approvals or overrides, and
+creates no execution APIs.
+
+## Retail Trader Experience Milestone Audit - Prompt 60
+
+Retail Trader Experience Milestone Audit is an audit layer over the planning,
+API, display, and safety boundary audit layers. It is not an active UI layer,
+not a frontend implementation, not a desktop implementation, not a market-data
+ingestion layer, not a recommendation layer, not a suitability profiling
+layer, not a broker-control layer, and not an execution layer.
+
+The audited modules remain contract, skeleton, placeholder, unavailable
+response, safety-helper, and audit layers only. Active UI, frontend
+components, desktop components, recommendation cards or widgets, action
+generation, confidence scoring, active DecisionObject display,
+readiness-to-trade, suitability profiling, broker controls, approvals,
+overrides, live market data display, and execution APIs remain forbidden.
+
 ## Prompt 54 Retail Dashboard Boundary Hardening Layer
 
 Prompt 54 adds the `retail_dashboard_boundary` package as a core dashboard
@@ -607,6 +770,56 @@ This boundary layer performs no external calls, reads no market data, writes no
 files, publishes no events, creates no frontend components, creates no desktop
 components, generates no recommendations, scores no confidence, generates no
 DecisionObjects, exposes no broker controls, and creates no execution APIs.
+
+## Prompt 55 Retail Dashboard API/Display Integration Readiness Audit
+
+Prompt 55 adds Retail Dashboard API/Display Integration Readiness Audit
+artifacts as an audit layer over Retail Dashboard planning, API skeleton,
+display skeleton, safety/milestone audits, and boundary hardening modules. It
+is not an active UI layer, not a frontend implementation, not a desktop UI
+implementation, not a broker-control layer, and not an execution layer.
+
+The audited modules remain contract, skeleton, placeholder, unavailable
+response, boundary metadata, and audit layers only. Active UI, recommendation
+cards, action generation, confidence scoring, active DecisionObject display,
+readiness-to-trade, broker controls, approvals, overrides, live market data
+display, API-to-display recommendation paths, display-to-decision paths,
+boundary bypass paths, and execution APIs remain forbidden.
+
+## Prompt 56 Retail Trader Experience Planning Layer
+
+Prompt 56 adds `retail_trader_experience` as a core experience contract layer,
+not an active UI layer and not an execution layer. It defines planning
+contracts, persona placeholders, journey placeholders, experience section/card
+placeholders, context reference placeholders, forbidden interactions, safety
+helpers, readiness templates, health metadata, and read-only
+`/retail-trader-experience/*` endpoints.
+
+This planning layer performs no external calls, reads no market data, writes no
+files, publishes no events, creates no frontend components, creates no desktop
+components, generates no recommendations, scores no confidence, generates no
+DecisionObjects, performs no suitability profiling, exposes no broker controls,
+and creates no execution APIs.
+
+## Prompt 65 Strategy Research Workspace Display Contract Layer
+
+Prompt 65 adds `strategy_research_workspace_display` as a core research
+display contract layer, not an active UI layer, not a frontend implementation,
+not a desktop implementation, not a strategy layer, not a backtesting layer,
+not a recommendation layer, and not an execution layer. It defines display
+contract metadata, workspace/artifact/paper/hypothesis/dataset/experiment
+visual placeholders, badge placeholders, unavailable display responses,
+display safety helpers, health metadata, and read-only
+`/strategy-research-workspace-display/*` endpoints.
+
+This display contract layer performs no external calls, reads no market data,
+writes no files, publishes no events, creates no frontend components, creates
+no desktop components, ingests no papers, parses no papers, generates no
+strategies, generates no strategy code, runs no backtests, runs no
+optimization, generates no recommendations, generates no action states, scores
+no confidence, generates no DecisionObjects, generates no readiness-to-trade,
+exposes no broker controls, grants no approvals or overrides, and creates no
+execution APIs.
 
 ## Prompt 53 Retail Dashboard Milestone Audit
 

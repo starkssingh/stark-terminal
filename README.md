@@ -8,9 +8,9 @@ Evidence before decision. Safety before execution. Research before automation. D
 
 ## Current Status
 
-Prompt 53 Retail Dashboard Milestone Audit.
+Prompt 67 Strategy Research Workspace Milestone Audit.
 
-This repository currently contains the verified foundation only: project control documents, institutional architecture documentation, Prompt 11 audit artifacts, Prompt 17 data foundation audit artifacts, Prompt 22 data foundation milestone audit artifacts, Prompt 25 provider adapter milestone audit artifacts, Prompt 26 analytics foundation plan artifacts, Prompt 27 numerical analytics core contract artifacts, Prompt 28 returns/rolling analytics artifacts, Prompt 29 volatility/drawdown analytics artifacts, Prompt 30 analytics milestone audit artifacts, Prompt 31 correlation/beta analytics artifacts, Prompt 32 time-series diagnostics artifacts, Prompt 33 regime analytics planning/guardrail artifacts, Prompt 34 regime feature preparation contract artifacts, Prompt 35 analytics/regime milestone audit artifacts, Prompt 36 Retail Decision Desk planning/guardrail artifacts, Prompt 38 DecisionObject evidence bundle contract artifacts, Prompt 39 Decision Safety and Human-Review Guardrail artifacts, Prompt 40 Decision Desk API Contract Skeleton artifacts, Prompt 41 Decision Desk Milestone Audit artifacts, Prompt 42 Decision Desk Readiness API Skeleton artifacts, Prompt 43 Decision Desk Display Contract Skeleton artifacts, Prompt 44 Decision Desk Evidence Bundle Validation v0 artifacts, Prompt 45 Decision Desk Human Review Workflow Skeleton artifacts, Prompt 46 Decision Desk Milestone Audit 2 artifacts, Prompt 47 Decision Desk System Boundary Hardening artifacts, Prompt 48 Decision Desk API/Display Integration Readiness Audit artifacts, Prompt 49 Retail Dashboard Planning and Guardrails artifacts, Prompt 50 Retail Dashboard API Contract Skeleton artifacts, Prompt 51 Retail Dashboard Display Contract Skeleton artifacts, Prompt 52 Retail Dashboard Safety Boundary Audit artifacts, Prompt 53 Retail Dashboard Milestone Audit artifacts, provider readiness/candidate selection governance, package skeletons, typed configuration, core domain schemas, SQLAlchemy/Alembic metadata persistence foundation, Instrument Metadata Persistence Wiring, Market Data Batch Persistence Contracts, TimescaleDB-oriented operational time-series schema foundation, TimescaleDB Synthetic OHLCV Storage Foundation, Synthetic OHLCV Research Lake Export Contract, Provider Adapter Guardrails, Local Sample Provider Adapter v0, Local File Provider Adapter v0, DuckDB + Parquet research lake foundation, Redis cache foundation, Redis Streams event pipeline foundation, Kafka/Redpanda Event Backbone foundation, Data Quality + Validation Framework, Synthetic Market Data Fixtures, Worker System foundation, Instrument Master/Provider Contracts foundation, ClickHouse Warehouse foundation, Feature Registry foundation, FastAPI health/config/database-health/timeseries-health/research-lake-health/cache-health/streams-health/event-backbone-health/data-quality-health/fixtures-health/instrument-metadata-health/market-data-batches-health/synthetic-ohlcv-storage-health/synthetic-ohlcv-exports-health/provider-guardrails-health/provider-readiness-health/local-sample-provider-health/local-file-provider-health/analytics-foundation-health/numerical-analytics-health/returns-analytics-health/risk-analytics-health/relationship-analytics-health/time-series-diagnostics-health/regime-analytics-health/regime-features-health/decision-desk-health/decision-evidence-health/decision-safety-health/decision-desk-api-health/decision-readiness-api-health/decision-display-health/decision-evidence-validation-health/decision-human-review-health/decision-boundary-health/retail-dashboard-health/retail-dashboard-api-health/retail-dashboard-display-health/workers-health/instrument-health/provider-health/warehouse-health/feature-registry-health surfaces, a minimal PySide6 desktop shell placeholder, an enriched DecisionObject schema placeholder, tests, an audit script, and a verification script.
+This repository currently contains the verified foundation only: project control documents, institutional architecture documentation, Prompt 11 audit artifacts, Prompt 17 data foundation audit artifacts, Prompt 22 data foundation milestone audit artifacts, Prompt 25 provider adapter milestone audit artifacts, Prompt 26 analytics foundation plan artifacts, Prompt 27 numerical analytics core contract artifacts, Prompt 28 returns/rolling analytics artifacts, Prompt 29 volatility/drawdown analytics artifacts, Prompt 30 analytics milestone audit artifacts, Prompt 31 correlation/beta analytics artifacts, Prompt 32 time-series diagnostics artifacts, Prompt 33 regime analytics planning/guardrail artifacts, Prompt 34 regime feature preparation contract artifacts, Prompt 35 analytics/regime milestone audit artifacts, Prompt 36 Retail Decision Desk planning/guardrail artifacts, Prompt 38 DecisionObject evidence bundle contract artifacts, Prompt 39 Decision Safety and Human-Review Guardrail artifacts, Prompt 40 Decision Desk API Contract Skeleton artifacts, Prompt 41 Decision Desk Milestone Audit artifacts, Prompt 42 Decision Desk Readiness API Skeleton artifacts, Prompt 43 Decision Desk Display Contract Skeleton artifacts, Prompt 44 Decision Desk Evidence Bundle Validation v0 artifacts, Prompt 45 Decision Desk Human Review Workflow Skeleton artifacts, Prompt 46 Decision Desk Milestone Audit 2 artifacts, Prompt 47 Decision Desk System Boundary Hardening artifacts, Prompt 48 Decision Desk API/Display Integration Readiness Audit artifacts, Prompt 49 Retail Dashboard Planning and Guardrails artifacts, Prompt 50 Retail Dashboard API Contract Skeleton artifacts, Prompt 51 Retail Dashboard Display Contract Skeleton artifacts, Prompt 52 Retail Dashboard Safety Boundary Audit artifacts, Prompt 53 Retail Dashboard Milestone Audit artifacts, Prompt 54 Retail Dashboard System Boundary Hardening artifacts, Prompt 55 Retail Dashboard API/Display Integration Readiness Audit artifacts, Prompt 56 Retail Trader Experience Planning and Guardrails artifacts, Prompt 57 Retail Trader Experience API Contract Skeleton artifacts, Prompt 58 Retail Trader Experience Display Contract Skeleton artifacts, Prompt 59 Retail Trader Experience Safety Boundary Audit artifacts, Prompt 60 Retail Trader Experience Milestone Audit artifacts, Prompt 61 Retail Trader Experience System Boundary Hardening artifacts, Prompt 62 Retail Trader Experience API/Display Integration Readiness Audit artifacts, Prompt 63 Strategy Research Workspace Planning and Guardrails artifacts, Prompt 64 Strategy Research Workspace API Contract Skeleton artifacts, Prompt 65 Strategy Research Workspace Display Contract Skeleton artifacts, Prompt 66 Strategy Research Workspace Safety Boundary Audit artifacts, Prompt 67 Strategy Research Workspace Milestone Audit artifacts, provider readiness/candidate selection governance, package skeletons, typed configuration, core domain schemas, SQLAlchemy/Alembic metadata persistence foundation, Instrument Metadata Persistence Wiring, Market Data Batch Persistence Contracts, TimescaleDB-oriented operational time-series schema foundation, TimescaleDB Synthetic OHLCV Storage Foundation, Synthetic OHLCV Research Lake Export Contract, Provider Adapter Guardrails, Local Sample Provider Adapter v0, Local File Provider Adapter v0, DuckDB + Parquet research lake foundation, Redis cache foundation, Redis Streams event pipeline foundation, Kafka/Redpanda Event Backbone foundation, Data Quality + Validation Framework, Synthetic Market Data Fixtures, Worker System foundation, Instrument Master/Provider Contracts foundation, ClickHouse Warehouse foundation, Feature Registry foundation, FastAPI health/config/database-health/timeseries-health/research-lake-health/cache-health/streams-health/event-backbone-health/data-quality-health/fixtures-health/instrument-metadata-health/market-data-batches-health/synthetic-ohlcv-storage-health/synthetic-ohlcv-exports-health/provider-guardrails-health/provider-readiness-health/local-sample-provider-health/local-file-provider-health/analytics-foundation-health/numerical-analytics-health/returns-analytics-health/risk-analytics-health/relationship-analytics-health/time-series-diagnostics-health/regime-analytics-health/regime-features-health/decision-desk-health/decision-evidence-health/decision-safety-health/decision-desk-api-health/decision-readiness-api-health/decision-display-health/decision-evidence-validation-health/decision-human-review-health/decision-boundary-health/retail-dashboard-health/retail-dashboard-api-health/retail-dashboard-display-health/retail-dashboard-boundary-health/retail-trader-experience-health/retail-trader-experience-api-health/retail-trader-experience-display-health/retail-trader-experience-boundary-health/strategy-research-workspace-health/strategy-research-workspace-api-health/strategy-research-workspace-display-health/workers-health/instrument-health/provider-health/warehouse-health/feature-registry-health surfaces, a minimal PySide6 desktop shell placeholder, an enriched DecisionObject schema placeholder, tests, an audit script, and a verification script.
 
 ## High-Level Architecture
 
@@ -22,7 +22,7 @@ Stark Terminal is designed as a cloud-brain plus Windows-native terminal:
 - Core domain contracts shared by backend, analytics, and future worker pipelines.
 - Institutional-grade data and analytics architecture locked in documentation before implementation.
 
-Stark Terminal intentionally targets an institutional-grade stack, including PostgreSQL, TimescaleDB, DuckDB, Parquet, Redis, Redis Streams, Kafka or Redpanda-compatible event replay, data quality gates, synthetic local test fixtures, repository/service persistence layers, worker pipelines, Instrument Master/Provider Contracts, Provider Adapter Guardrails, provider readiness governance, Local Sample Provider Adapter v0, Local File Provider Adapter v0, ClickHouse Warehouse, a custom Stark Feature Registry, and future Feast evaluation. Current prompts implement only controlled foundations, data-foundation milestone audit coverage, provider adapter milestone audit coverage, synthetic-only OHLCV storage, synthetic-only research lake export contracts, provider guardrails, provider candidate selection/risk scoring, a synthetic/local-only provider adapter, a local-file-only test/dev provider adapter, analytics foundation planning contracts, numerical analytics contracts with tiny descriptive count/min/max/mean helpers, descriptive simple/log returns plus rolling count/mean/min/max, descriptive volatility/drawdown metrics, descriptive correlation/beta metrics, descriptive time-series timestamp diagnostics, regime analytics planning/guardrails, regime feature preparation contracts, analytics/regime milestone audit coverage, Retail Decision Desk planning/guardrail contracts, DecisionObject evidence bundle contracts, Decision Safety human-review guardrails, Decision Desk API contract skeleton unavailable responses, Decision Desk milestone audit coverage, Decision Desk Readiness API skeleton unavailable responses, Decision Desk Display contract skeleton unavailable responses, Decision Evidence Validation v0 contract checks, Decision Human Review workflow skeleton placeholders, Decision Boundary hardening contracts, Decision API/display integration readiness audit artifacts, Retail Dashboard planning/guardrail placeholders, Retail Dashboard API contract skeleton placeholders, and Retail Dashboard Display contract skeleton placeholders; production Kafka/Redpanda pipelines, Feast integration, real production workers, real market data ingestion, external provider calls, live provider clients, provider SDKs, scraping, credentials, production approval, arbitrary file read APIs, production OHLCV ingestion, production dashboards, active Retail Dashboard UI, frontend components, desktop UI components, recommendation cards, broker controls, Retail Dashboard implementation, active Decision Desk implementation, active human review workflow, task assignment, reviewer auth, notifications, readiness-to-trade generation, active DecisionObject generation, approvals, overrides, recommendation generation, action generation, confidence scoring, feature computation, feature registry writes, classifier inputs, production validation pipelines, stationarity tests, actual regime classification, regime detection, backtests, computed regimes, and analytics signals remain deferred.
+Stark Terminal intentionally targets an institutional-grade stack, including PostgreSQL, TimescaleDB, DuckDB, Parquet, Redis, Redis Streams, Kafka or Redpanda-compatible event replay, data quality gates, synthetic local test fixtures, repository/service persistence layers, worker pipelines, Instrument Master/Provider Contracts, Provider Adapter Guardrails, provider readiness governance, Local Sample Provider Adapter v0, Local File Provider Adapter v0, ClickHouse Warehouse, a custom Stark Feature Registry, and future Feast evaluation. Current prompts implement only controlled foundations, data-foundation milestone audit coverage, provider adapter milestone audit coverage, synthetic-only OHLCV storage, synthetic-only research lake export contracts, provider guardrails, provider candidate selection/risk scoring, a synthetic/local-only provider adapter, a local-file-only test/dev provider adapter, analytics foundation planning contracts, numerical analytics contracts with tiny descriptive count/min/max/mean helpers, descriptive simple/log returns plus rolling count/mean/min/max, descriptive volatility/drawdown metrics, descriptive correlation/beta metrics, descriptive time-series timestamp diagnostics, regime analytics planning/guardrails, regime feature preparation contracts, analytics/regime milestone audit coverage, Retail Decision Desk planning/guardrail contracts, DecisionObject evidence bundle contracts, Decision Safety human-review guardrails, Decision Desk API contract skeleton unavailable responses, Decision Desk milestone audit coverage, Decision Desk Readiness API skeleton unavailable responses, Decision Desk Display contract skeleton unavailable responses, Decision Evidence Validation v0 contract checks, Decision Human Review workflow skeleton placeholders, Decision Boundary hardening contracts, Decision API/display integration readiness audit artifacts, Retail Dashboard planning/guardrail placeholders, Retail Dashboard API contract skeleton placeholders, Retail Dashboard Display contract skeleton placeholders, Retail Dashboard boundary hardening contracts, Retail Dashboard API/display integration readiness audit artifacts, and Retail Trader Experience planning/guardrail placeholders; production Kafka/Redpanda pipelines, Feast integration, real production workers, real market data ingestion, external provider calls, live provider clients, provider SDKs, scraping, credentials, production approval, arbitrary file read APIs, production OHLCV ingestion, production dashboards, active Retail Dashboard UI, active Retail Trader Experience UI, frontend components, desktop UI components, suitability profiling, recommendation cards, broker controls, Retail Dashboard implementation, Retail Trader Experience implementation, active Decision Desk implementation, active human review workflow, task assignment, reviewer auth, notifications, readiness-to-trade generation, active DecisionObject generation, approvals, overrides, recommendation generation, action generation, confidence scoring, feature computation, feature registry writes, classifier inputs, production validation pipelines, stationarity tests, actual regime classification, regime detection, backtests, computed regimes, and analytics signals remain deferred.
 
 ## Local Development
 
@@ -97,3 +97,112 @@ active UI, frontend components, desktop UI components, active widgets,
 recommendation cards, action generation, confidence scoring, active
 DecisionObject display or generation, readiness-to-trade, broker controls,
 approvals, overrides, real market data display, or execution APIs.
+
+Retail Dashboard API/Display Integration Readiness Audit artifacts confirm the
+Retail Dashboard planning, API, display, safety, milestone, and boundary
+layers are ready for Retail Trader Experience Planning and Guardrails only.
+They do not create active UI, frontend components, desktop UI components,
+active widgets, recommendation cards, action generation, confidence scoring,
+active DecisionObject display or generation, readiness-to-trade, broker
+controls, approvals, overrides, real market data display, API-to-display
+recommendation paths, display-to-decision paths, boundary bypass paths, or
+execution APIs.
+
+Retail Trader Experience Planning and Guardrails artifacts are planning-only
+contracts, placeholders, safety policies, readiness templates, and read-only
+endpoint metadata. They do not create active UI, frontend components, desktop
+components, recommendation cards, action generation, confidence scoring,
+active DecisionObject display or generation, readiness-to-trade, suitability
+profiling, broker controls, approvals, overrides, real market data display,
+or execution APIs.
+
+Retail Trader Experience API Contract Skeleton artifacts are read-only,
+unavailable-by-default API contracts, request placeholders, response
+placeholders, persona/journey/dashboard/decision/safety reference placeholders,
+unavailable responses, metadata, and health surfaces. They do not create active
+UI, frontend components, desktop components, recommendation cards, action
+generation, confidence scoring, active DecisionObject display or generation,
+readiness-to-trade, suitability profiling, broker controls, approvals,
+overrides, real market data display, or execution APIs.
+
+Retail Trader Experience Display Contract Skeleton artifacts are read-only,
+unavailable-by-default display contracts, persona visual placeholders, journey
+visual placeholders, visual sections, widgets, badges, unavailable display
+responses, metadata, and health surfaces. They do not create active UI,
+frontend components, desktop components, recommendation cards or widgets,
+action generation, confidence scoring, active DecisionObject display or
+generation, readiness-to-trade, suitability profiling, broker controls,
+approvals, overrides, real market data display, or execution APIs.
+
+Retail Trader Experience Safety Boundary Audit artifacts confirm the Retail
+Trader Experience planning, API skeleton, and display skeleton remain
+contract/skeleton/audit layers only. They do not create active UI, frontend
+components, desktop components, recommendation cards or widgets, action
+generation, confidence scoring, active DecisionObject display or generation,
+readiness-to-trade, suitability profiling, broker controls, approvals,
+overrides, real market data display, external calls, or execution APIs.
+
+Retail Trader Experience Milestone Audit artifacts confirm the Retail Trader
+Experience planning phase is ready for system boundary hardening only. They do
+not create active UI, frontend components, desktop components, recommendation
+cards or widgets, action generation, confidence scoring, active DecisionObject
+display or generation, readiness-to-trade, suitability profiling, broker
+controls, approvals, overrides, real market data display, external calls, or
+execution APIs.
+
+Retail Trader Experience System Boundary Hardening artifacts add a forbidden
+behavior registry, endpoint policies, module policies, cross-module
+invariants, and read-only boundary metadata endpoints only. They do not create
+active UI, frontend components, desktop components, recommendation cards or
+widgets, action generation, confidence scoring, active DecisionObject display
+or generation, readiness-to-trade, suitability profiling, broker controls,
+approvals, overrides, real market data display, external calls, or execution
+APIs.
+
+Retail Trader Experience API/Display Integration Readiness Audit artifacts
+confirm the Retail Trader Experience planning, API, display, safety, milestone,
+and boundary hardening layers are ready for Strategy Research Workspace
+Planning and Guardrails only. They do not create active UI, frontend
+components, desktop components, recommendation cards or widgets, action
+generation, confidence scoring, active DecisionObject display or generation,
+readiness-to-trade, suitability profiling, broker controls, approvals,
+overrides, API-to-display recommendation paths, display-to-decision paths,
+persona-to-suitability-profile paths, journey-to-trading-advice paths,
+boundary bypass paths, real market data display, external calls, or execution
+APIs.
+
+Strategy Research Workspace API Contract Skeleton artifacts are read-only,
+unavailable-by-default API contracts, request placeholders, response
+placeholders, workspace/artifact/paper/hypothesis/dataset/experiment/safety
+reference placeholders, unavailable responses, metadata, and health surfaces.
+They do not create active UI, frontend components, desktop components, paper
+ingestion, paper parsing, strategy generation, strategy code generation,
+backtesting, optimization, recommendation generation, action generation,
+confidence scoring, active DecisionObject generation or display,
+readiness-to-trade, broker controls, approvals, overrides, real market data
+display, broker behavior, or execution APIs.
+
+Strategy Research Workspace Display Contract Skeleton artifacts are read-only,
+unavailable-by-default display contracts, workspace visual placeholders,
+artifact visual placeholders, paper visual placeholders, hypothesis visual
+placeholders, dataset visual placeholders, experiment visual placeholders,
+badge placeholders, unavailable display responses, display safety helpers,
+metadata, and health surfaces. They do not create active UI, frontend
+components, desktop components, paper ingestion, paper parsing, strategy
+generation, strategy code generation, backtesting, optimization,
+recommendation generation, action generation, confidence scoring, active
+DecisionObject generation or display, readiness-to-trade, broker controls,
+approvals, overrides, real market data display, broker behavior, or execution
+APIs.
+
+Strategy Research Workspace Safety Boundary Audit artifacts confirm the
+Strategy Research Workspace planning, API skeleton, and display skeleton
+remain contract/skeleton/audit layers only. They do not create active UI,
+frontend components, desktop components, paper ingestion, paper parsing,
+strategy generation, strategy code generation, backtesting, optimization,
+recommendation generation, action generation, confidence scoring, active
+DecisionObject generation or display, readiness-to-trade, broker controls,
+approvals, overrides, real market data display, external calls, or execution
+APIs.
+
+Strategy Research Workspace Milestone Audit artifacts confirm the planning, API skeleton, display skeleton, and safety boundary audit are complete as a contract/skeleton/audit phase only. They do not create active UI, frontend components, desktop components, paper ingestion, paper parsing, strategy generation, strategy code generation, backtesting, optimization, recommendation generation, action generation, confidence scoring, active DecisionObject generation or display, readiness-to-trade, broker controls, approvals, overrides, real market data display, external calls, or execution APIs. Prompt 67 is ready for Strategy Research Workspace System Boundary Hardening only.

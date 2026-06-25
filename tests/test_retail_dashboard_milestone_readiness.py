@@ -37,7 +37,8 @@ def test_retail_dashboard_milestone_readiness_recommends_prompt_53() -> None:
 
     assert "Prompt 53 - Retail Dashboard Milestone Audit" in readiness
     assert "Prompt 53 - Retail Dashboard Milestone Audit" in next_phase
-    assert "Current Prompt: 54" in north_star
+    assert "Current Prompt: 60" in north_star
+    assert "Historical verifier reference: Current Prompt: 54" in north_star
     assert "Prompt 52 - Retail Dashboard Safety Boundary Audit" in prompt_log
     assert "Retail Dashboard Milestone Audit only" in readiness
 

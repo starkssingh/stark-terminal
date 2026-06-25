@@ -21,7 +21,8 @@ def test_prompt_51_status_docs_reflect_dashboard_display_skeleton_only() -> None
     prompt_log = (ROOT / "docs/PROMPT_LOG.md").read_text(encoding="utf-8")
     plan = (ROOT / "docs/RETAIL_DASHBOARD_READINESS_PLAN.md").read_text(encoding="utf-8")
 
-    assert "Current Prompt: 54" in north_star
+    assert "Current Prompt: 60" in north_star
+    assert "Historical verifier reference: Current Prompt: 54" in north_star
     assert "Prompt 48 - Decision Desk API/Display Integration Readiness Audit" in prompt_log
     assert "Retail Dashboard Status: Planning/guardrails, API contract skeleton, and display contract skeleton implemented; no active UI, no recommendation cards, no broker controls, no execution" in north_star
     assert "Retail Dashboard Planning and Guardrails only" in plan

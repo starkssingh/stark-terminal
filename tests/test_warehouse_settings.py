@@ -7,7 +7,7 @@ from stark_terminal_core.config.settings import Settings
 def test_warehouse_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "54"
+    assert settings.prompt_number == "67"
     assert settings.clickhouse_enabled is False
     assert settings.clickhouse_host == "localhost"
     assert settings.clickhouse_port == 8123

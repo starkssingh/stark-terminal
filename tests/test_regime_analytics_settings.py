@@ -6,7 +6,7 @@ from stark_terminal_core.config.settings import Settings
 def test_regime_analytics_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "54"
+    assert settings.prompt_number == "67"
     assert settings.regime_analytics_enabled is True
     assert settings.regime_analytics_schema_version == "v1"
     assert settings.regime_analytics_allow_real_data is False

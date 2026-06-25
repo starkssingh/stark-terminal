@@ -35,9 +35,24 @@ from stark_terminal_api.routes.retail_dashboard import router as retail_dashboar
 from stark_terminal_api.routes.retail_dashboard_api import router as retail_dashboard_api_router
 from stark_terminal_api.routes.retail_dashboard_boundary import router as retail_dashboard_boundary_router
 from stark_terminal_api.routes.retail_dashboard_display import router as retail_dashboard_display_router
+from stark_terminal_api.routes.retail_trader_experience import router as retail_trader_experience_router
+from stark_terminal_api.routes.retail_trader_experience_api import router as retail_trader_experience_api_router
+from stark_terminal_api.routes.retail_trader_experience_boundary import (
+    router as retail_trader_experience_boundary_router,
+)
+from stark_terminal_api.routes.retail_trader_experience_display import (
+    router as retail_trader_experience_display_router,
+)
 from stark_terminal_api.routes.research_lake import router as research_lake_router
 from stark_terminal_api.routes.returns_analytics import router as returns_analytics_router
 from stark_terminal_api.routes.risk_analytics import router as risk_analytics_router
+from stark_terminal_api.routes.strategy_research_workspace import router as strategy_research_workspace_router
+from stark_terminal_api.routes.strategy_research_workspace_api import (
+    router as strategy_research_workspace_api_router,
+)
+from stark_terminal_api.routes.strategy_research_workspace_display import (
+    router as strategy_research_workspace_display_router,
+)
 from stark_terminal_api.routes.streams import router as streams_router
 from stark_terminal_api.routes.synthetic_ohlcv_storage import router as synthetic_ohlcv_storage_router
 from stark_terminal_api.routes.synthetic_ohlcv_exports import router as synthetic_ohlcv_exports_router
@@ -49,7 +64,7 @@ from stark_terminal_api.routes.workers import router as workers_router
 app = FastAPI(
     title="Stark Terminal API",
     version="0.1.0",
-    description="Prompt 54 institutional-grade foundation API shell.",
+    description="Prompt 67 institutional-grade foundation API shell.",
 )
 
 app.include_router(health_router)
@@ -74,6 +89,13 @@ app.include_router(retail_dashboard_router)
 app.include_router(retail_dashboard_api_router)
 app.include_router(retail_dashboard_display_router)
 app.include_router(retail_dashboard_boundary_router)
+app.include_router(retail_trader_experience_router)
+app.include_router(retail_trader_experience_api_router)
+app.include_router(retail_trader_experience_display_router)
+app.include_router(retail_trader_experience_boundary_router)
+app.include_router(strategy_research_workspace_router)
+app.include_router(strategy_research_workspace_api_router)
+app.include_router(strategy_research_workspace_display_router)
 app.include_router(config_router)
 app.include_router(database_router)
 app.include_router(timeseries_router)

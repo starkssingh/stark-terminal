@@ -48,6 +48,7 @@ def test_prompt_51_status_docs_are_updated() -> None:
     project_map = (ROOT / "PROJECT_MAP.md").read_text(encoding="utf-8")
 
     assert "Prompt 51 - Retail Dashboard Display Contract Skeleton" in prompt_log
-    assert "Current Prompt: 54" in north_star
+    assert "Current Prompt: 60" in north_star
+    assert "Historical verifier reference: Current Prompt: 54" in north_star
     assert "Completed Prompts: 55 after completion" in north_star
     assert "Retail Dashboard Display Contract Skeleton" in project_map

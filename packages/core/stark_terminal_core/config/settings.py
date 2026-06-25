@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     stark_env: str = "development"
     app_name: str = "Stark Terminal"
     app_version: str = "0.1.0"
-    prompt_number: str = "54"
+    prompt_number: str = "67"
 
     api_host: str = "127.0.0.1"
     api_port: int = Field(default=8000, ge=1, le=65535)
@@ -416,6 +416,138 @@ class Settings(BaseSettings):
     retail_dashboard_boundary_allow_approval: bool = False
     retail_dashboard_boundary_allow_override: bool = False
     retail_dashboard_boundary_stage: str = "boundary_hardening"
+    retail_trader_experience_enabled: bool = True
+    retail_trader_experience_schema_version: str = "v1"
+    retail_trader_experience_allow_active_ui: bool = False
+    retail_trader_experience_allow_frontend_components: bool = False
+    retail_trader_experience_allow_desktop_components: bool = False
+    retail_trader_experience_allow_recommendations: bool = False
+    retail_trader_experience_allow_action_generation: bool = False
+    retail_trader_experience_allow_confidence_scoring: bool = False
+    retail_trader_experience_allow_decision_object_generation: bool = False
+    retail_trader_experience_allow_readiness_to_trade: bool = False
+    retail_trader_experience_allow_broker_controls: bool = False
+    retail_trader_experience_allow_execution: bool = False
+    retail_trader_experience_allow_approval: bool = False
+    retail_trader_experience_allow_override: bool = False
+    retail_trader_experience_return_unavailable_by_default: bool = True
+    retail_trader_experience_stage: str = "planning_and_guardrails"
+    retail_trader_experience_api_enabled: bool = True
+    retail_trader_experience_api_schema_version: str = "v1"
+    retail_trader_experience_api_allow_active_ui: bool = False
+    retail_trader_experience_api_allow_frontend_components: bool = False
+    retail_trader_experience_api_allow_desktop_components: bool = False
+    retail_trader_experience_api_allow_recommendations: bool = False
+    retail_trader_experience_api_allow_action_generation: bool = False
+    retail_trader_experience_api_allow_confidence_scoring: bool = False
+    retail_trader_experience_api_allow_decision_object_generation: bool = False
+    retail_trader_experience_api_allow_readiness_to_trade: bool = False
+    retail_trader_experience_api_allow_broker_controls: bool = False
+    retail_trader_experience_api_allow_execution: bool = False
+    retail_trader_experience_api_allow_approval: bool = False
+    retail_trader_experience_api_allow_override: bool = False
+    retail_trader_experience_api_allow_suitability_profiling: bool = False
+    retail_trader_experience_api_return_unavailable_by_default: bool = True
+    retail_trader_experience_api_stage: str = "api_contract_skeleton"
+    retail_trader_experience_display_enabled: bool = True
+    retail_trader_experience_display_schema_version: str = "v1"
+    retail_trader_experience_display_allow_active_ui: bool = False
+    retail_trader_experience_display_allow_frontend_components: bool = False
+    retail_trader_experience_display_allow_desktop_components: bool = False
+    retail_trader_experience_display_allow_recommendations: bool = False
+    retail_trader_experience_display_allow_action_generation: bool = False
+    retail_trader_experience_display_allow_confidence_scoring: bool = False
+    retail_trader_experience_display_allow_decision_object_generation: bool = False
+    retail_trader_experience_display_allow_readiness_to_trade: bool = False
+    retail_trader_experience_display_allow_broker_controls: bool = False
+    retail_trader_experience_display_allow_execution: bool = False
+    retail_trader_experience_display_allow_approval: bool = False
+    retail_trader_experience_display_allow_override: bool = False
+    retail_trader_experience_display_allow_suitability_profiling: bool = False
+    retail_trader_experience_display_return_unavailable_by_default: bool = True
+    retail_trader_experience_display_stage: str = "display_contract_skeleton"
+    retail_trader_experience_boundary_enabled: bool = True
+    retail_trader_experience_boundary_schema_version: str = "v1"
+    retail_trader_experience_boundary_allow_active_ui: bool = False
+    retail_trader_experience_boundary_allow_frontend_components: bool = False
+    retail_trader_experience_boundary_allow_desktop_components: bool = False
+    retail_trader_experience_boundary_allow_recommendations: bool = False
+    retail_trader_experience_boundary_allow_action_generation: bool = False
+    retail_trader_experience_boundary_allow_confidence_scoring: bool = False
+    retail_trader_experience_boundary_allow_decision_object_generation: bool = False
+    retail_trader_experience_boundary_allow_readiness_to_trade: bool = False
+    retail_trader_experience_boundary_allow_broker_controls: bool = False
+    retail_trader_experience_boundary_allow_execution: bool = False
+    retail_trader_experience_boundary_allow_approval: bool = False
+    retail_trader_experience_boundary_allow_override: bool = False
+    retail_trader_experience_boundary_allow_suitability_profiling: bool = False
+    retail_trader_experience_boundary_stage: str = "boundary_hardening"
+    strategy_research_workspace_enabled: bool = True
+    strategy_research_workspace_schema_version: str = "v1"
+    strategy_research_workspace_allow_active_ui: bool = False
+    strategy_research_workspace_allow_frontend_components: bool = False
+    strategy_research_workspace_allow_desktop_components: bool = False
+    strategy_research_workspace_allow_paper_ingestion: bool = False
+    strategy_research_workspace_allow_paper_parsing: bool = False
+    strategy_research_workspace_allow_strategy_generation: bool = False
+    strategy_research_workspace_allow_strategy_code_generation: bool = False
+    strategy_research_workspace_allow_backtesting: bool = False
+    strategy_research_workspace_allow_optimization: bool = False
+    strategy_research_workspace_allow_recommendations: bool = False
+    strategy_research_workspace_allow_action_generation: bool = False
+    strategy_research_workspace_allow_confidence_scoring: bool = False
+    strategy_research_workspace_allow_decision_object_generation: bool = False
+    strategy_research_workspace_allow_readiness_to_trade: bool = False
+    strategy_research_workspace_allow_broker_controls: bool = False
+    strategy_research_workspace_allow_execution: bool = False
+    strategy_research_workspace_allow_approval: bool = False
+    strategy_research_workspace_allow_override: bool = False
+    strategy_research_workspace_return_unavailable_by_default: bool = True
+    strategy_research_workspace_stage: str = "planning_and_guardrails"
+    strategy_research_workspace_api_enabled: bool = True
+    strategy_research_workspace_api_schema_version: str = "v1"
+    strategy_research_workspace_api_allow_active_ui: bool = False
+    strategy_research_workspace_api_allow_frontend_components: bool = False
+    strategy_research_workspace_api_allow_desktop_components: bool = False
+    strategy_research_workspace_api_allow_paper_ingestion: bool = False
+    strategy_research_workspace_api_allow_paper_parsing: bool = False
+    strategy_research_workspace_api_allow_strategy_generation: bool = False
+    strategy_research_workspace_api_allow_strategy_code_generation: bool = False
+    strategy_research_workspace_api_allow_backtesting: bool = False
+    strategy_research_workspace_api_allow_optimization: bool = False
+    strategy_research_workspace_api_allow_recommendations: bool = False
+    strategy_research_workspace_api_allow_action_generation: bool = False
+    strategy_research_workspace_api_allow_confidence_scoring: bool = False
+    strategy_research_workspace_api_allow_decision_object_generation: bool = False
+    strategy_research_workspace_api_allow_readiness_to_trade: bool = False
+    strategy_research_workspace_api_allow_broker_controls: bool = False
+    strategy_research_workspace_api_allow_execution: bool = False
+    strategy_research_workspace_api_allow_approval: bool = False
+    strategy_research_workspace_api_allow_override: bool = False
+    strategy_research_workspace_api_return_unavailable_by_default: bool = True
+    strategy_research_workspace_api_stage: str = "api_contract_skeleton"
+    strategy_research_workspace_display_enabled: bool = True
+    strategy_research_workspace_display_schema_version: str = "v1"
+    strategy_research_workspace_display_allow_active_ui: bool = False
+    strategy_research_workspace_display_allow_frontend_components: bool = False
+    strategy_research_workspace_display_allow_desktop_components: bool = False
+    strategy_research_workspace_display_allow_paper_ingestion: bool = False
+    strategy_research_workspace_display_allow_paper_parsing: bool = False
+    strategy_research_workspace_display_allow_strategy_generation: bool = False
+    strategy_research_workspace_display_allow_strategy_code_generation: bool = False
+    strategy_research_workspace_display_allow_backtesting: bool = False
+    strategy_research_workspace_display_allow_optimization: bool = False
+    strategy_research_workspace_display_allow_recommendations: bool = False
+    strategy_research_workspace_display_allow_action_generation: bool = False
+    strategy_research_workspace_display_allow_confidence_scoring: bool = False
+    strategy_research_workspace_display_allow_decision_object_generation: bool = False
+    strategy_research_workspace_display_allow_readiness_to_trade: bool = False
+    strategy_research_workspace_display_allow_broker_controls: bool = False
+    strategy_research_workspace_display_allow_execution: bool = False
+    strategy_research_workspace_display_allow_approval: bool = False
+    strategy_research_workspace_display_allow_override: bool = False
+    strategy_research_workspace_display_return_unavailable_by_default: bool = True
+    strategy_research_workspace_display_stage: str = "display_contract_skeleton"
 
     feature_store_mode: str = "custom"
     feature_registry_enabled: bool = False
@@ -597,6 +729,13 @@ class Settings(BaseSettings):
         "retail_dashboard_api_schema_version",
         "retail_dashboard_display_schema_version",
         "retail_dashboard_boundary_schema_version",
+        "retail_trader_experience_schema_version",
+        "retail_trader_experience_api_schema_version",
+        "retail_trader_experience_display_schema_version",
+        "retail_trader_experience_boundary_schema_version",
+        "strategy_research_workspace_schema_version",
+        "strategy_research_workspace_api_schema_version",
+        "strategy_research_workspace_display_schema_version",
     )
     @classmethod
     def persistence_schema_version_must_be_non_empty(cls, value: str) -> str:
@@ -830,6 +969,104 @@ class Settings(BaseSettings):
         normalized = value.strip().lower()
         if normalized not in {"boundary_hardening", "audit_only", "blocked"}:
             raise ValueError("retail_dashboard_boundary_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("retail_trader_experience_stage")
+    @classmethod
+    def retail_trader_experience_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "planning_and_guardrails",
+            "unavailable_only",
+            "persona_placeholders",
+            "journey_placeholders",
+            "active_ui_planned",
+            "blocked",
+        }:
+            raise ValueError("retail_trader_experience_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("retail_trader_experience_api_stage")
+    @classmethod
+    def retail_trader_experience_api_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "api_contract_skeleton",
+            "unavailable_only",
+            "reference_placeholders",
+            "active_ui_planned",
+            "blocked",
+        }:
+            raise ValueError("retail_trader_experience_api_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("retail_trader_experience_display_stage")
+    @classmethod
+    def retail_trader_experience_display_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "display_contract_skeleton",
+            "unavailable_only",
+            "persona_placeholders",
+            "journey_placeholders",
+            "active_ui_planned",
+            "blocked",
+        }:
+            raise ValueError("retail_trader_experience_display_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("retail_trader_experience_boundary_stage")
+    @classmethod
+    def retail_trader_experience_boundary_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {"boundary_hardening", "audit_only", "blocked"}:
+            raise ValueError("retail_trader_experience_boundary_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("strategy_research_workspace_stage")
+    @classmethod
+    def strategy_research_workspace_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "planning_and_guardrails",
+            "unavailable_only",
+            "workspace_placeholders",
+            "research_artifact_placeholders",
+            "strategy_placeholders",
+            "active_ui_planned",
+            "blocked",
+        }:
+            raise ValueError("strategy_research_workspace_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("strategy_research_workspace_api_stage")
+    @classmethod
+    def strategy_research_workspace_api_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "api_contract_skeleton",
+            "unavailable_only",
+            "reference_placeholders",
+            "active_ui_planned",
+            "blocked",
+        }:
+            raise ValueError("strategy_research_workspace_api_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("strategy_research_workspace_display_stage")
+    @classmethod
+    def strategy_research_workspace_display_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "display_contract_skeleton",
+            "unavailable_only",
+            "workspace_placeholders",
+            "research_artifact_placeholders",
+            "strategy_placeholders",
+            "active_ui_planned",
+            "blocked",
+        }:
+            raise ValueError("strategy_research_workspace_display_stage must be a supported planning stage")
         return normalized
 
     @field_validator("volatility_analytics_default_stddev_method")
@@ -1297,6 +1534,228 @@ class Settings(BaseSettings):
             raise ValueError("Retail Dashboard Boundary approval is forbidden in Prompt 54")
         if self.retail_dashboard_boundary_allow_override:
             raise ValueError("Retail Dashboard Boundary override is forbidden in Prompt 54")
+        if self.retail_trader_experience_allow_active_ui:
+            raise ValueError("Retail Trader Experience active UI is forbidden in Prompt 56")
+        if self.retail_trader_experience_allow_frontend_components:
+            raise ValueError("Retail Trader Experience frontend components are forbidden in Prompt 56")
+        if self.retail_trader_experience_allow_desktop_components:
+            raise ValueError("Retail Trader Experience desktop components are forbidden in Prompt 56")
+        if self.retail_trader_experience_allow_recommendations:
+            raise ValueError("Retail Trader Experience recommendations are forbidden in Prompt 56")
+        if self.retail_trader_experience_allow_action_generation:
+            raise ValueError("Retail Trader Experience action generation is forbidden in Prompt 56")
+        if self.retail_trader_experience_allow_confidence_scoring:
+            raise ValueError("Retail Trader Experience confidence scoring is forbidden in Prompt 56")
+        if self.retail_trader_experience_allow_decision_object_generation:
+            raise ValueError("Retail Trader Experience DecisionObject generation is forbidden in Prompt 56")
+        if self.retail_trader_experience_allow_readiness_to_trade:
+            raise ValueError("Retail Trader Experience readiness-to-trade is forbidden in Prompt 56")
+        if self.retail_trader_experience_allow_broker_controls:
+            raise ValueError("Retail Trader Experience broker controls are forbidden in Prompt 56")
+        if self.retail_trader_experience_allow_execution:
+            raise ValueError("Retail Trader Experience execution is forbidden in Prompt 56")
+        if self.retail_trader_experience_allow_approval:
+            raise ValueError("Retail Trader Experience approval is forbidden in Prompt 56")
+        if self.retail_trader_experience_allow_override:
+            raise ValueError("Retail Trader Experience override is forbidden in Prompt 56")
+        if not self.retail_trader_experience_return_unavailable_by_default:
+            raise ValueError("Retail Trader Experience must return unavailable by default in Prompt 56")
+        if self.retail_trader_experience_api_allow_active_ui:
+            raise ValueError("Retail Trader Experience API active UI is forbidden in Prompt 57")
+        if self.retail_trader_experience_api_allow_frontend_components:
+            raise ValueError("Retail Trader Experience API frontend components are forbidden in Prompt 57")
+        if self.retail_trader_experience_api_allow_desktop_components:
+            raise ValueError("Retail Trader Experience API desktop components are forbidden in Prompt 57")
+        if self.retail_trader_experience_api_allow_recommendations:
+            raise ValueError("Retail Trader Experience API recommendations are forbidden in Prompt 57")
+        if self.retail_trader_experience_api_allow_action_generation:
+            raise ValueError("Retail Trader Experience API action generation is forbidden in Prompt 57")
+        if self.retail_trader_experience_api_allow_confidence_scoring:
+            raise ValueError("Retail Trader Experience API confidence scoring is forbidden in Prompt 57")
+        if self.retail_trader_experience_api_allow_decision_object_generation:
+            raise ValueError("Retail Trader Experience API DecisionObject generation is forbidden in Prompt 57")
+        if self.retail_trader_experience_api_allow_readiness_to_trade:
+            raise ValueError("Retail Trader Experience API readiness-to-trade is forbidden in Prompt 57")
+        if self.retail_trader_experience_api_allow_broker_controls:
+            raise ValueError("Retail Trader Experience API broker controls are forbidden in Prompt 57")
+        if self.retail_trader_experience_api_allow_execution:
+            raise ValueError("Retail Trader Experience API execution is forbidden in Prompt 57")
+        if self.retail_trader_experience_api_allow_approval:
+            raise ValueError("Retail Trader Experience API approval is forbidden in Prompt 57")
+        if self.retail_trader_experience_api_allow_override:
+            raise ValueError("Retail Trader Experience API override is forbidden in Prompt 57")
+        if self.retail_trader_experience_api_allow_suitability_profiling:
+            raise ValueError("Retail Trader Experience API suitability profiling is forbidden in Prompt 57")
+        if not self.retail_trader_experience_api_return_unavailable_by_default:
+            raise ValueError("Retail Trader Experience API must return unavailable by default in Prompt 57")
+        if self.retail_trader_experience_display_allow_active_ui:
+            raise ValueError("Retail Trader Experience Display active UI is forbidden in Prompt 58")
+        if self.retail_trader_experience_display_allow_frontend_components:
+            raise ValueError("Retail Trader Experience Display frontend components are forbidden in Prompt 58")
+        if self.retail_trader_experience_display_allow_desktop_components:
+            raise ValueError("Retail Trader Experience Display desktop components are forbidden in Prompt 58")
+        if self.retail_trader_experience_display_allow_recommendations:
+            raise ValueError("Retail Trader Experience Display recommendations are forbidden in Prompt 58")
+        if self.retail_trader_experience_display_allow_action_generation:
+            raise ValueError("Retail Trader Experience Display action generation is forbidden in Prompt 58")
+        if self.retail_trader_experience_display_allow_confidence_scoring:
+            raise ValueError("Retail Trader Experience Display confidence scoring is forbidden in Prompt 58")
+        if self.retail_trader_experience_display_allow_decision_object_generation:
+            raise ValueError("Retail Trader Experience Display DecisionObject generation is forbidden in Prompt 58")
+        if self.retail_trader_experience_display_allow_readiness_to_trade:
+            raise ValueError("Retail Trader Experience Display readiness-to-trade is forbidden in Prompt 58")
+        if self.retail_trader_experience_display_allow_broker_controls:
+            raise ValueError("Retail Trader Experience Display broker controls are forbidden in Prompt 58")
+        if self.retail_trader_experience_display_allow_execution:
+            raise ValueError("Retail Trader Experience Display execution is forbidden in Prompt 58")
+        if self.retail_trader_experience_display_allow_approval:
+            raise ValueError("Retail Trader Experience Display approval is forbidden in Prompt 58")
+        if self.retail_trader_experience_display_allow_override:
+            raise ValueError("Retail Trader Experience Display override is forbidden in Prompt 58")
+        if self.retail_trader_experience_display_allow_suitability_profiling:
+            raise ValueError("Retail Trader Experience Display suitability profiling is forbidden in Prompt 58")
+        if not self.retail_trader_experience_display_return_unavailable_by_default:
+            raise ValueError("Retail Trader Experience Display must return unavailable by default in Prompt 58")
+        if self.retail_trader_experience_boundary_allow_active_ui:
+            raise ValueError("Retail Trader Experience Boundary active UI is forbidden in Prompt 61")
+        if self.retail_trader_experience_boundary_allow_frontend_components:
+            raise ValueError("Retail Trader Experience Boundary frontend components are forbidden in Prompt 61")
+        if self.retail_trader_experience_boundary_allow_desktop_components:
+            raise ValueError("Retail Trader Experience Boundary desktop components are forbidden in Prompt 61")
+        if self.retail_trader_experience_boundary_allow_recommendations:
+            raise ValueError("Retail Trader Experience Boundary recommendations are forbidden in Prompt 61")
+        if self.retail_trader_experience_boundary_allow_action_generation:
+            raise ValueError("Retail Trader Experience Boundary action generation is forbidden in Prompt 61")
+        if self.retail_trader_experience_boundary_allow_confidence_scoring:
+            raise ValueError("Retail Trader Experience Boundary confidence scoring is forbidden in Prompt 61")
+        if self.retail_trader_experience_boundary_allow_decision_object_generation:
+            raise ValueError("Retail Trader Experience Boundary DecisionObject generation is forbidden in Prompt 61")
+        if self.retail_trader_experience_boundary_allow_readiness_to_trade:
+            raise ValueError("Retail Trader Experience Boundary readiness-to-trade is forbidden in Prompt 61")
+        if self.retail_trader_experience_boundary_allow_broker_controls:
+            raise ValueError("Retail Trader Experience Boundary broker controls are forbidden in Prompt 61")
+        if self.retail_trader_experience_boundary_allow_execution:
+            raise ValueError("Retail Trader Experience Boundary execution is forbidden in Prompt 61")
+        if self.retail_trader_experience_boundary_allow_approval:
+            raise ValueError("Retail Trader Experience Boundary approval is forbidden in Prompt 61")
+        if self.retail_trader_experience_boundary_allow_override:
+            raise ValueError("Retail Trader Experience Boundary override is forbidden in Prompt 61")
+        if self.retail_trader_experience_boundary_allow_suitability_profiling:
+            raise ValueError("Retail Trader Experience Boundary suitability profiling is forbidden in Prompt 61")
+        if self.strategy_research_workspace_allow_active_ui:
+            raise ValueError("Strategy Research Workspace active UI is forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_frontend_components:
+            raise ValueError("Strategy Research Workspace frontend components are forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_desktop_components:
+            raise ValueError("Strategy Research Workspace desktop components are forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_paper_ingestion:
+            raise ValueError("Strategy Research Workspace paper ingestion is forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_paper_parsing:
+            raise ValueError("Strategy Research Workspace paper parsing is forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_strategy_generation:
+            raise ValueError("Strategy Research Workspace strategy generation is forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_strategy_code_generation:
+            raise ValueError("Strategy Research Workspace strategy code generation is forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_backtesting:
+            raise ValueError("Strategy Research Workspace backtesting is forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_optimization:
+            raise ValueError("Strategy Research Workspace optimization is forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_recommendations:
+            raise ValueError("Strategy Research Workspace recommendations are forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_action_generation:
+            raise ValueError("Strategy Research Workspace action generation is forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_confidence_scoring:
+            raise ValueError("Strategy Research Workspace confidence scoring is forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_decision_object_generation:
+            raise ValueError("Strategy Research Workspace DecisionObject generation is forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_readiness_to_trade:
+            raise ValueError("Strategy Research Workspace readiness-to-trade is forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_broker_controls:
+            raise ValueError("Strategy Research Workspace broker controls are forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_execution:
+            raise ValueError("Strategy Research Workspace execution is forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_approval:
+            raise ValueError("Strategy Research Workspace approval is forbidden in Prompt 63")
+        if self.strategy_research_workspace_allow_override:
+            raise ValueError("Strategy Research Workspace override is forbidden in Prompt 63")
+        if not self.strategy_research_workspace_return_unavailable_by_default:
+            raise ValueError("Strategy Research Workspace must return unavailable by default in Prompt 63")
+        if self.strategy_research_workspace_api_allow_active_ui:
+            raise ValueError("Strategy Research Workspace API active UI is forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_frontend_components:
+            raise ValueError("Strategy Research Workspace API frontend components are forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_desktop_components:
+            raise ValueError("Strategy Research Workspace API desktop components are forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_paper_ingestion:
+            raise ValueError("Strategy Research Workspace API paper ingestion is forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_paper_parsing:
+            raise ValueError("Strategy Research Workspace API paper parsing is forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_strategy_generation:
+            raise ValueError("Strategy Research Workspace API strategy generation is forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_strategy_code_generation:
+            raise ValueError("Strategy Research Workspace API strategy code generation is forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_backtesting:
+            raise ValueError("Strategy Research Workspace API backtesting is forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_optimization:
+            raise ValueError("Strategy Research Workspace API optimization is forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_recommendations:
+            raise ValueError("Strategy Research Workspace API recommendations are forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_action_generation:
+            raise ValueError("Strategy Research Workspace API action generation is forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_confidence_scoring:
+            raise ValueError("Strategy Research Workspace API confidence scoring is forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_decision_object_generation:
+            raise ValueError("Strategy Research Workspace API DecisionObject generation is forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_readiness_to_trade:
+            raise ValueError("Strategy Research Workspace API readiness-to-trade is forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_broker_controls:
+            raise ValueError("Strategy Research Workspace API broker controls are forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_execution:
+            raise ValueError("Strategy Research Workspace API execution is forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_approval:
+            raise ValueError("Strategy Research Workspace API approval is forbidden in Prompt 64")
+        if self.strategy_research_workspace_api_allow_override:
+            raise ValueError("Strategy Research Workspace API override is forbidden in Prompt 64")
+        if not self.strategy_research_workspace_api_return_unavailable_by_default:
+            raise ValueError("Strategy Research Workspace API must return unavailable by default in Prompt 64")
+        if self.strategy_research_workspace_display_allow_active_ui:
+            raise ValueError("Strategy Research Workspace Display active UI is forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_frontend_components:
+            raise ValueError("Strategy Research Workspace Display frontend components are forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_desktop_components:
+            raise ValueError("Strategy Research Workspace Display desktop components are forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_paper_ingestion:
+            raise ValueError("Strategy Research Workspace Display paper ingestion is forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_paper_parsing:
+            raise ValueError("Strategy Research Workspace Display paper parsing is forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_strategy_generation:
+            raise ValueError("Strategy Research Workspace Display strategy generation is forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_strategy_code_generation:
+            raise ValueError("Strategy Research Workspace Display strategy code generation is forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_backtesting:
+            raise ValueError("Strategy Research Workspace Display backtesting is forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_optimization:
+            raise ValueError("Strategy Research Workspace Display optimization is forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_recommendations:
+            raise ValueError("Strategy Research Workspace Display recommendations are forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_action_generation:
+            raise ValueError("Strategy Research Workspace Display action generation is forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_confidence_scoring:
+            raise ValueError("Strategy Research Workspace Display confidence scoring is forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_decision_object_generation:
+            raise ValueError("Strategy Research Workspace Display DecisionObject generation is forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_readiness_to_trade:
+            raise ValueError("Strategy Research Workspace Display readiness-to-trade is forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_broker_controls:
+            raise ValueError("Strategy Research Workspace Display broker controls are forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_execution:
+            raise ValueError("Strategy Research Workspace Display execution is forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_approval:
+            raise ValueError("Strategy Research Workspace Display approval is forbidden in Prompt 65")
+        if self.strategy_research_workspace_display_allow_override:
+            raise ValueError("Strategy Research Workspace Display override is forbidden in Prompt 65")
+        if not self.strategy_research_workspace_display_return_unavailable_by_default:
+            raise ValueError("Strategy Research Workspace Display must return unavailable by default in Prompt 65")
         if (
             self.provider_candidate_minimum_score_for_network_tests
             < self.provider_candidate_minimum_score_for_design
@@ -1772,6 +2231,346 @@ class Settings(BaseSettings):
             "retail_dashboard_boundary_allow_approval": self.retail_dashboard_boundary_allow_approval,
             "retail_dashboard_boundary_allow_override": self.retail_dashboard_boundary_allow_override,
             "retail_dashboard_boundary_stage": self.retail_dashboard_boundary_stage,
+            "retail_trader_experience_enabled": self.retail_trader_experience_enabled,
+            "retail_trader_experience_schema_version": self.retail_trader_experience_schema_version,
+            "retail_trader_experience_allow_active_ui": self.retail_trader_experience_allow_active_ui,
+            "retail_trader_experience_allow_frontend_components": (
+                self.retail_trader_experience_allow_frontend_components
+            ),
+            "retail_trader_experience_allow_desktop_components": (
+                self.retail_trader_experience_allow_desktop_components
+            ),
+            "retail_trader_experience_allow_recommendations": (
+                self.retail_trader_experience_allow_recommendations
+            ),
+            "retail_trader_experience_allow_action_generation": (
+                self.retail_trader_experience_allow_action_generation
+            ),
+            "retail_trader_experience_allow_confidence_scoring": (
+                self.retail_trader_experience_allow_confidence_scoring
+            ),
+            "retail_trader_experience_allow_decision_object_generation": (
+                self.retail_trader_experience_allow_decision_object_generation
+            ),
+            "retail_trader_experience_allow_readiness_to_trade": (
+                self.retail_trader_experience_allow_readiness_to_trade
+            ),
+            "retail_trader_experience_allow_broker_controls": (
+                self.retail_trader_experience_allow_broker_controls
+            ),
+            "retail_trader_experience_allow_execution": self.retail_trader_experience_allow_execution,
+            "retail_trader_experience_allow_approval": self.retail_trader_experience_allow_approval,
+            "retail_trader_experience_allow_override": self.retail_trader_experience_allow_override,
+            "retail_trader_experience_return_unavailable_by_default": (
+                self.retail_trader_experience_return_unavailable_by_default
+            ),
+            "retail_trader_experience_stage": self.retail_trader_experience_stage,
+            "retail_trader_experience_api_enabled": self.retail_trader_experience_api_enabled,
+            "retail_trader_experience_api_schema_version": self.retail_trader_experience_api_schema_version,
+            "retail_trader_experience_api_allow_active_ui": (
+                self.retail_trader_experience_api_allow_active_ui
+            ),
+            "retail_trader_experience_api_allow_frontend_components": (
+                self.retail_trader_experience_api_allow_frontend_components
+            ),
+            "retail_trader_experience_api_allow_desktop_components": (
+                self.retail_trader_experience_api_allow_desktop_components
+            ),
+            "retail_trader_experience_api_allow_recommendations": (
+                self.retail_trader_experience_api_allow_recommendations
+            ),
+            "retail_trader_experience_api_allow_action_generation": (
+                self.retail_trader_experience_api_allow_action_generation
+            ),
+            "retail_trader_experience_api_allow_confidence_scoring": (
+                self.retail_trader_experience_api_allow_confidence_scoring
+            ),
+            "retail_trader_experience_api_allow_decision_object_generation": (
+                self.retail_trader_experience_api_allow_decision_object_generation
+            ),
+            "retail_trader_experience_api_allow_readiness_to_trade": (
+                self.retail_trader_experience_api_allow_readiness_to_trade
+            ),
+            "retail_trader_experience_api_allow_broker_controls": (
+                self.retail_trader_experience_api_allow_broker_controls
+            ),
+            "retail_trader_experience_api_allow_execution": (
+                self.retail_trader_experience_api_allow_execution
+            ),
+            "retail_trader_experience_api_allow_approval": self.retail_trader_experience_api_allow_approval,
+            "retail_trader_experience_api_allow_override": self.retail_trader_experience_api_allow_override,
+            "retail_trader_experience_api_allow_suitability_profiling": (
+                self.retail_trader_experience_api_allow_suitability_profiling
+            ),
+            "retail_trader_experience_api_return_unavailable_by_default": (
+                self.retail_trader_experience_api_return_unavailable_by_default
+            ),
+            "retail_trader_experience_api_stage": self.retail_trader_experience_api_stage,
+            "retail_trader_experience_display_enabled": self.retail_trader_experience_display_enabled,
+            "retail_trader_experience_display_schema_version": (
+                self.retail_trader_experience_display_schema_version
+            ),
+            "retail_trader_experience_display_allow_active_ui": (
+                self.retail_trader_experience_display_allow_active_ui
+            ),
+            "retail_trader_experience_display_allow_frontend_components": (
+                self.retail_trader_experience_display_allow_frontend_components
+            ),
+            "retail_trader_experience_display_allow_desktop_components": (
+                self.retail_trader_experience_display_allow_desktop_components
+            ),
+            "retail_trader_experience_display_allow_recommendations": (
+                self.retail_trader_experience_display_allow_recommendations
+            ),
+            "retail_trader_experience_display_allow_action_generation": (
+                self.retail_trader_experience_display_allow_action_generation
+            ),
+            "retail_trader_experience_display_allow_confidence_scoring": (
+                self.retail_trader_experience_display_allow_confidence_scoring
+            ),
+            "retail_trader_experience_display_allow_decision_object_generation": (
+                self.retail_trader_experience_display_allow_decision_object_generation
+            ),
+            "retail_trader_experience_display_allow_readiness_to_trade": (
+                self.retail_trader_experience_display_allow_readiness_to_trade
+            ),
+            "retail_trader_experience_display_allow_broker_controls": (
+                self.retail_trader_experience_display_allow_broker_controls
+            ),
+            "retail_trader_experience_display_allow_execution": (
+                self.retail_trader_experience_display_allow_execution
+            ),
+            "retail_trader_experience_display_allow_approval": (
+                self.retail_trader_experience_display_allow_approval
+            ),
+            "retail_trader_experience_display_allow_override": (
+                self.retail_trader_experience_display_allow_override
+            ),
+            "retail_trader_experience_display_allow_suitability_profiling": (
+                self.retail_trader_experience_display_allow_suitability_profiling
+            ),
+            "retail_trader_experience_display_return_unavailable_by_default": (
+                self.retail_trader_experience_display_return_unavailable_by_default
+            ),
+            "retail_trader_experience_display_stage": self.retail_trader_experience_display_stage,
+            "retail_trader_experience_boundary_enabled": self.retail_trader_experience_boundary_enabled,
+            "retail_trader_experience_boundary_schema_version": (
+                self.retail_trader_experience_boundary_schema_version
+            ),
+            "retail_trader_experience_boundary_allow_active_ui": (
+                self.retail_trader_experience_boundary_allow_active_ui
+            ),
+            "retail_trader_experience_boundary_allow_frontend_components": (
+                self.retail_trader_experience_boundary_allow_frontend_components
+            ),
+            "retail_trader_experience_boundary_allow_desktop_components": (
+                self.retail_trader_experience_boundary_allow_desktop_components
+            ),
+            "retail_trader_experience_boundary_allow_recommendations": (
+                self.retail_trader_experience_boundary_allow_recommendations
+            ),
+            "retail_trader_experience_boundary_allow_action_generation": (
+                self.retail_trader_experience_boundary_allow_action_generation
+            ),
+            "retail_trader_experience_boundary_allow_confidence_scoring": (
+                self.retail_trader_experience_boundary_allow_confidence_scoring
+            ),
+            "retail_trader_experience_boundary_allow_decision_object_generation": (
+                self.retail_trader_experience_boundary_allow_decision_object_generation
+            ),
+            "retail_trader_experience_boundary_allow_readiness_to_trade": (
+                self.retail_trader_experience_boundary_allow_readiness_to_trade
+            ),
+            "retail_trader_experience_boundary_allow_broker_controls": (
+                self.retail_trader_experience_boundary_allow_broker_controls
+            ),
+            "retail_trader_experience_boundary_allow_execution": (
+                self.retail_trader_experience_boundary_allow_execution
+            ),
+            "retail_trader_experience_boundary_allow_approval": (
+                self.retail_trader_experience_boundary_allow_approval
+            ),
+            "retail_trader_experience_boundary_allow_override": (
+                self.retail_trader_experience_boundary_allow_override
+            ),
+            "retail_trader_experience_boundary_allow_suitability_profiling": (
+                self.retail_trader_experience_boundary_allow_suitability_profiling
+            ),
+            "retail_trader_experience_boundary_stage": self.retail_trader_experience_boundary_stage,
+            "strategy_research_workspace_enabled": self.strategy_research_workspace_enabled,
+            "strategy_research_workspace_schema_version": self.strategy_research_workspace_schema_version,
+            "strategy_research_workspace_allow_active_ui": (
+                self.strategy_research_workspace_allow_active_ui
+            ),
+            "strategy_research_workspace_allow_frontend_components": (
+                self.strategy_research_workspace_allow_frontend_components
+            ),
+            "strategy_research_workspace_allow_desktop_components": (
+                self.strategy_research_workspace_allow_desktop_components
+            ),
+            "strategy_research_workspace_allow_paper_ingestion": (
+                self.strategy_research_workspace_allow_paper_ingestion
+            ),
+            "strategy_research_workspace_allow_paper_parsing": (
+                self.strategy_research_workspace_allow_paper_parsing
+            ),
+            "strategy_research_workspace_allow_strategy_generation": (
+                self.strategy_research_workspace_allow_strategy_generation
+            ),
+            "strategy_research_workspace_allow_strategy_code_generation": (
+                self.strategy_research_workspace_allow_strategy_code_generation
+            ),
+            "strategy_research_workspace_allow_backtesting": (
+                self.strategy_research_workspace_allow_backtesting
+            ),
+            "strategy_research_workspace_allow_optimization": (
+                self.strategy_research_workspace_allow_optimization
+            ),
+            "strategy_research_workspace_allow_recommendations": (
+                self.strategy_research_workspace_allow_recommendations
+            ),
+            "strategy_research_workspace_allow_action_generation": (
+                self.strategy_research_workspace_allow_action_generation
+            ),
+            "strategy_research_workspace_allow_confidence_scoring": (
+                self.strategy_research_workspace_allow_confidence_scoring
+            ),
+            "strategy_research_workspace_allow_decision_object_generation": (
+                self.strategy_research_workspace_allow_decision_object_generation
+            ),
+            "strategy_research_workspace_allow_readiness_to_trade": (
+                self.strategy_research_workspace_allow_readiness_to_trade
+            ),
+            "strategy_research_workspace_allow_broker_controls": (
+                self.strategy_research_workspace_allow_broker_controls
+            ),
+            "strategy_research_workspace_allow_execution": (
+                self.strategy_research_workspace_allow_execution
+            ),
+            "strategy_research_workspace_allow_approval": self.strategy_research_workspace_allow_approval,
+            "strategy_research_workspace_allow_override": self.strategy_research_workspace_allow_override,
+            "strategy_research_workspace_return_unavailable_by_default": (
+                self.strategy_research_workspace_return_unavailable_by_default
+            ),
+            "strategy_research_workspace_stage": self.strategy_research_workspace_stage,
+            "strategy_research_workspace_api_enabled": self.strategy_research_workspace_api_enabled,
+            "strategy_research_workspace_api_schema_version": self.strategy_research_workspace_api_schema_version,
+            "strategy_research_workspace_api_allow_active_ui": (
+                self.strategy_research_workspace_api_allow_active_ui
+            ),
+            "strategy_research_workspace_api_allow_frontend_components": (
+                self.strategy_research_workspace_api_allow_frontend_components
+            ),
+            "strategy_research_workspace_api_allow_desktop_components": (
+                self.strategy_research_workspace_api_allow_desktop_components
+            ),
+            "strategy_research_workspace_api_allow_paper_ingestion": (
+                self.strategy_research_workspace_api_allow_paper_ingestion
+            ),
+            "strategy_research_workspace_api_allow_paper_parsing": (
+                self.strategy_research_workspace_api_allow_paper_parsing
+            ),
+            "strategy_research_workspace_api_allow_strategy_generation": (
+                self.strategy_research_workspace_api_allow_strategy_generation
+            ),
+            "strategy_research_workspace_api_allow_strategy_code_generation": (
+                self.strategy_research_workspace_api_allow_strategy_code_generation
+            ),
+            "strategy_research_workspace_api_allow_backtesting": (
+                self.strategy_research_workspace_api_allow_backtesting
+            ),
+            "strategy_research_workspace_api_allow_optimization": (
+                self.strategy_research_workspace_api_allow_optimization
+            ),
+            "strategy_research_workspace_api_allow_recommendations": (
+                self.strategy_research_workspace_api_allow_recommendations
+            ),
+            "strategy_research_workspace_api_allow_action_generation": (
+                self.strategy_research_workspace_api_allow_action_generation
+            ),
+            "strategy_research_workspace_api_allow_confidence_scoring": (
+                self.strategy_research_workspace_api_allow_confidence_scoring
+            ),
+            "strategy_research_workspace_api_allow_decision_object_generation": (
+                self.strategy_research_workspace_api_allow_decision_object_generation
+            ),
+            "strategy_research_workspace_api_allow_readiness_to_trade": (
+                self.strategy_research_workspace_api_allow_readiness_to_trade
+            ),
+            "strategy_research_workspace_api_allow_broker_controls": (
+                self.strategy_research_workspace_api_allow_broker_controls
+            ),
+            "strategy_research_workspace_api_allow_execution": (
+                self.strategy_research_workspace_api_allow_execution
+            ),
+            "strategy_research_workspace_api_allow_approval": self.strategy_research_workspace_api_allow_approval,
+            "strategy_research_workspace_api_allow_override": self.strategy_research_workspace_api_allow_override,
+            "strategy_research_workspace_api_return_unavailable_by_default": (
+                self.strategy_research_workspace_api_return_unavailable_by_default
+            ),
+            "strategy_research_workspace_api_stage": self.strategy_research_workspace_api_stage,
+            "strategy_research_workspace_display_enabled": self.strategy_research_workspace_display_enabled,
+            "strategy_research_workspace_display_schema_version": (
+                self.strategy_research_workspace_display_schema_version
+            ),
+            "strategy_research_workspace_display_allow_active_ui": (
+                self.strategy_research_workspace_display_allow_active_ui
+            ),
+            "strategy_research_workspace_display_allow_frontend_components": (
+                self.strategy_research_workspace_display_allow_frontend_components
+            ),
+            "strategy_research_workspace_display_allow_desktop_components": (
+                self.strategy_research_workspace_display_allow_desktop_components
+            ),
+            "strategy_research_workspace_display_allow_paper_ingestion": (
+                self.strategy_research_workspace_display_allow_paper_ingestion
+            ),
+            "strategy_research_workspace_display_allow_paper_parsing": (
+                self.strategy_research_workspace_display_allow_paper_parsing
+            ),
+            "strategy_research_workspace_display_allow_strategy_generation": (
+                self.strategy_research_workspace_display_allow_strategy_generation
+            ),
+            "strategy_research_workspace_display_allow_strategy_code_generation": (
+                self.strategy_research_workspace_display_allow_strategy_code_generation
+            ),
+            "strategy_research_workspace_display_allow_backtesting": (
+                self.strategy_research_workspace_display_allow_backtesting
+            ),
+            "strategy_research_workspace_display_allow_optimization": (
+                self.strategy_research_workspace_display_allow_optimization
+            ),
+            "strategy_research_workspace_display_allow_recommendations": (
+                self.strategy_research_workspace_display_allow_recommendations
+            ),
+            "strategy_research_workspace_display_allow_action_generation": (
+                self.strategy_research_workspace_display_allow_action_generation
+            ),
+            "strategy_research_workspace_display_allow_confidence_scoring": (
+                self.strategy_research_workspace_display_allow_confidence_scoring
+            ),
+            "strategy_research_workspace_display_allow_decision_object_generation": (
+                self.strategy_research_workspace_display_allow_decision_object_generation
+            ),
+            "strategy_research_workspace_display_allow_readiness_to_trade": (
+                self.strategy_research_workspace_display_allow_readiness_to_trade
+            ),
+            "strategy_research_workspace_display_allow_broker_controls": (
+                self.strategy_research_workspace_display_allow_broker_controls
+            ),
+            "strategy_research_workspace_display_allow_execution": (
+                self.strategy_research_workspace_display_allow_execution
+            ),
+            "strategy_research_workspace_display_allow_approval": (
+                self.strategy_research_workspace_display_allow_approval
+            ),
+            "strategy_research_workspace_display_allow_override": (
+                self.strategy_research_workspace_display_allow_override
+            ),
+            "strategy_research_workspace_display_return_unavailable_by_default": (
+                self.strategy_research_workspace_display_return_unavailable_by_default
+            ),
+            "strategy_research_workspace_display_stage": self.strategy_research_workspace_display_stage,
         }
 
 

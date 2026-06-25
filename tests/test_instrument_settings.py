@@ -7,7 +7,7 @@ from stark_terminal_core.config.settings import Settings
 def test_instrument_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "54"
+    assert settings.prompt_number == "67"
     assert settings.instrument_master_mode == "local"
     assert settings.instrument_master_source == "synthetic"
     assert settings.allow_external_market_data_calls is False

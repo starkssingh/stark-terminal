@@ -1,7 +1,9 @@
 # API Surface Inventory
 
-Prompt 53 completes the Retail Dashboard Milestone Audit after Retail
-Dashboard planning, API contract skeleton, display contract skeleton, and safety boundary audit. All listed endpoints are read-only
+Prompt 60 completes Retail Trader Experience Milestone Audit after Retail Trader Experience Safety Boundary Audit, Retail Trader Experience Display Contract Skeleton, Retail Trader Experience API Contract Skeleton, Retail Trader Experience Planning and Guardrails, and the Retail Dashboard API/Display Integration Readiness
+Audit after Retail Dashboard planning, API contract skeleton, display contract
+skeleton, safety boundary audit, milestone audit, and system boundary
+hardening. All listed endpoints are read-only
 foundation endpoints. Expected answer for every current endpoint: safe, no
 external calls, no execution, no raw secrets, and no durable state mutation.
 
@@ -125,6 +127,31 @@ external calls, no execution, no raw secrets, and no durable state mutation.
 | `/retail-dashboard-boundary/health` | Retail Dashboard System Boundary Hardening health | No | No | No | boundary-hardening-only status; no active UI, frontend components, desktop components, recommendations, broker controls, or execution |
 | `/retail-dashboard-boundary/contracts` | Retail Dashboard forbidden behavior and policy metadata | No | No | No | forbidden behavior registry, endpoint families, and module families only |
 | `/retail-dashboard-boundary/invariants` | Retail Dashboard boundary invariant result metadata | No | No | No | invariant result only; no generated outputs, no broker controls, and no execution |
+| `/retail-trader-experience/health` | Retail Trader Experience planning health | No | No | No | planning and guardrails only; no active UI, recommendations, suitability profiling, broker controls, or execution |
+| `/retail-trader-experience/contracts` | Retail Trader Experience planning contract metadata | No | No | No | planned personas/journeys/sections/cards and forbidden interactions only |
+| `/retail-trader-experience/placeholder-experience` | Retail Trader Experience placeholder experience | No | No | No | placeholders and references only; no active UI, suitability profiling, recommendations, broker controls, or execution |
+| `/retail-trader-experience/readiness-template` | Retail Trader Experience planning readiness template | No | No | No | template only; no active UI, recommendations, suitability profiling, readiness-to-trade, broker controls, or execution |
+| `/retail-trader-experience-api/health` | Retail Trader Experience API skeleton health | No | No | No | API contract skeleton status; no active UI, frontend, desktop, suitability profiling, broker controls, or execution |
+| `/retail-trader-experience-api/contracts` | Retail Trader Experience API contract metadata | No | No | No | request kinds, unavailable reasons, and forbidden outputs only |
+| `/retail-trader-experience-api/unavailable-template` | Retail Trader Experience API unavailable response template | No | No | No | unavailable response only; no recommendation, confidence, DecisionObject, suitability profiling, broker control, or execution |
+| `/retail-trader-experience-api/response-placeholder` | Retail Trader Experience API response placeholder | No | No | No | persona/journey/dashboard/decision/safety references only; no generated outputs |
+| `/retail-trader-experience-display/health` | Retail Trader Experience Display skeleton health | No | No | No | display contract skeleton status; no active UI, frontend, desktop, suitability profiling, broker controls, or execution |
+| `/retail-trader-experience-display/contracts` | Retail Trader Experience Display contract metadata | No | No | No | persona/journey/section/widget/badge kinds and forbidden outputs only |
+| `/retail-trader-experience-display/unavailable-template` | Retail Trader Experience Display unavailable response template | No | No | No | unavailable response only; no active UI, recommendation, confidence, DecisionObject, suitability profiling, broker control, or execution |
+| `/retail-trader-experience-display/placeholder-experience` | Retail Trader Experience Display placeholder experience | No | No | No | persona/journey/section/widget/badge placeholders only; no active UI and no generated outputs |
+| `/retail-trader-experience-boundary/health` | Retail Trader Experience System Boundary Hardening health | No | No | No | boundary-hardening-only status; no active UI, frontend, desktop, suitability profiling, broker controls, or execution |
+| `/retail-trader-experience-boundary/contracts` | Retail Trader Experience forbidden behavior and policy metadata | No | No | No | forbidden behavior registry, endpoint families, and module families only |
+| `/retail-trader-experience-boundary/invariants` | Retail Trader Experience boundary invariant result metadata | No | No | No | invariant result only; no generated outputs, no suitability profiling, no broker controls, and no execution |
+
+Retail Trader Experience endpoint audit: `/retail-trader-experience/*`,
+`/retail-trader-experience-api/*`,
+`/retail-trader-experience-display/*`, and
+`/retail-trader-experience-boundary/*` do not expose secrets, do not return
+live market data, do not generate recommendations, do not generate action
+states, do not compute confidence, do not generate DecisionObjects, do not
+create suitability profiles, do not approve or override, do not create active
+UI, do not generate readiness-to-trade, do not expose broker controls, and do
+not execute trades.
 
 Retail Dashboard endpoint audit: `/retail-dashboard/*`,
 `/retail-dashboard-api/*`, `/retail-dashboard-display/*`, and
@@ -150,6 +177,144 @@ no desktop components, no market-data input, no readiness-to-trade, no
 recommendation generation, no action generation, no confidence scoring, no
 DecisionObject generation or display, no approval, no override, no broker
 controls, no secrets, and no execution.
+
+Prompt 55 Retail Dashboard API/display integration readiness verifies
+`/retail-dashboard/*`, `/retail-dashboard-api/*`,
+`/retail-dashboard-display/*`, and `/retail-dashboard-boundary/*` together.
+These endpoints do not expose secrets, do not return live market data, do not
+generate recommendations, do not generate action states, do not compute
+confidence, do not generate DecisionObjects, do not approve or override, do
+not create active UI, do not generate readiness-to-trade, do not expose broker
+controls, and do not execute trades. The audit also confirms no API-to-display
+recommendation path, no display-to-decision path, no display-to-execution
+path, and no boundary bypass path.
+
+Prompt 56 adds `/retail-trader-experience/health`,
+`/retail-trader-experience/contracts`,
+`/retail-trader-experience/placeholder-experience`, and
+`/retail-trader-experience/readiness-template`. These endpoints are read-only
+planning and guardrails surfaces. They expose no active UI, no market-data
+input, no readiness-to-trade, no recommendation generation, no action
+generation, no confidence scoring, no DecisionObject generation or display, no
+approval, no override, no broker controls, no suitability profiling, no
+secrets, and no execution APIs.
+
+Prompt 57 adds `/retail-trader-experience-api/health`,
+`/retail-trader-experience-api/contracts`,
+`/retail-trader-experience-api/unavailable-template`, and
+`/retail-trader-experience-api/response-placeholder`. These endpoints are
+read-only API contract skeleton surfaces. They expose no active UI, no
+frontend components, no desktop components, no market-data input, no live
+market data, no readiness-to-trade, no recommendation generation, no action
+generation, no confidence scoring, no DecisionObject generation or display, no
+approval, no override, no broker controls, no suitability profiling, no
+secrets, and no execution APIs.
+
+Prompt 58 adds `/retail-trader-experience-display/health`,
+`/retail-trader-experience-display/contracts`,
+`/retail-trader-experience-display/unavailable-template`, and
+`/retail-trader-experience-display/placeholder-experience`. These endpoints
+are read-only display contract skeleton surfaces. They expose no active UI, no
+frontend components, no desktop components, no market-data input, no live
+market data, no readiness-to-trade, no recommendation generation, no action
+generation, no confidence scoring, no DecisionObject generation or display, no
+approval, no override, no broker controls, no suitability profiling, no
+secrets, and no execution APIs.
+
+Prompt 59 audits `/retail-trader-experience/*`,
+`/retail-trader-experience-api/*`, and
+`/retail-trader-experience-display/*` together. These endpoints do not expose
+secrets, do not return live market data, do not generate recommendations, do
+not generate action states, do not compute confidence, do not generate
+DecisionObjects, do not create suitability profiles, do not approve or
+override, do not create active UI, do not generate readiness-to-trade, do not
+expose broker controls, and do not execute trades. The audit also confirms no
+market-data-to-trader-recommendation endpoint, no
+trader-experience-to-execution endpoint, no display-to-decision endpoint, and
+no persona-to-suitability-profile path.
+
+Prompt 60 audits `/retail-trader-experience/*`,
+`/retail-trader-experience-api/*`, and
+`/retail-trader-experience-display/*` together for the milestone verdict.
+These endpoints do not expose secrets, do not return live market data, do not
+generate recommendations, do not generate action states, do not compute
+confidence, do not generate DecisionObjects, do not create suitability
+profiles, do not approve or override, do not create active UI, do not generate
+readiness-to-trade, do not expose broker controls, and do not execute trades.
+The milestone audit confirms no market-data input endpoint, no
+market-data-to-trader-recommendation endpoint, no
+trader-experience-to-execution endpoint, no display-to-decision endpoint, no
+persona-to-suitability-profile path, and no boundary bypass path.
+
+Prompt 62 audits `/retail-trader-experience/*`,
+`/retail-trader-experience-api/*`,
+`/retail-trader-experience-display/*`, and
+`/retail-trader-experience-boundary/*` together for API/display integration
+readiness. These endpoints do not expose secrets, do not return live market
+data, do not generate recommendations, do not generate action states, do not
+compute confidence, do not generate DecisionObjects, do not create suitability
+profiles, do not approve or override, do not create active UI, do not generate
+readiness-to-trade, do not expose broker controls, and do not execute trades.
+The integration readiness audit confirms no market-data input endpoint, no
+API-to-display recommendation path, no display-to-decision path, no
+persona-to-suitability-profile path, no journey-to-trading-advice path, no
+display-to-execution path, and no boundary bypass path. Prompt 62 adds no
+POST endpoints and no Strategy Research Workspace implementation.
+
+## Prompt 63 Strategy Research Workspace Planning Endpoints
+
+- `GET /strategy-research-workspace/health`
+- `GET /strategy-research-workspace/contracts`
+- `GET /strategy-research-workspace/placeholder-workspace`
+- `GET /strategy-research-workspace/readiness-template`
+
+These endpoints are read-only planning and guardrails surfaces. They expose no
+active UI, no frontend implementation, no desktop implementation, no paper
+ingestion, no paper parsing, no strategy generation, no strategy code
+generation, no backtesting, no optimization, no market-data input, no
+readiness-to-trade, no recommendation generation, no action generation, no
+confidence scoring, no DecisionObject generation, no approval, no override, no
+broker controls, no secrets, and no execution APIs. They do not return live
+market data and do not create a research-to-recommendation or research-to-execution
+path.
+
+## Prompt 65 Strategy Research Workspace Display Skeleton Endpoints
+
+- `GET /strategy-research-workspace-display/health`
+- `GET /strategy-research-workspace-display/contracts`
+- `GET /strategy-research-workspace-display/unavailable-template`
+- `GET /strategy-research-workspace-display/placeholder-workspace`
+
+These endpoints are read-only display contract skeleton surfaces. They expose
+no active UI, no frontend implementation, no desktop implementation, no paper
+ingestion, no paper parsing, no strategy generation, no strategy code
+generation, no backtesting, no optimization, no market-data input, no
+readiness-to-trade, no recommendation generation, no action generation, no
+confidence scoring, no DecisionObject generation, no approval, no override, no
+broker controls, no secrets, and no execution APIs. They do not return live
+market data, do not accept papers or PDFs, do not create a paper-to-strategy
+path, do not create a strategy-to-backtest path, do not create a
+research-to-recommendation path, do not create a display-to-execution path,
+and do not create active Strategy Research Workspace UI.
+
+## Prompt 64 Strategy Research Workspace API Skeleton Endpoints
+
+- `GET /strategy-research-workspace-api/health`
+- `GET /strategy-research-workspace-api/contracts`
+- `GET /strategy-research-workspace-api/unavailable-template`
+- `GET /strategy-research-workspace-api/response-placeholder`
+
+These endpoints are read-only API contract skeleton surfaces. They expose no
+active UI, no frontend implementation, no desktop implementation, no paper
+ingestion, no paper parsing, no strategy generation, no strategy code
+generation, no backtesting, no optimization, no market-data input, no
+readiness-to-trade, no recommendation generation, no action generation, no
+confidence scoring, no DecisionObject generation, no approval, no override, no
+broker controls, no secrets, and no execution APIs. They do not return live
+market data, do not accept papers or PDFs, do not create a paper-to-strategy
+path, do not create a strategy-to-backtest path, do not create a
+research-to-recommendation path, and do not create a research-to-execution
+path.
 
 ## Audit Notes
 
@@ -197,5 +362,59 @@ controls, no secrets, and no execution.
 - Prompt 50 adds `/retail-dashboard-api/health`, `/retail-dashboard-api/contracts`, `/retail-dashboard-api/unavailable-template`, and `/retail-dashboard-api/response-placeholder`. These endpoints are read-only API contract skeleton surfaces. They expose no active UI, no market-data input, no readiness-to-trade, no recommendation generation, no action generation, no confidence scoring, no DecisionObject generation or display, no approval, no override, no broker controls, no secrets, and no execution APIs.
 - Prompt 51 adds `/retail-dashboard-display/health`, `/retail-dashboard-display/contracts`, `/retail-dashboard-display/unavailable-template`, and `/retail-dashboard-display/placeholder-layout`. These endpoints are read-only display contract skeleton surfaces. They expose no active UI, no frontend component, no desktop UI component, no market-data input, no readiness-to-trade, no recommendation generation, no action generation, no confidence scoring, no DecisionObject generation or display, no approval, no override, no broker controls, no secrets, and no execution APIs.
 - Prompt 54 adds `/retail-dashboard-boundary/health`, `/retail-dashboard-boundary/contracts`, and `/retail-dashboard-boundary/invariants`. These endpoints are read-only boundary-hardening surfaces. They expose no active UI, no frontend components, no desktop components, no market-data input, no readiness-to-trade, no recommendation generation, no action generation, no confidence scoring, no DecisionObject generation or display, no approval, no override, no broker controls, no secrets, and no execution APIs.
+- Prompt 55 audits `/retail-dashboard/health`, `/retail-dashboard/contracts`, `/retail-dashboard/placeholder-layout`, `/retail-dashboard/readiness-template`, `/retail-dashboard-api/health`, `/retail-dashboard-api/contracts`, `/retail-dashboard-api/unavailable-template`, `/retail-dashboard-api/response-placeholder`, `/retail-dashboard-display/health`, `/retail-dashboard-display/contracts`, `/retail-dashboard-display/unavailable-template`, `/retail-dashboard-display/placeholder-layout`, `/retail-dashboard-boundary/health`, `/retail-dashboard-boundary/contracts`, and `/retail-dashboard-boundary/invariants` together. These endpoints do not expose secrets, do not return live market data, do not generate recommendations, do not generate action states, do not compute confidence, do not generate DecisionObjects, do not approve or override, do not create active UI, do not generate readiness-to-trade, do not expose broker controls, and do not execute trades.
+- Prompt 56 adds `/retail-trader-experience/health`, `/retail-trader-experience/contracts`, `/retail-trader-experience/placeholder-experience`, and `/retail-trader-experience/readiness-template`. These endpoints do not expose secrets, do not return live market data, do not generate recommendations, do not generate action states, do not compute confidence, do not generate DecisionObjects, do not approve or override, do not create active UI, do not generate readiness-to-trade, do not expose broker controls, do not perform suitability profiling, and do not execute trades.
+- Prompt 57 adds `/retail-trader-experience-api/health`, `/retail-trader-experience-api/contracts`, `/retail-trader-experience-api/unavailable-template`, and `/retail-trader-experience-api/response-placeholder`. These endpoints are read-only API contract skeleton surfaces. They expose no secrets, no active UI, no frontend components, no desktop components, no market-data input, no live market data, no readiness-to-trade, no recommendation generation, no action generation, no confidence scoring, no DecisionObject generation or display, no approval, no override, no broker controls, no suitability profiling, and no execution APIs.
 - Development environment: Mac mini M2 / macOS / Apple Silicon.
 - Target desktop product: Windows-native Stark Terminal.
+
+## Prompt 66 Strategy Research Workspace Safety Boundary Audit
+
+Prompt 66 verifies these Strategy Research Workspace endpoint families remain
+read-only, unavailable-by-default, contract/skeleton/audit metadata only:
+
+- `/strategy-research-workspace/health`
+- `/strategy-research-workspace/contracts`
+- `/strategy-research-workspace/placeholder-workspace`
+- `/strategy-research-workspace/readiness-template`
+- `/strategy-research-workspace-api/health`
+- `/strategy-research-workspace-api/contracts`
+- `/strategy-research-workspace-api/unavailable-template`
+- `/strategy-research-workspace-api/response-placeholder`
+- `/strategy-research-workspace-display/health`
+- `/strategy-research-workspace-display/contracts`
+- `/strategy-research-workspace-display/unavailable-template`
+- `/strategy-research-workspace-display/placeholder-workspace`
+
+These endpoints do not expose secrets, do not return live market data, do not
+claim real market data, do not ingest or parse papers, do not accept papers,
+PDFs, URLs, arXiv IDs, or market data for processing, do not generate
+strategies, do not generate strategy code, do not generate backtests, do not
+run optimization, do not generate recommendations, do not generate action
+states, do not compute confidence, do not generate DecisionObjects, do not
+approve or override, do not create active UI, do not generate readiness-to-
+trade, do not expose broker controls, and do not execute trades.
+
+## Prompt 67 Strategy Research Workspace Milestone Audit
+
+Prompt 67 re-verifies these Strategy Research Workspace endpoint families:
+
+- `/strategy-research-workspace/health`
+- `/strategy-research-workspace/contracts`
+- `/strategy-research-workspace/placeholder-workspace`
+- `/strategy-research-workspace/readiness-template`
+- `/strategy-research-workspace-api/health`
+- `/strategy-research-workspace-api/contracts`
+- `/strategy-research-workspace-api/unavailable-template`
+- `/strategy-research-workspace-api/response-placeholder`
+- `/strategy-research-workspace-display/health`
+- `/strategy-research-workspace-display/contracts`
+- `/strategy-research-workspace-display/unavailable-template`
+- `/strategy-research-workspace-display/placeholder-workspace`
+
+Milestone verdict: these endpoints do not expose secrets, do not return live
+market data, do not ingest or parse papers, do not generate strategies, do not
+generate backtests, do not generate recommendations, do not generate action
+states, do not compute confidence, do not generate DecisionObjects, do not
+approve or override, do not create active UI, do not generate
+readiness-to-trade, do not expose broker controls, and do not execute trades.

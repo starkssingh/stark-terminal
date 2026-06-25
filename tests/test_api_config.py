@@ -13,7 +13,7 @@ def test_config_endpoint_returns_safe_settings_snapshot() -> None:
     assert body["app_name"] == "Stark Terminal"
     assert body["app_version"] == "0.1.0"
     assert body["stark_env"] == "development"
-    assert body["prompt_number"] == "54"
+    assert body["prompt_number"] == "67"
     assert body["timescale_enabled"] is False
     assert body["timescale_create_extension"] is False
     assert body["timescale_create_hypertables"] is False

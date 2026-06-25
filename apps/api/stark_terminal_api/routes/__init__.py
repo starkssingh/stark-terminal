@@ -1,1 +1,1 @@
-"""API route modules for Stark Terminal foundation, analytics, decision skeleton, boundary, and retail dashboard surfaces."""
+"""API routes for Stark Terminal foundation, analytics, decision, dashboard, trader-experience, and research skeletons."""

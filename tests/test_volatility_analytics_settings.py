@@ -7,7 +7,7 @@ from stark_terminal_core.config.settings import Settings, get_settings
 def test_volatility_drawdown_settings_defaults_are_safe() -> None:
     settings = get_settings()
 
-    assert settings.prompt_number == "54"
+    assert settings.prompt_number == "67"
     assert settings.volatility_analytics_enabled is True
     assert settings.drawdown_analytics_enabled is True
     assert settings.volatility_analytics_allow_real_data is False

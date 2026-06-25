@@ -134,8 +134,8 @@ def test_health_endpoint_reports_prompt_34_audit_status() -> None:
 
     body = client.get("/health").json()
 
-    assert body["prompt"] == "54"
-    assert body["audit_status"] == "retail-dashboard-boundary-hardening"
+    assert body["prompt"] == "67"
+    assert body["audit_status"] == "strategy-research-workspace-milestone"
     assert body["execution_apis_enabled"] is False
 
 

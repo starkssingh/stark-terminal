@@ -1808,3 +1808,501 @@ dashboard widgets, no recommendation cards, no action generation, no
 confidence scoring, no active DecisionObject generation or display, no
 readiness-to-trade, no broker controls, no approvals, no overrides, and no
 execution APIs. No frontend implementation is present yet.
+
+## Prompt 55 Retail Dashboard API/Display Integration Readiness Audit
+
+- `docs/RETAIL_DASHBOARD_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`: Retail Dashboard API/display integration readiness audit for Prompts 49-54.
+- `docs/RETAIL_DASHBOARD_CROSS_ENDPOINT_CONSISTENCY_AUDIT.md`: Cross-endpoint consistency audit for Retail Dashboard endpoint families.
+- `docs/RETAIL_DASHBOARD_API_DISPLAY_BOUNDARY_AUDIT.md`: API/display boundary audit.
+- `docs/RETAIL_DASHBOARD_BOUNDARY_INTEGRATION_AUDIT.md`: Boundary registry/policy/invariant integration audit.
+- `docs/RETAIL_DASHBOARD_INTEGRATION_NO_ACTIVE_UI_AUDIT.md`: Integration no-active-UI audit.
+- `docs/RETAIL_DASHBOARD_INTEGRATION_NO_RECOMMENDATION_EXECUTION_AUDIT.md`: Integration no-recommendation/no-execution audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_READINESS_PLAN.md`: Retail Trader Experience planning-readiness note.
+- `tests/test_retail_dashboard_api_display_integration_audit_docs.py`: Prompt 55 audit document tests.
+- `tests/test_retail_dashboard_cross_endpoint_consistency.py`: Retail Dashboard cross-endpoint consistency tests.
+- `tests/test_retail_dashboard_api_display_boundary_integration.py`: API/display boundary integration tests.
+- `tests/test_retail_dashboard_boundary_integration.py`: Boundary integration tests.
+- `tests/test_retail_dashboard_integration_no_active_ui.py`: Integration no-active-UI tests.
+- `tests/test_retail_dashboard_integration_no_recommendation_execution.py`: Integration no-recommendation/no-execution tests.
+- `tests/test_retail_dashboard_integration_api_surface_safety.py`: Retail Dashboard API surface safety tests.
+- `tests/test_retail_trader_experience_readiness_plan.py`: Retail Trader Experience readiness plan tests.
+
+Prompt 55 adds audit and consolidation only. It audits Retail Dashboard
+planning, API, display, safety, milestone, and boundary-hardening integration
+readiness. It adds no frontend implementation, no desktop UI implementation,
+no active Retail Dashboard UI, no active dashboard widgets, no recommendation
+cards, no action generation, no confidence scoring, no active DecisionObject
+generation or display, no readiness-to-trade, no broker controls, no
+approvals, no overrides, and no execution APIs. No frontend implementation is
+present yet.
+
+## Prompt 56 Retail Trader Experience Planning and Guardrails
+
+- `packages/core/stark_terminal_core/retail_trader_experience/`: Retail Trader Experience planning and guardrail contracts.
+- `packages/core/stark_terminal_core/retail_trader_experience/planning.py`: Planning contract, local enums, required forbidden interaction set, and default plan.
+- `packages/core/stark_terminal_core/retail_trader_experience/personas.py`: Trader persona placeholders; no suitability profiling or trading permission profile.
+- `packages/core/stark_terminal_core/retail_trader_experience/journeys.py`: Journey placeholders; no trading advice, broker-control, execution, readiness, approval, or override journey.
+- `packages/core/stark_terminal_core/retail_trader_experience/sections.py`: Experience section placeholders.
+- `packages/core/stark_terminal_core/retail_trader_experience/cards.py`: Experience card placeholders; no recommendation card, action card, confidence card, DecisionObject card, suitability profile card, broker control, or execution control.
+- `packages/core/stark_terminal_core/retail_trader_experience/references.py`: Dashboard, decision, and safety reference placeholders.
+- `packages/core/stark_terminal_core/retail_trader_experience/interactions.py`: Forbidden interaction placeholders.
+- `packages/core/stark_terminal_core/retail_trader_experience/safety.py`: Planning-only safety policies, safety results, and blocking helpers.
+- `packages/core/stark_terminal_core/retail_trader_experience/readiness.py`: Readiness report templates that never unlock active UI, recommendations, broker controls, execution, or suitability profiling.
+- `packages/core/stark_terminal_core/retail_trader_experience/health.py`: Retail Trader Experience health helper.
+- `packages/core/stark_terminal_core/retail_trader_experience/README.md`: Package-level planning and guardrail boundary.
+- `apps/api/stark_terminal_api/routes/retail_trader_experience.py`: Read-only Retail Trader Experience planning endpoints.
+- `docs/RETAIL_TRADER_EXPERIENCE_PLANNING.md`: Planning and guardrails overview.
+- `docs/RETAIL_TRADER_EXPERIENCE_GUARDRAILS.md`: Experience safety guardrails.
+- `docs/RETAIL_TRADER_EXPERIENCE_PERSONA_PLACEHOLDERS.md`: Persona placeholder documentation.
+- `docs/RETAIL_TRADER_EXPERIENCE_JOURNEY_PLACEHOLDERS.md`: Journey placeholder documentation.
+- `docs/RETAIL_TRADER_EXPERIENCE_SECTION_PLACEHOLDERS.md`: Section placeholder documentation.
+- `docs/RETAIL_TRADER_EXPERIENCE_CARD_PLACEHOLDERS.md`: Card placeholder documentation.
+- `docs/RETAIL_TRADER_EXPERIENCE_FORBIDDEN_INTERACTIONS.md`: Forbidden interaction documentation.
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_RECOMMENDATION_POLICY.md`: No-recommendation policy.
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_EXECUTION_POLICY.md`: No-execution policy.
+- `tests/test_retail_trader_experience_settings.py`: Settings tests.
+- `tests/test_retail_trader_experience_planning_contracts.py`: Planning contract tests.
+- `tests/test_retail_trader_experience_personas.py`: Persona placeholder tests.
+- `tests/test_retail_trader_experience_journeys.py`: Journey placeholder tests.
+- `tests/test_retail_trader_experience_sections.py`: Section placeholder tests.
+- `tests/test_retail_trader_experience_cards.py`: Card placeholder tests.
+- `tests/test_retail_trader_experience_references.py`: Reference placeholder tests.
+- `tests/test_retail_trader_experience_forbidden_interactions.py`: Forbidden interaction tests.
+- `tests/test_retail_trader_experience_safety.py`: Safety tests.
+- `tests/test_retail_trader_experience_readiness.py`: Readiness tests.
+- `tests/test_api_retail_trader_experience.py`: Read-only endpoint tests.
+- `tests/test_retail_trader_experience_docs_status.py`: Prompt 56 docs/status tests.
+- `tests/test_retail_trader_experience_no_active_ui_or_execution.py`: No-active-UI/no-execution/suitability tests.
+
+Prompt 56 adds Retail Trader Experience planning and guardrails only. It adds
+no frontend implementation, no desktop implementation, no active Retail
+Trader Experience UI, no active Retail Dashboard UI, no recommendation cards,
+no action generation, no confidence scoring, no active DecisionObject
+generation or display, no readiness-to-trade, no suitability profiling, no
+broker controls, no approvals, no overrides, and no execution APIs. No
+frontend or desktop implementation is present yet.
+
+## Prompt 57 Retail Trader Experience API Contract Skeleton
+
+- `packages/core/stark_terminal_core/retail_trader_experience_api/`: Retail Trader Experience API contract skeleton package.
+- `packages/core/stark_terminal_core/retail_trader_experience_api/requests.py`: Request placeholder schemas and API-stage enums.
+- `packages/core/stark_terminal_core/retail_trader_experience_api/responses.py`: Response placeholder schemas with no generated outputs.
+- `packages/core/stark_terminal_core/retail_trader_experience_api/references.py`: Persona, journey, dashboard, decision, and safety API reference placeholders.
+- `packages/core/stark_terminal_core/retail_trader_experience_api/unavailable.py`: Unavailable response schemas.
+- `packages/core/stark_terminal_core/retail_trader_experience_api/contracts.py`: API contract metadata.
+- `packages/core/stark_terminal_core/retail_trader_experience_api/health.py`: API skeleton health helper.
+- `packages/core/stark_terminal_core/retail_trader_experience_api/README.md`: Package-level API skeleton boundary.
+- `apps/api/stark_terminal_api/routes/retail_trader_experience_api.py`: Read-only Retail Trader Experience API skeleton endpoints.
+- `docs/RETAIL_TRADER_EXPERIENCE_API_CONTRACT_SKELETON.md`: API contract skeleton overview.
+- `docs/RETAIL_TRADER_EXPERIENCE_API_REQUEST_RESPONSE_PLACEHOLDERS.md`: Request/response placeholder documentation.
+- `docs/RETAIL_TRADER_EXPERIENCE_API_REFERENCE_PLACEHOLDERS.md`: API reference placeholder documentation.
+- `docs/RETAIL_TRADER_EXPERIENCE_API_UNAVAILABLE_RESPONSES.md`: Unavailable response policy.
+- `docs/RETAIL_TRADER_EXPERIENCE_API_SAFETY_BOUNDARY.md`: API safety boundary.
+- `docs/RETAIL_TRADER_EXPERIENCE_API_NO_RECOMMENDATION_POLICY.md`: API no-recommendation policy.
+- `docs/RETAIL_TRADER_EXPERIENCE_API_NO_EXECUTION_POLICY.md`: API no-execution policy.
+- `docs/RETAIL_TRADER_EXPERIENCE_API_NO_SUITABILITY_PROFILING_POLICY.md`: API no-suitability-profiling policy.
+- `tests/test_retail_trader_experience_api_settings.py`: API settings tests.
+- `tests/test_retail_trader_experience_api_request_placeholders.py`: Request placeholder tests.
+- `tests/test_retail_trader_experience_api_response_placeholders.py`: Response placeholder tests.
+- `tests/test_retail_trader_experience_api_references.py`: Reference placeholder tests.
+- `tests/test_retail_trader_experience_api_unavailable_responses.py`: Unavailable response tests.
+- `tests/test_retail_trader_experience_api_contracts.py`: Contract metadata tests.
+- `tests/test_api_retail_trader_experience_api.py`: Read-only endpoint tests.
+- `tests/test_retail_trader_experience_api_docs_status.py`: Prompt 57 docs/status tests.
+- `tests/test_retail_trader_experience_api_no_active_ui_or_execution.py`: No-active-UI/no-execution/suitability tests.
+
+Prompt 57 adds Retail Trader Experience API contract skeleton only. It adds no
+frontend implementation, no desktop implementation, no active Retail Trader
+Experience UI, no active Retail Dashboard UI, no recommendation cards, no
+action generation, no confidence scoring, no active DecisionObject generation
+or display, no readiness-to-trade, no suitability profiling, no broker
+controls, no approvals, no overrides, and no execution APIs. No frontend or
+desktop implementation is present yet.
+
+## Prompt 58 Retail Trader Experience Display Contract Skeleton
+
+- `packages/core/stark_terminal_core/retail_trader_experience_display/`: Retail Trader Experience Display contract skeleton package.
+- `packages/core/stark_terminal_core/retail_trader_experience_display/contracts.py`: Display contract metadata, local enums, and forbidden outputs.
+- `packages/core/stark_terminal_core/retail_trader_experience_display/personas.py`: Persona visual placeholders; no suitability profiling or trading permission profile.
+- `packages/core/stark_terminal_core/retail_trader_experience_display/journeys.py`: Journey visual placeholders; no trading advice, broker-control, execution, readiness, approval, or override journey.
+- `packages/core/stark_terminal_core/retail_trader_experience_display/sections.py`: Visual section placeholders.
+- `packages/core/stark_terminal_core/retail_trader_experience_display/widgets.py`: Widget placeholders; no recommendation widget, action widget, confidence widget, DecisionObject widget, suitability profile widget, broker control, or execution control.
+- `packages/core/stark_terminal_core/retail_trader_experience_display/badges.py`: Badge/status placeholders; no recommendation, action, confidence, DecisionObject, readiness-to-trade, broker, suitability, or execution signal.
+- `packages/core/stark_terminal_core/retail_trader_experience_display/unavailable.py`: Unavailable display response schemas.
+- `packages/core/stark_terminal_core/retail_trader_experience_display/safety.py`: Display-contract-only safety policies, safety results, and blocking helpers.
+- `packages/core/stark_terminal_core/retail_trader_experience_display/health.py`: Display skeleton health helper.
+- `packages/core/stark_terminal_core/retail_trader_experience_display/README.md`: Package-level display skeleton boundary.
+- `apps/api/stark_terminal_api/routes/retail_trader_experience_display.py`: Read-only Retail Trader Experience Display skeleton endpoints.
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_CONTRACT_SKELETON.md`: Display contract skeleton overview.
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_PERSONA_PLACEHOLDERS.md`: Persona visual placeholder documentation.
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_JOURNEY_PLACEHOLDERS.md`: Journey visual placeholder documentation.
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_SECTION_PLACEHOLDERS.md`: Visual section placeholder documentation.
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_WIDGET_PLACEHOLDERS.md`: Widget placeholder documentation.
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_UNAVAILABLE_RESPONSES.md`: Unavailable display response policy.
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_SAFETY_BOUNDARY.md`: Display safety boundary.
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_NO_RECOMMENDATION_POLICY.md`: Display no-recommendation policy.
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_NO_EXECUTION_POLICY.md`: Display no-execution policy.
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_NO_SUITABILITY_PROFILING_POLICY.md`: Display no-suitability-profiling policy.
+- `tests/test_retail_trader_experience_display_settings.py`: Display settings tests.
+- `tests/test_retail_trader_experience_display_contracts.py`: Display contract metadata tests.
+- `tests/test_retail_trader_experience_display_personas.py`: Persona visual placeholder tests.
+- `tests/test_retail_trader_experience_display_journeys.py`: Journey visual placeholder tests.
+- `tests/test_retail_trader_experience_display_sections.py`: Visual section placeholder tests.
+- `tests/test_retail_trader_experience_display_widgets.py`: Widget placeholder tests.
+- `tests/test_retail_trader_experience_display_badges.py`: Badge placeholder tests.
+- `tests/test_retail_trader_experience_display_unavailable_responses.py`: Unavailable display response tests.
+- `tests/test_retail_trader_experience_display_safety.py`: Display safety tests.
+- `tests/test_api_retail_trader_experience_display.py`: Read-only endpoint tests.
+- `tests/test_retail_trader_experience_display_docs_status.py`: Prompt 58 docs/status tests.
+- `tests/test_retail_trader_experience_display_no_active_ui_or_execution.py`: No-active-UI/no-execution/suitability tests.
+
+Prompt 58 adds Retail Trader Experience Display contract skeleton only. It
+adds no frontend implementation, no desktop implementation, no active Retail
+Trader Experience UI, no active Retail Dashboard UI, no recommendation cards
+or widgets, no action generation, no confidence scoring, no active
+DecisionObject generation or display, no readiness-to-trade, no suitability
+profiling, no broker controls, no approvals, no overrides, and no execution
+APIs. No frontend or desktop implementation is present yet.
+
+## Prompt 59 Retail Trader Experience Safety Boundary Audit
+
+- `docs/RETAIL_TRADER_EXPERIENCE_SAFETY_BOUNDARY_AUDIT.md`: Safety boundary audit for Prompts 56-58.
+- `docs/RETAIL_TRADER_EXPERIENCE_API_BOUNDARY_AUDIT.md`: Retail Trader Experience API boundary audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_BOUNDARY_AUDIT.md`: Retail Trader Experience Display boundary audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_ACTIVE_UI_AUDIT.md`: No-active-UI audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_RECOMMENDATION_AUDIT.md`: No-recommendation audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_EXECUTION_AUDIT.md`: No-execution audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_NO_SUITABILITY_PROFILING_AUDIT.md`: No-suitability-profiling audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_MILESTONE_READINESS.md`: Milestone-readiness note for Prompt 60.
+- `tests/test_retail_trader_experience_safety_boundary_audit_docs.py`: Prompt 59 audit document tests.
+- `tests/test_retail_trader_experience_api_boundary_audit.py`: API boundary audit tests.
+- `tests/test_retail_trader_experience_display_boundary_audit.py`: Display boundary audit tests.
+- `tests/test_retail_trader_experience_no_active_ui_audit.py`: No-active-UI audit tests.
+- `tests/test_retail_trader_experience_no_recommendation_audit.py`: No-recommendation audit tests.
+- `tests/test_retail_trader_experience_no_execution_audit.py`: No-execution audit tests.
+- `tests/test_retail_trader_experience_no_suitability_profiling_audit.py`: No-suitability-profiling audit tests.
+- `tests/test_retail_trader_experience_api_surface_safety.py`: API surface safety tests for Retail Trader Experience endpoint families.
+- `tests/test_retail_trader_experience_milestone_readiness.py`: Prompt 60 readiness tests.
+
+Prompt 59 adds audit and consolidation only. It audits Retail Trader
+Experience planning, API, and display safety boundaries. It adds no frontend
+implementation, no desktop implementation, no active Retail Trader Experience
+UI, no active Retail Dashboard UI, no recommendation cards or widgets, no
+action generation, no confidence scoring, no active DecisionObject generation
+or display, no readiness-to-trade, no suitability profiling, no broker
+controls, no approvals, no overrides, and no execution APIs. No frontend or
+desktop implementation is present yet.
+
+## Prompt 60 Retail Trader Experience Milestone Audit
+
+- `docs/RETAIL_TRADER_EXPERIENCE_MILESTONE_AUDIT.md`: Milestone audit for Prompts 56-59.
+- `docs/RETAIL_TRADER_EXPERIENCE_PLANNING_MILESTONE_AUDIT.md`: Planning milestone audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_API_MILESTONE_AUDIT.md`: API milestone audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_DISPLAY_MILESTONE_AUDIT.md`: Display milestone audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_SAFETY_MILESTONE_AUDIT.md`: Safety milestone audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_PHASE_NO_ACTIVE_UI_AUDIT.md`: Phase no-active-UI audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_PHASE_NO_RECOMMENDATION_EXECUTION_AUDIT.md`: Phase no-recommendation/no-execution audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_PHASE_NO_SUITABILITY_AUDIT.md`: Phase no-suitability audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_NEXT_PHASE_PLAN.md`: Next-phase plan recommending Prompt 61.
+- `tests/test_retail_trader_experience_milestone_audit_docs.py`: Milestone audit document tests.
+- `tests/test_retail_trader_experience_planning_milestone.py`: Planning milestone invariant tests.
+- `tests/test_retail_trader_experience_api_milestone.py`: API milestone invariant tests.
+- `tests/test_retail_trader_experience_display_milestone.py`: Display milestone invariant tests.
+- `tests/test_retail_trader_experience_safety_milestone.py`: Safety milestone invariant tests.
+- `tests/test_retail_trader_experience_phase_no_active_ui.py`: Phase no-active-UI invariant tests.
+- `tests/test_retail_trader_experience_phase_no_recommendation_execution.py`: Phase no-recommendation/no-execution invariant tests.
+- `tests/test_retail_trader_experience_phase_no_suitability.py`: Phase no-suitability invariant tests.
+- `tests/test_retail_trader_experience_next_phase_readiness.py`: Next-phase readiness tests.
+
+Prompt 60 adds audit and consolidation only. It audits Retail Trader
+Experience planning/guardrails, API contract skeleton, display contract
+skeleton, safety boundary audit, API surface safety, and next-phase readiness.
+It adds no frontend implementation, no desktop implementation, no active
+Retail Trader Experience UI, no active Retail Dashboard UI, no recommendation
+cards or widgets, no action generation, no confidence scoring, no active
+DecisionObject generation or display, no readiness-to-trade, no suitability
+profiling, no broker controls, no approvals, no overrides, and no execution
+APIs. No frontend or desktop implementation is present yet.
+
+## Prompt 61 Retail Trader Experience System Boundary Hardening
+
+- `packages/core/stark_terminal_core/retail_trader_experience_boundary/`: Retail Trader Experience boundary hardening package.
+- `packages/core/stark_terminal_core/retail_trader_experience_boundary/forbidden.py`: Forbidden behavior registry contracts.
+- `packages/core/stark_terminal_core/retail_trader_experience_boundary/endpoints.py`: Endpoint boundary policy contracts.
+- `packages/core/stark_terminal_core/retail_trader_experience_boundary/modules.py`: Module boundary policy contracts.
+- `packages/core/stark_terminal_core/retail_trader_experience_boundary/invariants.py`: Cross-module invariant helpers.
+- `packages/core/stark_terminal_core/retail_trader_experience_boundary/health.py`: Boundary health metadata.
+- `packages/core/stark_terminal_core/retail_trader_experience_boundary/README.md`: Package boundary notes.
+- `apps/api/stark_terminal_api/routes/retail_trader_experience_boundary.py`: Read-only Retail Trader Experience boundary endpoints.
+- `docs/RETAIL_TRADER_EXPERIENCE_SYSTEM_BOUNDARY_HARDENING.md`: System boundary hardening overview.
+- `docs/RETAIL_TRADER_EXPERIENCE_FORBIDDEN_BEHAVIOR_REGISTRY.md`: Forbidden behavior registry documentation.
+- `docs/RETAIL_TRADER_EXPERIENCE_ENDPOINT_BOUNDARY_POLICY.md`: Endpoint boundary policy documentation.
+- `docs/RETAIL_TRADER_EXPERIENCE_MODULE_BOUNDARY_POLICY.md`: Module boundary policy documentation.
+- `docs/RETAIL_TRADER_EXPERIENCE_CROSS_MODULE_INVARIANTS.md`: Cross-module invariant documentation.
+- `docs/RETAIL_TRADER_EXPERIENCE_BOUNDARY_NO_ACTIVE_UI_POLICY.md`: Boundary no-active-UI policy.
+- `docs/RETAIL_TRADER_EXPERIENCE_BOUNDARY_NO_EXECUTION_POLICY.md`: Boundary no-execution policy.
+- `docs/RETAIL_TRADER_EXPERIENCE_BOUNDARY_NO_SUITABILITY_PROFILING_POLICY.md`: Boundary no-suitability-profiling policy.
+- `tests/test_retail_trader_experience_boundary_settings.py`: Boundary settings tests.
+- `tests/test_retail_trader_experience_boundary_forbidden_registry.py`: Forbidden registry tests.
+- `tests/test_retail_trader_experience_boundary_endpoint_policy.py`: Endpoint policy tests.
+- `tests/test_retail_trader_experience_boundary_module_policy.py`: Module policy tests.
+- `tests/test_retail_trader_experience_boundary_invariants.py`: Invariant tests.
+- `tests/test_api_retail_trader_experience_boundary.py`: Boundary endpoint tests.
+- `tests/test_retail_trader_experience_boundary_docs_status.py`: Prompt 61 docs/status tests.
+- `tests/test_retail_trader_experience_boundary_cross_module_no_recommendations.py`: Cross-module no-recommendation tests.
+- `tests/test_retail_trader_experience_boundary_cross_endpoint_no_execution.py`: Cross-endpoint no-execution tests.
+- `tests/test_retail_trader_experience_boundary_no_active_ui_or_broker_controls.py`: No-active-UI/no-broker-control tests.
+- `tests/test_retail_trader_experience_boundary_no_suitability_profiling.py`: No-suitability tests.
+
+Prompt 61 adds boundary-hardening contracts and read-only metadata endpoints
+only. It adds no frontend implementation, no desktop implementation, no active
+Retail Trader Experience UI, no active Retail Dashboard UI, no recommendation
+cards or widgets, no action generation, no confidence scoring, no active
+DecisionObject generation or display, no readiness-to-trade, no suitability
+profiling, no broker controls, no approvals, no overrides, and no execution
+APIs. No frontend or desktop implementation is present yet.
+
+## Prompt 62 Retail Trader Experience API/Display Integration Readiness Audit
+
+- `docs/RETAIL_TRADER_EXPERIENCE_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`: Integration readiness audit for Prompts 56-61.
+- `docs/RETAIL_TRADER_EXPERIENCE_CROSS_ENDPOINT_CONSISTENCY_AUDIT.md`: Cross-endpoint consistency audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_API_DISPLAY_BOUNDARY_AUDIT.md`: API/display boundary audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_BOUNDARY_INTEGRATION_AUDIT.md`: Boundary integration audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_INTEGRATION_NO_ACTIVE_UI_AUDIT.md`: Integration no-active-UI audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_INTEGRATION_NO_RECOMMENDATION_EXECUTION_AUDIT.md`: Integration no-recommendation/no-execution audit.
+- `docs/RETAIL_TRADER_EXPERIENCE_INTEGRATION_NO_SUITABILITY_AUDIT.md`: Integration no-suitability audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_READINESS_PLAN.md`: Strategy Research Workspace planning readiness note.
+- `tests/test_retail_trader_experience_api_display_integration_audit_docs.py`: Integration audit docs tests.
+- `tests/test_retail_trader_experience_cross_endpoint_consistency.py`: Cross-endpoint consistency tests.
+- `tests/test_retail_trader_experience_api_display_boundary_integration.py`: API/display boundary integration tests.
+- `tests/test_retail_trader_experience_boundary_integration.py`: Boundary integration tests.
+- `tests/test_retail_trader_experience_integration_no_active_ui.py`: Integration no-active-UI tests.
+- `tests/test_retail_trader_experience_integration_no_recommendation_execution.py`: Integration no-recommendation/no-execution tests.
+- `tests/test_retail_trader_experience_integration_no_suitability.py`: Integration no-suitability tests.
+- `tests/test_retail_trader_experience_integration_api_surface_safety.py`: Integration API surface safety tests.
+- `tests/test_strategy_research_workspace_readiness_plan.py`: Strategy Research Workspace readiness plan tests.
+
+Prompt 62 adds audit and consolidation only. It audits Retail Trader
+Experience planning/guardrails, API contract skeleton, display contract
+skeleton, safety boundary audit, milestone audit, system boundary hardening,
+cross-endpoint consistency, cross-module consistency, API/display boundary
+integrity, and Strategy Research Workspace planning readiness. It adds no
+frontend implementation, no desktop implementation, no active Retail Trader
+Experience UI, no active Retail Dashboard UI, no recommendation cards or
+widgets, no action generation, no confidence scoring, no active DecisionObject
+generation or display, no readiness-to-trade, no suitability profiling, no
+broker controls, no approvals, no overrides, no Strategy Research Workspace
+implementation, and no execution APIs. No frontend or desktop implementation
+is present yet.
+
+## Prompt 63 Strategy Research Workspace Planning and Guardrails
+
+- `packages/core/stark_terminal_core/strategy_research_workspace/`: Strategy Research Workspace planning and guardrails package.
+- `packages/core/stark_terminal_core/strategy_research_workspace/planning.py`: Planning contract, enums, and fail-closed planning defaults.
+- `packages/core/stark_terminal_core/strategy_research_workspace/workspaces.py`: Workspace placeholder contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace/artifacts.py`: Research artifact placeholder contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace/papers.py`: Paper reference placeholder contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace/strategies.py`: Strategy hypothesis placeholder contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace/datasets.py`: Dataset reference placeholder contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace/experiments.py`: Experiment plan placeholder contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace/interactions.py`: Forbidden interaction registry.
+- `packages/core/stark_terminal_core/strategy_research_workspace/safety.py`: Planning-only safety policy and result helpers.
+- `packages/core/stark_terminal_core/strategy_research_workspace/readiness.py`: Planning-only readiness report helpers.
+- `packages/core/stark_terminal_core/strategy_research_workspace/health.py`: Health metadata for planning-only status.
+- `apps/api/stark_terminal_api/routes/strategy_research_workspace.py`: Read-only Strategy Research Workspace planning endpoints.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PLANNING.md`: Planning documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_GUARDRAILS.md`: Guardrail documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PLACEHOLDERS.md`: Workspace placeholder documentation.
+- `docs/STRATEGY_RESEARCH_ARTIFACT_PLACEHOLDERS.md`: Artifact placeholder documentation.
+- `docs/STRATEGY_RESEARCH_PAPER_REFERENCE_PLACEHOLDERS.md`: Paper reference placeholder documentation.
+- `docs/STRATEGY_RESEARCH_HYPOTHESIS_PLACEHOLDERS.md`: Hypothesis placeholder documentation.
+- `docs/STRATEGY_RESEARCH_DATASET_REFERENCE_PLACEHOLDERS.md`: Dataset reference placeholder documentation.
+- `docs/STRATEGY_RESEARCH_EXPERIMENT_PLACEHOLDERS.md`: Experiment placeholder documentation.
+- `docs/STRATEGY_RESEARCH_FORBIDDEN_INTERACTIONS.md`: Forbidden interaction documentation.
+- `docs/STRATEGY_RESEARCH_NO_STRATEGY_GENERATION_POLICY.md`: No strategy generation policy.
+- `docs/STRATEGY_RESEARCH_NO_BACKTESTING_POLICY.md`: No backtesting policy.
+- `docs/STRATEGY_RESEARCH_NO_RECOMMENDATION_POLICY.md`: No recommendation policy.
+- `docs/STRATEGY_RESEARCH_NO_EXECUTION_POLICY.md`: No execution policy.
+
+Prompt 63 adds planning, guardrails, placeholders, safety helpers, readiness
+templates, read-only endpoints, docs, tests, audit coverage, and verifier
+coverage only. It adds no frontend implementation, no desktop implementation,
+no active Strategy Research Workspace UI, no active Retail Trader Experience
+UI, no paper ingestion, no paper parsing, no strategy generation, no strategy
+code generation, no backtesting, no optimization, no recommendation
+generation, no action generation, no confidence scoring, no active
+DecisionObject generation or display, no readiness-to-trade, no broker
+controls, no approvals, no overrides, and no execution APIs. No frontend or
+desktop implementation is present yet.
+
+## Prompt 64 Strategy Research Workspace API Contract Skeleton
+
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/`: Strategy Research Workspace API contract skeleton package.
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/requests.py`: API request placeholder contracts and enums.
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/responses.py`: API response placeholder contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/references.py`: Workspace, artifact, paper, hypothesis, dataset, experiment, and safety reference placeholders.
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/unavailable.py`: Unavailable response contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/contracts.py`: API contract metadata helpers.
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/health.py`: API skeleton health metadata.
+- `packages/core/stark_terminal_core/strategy_research_workspace_api/README.md`: Package boundary notes.
+- `apps/api/stark_terminal_api/routes/strategy_research_workspace_api.py`: Read-only Strategy Research Workspace API skeleton endpoints.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_CONTRACT_SKELETON.md`: API contract skeleton documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_REQUEST_RESPONSE_PLACEHOLDERS.md`: Request/response placeholder documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_REFERENCE_PLACEHOLDERS.md`: Reference placeholder documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_UNAVAILABLE_RESPONSES.md`: Unavailable response documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_SAFETY_BOUNDARY.md`: API safety boundary documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_NO_PAPER_PARSING_POLICY.md`: API no-paper-parsing policy.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_NO_STRATEGY_GENERATION_POLICY.md`: API no-strategy-generation policy.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_NO_BACKTESTING_POLICY.md`: API no-backtesting policy.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_NO_RECOMMENDATION_POLICY.md`: API no-recommendation policy.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_NO_EXECUTION_POLICY.md`: API no-execution policy.
+- `tests/test_strategy_research_workspace_api_settings.py`: API settings tests.
+- `tests/test_strategy_research_workspace_api_request_placeholders.py`: Request placeholder tests.
+- `tests/test_strategy_research_workspace_api_response_placeholders.py`: Response placeholder tests.
+- `tests/test_strategy_research_workspace_api_references.py`: Reference placeholder tests.
+- `tests/test_strategy_research_workspace_api_unavailable_responses.py`: Unavailable response tests.
+- `tests/test_strategy_research_workspace_api_contracts.py`: Contract metadata tests.
+- `tests/test_api_strategy_research_workspace_api.py`: API endpoint tests.
+- `tests/test_strategy_research_workspace_api_docs_status.py`: Prompt 64 docs/status tests.
+- `tests/test_strategy_research_workspace_api_no_active_ui_or_execution.py`: No-active-UI/no-execution invariant tests.
+
+Prompt 64 adds API contract skeletons, reference placeholders, unavailable
+responses, read-only endpoints, docs, tests, audit coverage, and verifier
+coverage only. It adds no frontend implementation, no desktop implementation,
+no active Strategy Research Workspace UI, no paper ingestion, no paper
+parsing, no strategy generation, no strategy code generation, no backtesting,
+no optimization, no recommendation generation, no action generation, no
+confidence scoring, no active DecisionObject generation or display, no
+readiness-to-trade, no broker controls, no approvals, no overrides, and no
+execution APIs. No frontend or desktop implementation is present yet.
+
+## Prompt 65 Strategy Research Workspace Display Contract Skeleton
+
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/`: Strategy Research Workspace display contract skeleton package.
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/contracts.py`: Display contract metadata, display enums, and forbidden output helpers.
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/workspaces.py`: Workspace visual placeholder contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/artifacts.py`: Research artifact visual placeholder contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/papers.py`: Paper reference visual placeholder contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/hypotheses.py`: Hypothesis visual placeholder contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/datasets.py`: Dataset reference visual placeholder contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/experiments.py`: Experiment visual placeholder contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/badges.py`: Badge/status placeholder contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/unavailable.py`: Unavailable display response contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/safety.py`: Display safety policy and result helpers.
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/health.py`: Display skeleton health metadata.
+- `packages/core/stark_terminal_core/strategy_research_workspace_display/README.md`: Package boundary notes.
+- `apps/api/stark_terminal_api/routes/strategy_research_workspace_display.py`: Read-only Strategy Research Workspace Display skeleton endpoints.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_CONTRACT_SKELETON.md`: Display contract skeleton documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_WORKSPACE_PLACEHOLDERS.md`: Workspace visual placeholder documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_ARTIFACT_PLACEHOLDERS.md`: Artifact visual placeholder documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_PAPER_REFERENCE_PLACEHOLDERS.md`: Paper visual placeholder documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_HYPOTHESIS_PLACEHOLDERS.md`: Hypothesis visual placeholder documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_DATASET_REFERENCE_PLACEHOLDERS.md`: Dataset visual placeholder documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_EXPERIMENT_PLACEHOLDERS.md`: Experiment visual placeholder documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_UNAVAILABLE_RESPONSES.md`: Unavailable display response documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_SAFETY_BOUNDARY.md`: Display safety boundary documentation.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_NO_PAPER_PARSING_POLICY.md`: Display no-paper-parsing policy.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_NO_STRATEGY_GENERATION_POLICY.md`: Display no-strategy-generation policy.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_NO_BACKTESTING_POLICY.md`: Display no-backtesting policy.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_NO_RECOMMENDATION_POLICY.md`: Display no-recommendation policy.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_NO_EXECUTION_POLICY.md`: Display no-execution policy.
+- `tests/test_strategy_research_workspace_display_settings.py`: Display settings tests.
+- `tests/test_strategy_research_workspace_display_contracts.py`: Display contract metadata tests.
+- `tests/test_strategy_research_workspace_display_workspaces.py`: Workspace visual placeholder tests.
+- `tests/test_strategy_research_workspace_display_artifacts.py`: Artifact visual placeholder tests.
+- `tests/test_strategy_research_workspace_display_papers.py`: Paper visual placeholder tests.
+- `tests/test_strategy_research_workspace_display_hypotheses.py`: Hypothesis visual placeholder tests.
+- `tests/test_strategy_research_workspace_display_datasets.py`: Dataset visual placeholder tests.
+- `tests/test_strategy_research_workspace_display_experiments.py`: Experiment visual placeholder tests.
+- `tests/test_strategy_research_workspace_display_badges.py`: Badge placeholder tests.
+- `tests/test_strategy_research_workspace_display_unavailable_responses.py`: Unavailable display response tests.
+- `tests/test_strategy_research_workspace_display_safety.py`: Display safety tests.
+- `tests/test_api_strategy_research_workspace_display.py`: Display endpoint tests.
+- `tests/test_strategy_research_workspace_display_docs_status.py`: Prompt 65 docs/status tests.
+- `tests/test_strategy_research_workspace_display_no_active_ui_or_execution.py`: No-active-UI/no-execution invariant tests.
+
+Prompt 65 adds display contract skeletons, visual placeholders, badge
+placeholders, unavailable display responses, display safety helpers,
+read-only endpoints, docs, tests, audit coverage, and verifier coverage only.
+It adds no frontend implementation, no desktop implementation, no active
+Strategy Research Workspace UI, no paper ingestion, no paper parsing, no
+strategy generation, no strategy code generation, no backtesting, no
+optimization, no recommendation generation, no action generation, no
+confidence scoring, no active DecisionObject generation or display, no
+readiness-to-trade, no broker controls, no approvals, no overrides, and no
+execution APIs. No frontend or desktop implementation is present yet.
+
+## Prompt 66 Strategy Research Workspace Safety Boundary Audit
+
+- `docs/STRATEGY_RESEARCH_WORKSPACE_SAFETY_BOUNDARY_AUDIT.md`: Prompt 66 consolidated safety boundary audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_BOUNDARY_AUDIT.md`: Strategy Research Workspace API boundary audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_BOUNDARY_AUDIT.md`: Strategy Research Workspace display boundary audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_ACTIVE_UI_AUDIT.md`: No-active-UI audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_PAPER_PARSING_AUDIT.md`: No-paper-ingestion/parsing audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_STRATEGY_GENERATION_AUDIT.md`: No-strategy-generation audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_BACKTESTING_AUDIT.md`: No-backtesting audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_RECOMMENDATION_AUDIT.md`: No-recommendation audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_EXECUTION_AUDIT.md`: No-execution audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_MILESTONE_READINESS.md`: Milestone audit readiness note.
+- `tests/test_strategy_research_workspace_safety_boundary_audit_docs.py`: Prompt 66 audit docs tests.
+- `tests/test_strategy_research_workspace_api_boundary_audit.py`: API boundary audit tests.
+- `tests/test_strategy_research_workspace_display_boundary_audit.py`: Display boundary audit tests.
+- `tests/test_strategy_research_workspace_no_active_ui_audit.py`: No-active-UI audit tests.
+- `tests/test_strategy_research_workspace_no_paper_parsing_audit.py`: No-paper-parsing audit tests.
+- `tests/test_strategy_research_workspace_no_strategy_generation_audit.py`: No-strategy-generation audit tests.
+- `tests/test_strategy_research_workspace_no_backtesting_audit.py`: No-backtesting audit tests.
+- `tests/test_strategy_research_workspace_no_recommendation_audit.py`: No-recommendation audit tests.
+- `tests/test_strategy_research_workspace_no_execution_audit.py`: No-execution audit tests.
+- `tests/test_strategy_research_workspace_api_surface_safety.py`: Strategy Research Workspace API surface safety tests.
+- `tests/test_strategy_research_workspace_milestone_readiness.py`: Milestone readiness tests.
+
+Prompt 66 adds audit docs, tests, audit coverage, verifier coverage, and
+status consolidation only. It confirms `strategy_research_workspace`,
+`strategy_research_workspace_api`, and `strategy_research_workspace_display`
+modules and routes remain contract/skeleton/audit layers. It adds no frontend
+implementation, no desktop implementation, no active Strategy Research
+Workspace UI, no paper ingestion, no paper parsing, no strategy generation,
+no strategy code generation, no backtesting, no optimization, no
+recommendation generation, no action generation, no confidence scoring, no
+active DecisionObject generation or display, no readiness-to-trade, no broker
+controls, no approvals, no overrides, no real market data display, and no
+execution APIs. No frontend or desktop implementation is present yet.
+
+## Prompt 67 Strategy Research Workspace Milestone Audit
+
+- `docs/STRATEGY_RESEARCH_WORKSPACE_MILESTONE_AUDIT.md`: Strategy Research Workspace milestone audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PLANNING_MILESTONE_AUDIT.md`: Planning milestone audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_MILESTONE_AUDIT.md`: API milestone audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_MILESTONE_AUDIT.md`: Display milestone audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_SAFETY_MILESTONE_AUDIT.md`: Safety milestone audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PHASE_NO_ACTIVE_UI_AUDIT.md`: Phase no-active-UI audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PHASE_NO_PAPER_PARSING_AUDIT.md`: Phase no-paper-parsing audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PHASE_NO_STRATEGY_GENERATION_AUDIT.md`: Phase no-strategy-generation audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PHASE_NO_BACKTESTING_AUDIT.md`: Phase no-backtesting audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PHASE_NO_RECOMMENDATION_EXECUTION_AUDIT.md`: Phase no-recommendation/no-execution audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NEXT_PHASE_PLAN.md`: Strategy Research Workspace next-phase plan.
+- `tests/test_strategy_research_workspace_milestone_audit_docs.py`: Prompt 67 milestone audit documentation tests.
+- `tests/test_strategy_research_workspace_planning_milestone.py`: Planning milestone boundary tests.
+- `tests/test_strategy_research_workspace_api_milestone.py`: API milestone boundary tests.
+- `tests/test_strategy_research_workspace_display_milestone.py`: Display milestone boundary tests.
+- `tests/test_strategy_research_workspace_safety_milestone.py`: Safety milestone tests.
+- `tests/test_strategy_research_workspace_phase_no_active_ui.py`: Phase no-active-UI tests.
+- `tests/test_strategy_research_workspace_phase_no_paper_parsing.py`: Phase no-paper-parsing tests.
+- `tests/test_strategy_research_workspace_phase_no_strategy_generation.py`: Phase no-strategy-generation tests.
+- `tests/test_strategy_research_workspace_phase_no_backtesting.py`: Phase no-backtesting tests.
+- `tests/test_strategy_research_workspace_phase_no_recommendation_execution.py`: Phase no-recommendation/no-execution tests.
+- `tests/test_strategy_research_workspace_next_phase_readiness.py`: Next-phase readiness tests.
+
+Prompt 67 adds milestone audit docs, tests, audit coverage, verifier coverage,
+next-phase readiness documentation, and status consolidation only. It confirms
+`strategy_research_workspace`, `strategy_research_workspace_api`, and
+`strategy_research_workspace_display` remain contract/skeleton/audit layers.
+It adds no active Strategy Research Workspace UI, frontend implementation,
+desktop implementation, paper ingestion, paper parsing, arXiv ingestion, LLM
+paper analysis, method extraction, strategy extraction, strategy generation,
+strategy code generation, signal/factor/alpha generation, backtesting,
+optimization, parameter search, walk-forward analysis, performance claims,
+recommendation generation, action generation, confidence scoring, active
+DecisionObject generation or display, readiness-to-trade, broker controls,
+approvals, overrides, real market data display, or execution APIs. No
+frontend or desktop implementation is present yet.

@@ -7,7 +7,7 @@ from stark_terminal_core.config.settings import Settings
 def test_feature_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "54"
+    assert settings.prompt_number == "67"
     assert settings.feature_store_mode == "custom"
     assert settings.feature_registry_enabled is False
     assert settings.feature_registry_backend == "memory"

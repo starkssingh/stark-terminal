@@ -7,7 +7,7 @@ from stark_terminal_core.config.settings import Settings
 def test_analytics_foundation_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "54"
+    assert settings.prompt_number == "67"
     assert settings.analytics_foundation_enabled is True
     assert settings.analytics_schema_version == "v1"
     assert settings.analytics_allow_real_data is False
