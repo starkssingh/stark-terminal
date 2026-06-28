@@ -66,3 +66,11 @@ complete as contract/skeleton/audit-only work. Planning contracts and
 placeholders remain unavailable by default and do not create active UI, paper
 parsing, strategy generation, backtesting, recommendations, broker controls,
 or execution APIs. The next allowed step is system boundary hardening only.
+
+## Prompt 68 System Boundary Hardening
+
+Prompt 68 adds boundary-hardening-only contracts for forbidden behavior,
+endpoint policies, module policies, and cross-module invariants. It does not
+change the planning layer into active UI, paper ingestion, paper parsing,
+strategy generation, backtesting, recommendations, broker controls, approvals,
+overrides, readiness-to-trade, or execution APIs.

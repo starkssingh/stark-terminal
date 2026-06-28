@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     stark_env: str = "development"
     app_name: str = "Stark Terminal"
     app_version: str = "0.1.0"
-    prompt_number: str = "67"
+    prompt_number: str = "107"
 
     api_host: str = "127.0.0.1"
     api_port: int = Field(default=8000, ge=1, le=65535)
@@ -548,6 +548,163 @@ class Settings(BaseSettings):
     strategy_research_workspace_display_allow_override: bool = False
     strategy_research_workspace_display_return_unavailable_by_default: bool = True
     strategy_research_workspace_display_stage: str = "display_contract_skeleton"
+    strategy_research_workspace_boundary_enabled: bool = True
+    strategy_research_workspace_boundary_schema_version: str = "v1"
+    strategy_research_workspace_boundary_allow_active_ui: bool = False
+    strategy_research_workspace_boundary_allow_frontend_components: bool = False
+    strategy_research_workspace_boundary_allow_desktop_components: bool = False
+    strategy_research_workspace_boundary_allow_paper_ingestion: bool = False
+    strategy_research_workspace_boundary_allow_paper_parsing: bool = False
+    strategy_research_workspace_boundary_allow_strategy_generation: bool = False
+    strategy_research_workspace_boundary_allow_strategy_code_generation: bool = False
+    strategy_research_workspace_boundary_allow_backtesting: bool = False
+    strategy_research_workspace_boundary_allow_optimization: bool = False
+    strategy_research_workspace_boundary_allow_recommendations: bool = False
+    strategy_research_workspace_boundary_allow_action_generation: bool = False
+    strategy_research_workspace_boundary_allow_confidence_scoring: bool = False
+    strategy_research_workspace_boundary_allow_decision_object_generation: bool = False
+    strategy_research_workspace_boundary_allow_readiness_to_trade: bool = False
+    strategy_research_workspace_boundary_allow_broker_controls: bool = False
+    strategy_research_workspace_boundary_allow_execution: bool = False
+    strategy_research_workspace_boundary_allow_approval: bool = False
+    strategy_research_workspace_boundary_allow_override: bool = False
+    strategy_research_workspace_boundary_stage: str = "boundary_hardening"
+    research_artifact_registry_enabled: bool = True
+    research_artifact_registry_schema_version: str = "v1"
+    research_artifact_registry_stage: str = "planning"
+    research_artifact_registry_allow_active_ingestion: bool = False
+    research_artifact_registry_allow_persistent_storage: bool = False
+    research_artifact_registry_allow_file_uploads: bool = False
+    research_artifact_registry_allow_file_downloads: bool = False
+    research_artifact_registry_allow_paper_parsing: bool = False
+    research_artifact_registry_allow_pdf_parsing: bool = False
+    research_artifact_registry_allow_arxiv_ingestion: bool = False
+    research_artifact_registry_allow_llm_analysis: bool = False
+    research_artifact_registry_allow_strategy_generation: bool = False
+    research_artifact_registry_allow_backtesting: bool = False
+    research_artifact_registry_allow_recommendations: bool = False
+    research_artifact_registry_allow_execution: bool = False
+    research_artifact_registry_api_enabled: bool = True
+    research_artifact_registry_api_schema_version: str = "v1"
+    research_artifact_registry_api_stage: str = "api_contract_skeleton"
+    research_artifact_registry_api_allow_active_ingestion: bool = False
+    research_artifact_registry_api_allow_persistent_storage: bool = False
+    research_artifact_registry_api_allow_file_uploads: bool = False
+    research_artifact_registry_api_allow_file_downloads: bool = False
+    research_artifact_registry_api_allow_paper_parsing: bool = False
+    research_artifact_registry_api_allow_pdf_parsing: bool = False
+    research_artifact_registry_api_allow_arxiv_ingestion: bool = False
+    research_artifact_registry_api_allow_llm_analysis: bool = False
+    research_artifact_registry_api_allow_strategy_generation: bool = False
+    research_artifact_registry_api_allow_backtesting: bool = False
+    research_artifact_registry_api_allow_recommendations: bool = False
+    research_artifact_registry_api_allow_execution: bool = False
+    research_artifact_registry_display_enabled: bool = True
+    research_artifact_registry_display_schema_version: str = "v1"
+    research_artifact_registry_display_stage: str = "display_contract_skeleton"
+    research_artifact_registry_display_allow_active_ui: bool = False
+    research_artifact_registry_display_allow_frontend_components: bool = False
+    research_artifact_registry_display_allow_desktop_components: bool = False
+    research_artifact_registry_display_allow_active_ingestion: bool = False
+    research_artifact_registry_display_allow_persistent_storage: bool = False
+    research_artifact_registry_display_allow_file_uploads: bool = False
+    research_artifact_registry_display_allow_file_downloads: bool = False
+    research_artifact_registry_display_allow_paper_parsing: bool = False
+    research_artifact_registry_display_allow_strategy_generation: bool = False
+    research_artifact_registry_display_allow_backtesting: bool = False
+    research_artifact_registry_display_allow_recommendations: bool = False
+    research_artifact_registry_display_allow_execution: bool = False
+    research_artifact_registry_boundary_enabled: bool = True
+    research_artifact_registry_boundary_schema_version: str = "v1"
+    research_artifact_registry_boundary_stage: str = "boundary_hardening"
+    research_artifact_registry_boundary_allow_active_ingestion: bool = False
+    research_artifact_registry_boundary_allow_persistent_storage: bool = False
+    research_artifact_registry_boundary_allow_file_uploads: bool = False
+    research_artifact_registry_boundary_allow_file_downloads: bool = False
+    research_artifact_registry_boundary_allow_file_previews: bool = False
+    research_artifact_registry_boundary_allow_active_ui: bool = False
+    research_artifact_registry_boundary_allow_frontend_components: bool = False
+    research_artifact_registry_boundary_allow_desktop_components: bool = False
+    research_artifact_registry_boundary_allow_paper_parsing: bool = False
+    research_artifact_registry_boundary_allow_pdf_parsing: bool = False
+    research_artifact_registry_boundary_allow_arxiv_ingestion: bool = False
+    research_artifact_registry_boundary_allow_llm_analysis: bool = False
+    research_artifact_registry_boundary_allow_strategy_generation: bool = False
+    research_artifact_registry_boundary_allow_strategy_code_generation: bool = False
+    research_artifact_registry_boundary_allow_backtesting: bool = False
+    research_artifact_registry_boundary_allow_optimization: bool = False
+    research_artifact_registry_boundary_allow_recommendations: bool = False
+    research_artifact_registry_boundary_allow_action_generation: bool = False
+    research_artifact_registry_boundary_allow_confidence_scoring: bool = False
+    research_artifact_registry_boundary_allow_decision_object_generation: bool = False
+    research_artifact_registry_boundary_allow_readiness_to_trade: bool = False
+    research_artifact_registry_boundary_allow_broker_controls: bool = False
+    research_artifact_registry_boundary_allow_execution: bool = False
+    research_artifact_registry_boundary_allow_approval: bool = False
+    research_artifact_registry_boundary_allow_override: bool = False
+    research_artifact_index_enabled: bool = True
+    research_artifact_index_schema_version: str = "v1"
+    research_artifact_index_stage: str = "planning_and_guardrails"
+    research_artifact_index_allow_indexing_engine: bool = False
+    research_artifact_index_allow_search_engine: bool = False
+    research_artifact_index_allow_ranking_engine: bool = False
+    research_artifact_index_allow_retrieval_engine: bool = False
+    research_artifact_index_allow_embeddings: bool = False
+    research_artifact_index_allow_vector_store: bool = False
+    research_artifact_index_allow_active_ingestion: bool = False
+    research_artifact_index_allow_persistent_storage: bool = False
+    research_artifact_index_allow_file_uploads: bool = False
+    research_artifact_index_allow_file_downloads: bool = False
+    research_artifact_index_allow_file_previews: bool = False
+    research_artifact_index_allow_paper_parsing: bool = False
+    research_artifact_index_allow_pdf_parsing: bool = False
+    research_artifact_index_allow_arxiv_ingestion: bool = False
+    research_artifact_index_allow_llm_analysis: bool = False
+    research_artifact_index_allow_strategy_generation: bool = False
+    research_artifact_index_allow_backtesting: bool = False
+    research_artifact_index_allow_recommendations: bool = False
+    research_artifact_index_allow_execution: bool = False
+    research_artifact_index_api_enabled: bool = True
+    research_artifact_index_api_schema_version: str = "v1"
+    research_artifact_index_api_stage: str = "api_contract_skeleton"
+    research_artifact_index_api_allow_indexing_engine: bool = False
+    research_artifact_index_api_allow_search_engine: bool = False
+    research_artifact_index_api_allow_ranking_engine: bool = False
+    research_artifact_index_api_allow_retrieval_engine: bool = False
+    research_artifact_index_api_allow_embeddings: bool = False
+    research_artifact_index_api_allow_vector_store: bool = False
+    research_artifact_index_api_allow_active_ingestion: bool = False
+    research_artifact_index_api_allow_persistent_storage: bool = False
+    research_artifact_index_api_allow_file_uploads: bool = False
+    research_artifact_index_api_allow_file_downloads: bool = False
+    research_artifact_index_api_allow_file_previews: bool = False
+    research_artifact_index_api_allow_paper_parsing: bool = False
+    research_artifact_index_api_allow_strategy_generation: bool = False
+    research_artifact_index_api_allow_backtesting: bool = False
+    research_artifact_index_api_allow_recommendations: bool = False
+    research_artifact_index_api_allow_execution: bool = False
+    research_artifact_index_display_enabled: bool = True
+    research_artifact_index_display_schema_version: str = "v1"
+    research_artifact_index_display_stage: str = "display_contract_skeleton"
+    research_artifact_index_display_allow_active_ui: bool = False
+    research_artifact_index_display_allow_frontend_components: bool = False
+    research_artifact_index_display_allow_desktop_components: bool = False
+    research_artifact_index_display_allow_indexing_engine: bool = False
+    research_artifact_index_display_allow_search_engine: bool = False
+    research_artifact_index_display_allow_ranking_engine: bool = False
+    research_artifact_index_display_allow_retrieval_engine: bool = False
+    research_artifact_index_display_allow_embeddings: bool = False
+    research_artifact_index_display_allow_vector_store: bool = False
+    research_artifact_index_display_allow_active_ingestion: bool = False
+    research_artifact_index_display_allow_persistent_storage: bool = False
+    research_artifact_index_display_allow_file_uploads: bool = False
+    research_artifact_index_display_allow_file_downloads: bool = False
+    research_artifact_index_display_allow_file_previews: bool = False
+    research_artifact_index_display_allow_paper_parsing: bool = False
+    research_artifact_index_display_allow_strategy_generation: bool = False
+    research_artifact_index_display_allow_backtesting: bool = False
+    research_artifact_index_display_allow_recommendations: bool = False
+    research_artifact_index_display_allow_execution: bool = False
 
     feature_store_mode: str = "custom"
     feature_registry_enabled: bool = False
@@ -736,6 +893,14 @@ class Settings(BaseSettings):
         "strategy_research_workspace_schema_version",
         "strategy_research_workspace_api_schema_version",
         "strategy_research_workspace_display_schema_version",
+        "strategy_research_workspace_boundary_schema_version",
+        "research_artifact_registry_schema_version",
+        "research_artifact_registry_api_schema_version",
+        "research_artifact_registry_display_schema_version",
+        "research_artifact_registry_boundary_schema_version",
+        "research_artifact_index_schema_version",
+        "research_artifact_index_api_schema_version",
+        "research_artifact_index_display_schema_version",
     )
     @classmethod
     def persistence_schema_version_must_be_non_empty(cls, value: str) -> str:
@@ -1067,6 +1232,104 @@ class Settings(BaseSettings):
             "blocked",
         }:
             raise ValueError("strategy_research_workspace_display_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("strategy_research_workspace_boundary_stage")
+    @classmethod
+    def strategy_research_workspace_boundary_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {"boundary_hardening", "audit_only", "blocked"}:
+            raise ValueError("strategy_research_workspace_boundary_stage must be a supported planning stage")
+        return normalized
+
+    @field_validator("research_artifact_registry_stage")
+    @classmethod
+    def research_artifact_registry_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {"planning", "audit_only", "blocked"}:
+            raise ValueError("research_artifact_registry_stage must be planning, audit_only, or blocked")
+        return normalized
+
+    @field_validator("research_artifact_registry_api_stage")
+    @classmethod
+    def research_artifact_registry_api_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {"api_contract_skeleton", "planning", "audit_only", "blocked"}:
+            raise ValueError(
+                "research_artifact_registry_api_stage must be api_contract_skeleton, planning, audit_only, or blocked"
+            )
+        return normalized
+
+    @field_validator("research_artifact_registry_display_stage")
+    @classmethod
+    def research_artifact_registry_display_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "display_contract_skeleton",
+            "api_contract_skeleton",
+            "planning",
+            "audit_only",
+            "blocked",
+        }:
+            raise ValueError(
+                "research_artifact_registry_display_stage must be display_contract_skeleton, "
+                "api_contract_skeleton, planning, audit_only, or blocked"
+            )
+        return normalized
+
+    @field_validator("research_artifact_registry_boundary_stage")
+    @classmethod
+    def research_artifact_registry_boundary_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {"boundary_hardening", "audit_only", "blocked"}:
+            raise ValueError(
+                "research_artifact_registry_boundary_stage must be boundary_hardening, audit_only, or blocked"
+            )
+        return normalized
+
+    @field_validator("research_artifact_index_stage")
+    @classmethod
+    def research_artifact_index_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "planning_and_guardrails",
+            "api_contract_skeleton",
+            "display_contract_skeleton",
+            "audit_only",
+            "blocked",
+        }:
+            raise ValueError(
+                "research_artifact_index_stage must be planning_and_guardrails, "
+                "api_contract_skeleton, display_contract_skeleton, audit_only, or blocked"
+            )
+        return normalized
+
+    @field_validator("research_artifact_index_api_stage")
+    @classmethod
+    def research_artifact_index_api_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {"api_contract_skeleton", "planning_and_guardrails", "audit_only", "blocked"}:
+            raise ValueError(
+                "research_artifact_index_api_stage must be api_contract_skeleton, "
+                "planning_and_guardrails, audit_only, or blocked"
+            )
+        return normalized
+
+    @field_validator("research_artifact_index_display_stage")
+    @classmethod
+    def research_artifact_index_display_stage_must_be_supported(cls, value: str) -> str:
+        normalized = value.strip().lower()
+        if normalized not in {
+            "display_contract_skeleton",
+            "api_contract_skeleton",
+            "planning_and_guardrails",
+            "audit_only",
+            "blocked",
+        }:
+            raise ValueError(
+                "research_artifact_index_display_stage must be display_contract_skeleton, "
+                "api_contract_skeleton, planning_and_guardrails, audit_only, or blocked"
+            )
         return normalized
 
     @field_validator("volatility_analytics_default_stddev_method")
@@ -1756,6 +2019,280 @@ class Settings(BaseSettings):
             raise ValueError("Strategy Research Workspace Display override is forbidden in Prompt 65")
         if not self.strategy_research_workspace_display_return_unavailable_by_default:
             raise ValueError("Strategy Research Workspace Display must return unavailable by default in Prompt 65")
+        if self.strategy_research_workspace_boundary_allow_active_ui:
+            raise ValueError("Strategy Research Workspace Boundary active UI is forbidden in Prompt 68")
+        if self.strategy_research_workspace_boundary_allow_frontend_components:
+            raise ValueError("Strategy Research Workspace Boundary frontend components are forbidden in Prompt 68")
+        if self.strategy_research_workspace_boundary_allow_desktop_components:
+            raise ValueError("Strategy Research Workspace Boundary desktop components are forbidden in Prompt 68")
+        if self.strategy_research_workspace_boundary_allow_paper_ingestion:
+            raise ValueError("Strategy Research Workspace Boundary paper ingestion is forbidden in Prompt 68")
+        if self.strategy_research_workspace_boundary_allow_paper_parsing:
+            raise ValueError("Strategy Research Workspace Boundary paper parsing is forbidden in Prompt 68")
+        if self.strategy_research_workspace_boundary_allow_strategy_generation:
+            raise ValueError("Strategy Research Workspace Boundary strategy generation is forbidden in Prompt 68")
+        if self.strategy_research_workspace_boundary_allow_strategy_code_generation:
+            raise ValueError(
+                "Strategy Research Workspace Boundary strategy code generation is forbidden in Prompt 68"
+            )
+        if self.strategy_research_workspace_boundary_allow_backtesting:
+            raise ValueError("Strategy Research Workspace Boundary backtesting is forbidden in Prompt 68")
+        if self.strategy_research_workspace_boundary_allow_optimization:
+            raise ValueError("Strategy Research Workspace Boundary optimization is forbidden in Prompt 68")
+        if self.strategy_research_workspace_boundary_allow_recommendations:
+            raise ValueError("Strategy Research Workspace Boundary recommendations are forbidden in Prompt 68")
+        if self.strategy_research_workspace_boundary_allow_action_generation:
+            raise ValueError("Strategy Research Workspace Boundary action generation is forbidden in Prompt 68")
+        if self.strategy_research_workspace_boundary_allow_confidence_scoring:
+            raise ValueError("Strategy Research Workspace Boundary confidence scoring is forbidden in Prompt 68")
+        if self.strategy_research_workspace_boundary_allow_decision_object_generation:
+            raise ValueError(
+                "Strategy Research Workspace Boundary DecisionObject generation is forbidden in Prompt 68"
+            )
+        if self.strategy_research_workspace_boundary_allow_readiness_to_trade:
+            raise ValueError("Strategy Research Workspace Boundary readiness-to-trade is forbidden in Prompt 68")
+        if self.strategy_research_workspace_boundary_allow_broker_controls:
+            raise ValueError("Strategy Research Workspace Boundary broker controls are forbidden in Prompt 68")
+        if self.strategy_research_workspace_boundary_allow_execution:
+            raise ValueError("Strategy Research Workspace Boundary execution is forbidden in Prompt 68")
+        if self.strategy_research_workspace_boundary_allow_approval:
+            raise ValueError("Strategy Research Workspace Boundary approval is forbidden in Prompt 68")
+        if self.strategy_research_workspace_boundary_allow_override:
+            raise ValueError("Strategy Research Workspace Boundary override is forbidden in Prompt 68")
+        if self.research_artifact_registry_allow_active_ingestion:
+            raise ValueError("Research Artifact Registry active ingestion is forbidden in Prompt 70")
+        if self.research_artifact_registry_allow_persistent_storage:
+            raise ValueError("Research Artifact Registry persistent storage is forbidden in Prompt 70")
+        if self.research_artifact_registry_allow_file_uploads:
+            raise ValueError("Research Artifact Registry file uploads are forbidden in Prompt 70")
+        if self.research_artifact_registry_allow_file_downloads:
+            raise ValueError("Research Artifact Registry file downloads are forbidden in Prompt 70")
+        if self.research_artifact_registry_allow_paper_parsing:
+            raise ValueError("Research Artifact Registry paper parsing is forbidden in Prompt 70")
+        if self.research_artifact_registry_allow_pdf_parsing:
+            raise ValueError("Research Artifact Registry PDF parsing is forbidden in Prompt 70")
+        if self.research_artifact_registry_allow_arxiv_ingestion:
+            raise ValueError("Research Artifact Registry arXiv ingestion is forbidden in Prompt 70")
+        if self.research_artifact_registry_allow_llm_analysis:
+            raise ValueError("Research Artifact Registry LLM analysis is forbidden in Prompt 70")
+        if self.research_artifact_registry_allow_strategy_generation:
+            raise ValueError("Research Artifact Registry strategy generation is forbidden in Prompt 70")
+        if self.research_artifact_registry_allow_backtesting:
+            raise ValueError("Research Artifact Registry backtesting is forbidden in Prompt 70")
+        if self.research_artifact_registry_allow_recommendations:
+            raise ValueError("Research Artifact Registry recommendations are forbidden in Prompt 70")
+        if self.research_artifact_registry_allow_execution:
+            raise ValueError("Research Artifact Registry execution is forbidden in Prompt 70")
+        if self.research_artifact_registry_api_allow_active_ingestion:
+            raise ValueError("Research Artifact Registry API active ingestion is forbidden in Prompt 71")
+        if self.research_artifact_registry_api_allow_persistent_storage:
+            raise ValueError("Research Artifact Registry API persistent storage is forbidden in Prompt 71")
+        if self.research_artifact_registry_api_allow_file_uploads:
+            raise ValueError("Research Artifact Registry API file uploads are forbidden in Prompt 71")
+        if self.research_artifact_registry_api_allow_file_downloads:
+            raise ValueError("Research Artifact Registry API file downloads are forbidden in Prompt 71")
+        if self.research_artifact_registry_api_allow_paper_parsing:
+            raise ValueError("Research Artifact Registry API paper parsing is forbidden in Prompt 71")
+        if self.research_artifact_registry_api_allow_pdf_parsing:
+            raise ValueError("Research Artifact Registry API PDF parsing is forbidden in Prompt 71")
+        if self.research_artifact_registry_api_allow_arxiv_ingestion:
+            raise ValueError("Research Artifact Registry API arXiv ingestion is forbidden in Prompt 71")
+        if self.research_artifact_registry_api_allow_llm_analysis:
+            raise ValueError("Research Artifact Registry API LLM analysis is forbidden in Prompt 71")
+        if self.research_artifact_registry_api_allow_strategy_generation:
+            raise ValueError("Research Artifact Registry API strategy generation is forbidden in Prompt 71")
+        if self.research_artifact_registry_api_allow_backtesting:
+            raise ValueError("Research Artifact Registry API backtesting is forbidden in Prompt 71")
+        if self.research_artifact_registry_api_allow_recommendations:
+            raise ValueError("Research Artifact Registry API recommendations are forbidden in Prompt 71")
+        if self.research_artifact_registry_api_allow_execution:
+            raise ValueError("Research Artifact Registry API execution is forbidden in Prompt 71")
+        if self.research_artifact_registry_display_allow_active_ui:
+            raise ValueError("Research Artifact Registry Display active UI is forbidden in Prompt 72")
+        if self.research_artifact_registry_display_allow_frontend_components:
+            raise ValueError("Research Artifact Registry Display frontend components are forbidden in Prompt 72")
+        if self.research_artifact_registry_display_allow_desktop_components:
+            raise ValueError("Research Artifact Registry Display desktop components are forbidden in Prompt 72")
+        if self.research_artifact_registry_display_allow_active_ingestion:
+            raise ValueError("Research Artifact Registry Display active ingestion is forbidden in Prompt 72")
+        if self.research_artifact_registry_display_allow_persistent_storage:
+            raise ValueError("Research Artifact Registry Display persistent storage is forbidden in Prompt 72")
+        if self.research_artifact_registry_display_allow_file_uploads:
+            raise ValueError("Research Artifact Registry Display file uploads are forbidden in Prompt 72")
+        if self.research_artifact_registry_display_allow_file_downloads:
+            raise ValueError("Research Artifact Registry Display file downloads are forbidden in Prompt 72")
+        if self.research_artifact_registry_display_allow_paper_parsing:
+            raise ValueError("Research Artifact Registry Display paper parsing is forbidden in Prompt 72")
+        if self.research_artifact_registry_display_allow_strategy_generation:
+            raise ValueError("Research Artifact Registry Display strategy generation is forbidden in Prompt 72")
+        if self.research_artifact_registry_display_allow_backtesting:
+            raise ValueError("Research Artifact Registry Display backtesting is forbidden in Prompt 72")
+        if self.research_artifact_registry_display_allow_recommendations:
+            raise ValueError("Research Artifact Registry Display recommendations are forbidden in Prompt 72")
+        if self.research_artifact_registry_display_allow_execution:
+            raise ValueError("Research Artifact Registry Display execution is forbidden in Prompt 72")
+        if self.research_artifact_registry_boundary_allow_active_ingestion:
+            raise ValueError("Research Artifact Registry Boundary active ingestion is forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_persistent_storage:
+            raise ValueError("Research Artifact Registry Boundary persistent storage is forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_file_uploads:
+            raise ValueError("Research Artifact Registry Boundary file uploads are forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_file_downloads:
+            raise ValueError("Research Artifact Registry Boundary file downloads are forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_file_previews:
+            raise ValueError("Research Artifact Registry Boundary file previews are forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_active_ui:
+            raise ValueError("Research Artifact Registry Boundary active UI is forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_frontend_components:
+            raise ValueError("Research Artifact Registry Boundary frontend components are forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_desktop_components:
+            raise ValueError("Research Artifact Registry Boundary desktop components are forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_paper_parsing:
+            raise ValueError("Research Artifact Registry Boundary paper parsing is forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_pdf_parsing:
+            raise ValueError("Research Artifact Registry Boundary PDF parsing is forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_arxiv_ingestion:
+            raise ValueError("Research Artifact Registry Boundary arXiv ingestion is forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_llm_analysis:
+            raise ValueError("Research Artifact Registry Boundary LLM analysis is forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_strategy_generation:
+            raise ValueError("Research Artifact Registry Boundary strategy generation is forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_strategy_code_generation:
+            raise ValueError(
+                "Research Artifact Registry Boundary strategy code generation is forbidden in Prompt 75"
+            )
+        if self.research_artifact_registry_boundary_allow_backtesting:
+            raise ValueError("Research Artifact Registry Boundary backtesting is forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_optimization:
+            raise ValueError("Research Artifact Registry Boundary optimization is forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_recommendations:
+            raise ValueError("Research Artifact Registry Boundary recommendations are forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_action_generation:
+            raise ValueError("Research Artifact Registry Boundary action generation is forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_confidence_scoring:
+            raise ValueError("Research Artifact Registry Boundary confidence scoring is forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_decision_object_generation:
+            raise ValueError(
+                "Research Artifact Registry Boundary DecisionObject generation is forbidden in Prompt 75"
+            )
+        if self.research_artifact_registry_boundary_allow_readiness_to_trade:
+            raise ValueError("Research Artifact Registry Boundary readiness-to-trade is forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_broker_controls:
+            raise ValueError("Research Artifact Registry Boundary broker controls are forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_execution:
+            raise ValueError("Research Artifact Registry Boundary execution is forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_approval:
+            raise ValueError("Research Artifact Registry Boundary approval is forbidden in Prompt 75")
+        if self.research_artifact_registry_boundary_allow_override:
+            raise ValueError("Research Artifact Registry Boundary override is forbidden in Prompt 75")
+        if self.research_artifact_index_allow_indexing_engine:
+            raise ValueError("Research Artifact Index indexing engine is forbidden in Prompt 77")
+        if self.research_artifact_index_allow_search_engine:
+            raise ValueError("Research Artifact Index search engine is forbidden in Prompt 77")
+        if self.research_artifact_index_allow_ranking_engine:
+            raise ValueError("Research Artifact Index ranking engine is forbidden in Prompt 77")
+        if self.research_artifact_index_allow_retrieval_engine:
+            raise ValueError("Research Artifact Index retrieval engine is forbidden in Prompt 77")
+        if self.research_artifact_index_allow_embeddings:
+            raise ValueError("Research Artifact Index embeddings are forbidden in Prompt 77")
+        if self.research_artifact_index_allow_vector_store:
+            raise ValueError("Research Artifact Index vector store is forbidden in Prompt 77")
+        if self.research_artifact_index_allow_active_ingestion:
+            raise ValueError("Research Artifact Index active ingestion is forbidden in Prompt 77")
+        if self.research_artifact_index_allow_persistent_storage:
+            raise ValueError("Research Artifact Index persistent storage is forbidden in Prompt 77")
+        if self.research_artifact_index_allow_file_uploads:
+            raise ValueError("Research Artifact Index file uploads are forbidden in Prompt 77")
+        if self.research_artifact_index_allow_file_downloads:
+            raise ValueError("Research Artifact Index file downloads are forbidden in Prompt 77")
+        if self.research_artifact_index_allow_file_previews:
+            raise ValueError("Research Artifact Index file previews are forbidden in Prompt 77")
+        if self.research_artifact_index_allow_paper_parsing:
+            raise ValueError("Research Artifact Index paper parsing is forbidden in Prompt 77")
+        if self.research_artifact_index_allow_pdf_parsing:
+            raise ValueError("Research Artifact Index PDF parsing is forbidden in Prompt 77")
+        if self.research_artifact_index_allow_arxiv_ingestion:
+            raise ValueError("Research Artifact Index arXiv ingestion is forbidden in Prompt 77")
+        if self.research_artifact_index_allow_llm_analysis:
+            raise ValueError("Research Artifact Index LLM analysis is forbidden in Prompt 77")
+        if self.research_artifact_index_allow_strategy_generation:
+            raise ValueError("Research Artifact Index strategy generation is forbidden in Prompt 77")
+        if self.research_artifact_index_allow_backtesting:
+            raise ValueError("Research Artifact Index backtesting is forbidden in Prompt 77")
+        if self.research_artifact_index_allow_recommendations:
+            raise ValueError("Research Artifact Index recommendations are forbidden in Prompt 77")
+        if self.research_artifact_index_allow_execution:
+            raise ValueError("Research Artifact Index execution is forbidden in Prompt 77")
+        if self.research_artifact_index_api_allow_indexing_engine:
+            raise ValueError("Research Artifact Index API indexing engine is forbidden in Prompt 78")
+        if self.research_artifact_index_api_allow_search_engine:
+            raise ValueError("Research Artifact Index API search engine is forbidden in Prompt 78")
+        if self.research_artifact_index_api_allow_ranking_engine:
+            raise ValueError("Research Artifact Index API ranking engine is forbidden in Prompt 78")
+        if self.research_artifact_index_api_allow_retrieval_engine:
+            raise ValueError("Research Artifact Index API retrieval engine is forbidden in Prompt 78")
+        if self.research_artifact_index_api_allow_embeddings:
+            raise ValueError("Research Artifact Index API embeddings are forbidden in Prompt 78")
+        if self.research_artifact_index_api_allow_vector_store:
+            raise ValueError("Research Artifact Index API vector store is forbidden in Prompt 78")
+        if self.research_artifact_index_api_allow_active_ingestion:
+            raise ValueError("Research Artifact Index API active ingestion is forbidden in Prompt 78")
+        if self.research_artifact_index_api_allow_persistent_storage:
+            raise ValueError("Research Artifact Index API persistent storage is forbidden in Prompt 78")
+        if self.research_artifact_index_api_allow_file_uploads:
+            raise ValueError("Research Artifact Index API file uploads are forbidden in Prompt 78")
+        if self.research_artifact_index_api_allow_file_downloads:
+            raise ValueError("Research Artifact Index API file downloads are forbidden in Prompt 78")
+        if self.research_artifact_index_api_allow_file_previews:
+            raise ValueError("Research Artifact Index API file previews are forbidden in Prompt 78")
+        if self.research_artifact_index_api_allow_paper_parsing:
+            raise ValueError("Research Artifact Index API paper parsing is forbidden in Prompt 78")
+        if self.research_artifact_index_api_allow_strategy_generation:
+            raise ValueError("Research Artifact Index API strategy generation is forbidden in Prompt 78")
+        if self.research_artifact_index_api_allow_backtesting:
+            raise ValueError("Research Artifact Index API backtesting is forbidden in Prompt 78")
+        if self.research_artifact_index_api_allow_recommendations:
+            raise ValueError("Research Artifact Index API recommendations are forbidden in Prompt 78")
+        if self.research_artifact_index_api_allow_execution:
+            raise ValueError("Research Artifact Index API execution is forbidden in Prompt 78")
+        if self.research_artifact_index_display_allow_active_ui:
+            raise ValueError("Research Artifact Index Display active UI is forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_frontend_components:
+            raise ValueError("Research Artifact Index Display frontend components are forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_desktop_components:
+            raise ValueError("Research Artifact Index Display desktop components are forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_indexing_engine:
+            raise ValueError("Research Artifact Index Display indexing engine is forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_search_engine:
+            raise ValueError("Research Artifact Index Display search engine is forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_ranking_engine:
+            raise ValueError("Research Artifact Index Display ranking engine is forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_retrieval_engine:
+            raise ValueError("Research Artifact Index Display retrieval engine is forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_embeddings:
+            raise ValueError("Research Artifact Index Display embeddings are forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_vector_store:
+            raise ValueError("Research Artifact Index Display vector store is forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_active_ingestion:
+            raise ValueError("Research Artifact Index Display active ingestion is forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_persistent_storage:
+            raise ValueError("Research Artifact Index Display persistent storage is forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_file_uploads:
+            raise ValueError("Research Artifact Index Display file uploads are forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_file_downloads:
+            raise ValueError("Research Artifact Index Display file downloads are forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_file_previews:
+            raise ValueError("Research Artifact Index Display file previews are forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_paper_parsing:
+            raise ValueError("Research Artifact Index Display paper parsing is forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_strategy_generation:
+            raise ValueError("Research Artifact Index Display strategy generation is forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_backtesting:
+            raise ValueError("Research Artifact Index Display backtesting is forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_recommendations:
+            raise ValueError("Research Artifact Index Display recommendations are forbidden in Prompt 79")
+        if self.research_artifact_index_display_allow_execution:
+            raise ValueError("Research Artifact Index Display execution is forbidden in Prompt 79")
         if (
             self.provider_candidate_minimum_score_for_network_tests
             < self.provider_candidate_minimum_score_for_design
@@ -2571,6 +3108,403 @@ class Settings(BaseSettings):
                 self.strategy_research_workspace_display_return_unavailable_by_default
             ),
             "strategy_research_workspace_display_stage": self.strategy_research_workspace_display_stage,
+            "strategy_research_workspace_boundary_enabled": self.strategy_research_workspace_boundary_enabled,
+            "strategy_research_workspace_boundary_schema_version": (
+                self.strategy_research_workspace_boundary_schema_version
+            ),
+            "strategy_research_workspace_boundary_allow_active_ui": (
+                self.strategy_research_workspace_boundary_allow_active_ui
+            ),
+            "strategy_research_workspace_boundary_allow_frontend_components": (
+                self.strategy_research_workspace_boundary_allow_frontend_components
+            ),
+            "strategy_research_workspace_boundary_allow_desktop_components": (
+                self.strategy_research_workspace_boundary_allow_desktop_components
+            ),
+            "strategy_research_workspace_boundary_allow_paper_ingestion": (
+                self.strategy_research_workspace_boundary_allow_paper_ingestion
+            ),
+            "strategy_research_workspace_boundary_allow_paper_parsing": (
+                self.strategy_research_workspace_boundary_allow_paper_parsing
+            ),
+            "strategy_research_workspace_boundary_allow_strategy_generation": (
+                self.strategy_research_workspace_boundary_allow_strategy_generation
+            ),
+            "strategy_research_workspace_boundary_allow_strategy_code_generation": (
+                self.strategy_research_workspace_boundary_allow_strategy_code_generation
+            ),
+            "strategy_research_workspace_boundary_allow_backtesting": (
+                self.strategy_research_workspace_boundary_allow_backtesting
+            ),
+            "strategy_research_workspace_boundary_allow_optimization": (
+                self.strategy_research_workspace_boundary_allow_optimization
+            ),
+            "strategy_research_workspace_boundary_allow_recommendations": (
+                self.strategy_research_workspace_boundary_allow_recommendations
+            ),
+            "strategy_research_workspace_boundary_allow_action_generation": (
+                self.strategy_research_workspace_boundary_allow_action_generation
+            ),
+            "strategy_research_workspace_boundary_allow_confidence_scoring": (
+                self.strategy_research_workspace_boundary_allow_confidence_scoring
+            ),
+            "strategy_research_workspace_boundary_allow_decision_object_generation": (
+                self.strategy_research_workspace_boundary_allow_decision_object_generation
+            ),
+            "strategy_research_workspace_boundary_allow_readiness_to_trade": (
+                self.strategy_research_workspace_boundary_allow_readiness_to_trade
+            ),
+            "strategy_research_workspace_boundary_allow_broker_controls": (
+                self.strategy_research_workspace_boundary_allow_broker_controls
+            ),
+            "strategy_research_workspace_boundary_allow_execution": (
+                self.strategy_research_workspace_boundary_allow_execution
+            ),
+            "strategy_research_workspace_boundary_allow_approval": (
+                self.strategy_research_workspace_boundary_allow_approval
+            ),
+            "strategy_research_workspace_boundary_allow_override": (
+                self.strategy_research_workspace_boundary_allow_override
+            ),
+            "strategy_research_workspace_boundary_stage": self.strategy_research_workspace_boundary_stage,
+            "research_artifact_registry_enabled": self.research_artifact_registry_enabled,
+            "research_artifact_registry_schema_version": self.research_artifact_registry_schema_version,
+            "research_artifact_registry_stage": self.research_artifact_registry_stage,
+            "research_artifact_registry_allow_active_ingestion": (
+                self.research_artifact_registry_allow_active_ingestion
+            ),
+            "research_artifact_registry_allow_persistent_storage": (
+                self.research_artifact_registry_allow_persistent_storage
+            ),
+            "research_artifact_registry_allow_file_uploads": (
+                self.research_artifact_registry_allow_file_uploads
+            ),
+            "research_artifact_registry_allow_file_downloads": (
+                self.research_artifact_registry_allow_file_downloads
+            ),
+            "research_artifact_registry_allow_paper_parsing": (
+                self.research_artifact_registry_allow_paper_parsing
+            ),
+            "research_artifact_registry_allow_pdf_parsing": (
+                self.research_artifact_registry_allow_pdf_parsing
+            ),
+            "research_artifact_registry_allow_arxiv_ingestion": (
+                self.research_artifact_registry_allow_arxiv_ingestion
+            ),
+            "research_artifact_registry_allow_llm_analysis": (
+                self.research_artifact_registry_allow_llm_analysis
+            ),
+            "research_artifact_registry_allow_strategy_generation": (
+                self.research_artifact_registry_allow_strategy_generation
+            ),
+            "research_artifact_registry_allow_backtesting": (
+                self.research_artifact_registry_allow_backtesting
+            ),
+            "research_artifact_registry_allow_recommendations": (
+                self.research_artifact_registry_allow_recommendations
+            ),
+            "research_artifact_registry_allow_execution": (
+                self.research_artifact_registry_allow_execution
+            ),
+            "research_artifact_registry_api_enabled": self.research_artifact_registry_api_enabled,
+            "research_artifact_registry_api_schema_version": (
+                self.research_artifact_registry_api_schema_version
+            ),
+            "research_artifact_registry_api_stage": self.research_artifact_registry_api_stage,
+            "research_artifact_registry_api_allow_active_ingestion": (
+                self.research_artifact_registry_api_allow_active_ingestion
+            ),
+            "research_artifact_registry_api_allow_persistent_storage": (
+                self.research_artifact_registry_api_allow_persistent_storage
+            ),
+            "research_artifact_registry_api_allow_file_uploads": (
+                self.research_artifact_registry_api_allow_file_uploads
+            ),
+            "research_artifact_registry_api_allow_file_downloads": (
+                self.research_artifact_registry_api_allow_file_downloads
+            ),
+            "research_artifact_registry_api_allow_paper_parsing": (
+                self.research_artifact_registry_api_allow_paper_parsing
+            ),
+            "research_artifact_registry_api_allow_pdf_parsing": (
+                self.research_artifact_registry_api_allow_pdf_parsing
+            ),
+            "research_artifact_registry_api_allow_arxiv_ingestion": (
+                self.research_artifact_registry_api_allow_arxiv_ingestion
+            ),
+            "research_artifact_registry_api_allow_llm_analysis": (
+                self.research_artifact_registry_api_allow_llm_analysis
+            ),
+            "research_artifact_registry_api_allow_strategy_generation": (
+                self.research_artifact_registry_api_allow_strategy_generation
+            ),
+            "research_artifact_registry_api_allow_backtesting": (
+                self.research_artifact_registry_api_allow_backtesting
+            ),
+            "research_artifact_registry_api_allow_recommendations": (
+                self.research_artifact_registry_api_allow_recommendations
+            ),
+            "research_artifact_registry_api_allow_execution": (
+                self.research_artifact_registry_api_allow_execution
+            ),
+            "research_artifact_registry_display_enabled": self.research_artifact_registry_display_enabled,
+            "research_artifact_registry_display_schema_version": (
+                self.research_artifact_registry_display_schema_version
+            ),
+            "research_artifact_registry_display_stage": self.research_artifact_registry_display_stage,
+            "research_artifact_registry_display_allow_active_ui": (
+                self.research_artifact_registry_display_allow_active_ui
+            ),
+            "research_artifact_registry_display_allow_frontend_components": (
+                self.research_artifact_registry_display_allow_frontend_components
+            ),
+            "research_artifact_registry_display_allow_desktop_components": (
+                self.research_artifact_registry_display_allow_desktop_components
+            ),
+            "research_artifact_registry_display_allow_active_ingestion": (
+                self.research_artifact_registry_display_allow_active_ingestion
+            ),
+            "research_artifact_registry_display_allow_persistent_storage": (
+                self.research_artifact_registry_display_allow_persistent_storage
+            ),
+            "research_artifact_registry_display_allow_file_uploads": (
+                self.research_artifact_registry_display_allow_file_uploads
+            ),
+            "research_artifact_registry_display_allow_file_downloads": (
+                self.research_artifact_registry_display_allow_file_downloads
+            ),
+            "research_artifact_registry_display_allow_paper_parsing": (
+                self.research_artifact_registry_display_allow_paper_parsing
+            ),
+            "research_artifact_registry_display_allow_strategy_generation": (
+                self.research_artifact_registry_display_allow_strategy_generation
+            ),
+            "research_artifact_registry_display_allow_backtesting": (
+                self.research_artifact_registry_display_allow_backtesting
+            ),
+            "research_artifact_registry_display_allow_recommendations": (
+                self.research_artifact_registry_display_allow_recommendations
+            ),
+            "research_artifact_registry_display_allow_execution": (
+                self.research_artifact_registry_display_allow_execution
+            ),
+            "research_artifact_registry_boundary_enabled": (
+                self.research_artifact_registry_boundary_enabled
+            ),
+            "research_artifact_registry_boundary_schema_version": (
+                self.research_artifact_registry_boundary_schema_version
+            ),
+            "research_artifact_registry_boundary_stage": self.research_artifact_registry_boundary_stage,
+            "research_artifact_registry_boundary_allow_active_ingestion": (
+                self.research_artifact_registry_boundary_allow_active_ingestion
+            ),
+            "research_artifact_registry_boundary_allow_persistent_storage": (
+                self.research_artifact_registry_boundary_allow_persistent_storage
+            ),
+            "research_artifact_registry_boundary_allow_file_uploads": (
+                self.research_artifact_registry_boundary_allow_file_uploads
+            ),
+            "research_artifact_registry_boundary_allow_file_downloads": (
+                self.research_artifact_registry_boundary_allow_file_downloads
+            ),
+            "research_artifact_registry_boundary_allow_file_previews": (
+                self.research_artifact_registry_boundary_allow_file_previews
+            ),
+            "research_artifact_registry_boundary_allow_active_ui": (
+                self.research_artifact_registry_boundary_allow_active_ui
+            ),
+            "research_artifact_registry_boundary_allow_frontend_components": (
+                self.research_artifact_registry_boundary_allow_frontend_components
+            ),
+            "research_artifact_registry_boundary_allow_desktop_components": (
+                self.research_artifact_registry_boundary_allow_desktop_components
+            ),
+            "research_artifact_registry_boundary_allow_paper_parsing": (
+                self.research_artifact_registry_boundary_allow_paper_parsing
+            ),
+            "research_artifact_registry_boundary_allow_pdf_parsing": (
+                self.research_artifact_registry_boundary_allow_pdf_parsing
+            ),
+            "research_artifact_registry_boundary_allow_arxiv_ingestion": (
+                self.research_artifact_registry_boundary_allow_arxiv_ingestion
+            ),
+            "research_artifact_registry_boundary_allow_llm_analysis": (
+                self.research_artifact_registry_boundary_allow_llm_analysis
+            ),
+            "research_artifact_registry_boundary_allow_strategy_generation": (
+                self.research_artifact_registry_boundary_allow_strategy_generation
+            ),
+            "research_artifact_registry_boundary_allow_strategy_code_generation": (
+                self.research_artifact_registry_boundary_allow_strategy_code_generation
+            ),
+            "research_artifact_registry_boundary_allow_backtesting": (
+                self.research_artifact_registry_boundary_allow_backtesting
+            ),
+            "research_artifact_registry_boundary_allow_optimization": (
+                self.research_artifact_registry_boundary_allow_optimization
+            ),
+            "research_artifact_registry_boundary_allow_recommendations": (
+                self.research_artifact_registry_boundary_allow_recommendations
+            ),
+            "research_artifact_registry_boundary_allow_action_generation": (
+                self.research_artifact_registry_boundary_allow_action_generation
+            ),
+            "research_artifact_registry_boundary_allow_confidence_scoring": (
+                self.research_artifact_registry_boundary_allow_confidence_scoring
+            ),
+            "research_artifact_registry_boundary_allow_decision_object_generation": (
+                self.research_artifact_registry_boundary_allow_decision_object_generation
+            ),
+            "research_artifact_registry_boundary_allow_readiness_to_trade": (
+                self.research_artifact_registry_boundary_allow_readiness_to_trade
+            ),
+            "research_artifact_registry_boundary_allow_broker_controls": (
+                self.research_artifact_registry_boundary_allow_broker_controls
+            ),
+            "research_artifact_registry_boundary_allow_execution": (
+                self.research_artifact_registry_boundary_allow_execution
+            ),
+            "research_artifact_registry_boundary_allow_approval": (
+                self.research_artifact_registry_boundary_allow_approval
+            ),
+            "research_artifact_registry_boundary_allow_override": (
+                self.research_artifact_registry_boundary_allow_override
+            ),
+            "research_artifact_index_enabled": self.research_artifact_index_enabled,
+            "research_artifact_index_schema_version": self.research_artifact_index_schema_version,
+            "research_artifact_index_stage": self.research_artifact_index_stage,
+            "research_artifact_index_allow_indexing_engine": (
+                self.research_artifact_index_allow_indexing_engine
+            ),
+            "research_artifact_index_allow_search_engine": self.research_artifact_index_allow_search_engine,
+            "research_artifact_index_allow_ranking_engine": self.research_artifact_index_allow_ranking_engine,
+            "research_artifact_index_allow_retrieval_engine": (
+                self.research_artifact_index_allow_retrieval_engine
+            ),
+            "research_artifact_index_allow_embeddings": self.research_artifact_index_allow_embeddings,
+            "research_artifact_index_allow_vector_store": self.research_artifact_index_allow_vector_store,
+            "research_artifact_index_allow_active_ingestion": (
+                self.research_artifact_index_allow_active_ingestion
+            ),
+            "research_artifact_index_allow_persistent_storage": (
+                self.research_artifact_index_allow_persistent_storage
+            ),
+            "research_artifact_index_allow_file_uploads": self.research_artifact_index_allow_file_uploads,
+            "research_artifact_index_allow_file_downloads": self.research_artifact_index_allow_file_downloads,
+            "research_artifact_index_allow_file_previews": self.research_artifact_index_allow_file_previews,
+            "research_artifact_index_allow_paper_parsing": self.research_artifact_index_allow_paper_parsing,
+            "research_artifact_index_allow_pdf_parsing": self.research_artifact_index_allow_pdf_parsing,
+            "research_artifact_index_allow_arxiv_ingestion": self.research_artifact_index_allow_arxiv_ingestion,
+            "research_artifact_index_allow_llm_analysis": self.research_artifact_index_allow_llm_analysis,
+            "research_artifact_index_allow_strategy_generation": (
+                self.research_artifact_index_allow_strategy_generation
+            ),
+            "research_artifact_index_allow_backtesting": self.research_artifact_index_allow_backtesting,
+            "research_artifact_index_allow_recommendations": self.research_artifact_index_allow_recommendations,
+            "research_artifact_index_allow_execution": self.research_artifact_index_allow_execution,
+            "research_artifact_index_api_enabled": self.research_artifact_index_api_enabled,
+            "research_artifact_index_api_schema_version": self.research_artifact_index_api_schema_version,
+            "research_artifact_index_api_stage": self.research_artifact_index_api_stage,
+            "research_artifact_index_api_allow_indexing_engine": (
+                self.research_artifact_index_api_allow_indexing_engine
+            ),
+            "research_artifact_index_api_allow_search_engine": (
+                self.research_artifact_index_api_allow_search_engine
+            ),
+            "research_artifact_index_api_allow_ranking_engine": (
+                self.research_artifact_index_api_allow_ranking_engine
+            ),
+            "research_artifact_index_api_allow_retrieval_engine": (
+                self.research_artifact_index_api_allow_retrieval_engine
+            ),
+            "research_artifact_index_api_allow_embeddings": self.research_artifact_index_api_allow_embeddings,
+            "research_artifact_index_api_allow_vector_store": self.research_artifact_index_api_allow_vector_store,
+            "research_artifact_index_api_allow_active_ingestion": (
+                self.research_artifact_index_api_allow_active_ingestion
+            ),
+            "research_artifact_index_api_allow_persistent_storage": (
+                self.research_artifact_index_api_allow_persistent_storage
+            ),
+            "research_artifact_index_api_allow_file_uploads": self.research_artifact_index_api_allow_file_uploads,
+            "research_artifact_index_api_allow_file_downloads": (
+                self.research_artifact_index_api_allow_file_downloads
+            ),
+            "research_artifact_index_api_allow_file_previews": (
+                self.research_artifact_index_api_allow_file_previews
+            ),
+            "research_artifact_index_api_allow_paper_parsing": (
+                self.research_artifact_index_api_allow_paper_parsing
+            ),
+            "research_artifact_index_api_allow_strategy_generation": (
+                self.research_artifact_index_api_allow_strategy_generation
+            ),
+            "research_artifact_index_api_allow_backtesting": self.research_artifact_index_api_allow_backtesting,
+            "research_artifact_index_api_allow_recommendations": (
+                self.research_artifact_index_api_allow_recommendations
+            ),
+            "research_artifact_index_api_allow_execution": self.research_artifact_index_api_allow_execution,
+            "research_artifact_index_display_enabled": self.research_artifact_index_display_enabled,
+            "research_artifact_index_display_schema_version": (
+                self.research_artifact_index_display_schema_version
+            ),
+            "research_artifact_index_display_stage": self.research_artifact_index_display_stage,
+            "research_artifact_index_display_allow_active_ui": (
+                self.research_artifact_index_display_allow_active_ui
+            ),
+            "research_artifact_index_display_allow_frontend_components": (
+                self.research_artifact_index_display_allow_frontend_components
+            ),
+            "research_artifact_index_display_allow_desktop_components": (
+                self.research_artifact_index_display_allow_desktop_components
+            ),
+            "research_artifact_index_display_allow_indexing_engine": (
+                self.research_artifact_index_display_allow_indexing_engine
+            ),
+            "research_artifact_index_display_allow_search_engine": (
+                self.research_artifact_index_display_allow_search_engine
+            ),
+            "research_artifact_index_display_allow_ranking_engine": (
+                self.research_artifact_index_display_allow_ranking_engine
+            ),
+            "research_artifact_index_display_allow_retrieval_engine": (
+                self.research_artifact_index_display_allow_retrieval_engine
+            ),
+            "research_artifact_index_display_allow_embeddings": (
+                self.research_artifact_index_display_allow_embeddings
+            ),
+            "research_artifact_index_display_allow_vector_store": (
+                self.research_artifact_index_display_allow_vector_store
+            ),
+            "research_artifact_index_display_allow_active_ingestion": (
+                self.research_artifact_index_display_allow_active_ingestion
+            ),
+            "research_artifact_index_display_allow_persistent_storage": (
+                self.research_artifact_index_display_allow_persistent_storage
+            ),
+            "research_artifact_index_display_allow_file_uploads": (
+                self.research_artifact_index_display_allow_file_uploads
+            ),
+            "research_artifact_index_display_allow_file_downloads": (
+                self.research_artifact_index_display_allow_file_downloads
+            ),
+            "research_artifact_index_display_allow_file_previews": (
+                self.research_artifact_index_display_allow_file_previews
+            ),
+            "research_artifact_index_display_allow_paper_parsing": (
+                self.research_artifact_index_display_allow_paper_parsing
+            ),
+            "research_artifact_index_display_allow_strategy_generation": (
+                self.research_artifact_index_display_allow_strategy_generation
+            ),
+            "research_artifact_index_display_allow_backtesting": (
+                self.research_artifact_index_display_allow_backtesting
+            ),
+            "research_artifact_index_display_allow_recommendations": (
+                self.research_artifact_index_display_allow_recommendations
+            ),
+            "research_artifact_index_display_allow_execution": (
+                self.research_artifact_index_display_allow_execution
+            ),
         }
 
 

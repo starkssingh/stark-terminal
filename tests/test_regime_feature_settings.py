@@ -7,7 +7,7 @@ from stark_terminal_core.config.settings import Settings
 def test_regime_feature_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "67"
+    assert settings.prompt_number == "107"
     assert settings.regime_feature_preparation_enabled is True
     assert settings.regime_feature_preparation_schema_version == "v1"
     assert settings.regime_feature_preparation_allow_real_data is False

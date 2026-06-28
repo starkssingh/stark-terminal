@@ -32,8 +32,8 @@ def test_prompt_22_health_marker() -> None:
     response = client.get("/health")
     assert response.status_code == 200
     body = response.json()
-    assert body["prompt"] == "67"
-    assert body["audit_status"] == "strategy-research-workspace-milestone"
+    assert body["prompt"] == "107"
+    assert body["audit_status"] == "retail-decision-console-internal-preview-milestone-closure"
     assert body["execution_apis_enabled"] is False
 
 

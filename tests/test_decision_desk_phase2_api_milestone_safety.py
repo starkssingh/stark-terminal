@@ -56,6 +56,6 @@ def test_decision_phase2_endpoints_do_not_generate_dangerous_outputs() -> None:
 def test_health_endpoint_reports_prompt_46_milestone_audit_2() -> None:
     body = client.get("/health").json()
 
-    assert body["prompt"] == "67"
-    assert body["audit_status"] == "strategy-research-workspace-milestone"
+    assert body["prompt"] == "107"
+    assert body["audit_status"] == "retail-decision-console-internal-preview-milestone-closure"
     assert body["execution_apis_enabled"] is False

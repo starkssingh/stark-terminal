@@ -1,5 +1,2195 @@
 # Prompt Log
 
+## Prompt 107 - Retail Decision Console Internal Preview Milestone Closure
+
+### Objective
+
+Close the Retail Decision Console internal preview milestone, consolidate the
+milestone status, preserve safety boundaries, and recommend commit/push before
+the next product phase.
+
+### Files Created
+
+- `tests/phases/test_retail_decision_console_internal_preview_milestone_closure.py`
+- `tests/boundaries/test_retail_decision_console_internal_preview_milestone_boundaries.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/retail_decision_console/init.py`
+- `packages/core/stark_terminal_core/retail_decision_console/README.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/NORTH_STAR.md`
+- `docs/PROMPT_LOG.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/phases/retail_decision_console.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_retail_decision_console_internal_preview_milestone_closure.py`
+- `tests/boundaries/test_retail_decision_console_internal_preview_milestone_boundaries.py`
+
+### Verification Result
+
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 5027 tests.
+- `.venv/bin/pytest` passed with 5027 tests.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --help` passed.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --no-gui` passed.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --print-snapshot` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_qa_bundle.py --help` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_qa_bundle.py --output-dir tmp/retail_decision_console_qa_bundle --clean --print-manifest` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_internal_preview.py --help` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_internal_preview.py --output-dir tmp/retail_decision_console_internal_preview --clean --print-manifest` passed.
+- `.venv/bin/python scripts/smoke_verify_retail_decision_console_internal_preview.py --help` passed.
+- `.venv/bin/python scripts/smoke_verify_retail_decision_console_internal_preview.py --package-dir tmp/retail_decision_console_internal_preview --print-summary` passed.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 107 uses the canonical Retail Decision Console phase doc and grouped
+tests only. It adds no prompt-level audit docs, one-doc-per-forbidden-
+capability files, or one-test-file-per-forbidden-capability files.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Milestone Verdict
+
+Retail Decision Console internal preview milestone closed as local/demo/static/
+unavailable/read-only only. It is not production ready, not trading ready, not
+recommendation ready, and not execution ready.
+
+### Commit/Push Recommendation
+
+After verification passes:
+
+```bash
+git status
+git add .
+git commit -m "Close retail decision console internal preview milestone"
+git push
+```
+
+### Next Recommended Prompt
+
+Prompt 108 - Retail Decision Console Post-Preview UX Backlog and Next Product
+Phase Selection.
+
+## Prompt 106 - Retail Decision Console Internal Preview Package Smoke Verification
+
+### Objective
+
+Smoke-verify the Retail Decision Console internal preview package while adding
+no live data, recommendations, action generation, confidence scoring, active
+DecisionObjects, broker controls, order buttons, or execution paths.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_decision_console/internal_preview_smoke.py`
+- `scripts/smoke_verify_retail_decision_console_internal_preview.py`
+- `tests/phases/test_retail_decision_console_internal_preview_smoke_phase.py`
+- `tests/boundaries/test_retail_decision_console_internal_preview_smoke_boundaries.py`
+- `tests/boundaries/test_smoke_verify_retail_decision_console_internal_preview_script.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/retail_decision_console/__init__.py`
+- `packages/core/stark_terminal_core/retail_decision_console/init.py`
+- `packages/core/stark_terminal_core/retail_decision_console/README.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/NORTH_STAR.md`
+- `docs/PROMPT_LOG.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/phases/retail_decision_console.md`
+- `docs/runbooks/retail_decision_console_internal_preview_package.md`
+- `docs/runbooks/retail_decision_console_manual_acceptance_checklist.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_retail_decision_console_internal_preview_smoke_phase.py`
+- `tests/boundaries/test_retail_decision_console_internal_preview_smoke_boundaries.py`
+- `tests/boundaries/test_smoke_verify_retail_decision_console_internal_preview_script.py`
+
+### Verification Result
+
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 5019 tests.
+- `.venv/bin/pytest` passed with 5019 tests.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --help` passed.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --no-gui` passed.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --print-snapshot` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_qa_bundle.py --help` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_qa_bundle.py --output-dir tmp/retail_decision_console_qa_bundle --clean --print-manifest` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_internal_preview.py --help` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_internal_preview.py --output-dir tmp/retail_decision_console_internal_preview --clean --print-manifest` passed.
+- `.venv/bin/python scripts/smoke_verify_retail_decision_console_internal_preview.py --help` passed.
+- `.venv/bin/python scripts/smoke_verify_retail_decision_console_internal_preview.py --package-dir tmp/retail_decision_console_internal_preview --print-summary` passed.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 106 uses the canonical Retail Decision Console phase doc and grouped
+tests only. It adds no prompt-level audit docs, one-doc-per-forbidden-
+capability files, or one-test-file-per-forbidden-capability files.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 107 - Retail Decision Console Internal Preview Milestone Closure.
+
+## Prompt 105 - Retail Decision Console Shareable Internal Preview Package
+
+### Objective
+
+Create a safe shareable internal preview package for the Retail Decision
+Console static/demo product surface while adding no live data,
+recommendations, action generation, confidence scoring, active DecisionObjects,
+broker controls, order buttons, or execution paths.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_decision_console/internal_preview_package.py`
+- `scripts/build_retail_decision_console_internal_preview.py`
+- `docs/runbooks/retail_decision_console_internal_preview_package.md`
+- `docs/templates/retail_decision_console_internal_review_notes.md`
+- `tests/phases/test_retail_decision_console_internal_preview_package_phase.py`
+- `tests/boundaries/test_retail_decision_console_internal_preview_package_boundaries.py`
+- `tests/boundaries/test_build_retail_decision_console_internal_preview_script.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/retail_decision_console/__init__.py`
+- `packages/core/stark_terminal_core/retail_decision_console/init.py`
+- `packages/core/stark_terminal_core/retail_decision_console/README.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/NORTH_STAR.md`
+- `docs/PROMPT_LOG.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/phases/retail_decision_console.md`
+- `docs/runbooks/retail_decision_console_local_preview.md`
+- `docs/runbooks/retail_decision_console_manual_smoke_test.md`
+- `docs/runbooks/retail_decision_console_local_qa_bundle.md`
+- `docs/runbooks/retail_decision_console_manual_acceptance_checklist.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_retail_decision_console_internal_preview_package_phase.py`
+- `tests/boundaries/test_retail_decision_console_internal_preview_package_boundaries.py`
+- `tests/boundaries/test_build_retail_decision_console_internal_preview_script.py`
+
+### Verification Result
+
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 5007 tests.
+- `.venv/bin/pytest` passed with 5007 tests.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --help` passed.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --no-gui` passed.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --print-snapshot` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_qa_bundle.py --help` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_qa_bundle.py --output-dir tmp/retail_decision_console_qa_bundle --clean --print-manifest` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_internal_preview.py --help` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_internal_preview.py --output-dir tmp/retail_decision_console_internal_preview --clean --print-manifest` passed.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 105 uses the canonical Retail Decision Console phase doc and grouped
+tests only. It adds no prompt-level audit docs, one-doc-per-forbidden-
+capability files, or one-test-file-per-forbidden-capability files.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 106 - Retail Decision Console Internal Preview Package Smoke Verification.
+
+## Prompt 104 - Retail Decision Console Manual Acceptance Checklist
+
+### Objective
+
+Define a manual acceptance checklist for the current Retail Decision Console
+static/demo product surface while adding no live data, recommendations,
+action generation, confidence scoring, active DecisionObjects, broker
+controls, order buttons, or execution paths.
+
+### Files Created
+
+- `docs/runbooks/retail_decision_console_manual_acceptance_checklist.md`
+- `tests/phases/test_retail_decision_console_manual_acceptance_phase.py`
+- `tests/boundaries/test_retail_decision_console_manual_acceptance_boundaries.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/NORTH_STAR.md`
+- `docs/PROMPT_LOG.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/phases/retail_decision_console.md`
+- `docs/runbooks/retail_decision_console_local_preview.md`
+- `docs/runbooks/retail_decision_console_manual_smoke_test.md`
+- `docs/runbooks/retail_decision_console_local_qa_bundle.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_retail_decision_console_manual_acceptance_phase.py`
+- `tests/boundaries/test_retail_decision_console_manual_acceptance_boundaries.py`
+
+### Verification Result
+
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4994 tests.
+- `.venv/bin/pytest` passed with 4994 tests.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --help` passed.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --no-gui` passed.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --print-snapshot` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_qa_bundle.py --help` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_qa_bundle.py --output-dir tmp/retail_decision_console_qa_bundle --clean --print-manifest` passed.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 104 uses the canonical Retail Decision Console phase doc and grouped
+tests only. It adds no prompt-level audit docs, one-doc-per-forbidden-
+capability files, or one-test-file-per-forbidden-capability files.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 105 - Retail Decision Console Shareable Internal Preview Package.
+
+## Prompt 103 - Retail Decision Console Local QA Bundle
+
+### Objective
+
+Create a safe local QA bundle for the Retail Decision Console static/demo
+product surface while adding no live data, recommendations, action
+generation, confidence scoring, active DecisionObjects, broker controls,
+order buttons, or execution paths.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_decision_console/qa_bundle.py`
+- `scripts/build_retail_decision_console_qa_bundle.py`
+- `docs/runbooks/retail_decision_console_local_qa_bundle.md`
+- `tests/phases/test_retail_decision_console_local_qa_bundle_phase.py`
+- `tests/boundaries/test_retail_decision_console_local_qa_bundle_boundaries.py`
+- `tests/boundaries/test_build_retail_decision_console_qa_bundle_script.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/retail_decision_console/__init__.py`
+- `packages/core/stark_terminal_core/retail_decision_console/init.py`
+- `packages/core/stark_terminal_core/retail_decision_console/README.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/NORTH_STAR.md`
+- `docs/PROMPT_LOG.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/phases/retail_decision_console.md`
+- `docs/runbooks/retail_decision_console_local_preview.md`
+- `docs/runbooks/retail_decision_console_manual_smoke_test.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_retail_decision_console_local_qa_bundle_phase.py`
+- `tests/boundaries/test_retail_decision_console_local_qa_bundle_boundaries.py`
+- `tests/boundaries/test_build_retail_decision_console_qa_bundle_script.py`
+
+### Verification Result
+
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4987 tests.
+- `.venv/bin/pytest` passed with 4987 tests.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --help` passed.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --no-gui` passed.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --print-snapshot` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_qa_bundle.py --help` passed.
+- `.venv/bin/python scripts/build_retail_decision_console_qa_bundle.py --output-dir tmp/retail_decision_console_qa_bundle --clean --print-manifest` passed.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 103 uses the canonical Retail Decision Console phase doc and grouped
+tests only. It adds no prompt-level audit docs, one-doc-per-forbidden-
+capability files, or one-test-file-per-forbidden-capability files.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 104 - Retail Decision Console Manual Acceptance Checklist.
+
+## Prompt 102 - Retail Decision Console Preview Snapshot Export
+
+### Objective
+
+Add safe local-only preview snapshot export for the Retail Decision Console
+static/demo shell while adding no live data, recommendations, action
+generation, confidence scoring, active DecisionObjects, broker controls,
+order buttons, or execution paths.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_decision_console/snapshot_export.py`
+- `tests/phases/test_retail_decision_console_preview_snapshot_phase.py`
+- `tests/boundaries/test_retail_decision_console_preview_snapshot_boundaries.py`
+- `tests/boundaries/test_preview_retail_decision_console_snapshot_script.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/retail_decision_console/__init__.py`
+- `packages/core/stark_terminal_core/retail_decision_console/init.py`
+- `packages/core/stark_terminal_core/retail_decision_console/README.md`
+- `scripts/preview_retail_decision_console.py`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/NORTH_STAR.md`
+- `docs/PROMPT_LOG.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/phases/retail_decision_console.md`
+- `docs/runbooks/retail_decision_console_local_preview.md`
+- `docs/runbooks/retail_decision_console_manual_smoke_test.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_retail_decision_console_preview_snapshot_phase.py`
+- `tests/boundaries/test_retail_decision_console_preview_snapshot_boundaries.py`
+- `tests/boundaries/test_preview_retail_decision_console_snapshot_script.py`
+
+### Verification Result
+
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4974 tests.
+- `.venv/bin/pytest` passed with 4974 tests.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --help` passed.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --no-gui` passed.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --print-snapshot` passed.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --export-snapshot tmp/preview_snapshots/retail_decision_console_snapshot.json --snapshot-format json` passed.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 102 uses the canonical Retail Decision Console phase doc and grouped
+tests only. It adds no prompt-level audit docs, one-doc-per-forbidden-
+capability files, or one-test-file-per-forbidden-capability files.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 103 - Retail Decision Console Local QA Bundle.
+
+## Prompt 101 - Retail Decision Console Static Interaction Placeholders
+
+### Objective
+
+Add safe local-only static interaction placeholders to the Retail Decision
+Console static/demo shell while adding no live data, recommendations, action
+generation, confidence scoring, active DecisionObjects, broker controls,
+order buttons, or execution paths.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_decision_console/interactions.py`
+- `tests/phases/test_retail_decision_console_static_interactions_phase.py`
+- `tests/boundaries/test_retail_decision_console_static_interactions_boundaries.py`
+- `tests/boundaries/test_desktop_retail_decision_console_static_interactions.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `apps/desktop/stark_terminal_desktop/retail_decision_console.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/retail_decision_console/__init__.py`
+- `packages/core/stark_terminal_core/retail_decision_console/init.py`
+- `packages/core/stark_terminal_core/retail_decision_console/README.md`
+- `packages/core/stark_terminal_core/retail_decision_console/state_view_model.py`
+- `scripts/preview_retail_decision_console.py`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/NORTH_STAR.md`
+- `docs/PROMPT_LOG.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/phases/retail_decision_console.md`
+- `docs/runbooks/retail_decision_console_local_preview.md`
+- `docs/runbooks/retail_decision_console_manual_smoke_test.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_retail_decision_console_static_interactions_phase.py`
+- `tests/boundaries/test_retail_decision_console_static_interactions_boundaries.py`
+- `tests/boundaries/test_desktop_retail_decision_console_static_interactions.py`
+
+### Verification Result
+
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4962 tests.
+- `.venv/bin/pytest` passed with 4962 tests.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --help` passed.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --no-gui` passed.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 101 uses the canonical Retail Decision Console phase doc and grouped
+tests only. It adds no prompt-level audit docs, one-doc-per-forbidden-
+capability files, or one-test-file-per-forbidden-capability files.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 102 - Retail Decision Console Preview Snapshot Export.
+
+## Prompt 100 - Retail Decision Console Visual Polish and Section Layout Pass
+
+### Objective
+
+Improve the Retail Decision Console static/demo shell layout with visual
+layout descriptors, section grouping, card ordering metadata, desktop grouping,
+and clearer local preview output while adding no live data, recommendations,
+action generation, confidence scoring, active DecisionObjects, broker
+controls, order buttons, or execution paths.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_decision_console/layout.py`
+- `tests/phases/test_retail_decision_console_visual_layout_phase.py`
+- `tests/boundaries/test_retail_decision_console_visual_layout_boundaries.py`
+- `tests/boundaries/test_desktop_retail_decision_console_visual_layout.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `apps/desktop/stark_terminal_desktop/retail_decision_console.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/retail_decision_console/__init__.py`
+- `packages/core/stark_terminal_core/retail_decision_console/init.py`
+- `packages/core/stark_terminal_core/retail_decision_console/README.md`
+- `packages/core/stark_terminal_core/retail_decision_console/demo_state.py`
+- `packages/core/stark_terminal_core/retail_decision_console/state_view_model.py`
+- `packages/core/stark_terminal_core/retail_decision_console/ui_descriptors.py`
+- `scripts/preview_retail_decision_console.py`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/NORTH_STAR.md`
+- `docs/PROMPT_LOG.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/phases/retail_decision_console.md`
+- `docs/runbooks/retail_decision_console_local_preview.md`
+- `docs/runbooks/retail_decision_console_manual_smoke_test.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_retail_decision_console_visual_layout_phase.py`
+- `tests/boundaries/test_retail_decision_console_visual_layout_boundaries.py`
+- `tests/boundaries/test_desktop_retail_decision_console_visual_layout.py`
+
+### Verification Result
+
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4951 tests.
+- `.venv/bin/pytest` passed with 4951 tests.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --help` passed.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --no-gui` passed.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 100 uses the canonical Retail Decision Console phase doc and grouped
+tests only. It adds no prompt-level audit docs, one-doc-per-forbidden-
+capability files, or one-test-file-per-forbidden-capability files.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 101 - Retail Decision Console Static Interaction Placeholders.
+
+## Prompt 99 - Retail Decision Console Local Preview Runbook and Manual Smoke Test
+
+### Objective
+
+Make the Retail Decision Console static/demo shell safely previewable locally
+with a local preview runbook, manual smoke test checklist, and safe preview
+helper while adding no live data, recommendations, action generation,
+confidence scoring, active DecisionObjects, broker controls, order buttons, or
+execution paths.
+
+### Files Created
+
+- `docs/runbooks/retail_decision_console_local_preview.md`
+- `docs/runbooks/retail_decision_console_manual_smoke_test.md`
+- `scripts/preview_retail_decision_console.py`
+- `tests/phases/test_retail_decision_console_local_preview_phase.py`
+- `tests/boundaries/test_retail_decision_console_local_preview_boundaries.py`
+- `tests/boundaries/test_preview_retail_decision_console_script.py`
+
+### Files Modified
+
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/phases/retail_decision_console.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_retail_decision_console_local_preview_phase.py`
+- `tests/boundaries/test_retail_decision_console_local_preview_boundaries.py`
+- `tests/boundaries/test_preview_retail_decision_console_script.py`
+
+### Verification Result
+
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4940 tests.
+- `.venv/bin/pytest` passed with 4940 tests.
+- `.venv/bin/python scripts/preview_retail_decision_console.py --help` passed.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 99 uses the canonical Retail Decision Console phase doc, runbooks, and
+grouped tests only. It adds no prompt-level audit docs, one-doc-per-
+forbidden-capability files, or one-test-file-per-forbidden-capability files.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 100 - Retail Decision Console Visual Polish and Section Layout Pass.
+
+## Prompt 98 - Retail Decision Console Static State Wiring into Desktop Shell
+
+### Objective
+
+Wire deterministic Retail Decision Console demo/static state into the desktop
+shell via a safe view-model and fallback/window rendering path while keeping
+all state demo-only, unavailable, read-only, and free of live data,
+recommendations, action generation, confidence scoring, active
+DecisionObjects, broker controls, order buttons, and execution paths.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_decision_console/state_view_model.py`
+- `tests/phases/test_retail_decision_console_static_state_wiring_phase.py`
+- `tests/boundaries/test_retail_decision_console_static_state_wiring_boundaries.py`
+- `tests/boundaries/test_desktop_retail_decision_console_static_state_wiring.py`
+- `tests/boundaries/test_api_retail_decision_console_static_state_wiring.py`
+
+### Files Modified
+
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `apps/api/stark_terminal_api/routes/retail_decision_console.py`
+- `apps/desktop/stark_terminal_desktop/retail_decision_console.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/retail_decision_console/__init__.py`
+- `packages/core/stark_terminal_core/retail_decision_console/init.py`
+- `packages/core/stark_terminal_core/retail_decision_console/README.md`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/phases/retail_decision_console.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_retail_decision_console_static_state_wiring_phase.py`
+- `tests/boundaries/test_retail_decision_console_static_state_wiring_boundaries.py`
+- `tests/boundaries/test_desktop_retail_decision_console_static_state_wiring.py`
+- `tests/boundaries/test_api_retail_decision_console_static_state_wiring.py`
+
+### Verification Result
+
+- Focused Prompt 98 Retail Decision Console pytest passed: 41 tests.
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4930 tests.
+- `.venv/bin/pytest` passed with 4930 tests.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 98 uses the canonical Retail Decision Console phase doc and grouped
+tests only. It adds no prompt-level audit docs, one-doc-per-forbidden-
+capability files, or one-test-file-per-forbidden-capability files.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 99 - Retail Decision Console Local Preview Runbook and Manual Smoke Test.
+
+## Prompt 97 - Retail Decision Console Demo Data Contract and Static State Model
+
+### Objective
+
+Add deterministic local/static demo state contracts for the Retail Decision
+Console while keeping all state demo-only, unavailable, read-only, and free of
+live data, recommendations, action generation, confidence scoring, active
+DecisionObjects, broker controls, order buttons, and execution paths.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_decision_console/static_state.py`
+- `packages/core/stark_terminal_core/retail_decision_console/demo_state.py`
+- `packages/core/stark_terminal_core/retail_decision_console/state_safety.py`
+- `tests/phases/test_retail_decision_console_demo_state_phase.py`
+- `tests/boundaries/test_retail_decision_console_demo_state_boundaries.py`
+- `tests/boundaries/test_api_retail_decision_console_demo_state.py`
+
+### Files Modified
+
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `apps/api/stark_terminal_api/routes/retail_decision_console.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/retail_decision_console/__init__.py`
+- `packages/core/stark_terminal_core/retail_decision_console/init.py`
+- `packages/core/stark_terminal_core/retail_decision_console/README.md`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/phases/retail_decision_console.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_retail_decision_console_demo_state_phase.py`
+- `tests/boundaries/test_retail_decision_console_demo_state_boundaries.py`
+- `tests/boundaries/test_api_retail_decision_console_demo_state.py`
+
+### Verification Result
+
+- Focused Prompt 97 Retail Decision Console pytest passed: 26 tests.
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4918 tests.
+- `.venv/bin/pytest` passed with 4918 tests.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 97 uses the canonical Retail Decision Console phase doc and grouped
+tests only. It adds no prompt-level audit docs, one-doc-per-forbidden-
+capability files, or one-test-file-per-forbidden-capability files.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 98 - Retail Decision Console Static State Wiring into Desktop Shell.
+
+## Prompt 96 - Retail Decision Console UI Shell Skeleton
+
+### Objective
+
+Build the first safe Retail Decision Console UI shell skeleton while keeping
+the shell static, unavailable/demo-only, and free of live data,
+recommendations, confidence scoring, active DecisionObjects, broker controls,
+order buttons, and execution paths.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/retail_decision_console/ui_descriptors.py`
+- `packages/core/stark_terminal_core/retail_decision_console/ui_shell.py`
+- `apps/desktop/stark_terminal_desktop/retail_decision_console.py`
+- `tests/phases/test_retail_decision_console_ui_shell_phase.py`
+- `tests/boundaries/test_retail_decision_console_ui_shell_boundaries.py`
+- `tests/boundaries/test_desktop_retail_decision_console_shell.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/desktop/stark_terminal_desktop/main.py`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `packages/core/stark_terminal_core/retail_decision_console/__init__.py`
+- `packages/core/stark_terminal_core/retail_decision_console/README.md`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/phases/retail_decision_console.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_retail_decision_console_ui_shell_phase.py`
+- `tests/boundaries/test_retail_decision_console_ui_shell_boundaries.py`
+- `tests/boundaries/test_desktop_retail_decision_console_shell.py`
+
+### Verification Result
+
+- `.venv/bin/python -m pip install -e .`: passed
+- `.venv/bin/python scripts/audit_foundation.py`: passed
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 4908 tests
+- `.venv/bin/pytest`: passed with 4908 tests
+- `git diff --check`: passed
+
+### Grouped Documentation Policy Compliance
+
+Prompt 96 uses the canonical Retail Decision Console phase doc and grouped
+tests only. It adds no prompt-level audit docs, one-doc-per-forbidden-
+capability files, or one-test-file-per-forbidden-capability files.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 97 - Retail Decision Console Demo Data Contract and Static State Model.
+
+## Prompt 95 - Retail Decision Console Productization Plan and UI Shell Boundary
+
+### Objective
+
+Define the Retail Decision Console product surface, productization plan, and
+UI shell boundary while keeping outputs unavailable/demo/skeleton and
+preserving no execution, no broker controls, no fake recommendations, and no
+fake confidence.
+
+### Files Created
+
+- `docs/phases/retail_decision_console.md`
+- `packages/core/stark_terminal_core/retail_decision_console/`
+- `apps/api/stark_terminal_api/routes/retail_decision_console.py`
+- `tests/phases/test_retail_decision_console_phase.py`
+- `tests/boundaries/test_retail_decision_console_boundaries.py`
+- `tests/boundaries/test_api_retail_decision_console.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/phases/product_surface_reorientation.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_retail_decision_console_phase.py`
+- `tests/boundaries/test_retail_decision_console_boundaries.py`
+- `tests/boundaries/test_api_retail_decision_console.py`
+
+### Verification Result
+
+- Focused Prompt 95 pytest: 9 passed.
+- `.venv/bin/python -m pip install -e .`: passed.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 4898 tests.
+- `.venv/bin/pytest`: passed with 4898 tests.
+- `git diff --check`: passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 95 uses one canonical phase doc and grouped tests only. It adds no
+prompt-level audit docs, one-doc-per-forbidden-capability files, or
+one-test-file-per-forbidden-capability files.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 96 - Retail Decision Console UI Shell Skeleton.
+
+## Prompt 94 - Product Surface Reorientation and Development Plan
+
+### Objective
+
+Create a product-surface reorientation and development plan that selects
+Retail Decision Console / Decision Desk productization as the next concrete
+product-development phase.
+
+### Files Created
+
+- `docs/phases/product_surface_reorientation.md`
+- `tests/phases/test_product_surface_reorientation_phase.py`
+- `tests/boundaries/test_product_surface_reorientation_boundaries.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/testing/TEST_POLICY.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_product_surface_reorientation_phase.py`
+- `tests/boundaries/test_product_surface_reorientation_boundaries.py`
+
+### Verification Result
+
+- Focused Prompt 94 pytest: 4 passed.
+- `.venv/bin/python -m pip install -e .`: passed.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 4889 tests.
+- `.venv/bin/pytest`: passed with 4889 tests.
+- `git diff --check`: passed.
+
+### Phase-Based Policy Compliance
+
+Prompt 94 uses one canonical phase doc and grouped tests only. It adds no
+prompt-level audit docs, one-doc-per-forbidden-capability files, or
+one-test-file-per-forbidden-capability files.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 95 - Retail Decision Console Productization Plan and UI Shell Boundary.
+
+## Prompt 93 - Research Knowledge Map Phase Closure
+
+### Objective
+
+Close the Research Knowledge Map phase using the canonical phase doc and one
+grouped phase-closure test only.
+
+### Files Created
+
+- `tests/phases/test_research_knowledge_map_phase_closure.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/phases/research_knowledge_map.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `docs/audits/safety_boundaries.md`
+- `docs/audits/no_execution.md`
+- `docs/testing/TEST_POLICY.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_research_knowledge_map_phase_closure.py`
+
+### Verification Result
+
+- Focused Prompt 93 pytest: 12 passed.
+- `.venv/bin/python -m pip install -e .`: passed.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 4885 tests.
+- `.venv/bin/pytest`: passed with 4885 tests.
+- `git diff --check`: passed.
+
+### Phase-Based Policy Compliance
+
+Prompt 93 updates the canonical phase doc and uses one grouped phase-closure
+test only. No standalone milestone audit doc, standalone next-phase plan doc,
+micro-audit docs, or one-test-file-per-forbidden-capability files are added.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 94 - Product Surface Reorientation and Development Plan.
+
+## Prompt 92 - Research Knowledge Map Safety Boundary Audit
+
+### Objective
+
+Perform Research Knowledge Map Safety Boundary Audit only, using the canonical
+phase doc and grouped tests.
+
+### Files Created
+
+- `tests/phases/test_research_knowledge_map_safety_phase.py`
+- `tests/boundaries/test_research_knowledge_map_safety_boundaries.py`
+- `tests/boundaries/test_api_research_knowledge_map_safety_surface.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/phases/research_knowledge_map.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `docs/audits/safety_boundaries.md`
+- `docs/audits/no_execution.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_research_knowledge_map_safety_phase.py`
+- `tests/boundaries/test_research_knowledge_map_safety_boundaries.py`
+- `tests/boundaries/test_api_research_knowledge_map_safety_surface.py`
+
+### Verification Result
+
+- Focused Prompt 92 pytest: 14 passed.
+- `.venv/bin/python -m pip install -e .`: passed.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 4881 tests.
+- `.venv/bin/pytest`: passed with 4881 tests.
+- `git diff --check`: passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 92 updates the canonical phase doc and uses grouped tests only. No
+standalone safety-boundary audit doc, micro-audit docs, or one-test-file-per-
+forbidden-capability files are added.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 93 - Research Knowledge Map Phase Closure.
+
+## Prompt 91 - Research Knowledge Map Display Contract Skeleton
+
+### Objective
+
+Create Research Knowledge Map Display Contract Skeleton only, using the
+canonical phase doc and grouped tests.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/research_knowledge_map_display/`
+- `apps/api/stark_terminal_api/routes/research_knowledge_map_display.py`
+- `tests/phases/test_research_knowledge_map_display_phase.py`
+- `tests/boundaries/test_research_knowledge_map_display_boundaries.py`
+- `tests/boundaries/test_api_research_knowledge_map_display.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/phases/research_knowledge_map.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `docs/audits/safety_boundaries.md`
+- `docs/audits/no_execution.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_research_knowledge_map_display_phase.py`
+- `tests/boundaries/test_research_knowledge_map_display_boundaries.py`
+- `tests/boundaries/test_api_research_knowledge_map_display.py`
+
+### Verification Result
+
+- Focused Prompt 91 pytest: 10 passed.
+- `.venv/bin/python -m pip install -e .`: passed.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 4873 tests.
+- `.venv/bin/pytest`: passed with 4873 tests.
+- `git diff --check`: passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 91 updates the canonical phase doc and uses grouped tests only. No
+micro-audit docs or one-test-file-per-forbidden-capability files are added.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 92 - Research Knowledge Map Safety Boundary Audit.
+
+## Prompt 90 - Research Knowledge Map API Contract Skeleton
+
+### Objective
+
+Create Research Knowledge Map API contract skeleton only, using the canonical
+phase doc and grouped tests.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/research_knowledge_map_api/`
+- `apps/api/stark_terminal_api/routes/research_knowledge_map_api.py`
+- `tests/phases/test_research_knowledge_map_api_phase.py`
+- `tests/boundaries/test_research_knowledge_map_api_boundaries.py`
+- `tests/boundaries/test_api_research_knowledge_map_contract.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/phases/research_knowledge_map.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `docs/audits/safety_boundaries.md`
+- `docs/audits/no_execution.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_research_knowledge_map_api_phase.py`
+- `tests/boundaries/test_research_knowledge_map_api_boundaries.py`
+- `tests/boundaries/test_api_research_knowledge_map_contract.py`
+
+### Verification Result
+
+- Focused Prompt 90 pytest: 15 passed.
+- `.venv/bin/python -m pip install -e .`: passed.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 4863 tests.
+- `.venv/bin/pytest`: passed with 4863 tests.
+- `git diff --check`: passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 90 updates the canonical phase doc and uses grouped tests only. No
+micro-audit docs or one-test-file-per-forbidden-capability files are added.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 91 - Research Knowledge Map Display Contract Skeleton.
+
+## Prompt 89 - Research Knowledge Map Planning and Guardrails
+
+### Objective
+
+Create Research Knowledge Map planning and guardrails only, using phase-based
+documentation and grouped tests.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/research_knowledge_map/`
+- `apps/api/stark_terminal_api/routes/research_knowledge_map.py`
+- `docs/phases/research_knowledge_map.md`
+- `tests/phases/test_research_knowledge_map_phase.py`
+- `tests/boundaries/test_research_knowledge_map_boundaries.py`
+- `tests/boundaries/test_api_research_knowledge_map.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `docs/audits/safety_boundaries.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_research_knowledge_map_phase.py`
+- `tests/boundaries/test_research_knowledge_map_boundaries.py`
+- `tests/boundaries/test_api_research_knowledge_map.py`
+
+### Verification Result
+
+- Focused Prompt 89 pytest: 10 passed.
+- `.venv/bin/python -m pip install -e .`: passed.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 4853 tests.
+- `.venv/bin/pytest`: passed with 4853 tests.
+- `git diff --check`: passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 89 uses one canonical phase doc and grouped tests only. No micro-audit
+docs or one-test-file-per-forbidden-capability files are added.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 90 - Research Knowledge Map API Contract Skeleton.
+
+## Prompt 88 - B Research Metadata Graph Phase Closure and Forward Transition
+
+### Objective
+
+Close the Research Metadata Graph phase in the canonical phase doc, enforce
+phase-based docs/tests for future work, and transition to the next
+product-development planning prompt.
+
+### Files Created
+
+- `tests/phases/test_research_metadata_graph_phase_closure.py`
+
+### Files Modified
+
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/RESEARCH_METADATA_GRAPH_READINESS_PLAN.md`
+- `docs/phases/research_metadata_graph.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `docs/audits/safety_boundaries.md`
+- `docs/testing/TEST_POLICY.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_research_metadata_graph_phase_closure.py`
+
+### Verification Result
+
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 4843 tests.
+- `.venv/bin/pytest`: passed with 4843 tests.
+- `git diff --check`: passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 88-B is phase closure only. It adds one grouped phase-closure test and
+does not create prompt-level micro-audit docs/tests.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 89 - Research Knowledge Map Planning and Guardrails.
+
+## Prompt 87 - Research Metadata Graph Safety Boundary Audit
+
+### Objective
+
+Perform Research Metadata Graph Safety Boundary Audit only, using grouped
+phase-level documentation and grouped tests.
+
+### Files Created
+
+- `docs/RESEARCH_METADATA_GRAPH_SAFETY_BOUNDARY_AUDIT.md`
+- `tests/phases/test_research_metadata_graph_safety_audit_phase.py`
+- `tests/boundaries/test_research_metadata_graph_safety_boundaries.py`
+- `tests/boundaries/test_api_research_metadata_graph_safety_surface.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/RESEARCH_METADATA_GRAPH_READINESS_PLAN.md`
+- `docs/RESEARCH_METADATA_GRAPH_PLANNING_AND_GUARDRAILS.md`
+- `docs/RESEARCH_METADATA_GRAPH_API_CONTRACT_SKELETON.md`
+- `docs/RESEARCH_METADATA_GRAPH_DISPLAY_CONTRACT_SKELETON.md`
+- `docs/phases/research_metadata_graph.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `docs/audits/safety_boundaries.md`
+- `docs/audits/no_execution.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `docs/reports/SAFETY_COVERAGE_REPORT.md`
+- `docs/reports/ACTIVE_TEST_BASELINE_REPORT.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- existing grouped Research Metadata Graph phase/API/display tests and prompt
+  marker tests where needed for Prompt 87 status continuity
+
+### Grouped Tests Added
+
+- `tests/phases/test_research_metadata_graph_safety_audit_phase.py`
+- `tests/boundaries/test_research_metadata_graph_safety_boundaries.py`
+- `tests/boundaries/test_api_research_metadata_graph_safety_surface.py`
+
+### Verification Result
+
+- Focused Prompt 87 pytest: 32 passed.
+- `.venv/bin/python -m pip install -e .`: passed.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 4838 tests.
+- `.venv/bin/pytest`: passed with 4838 tests.
+- `git diff --check`: passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 87 adds one main safety boundary audit document and three grouped
+tests. It does not recreate prompt-level micro-audit sprawl.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 88 - Research Metadata Graph Milestone Audit.
+
+## Prompt 86 - Research Metadata Graph Display Contract Skeleton
+
+### Objective
+
+Implement Research Metadata Graph Display Contract Skeleton only, using grouped
+phase-level documentation and grouped tests.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/research_metadata_graph_display/__init__.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_display/init.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_display/README.md`
+- `packages/core/stark_terminal_core/research_metadata_graph_display/contracts.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_display/nodes.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_display/edges.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_display/provenance.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_display/lifecycle.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_display/references.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_display/unavailable.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_display/safety.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_display/health.py`
+- `apps/api/stark_terminal_api/routes/research_metadata_graph_display.py`
+- `docs/RESEARCH_METADATA_GRAPH_DISPLAY_CONTRACT_SKELETON.md`
+- `tests/phases/test_research_metadata_graph_display_phase.py`
+- `tests/boundaries/test_research_metadata_graph_display_boundaries.py`
+- `tests/boundaries/test_api_research_metadata_graph_display.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/RESEARCH_METADATA_GRAPH_READINESS_PLAN.md`
+- `docs/RESEARCH_METADATA_GRAPH_PLANNING_AND_GUARDRAILS.md`
+- `docs/RESEARCH_METADATA_GRAPH_API_CONTRACT_SKELETON.md`
+- `docs/phases/research_metadata_graph.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `docs/audits/safety_boundaries.md`
+- `docs/audits/no_execution.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `docs/reports/SAFETY_COVERAGE_REPORT.md`
+- `docs/reports/ACTIVE_TEST_BASELINE_REPORT.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+- `tests/phases/test_research_metadata_graph_phase.py`
+- `tests/phases/test_research_metadata_graph_api_phase.py`
+- `tests/test_research_artifact_index_api_settings.py`
+- `tests/test_research_artifact_index_display_settings.py`
+- `tests/test_research_artifact_index_settings.py`
+- `tests/test_research_artifact_registry_api_settings.py`
+- `tests/test_research_artifact_registry_boundary_settings.py`
+- `tests/test_research_artifact_registry_display_settings.py`
+- `tests/test_strategy_research_workspace_api_settings.py`
+- `tests/test_strategy_research_workspace_display_settings.py`
+- `tests/test_strategy_research_workspace_settings.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_research_metadata_graph_display_phase.py`
+- `tests/boundaries/test_research_metadata_graph_display_boundaries.py`
+- `tests/boundaries/test_api_research_metadata_graph_display.py`
+
+### Verification Result
+
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4829 tests.
+- Full `.venv/bin/pytest` passed with 4829 tests.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 86 adds one main display contract skeleton document and three grouped
+tests. It does not recreate prompt-level micro-audit sprawl.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 87 - Research Metadata Graph Safety Boundary Audit.
+
+## Prompt 85 - Research Metadata Graph API Contract Skeleton
+
+### Objective
+
+Implement Research Metadata Graph API Contract Skeleton only, using grouped
+phase-level documentation and grouped tests.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/research_metadata_graph_api/__init__.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_api/init.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_api/README.md`
+- `packages/core/stark_terminal_core/research_metadata_graph_api/contracts.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_api/requests.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_api/responses.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_api/references.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_api/unavailable.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_api/safety.py`
+- `packages/core/stark_terminal_core/research_metadata_graph_api/health.py`
+- `apps/api/stark_terminal_api/routes/research_metadata_graph_api.py`
+- `docs/RESEARCH_METADATA_GRAPH_API_CONTRACT_SKELETON.md`
+- `tests/phases/test_research_metadata_graph_api_phase.py`
+- `tests/boundaries/test_research_metadata_graph_api_boundaries.py`
+- `tests/boundaries/test_api_research_metadata_graph_contract.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/RESEARCH_METADATA_GRAPH_READINESS_PLAN.md`
+- `docs/RESEARCH_METADATA_GRAPH_PLANNING_AND_GUARDRAILS.md`
+- `docs/phases/research_metadata_graph.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `docs/audits/safety_boundaries.md`
+- `docs/audits/no_execution.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `docs/reports/SAFETY_COVERAGE_REPORT.md`
+- `docs/reports/ACTIVE_TEST_BASELINE_REPORT.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_research_metadata_graph_api_phase.py`
+- `tests/boundaries/test_research_metadata_graph_api_boundaries.py`
+- `tests/boundaries/test_api_research_metadata_graph_contract.py`
+
+### Verification Result
+
+- Focused Prompt 85 pytest passed: 15 tests.
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4820 tests.
+- Full `.venv/bin/pytest` passed with 4820 tests.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 85 adds one main API contract skeleton document and three grouped
+tests. It does not recreate prompt-level micro-audit sprawl.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 86 - Research Metadata Graph Display Contract Skeleton.
+
+## Prompt 84 - Research Metadata Graph Planning and Guardrails
+
+### Objective
+
+Implement Research Metadata Graph Planning and Guardrails only, using grouped
+phase-level documentation and grouped tests.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/research_metadata_graph/__init__.py`
+- `packages/core/stark_terminal_core/research_metadata_graph/init.py`
+- `packages/core/stark_terminal_core/research_metadata_graph/README.md`
+- `packages/core/stark_terminal_core/research_metadata_graph/planning.py`
+- `packages/core/stark_terminal_core/research_metadata_graph/nodes.py`
+- `packages/core/stark_terminal_core/research_metadata_graph/edges.py`
+- `packages/core/stark_terminal_core/research_metadata_graph/provenance.py`
+- `packages/core/stark_terminal_core/research_metadata_graph/lifecycle.py`
+- `packages/core/stark_terminal_core/research_metadata_graph/references.py`
+- `packages/core/stark_terminal_core/research_metadata_graph/guardrails.py`
+- `packages/core/stark_terminal_core/research_metadata_graph/readiness.py`
+- `packages/core/stark_terminal_core/research_metadata_graph/health.py`
+- `apps/api/stark_terminal_api/routes/research_metadata_graph.py`
+- `docs/RESEARCH_METADATA_GRAPH_PLANNING_AND_GUARDRAILS.md`
+- `docs/phases/research_metadata_graph.md`
+- `tests/phases/test_research_metadata_graph_phase.py`
+- `tests/boundaries/test_research_metadata_graph_boundaries.py`
+- `tests/boundaries/test_api_research_metadata_graph.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/RESEARCH_METADATA_GRAPH_READINESS_PLAN.md`
+- `docs/phases/research_artifact_index.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `docs/audits/safety_boundaries.md`
+- `docs/audits/no_execution.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `docs/reports/SAFETY_COVERAGE_REPORT.md`
+- `docs/reports/ACTIVE_TEST_BASELINE_REPORT.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_research_metadata_graph_phase.py`
+- `tests/boundaries/test_research_metadata_graph_boundaries.py`
+- `tests/boundaries/test_api_research_metadata_graph.py`
+
+### Verification Result
+
+- Focused Prompt 84 pytest passed: 10 tests.
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4810 tests.
+- Full `.venv/bin/pytest` passed with 4810 tests.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 84 adds one main planning-and-guardrails document, one phase document,
+and three grouped tests. It does not recreate prompt-level micro-audit sprawl.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 85 - Research Metadata Graph API Contract Skeleton.
+
+## Prompt 83 - Research Artifact Index API/Display Integration Readiness Audit
+
+### Objective
+
+Perform Research Artifact Index API/Display Integration Readiness Audit only,
+using grouped phase-level documentation and grouped tests.
+
+### Files Created
+
+- `docs/RESEARCH_ARTIFACT_INDEX_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`
+- `docs/RESEARCH_METADATA_GRAPH_READINESS_PLAN.md`
+- `tests/phases/test_research_artifact_index_api_display_integration_phase.py`
+- `tests/boundaries/test_research_artifact_index_api_display_integration_boundaries.py`
+- `tests/boundaries/test_api_research_artifact_index_integration_consistency.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NEXT_PHASE_PLAN.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_MILESTONE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_SYSTEM_BOUNDARY_HARDENING.md`
+- `docs/phases/research_artifact_index.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `docs/audits/safety_boundaries.md`
+- `docs/audits/no_execution.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `docs/reports/SAFETY_COVERAGE_REPORT.md`
+- `docs/reports/ACTIVE_TEST_BASELINE_REPORT.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_research_artifact_index_api_display_integration_phase.py`
+- `tests/boundaries/test_research_artifact_index_api_display_integration_boundaries.py`
+- `tests/boundaries/test_api_research_artifact_index_integration_consistency.py`
+
+### Verification Result
+
+- Focused Prompt 83 pytest passed: 8 tests.
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4800 tests.
+- Full `.venv/bin/pytest` passed with 4800 tests.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 83 adds one main integration readiness document, one Research Metadata
+Graph readiness plan, and three grouped tests. It does not recreate
+prompt-level micro-audit sprawl.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 84 - Research Metadata Graph Planning and Guardrails.
+
+## Prompt 82 - Research Artifact Index System Boundary Hardening
+
+### Objective
+
+Implement Research Artifact Index System Boundary Hardening only, using grouped
+phase-level documentation and grouped tests.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/research_artifact_index_boundary/__init__.py`
+- `packages/core/stark_terminal_core/research_artifact_index_boundary/init.py`
+- `packages/core/stark_terminal_core/research_artifact_index_boundary/README.md`
+- `packages/core/stark_terminal_core/research_artifact_index_boundary/forbidden.py`
+- `packages/core/stark_terminal_core/research_artifact_index_boundary/endpoints.py`
+- `packages/core/stark_terminal_core/research_artifact_index_boundary/modules.py`
+- `packages/core/stark_terminal_core/research_artifact_index_boundary/invariants.py`
+- `packages/core/stark_terminal_core/research_artifact_index_boundary/health.py`
+- `apps/api/stark_terminal_api/routes/research_artifact_index_boundary.py`
+- `docs/RESEARCH_ARTIFACT_INDEX_SYSTEM_BOUNDARY_HARDENING.md`
+- `tests/phases/test_research_artifact_index_system_boundary_phase.py`
+- `tests/boundaries/test_research_artifact_index_system_boundaries.py`
+- `tests/boundaries/test_api_research_artifact_index_boundary.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NEXT_PHASE_PLAN.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_MILESTONE_AUDIT.md`
+- `docs/phases/research_artifact_index.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `docs/audits/safety_boundaries.md`
+- `docs/audits/no_execution.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `docs/reports/SAFETY_COVERAGE_REPORT.md`
+- `docs/reports/ACTIVE_TEST_BASELINE_REPORT.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Grouped Tests Added
+
+- `tests/phases/test_research_artifact_index_system_boundary_phase.py`
+- `tests/boundaries/test_research_artifact_index_system_boundaries.py`
+- `tests/boundaries/test_api_research_artifact_index_boundary.py`
+
+### Verification Result
+
+- Focused Prompt 82 pytest passed: 10 tests.
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4792 tests.
+- Full `.venv/bin/pytest` passed with 4792 tests.
+- `git diff --check` passed.
+
+### Grouped Documentation Policy Compliance
+
+Prompt 82 adds one main system boundary document and three grouped tests. It
+does not recreate prompt-level micro-audit sprawl.
+
+### Known Issues
+
+Existing FastAPI/TestClient StarletteDeprecationWarning remains.
+
+### Next Recommended Prompt
+
+Prompt 83 - Research Artifact Index API/Display Integration Readiness Audit.
+
+## Interlude - Aggressive Grouped Documentation/Test Report Consolidation and Verified Deletion
+
+### Scope
+
+Cleanup/deletion only. This interlude creates grouped report files under
+`docs/reports/`, preserves details from previously archived micro-audit
+docs/tests, and deletes those superseded archive files. It adds no product
+capability, no API endpoints, no active UI, no ingestion/storage, no
+indexing/search/ranking/retrieval, no embeddings/vector store, no paper
+parsing, no strategy generation, no backtesting, no recommendations, no broker
+controls, and no execution APIs.
+
+### Grouped Reports Created
+
+- `docs/reports/DOCS_CONSOLIDATED_REPORT.md`
+- `docs/reports/TESTS_CONSOLIDATED_REPORT.md`
+- `docs/reports/DELETED_FILES_REPORT.md`
+- `docs/reports/SAFETY_COVERAGE_REPORT.md`
+- `docs/reports/ACTIVE_TEST_BASELINE_REPORT.md`
+
+### Files Deleted
+
+- 27 previously archived granular micro-audit docs.
+- 27 previously archived `.py.archived` micro-audit test files.
+- Exact path mapping and replacement coverage are recorded in
+  `docs/reports/DELETED_FILES_REPORT.md`,
+  `docs/reports/DOCS_CONSOLIDATED_REPORT.md`, and
+  `docs/reports/TESTS_CONSOLIDATED_REPORT.md`.
+
+### Baseline
+
+- Before cleanup/deletion: 4782 active tests.
+- After cleanup/deletion: 4782 active tests because deleted tests were already
+  archived and not collected by pytest.
+
+### Safety
+
+Safety coverage is preserved by grouped phase/boundary tests, remaining active
+API-surface tests, remaining milestone/integration tests, remaining contract
+behavior tests, audit/verify script checks, and grouped safety reports. Active
+decision architecture docs/tests remain preserved. Execution APIs remain
+forbidden.
+
+### Next Recommended Prompt
+
+Prompt 82 - Research Artifact Index System Boundary Hardening
+
+## Interlude - Archive Pass 2: Older Phase Micro-Audit Docs and Tests
+
+### Scope
+
+Archive/cleanup only. This interlude archives older superseded Strategy
+Research Workspace and Research Artifact Registry `NO_*` micro-audit docs/tests
+now that grouped phase and boundary coverage exists. It adds no product
+capability, no API endpoints, no active UI, no ingestion/storage, no
+indexing/search/ranking/retrieval, no embeddings/vector store, no paper
+parsing, no strategy generation, no backtesting, no recommendations, no broker
+controls, and no execution APIs.
+
+### Docs Archived
+
+- Strategy Research Workspace `NO_*` safety micro-audit docs: 6 files moved to
+  `docs/archive/prompt_audits/strategy_research_workspace/`.
+- Research Artifact Registry `NO_*` safety micro-audit docs: 9 files moved to
+  `docs/archive/prompt_audits/research_artifact_registry/`.
+- Total docs archived in Archive Pass 2: 15.
+- Exact original/archive path mapping is recorded in
+  `docs/testing/CONSOLIDATION_MAP.md`.
+
+### Tests Archived
+
+- Strategy Research Workspace `NO_*` safety micro-audit tests: 6 files moved to
+  `tests/archive/prompt_audits/strategy_research_workspace/` with
+  `.py.archived` suffixes.
+- Research Artifact Registry `NO_*` safety micro-audit tests: 9 files moved to
+  `tests/archive/prompt_audits/research_artifact_registry/` with
+  `.py.archived` suffixes.
+- Total tests archived in Archive Pass 2: 15 files.
+- Archived tests are historical references and are not collected by pytest.
+
+### Baseline
+
+- Before Archive Pass 2: 4820 tests.
+- After Archive Pass 2: 4782 tests.
+- Test count change: net -38 tests. Archive Pass 2 moves 40 micro-audit test
+  functions out of active collection and adds 2 active archive-preservation
+  checks in safety-boundary doc tests.
+
+### Safety
+
+Safety coverage is preserved by grouped phase and boundary tests under
+`tests/phases/` and `tests/boundaries/`, remaining active API-surface tests,
+remaining milestone/integration tests, remaining contract behavior tests, and
+audit/verify script checks. Active decision architecture docs/tests remain
+preserved. Execution APIs remain forbidden.
+
+### Verification Result
+
+- Editable install passed.
+- `scripts/audit_foundation.py` passed.
+- `scripts/verify_foundation.py` passed with 4782 tests.
+- Full `.venv/bin/pytest` passed with 4782 tests.
+- `git diff --check` passed.
+- Archived tests are historical references and are not collected by pytest.
+
+### Next Recommended Prompt
+
+Prompt 82 - Research Artifact Index System Boundary Hardening
+
+## Interlude - Archive Superseded Granular Audit Docs and Tests
+
+### Scope
+
+Archive/cleanup only. This interlude archives obvious superseded Research
+Artifact Index Prompt 80 micro-audit docs/tests now that grouped phase and
+boundary coverage exists. It adds no product capability, no API endpoints, no
+active UI, no ingestion/storage, no indexing/search/ranking/retrieval, no
+embeddings/vector store, no strategy generation, no backtesting, no
+recommendations, no broker controls, and no execution APIs.
+
+### Docs Archived
+
+- `docs/RESEARCH_ARTIFACT_INDEX_API_BOUNDARY_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_INDEXING_SEARCH_RANKING_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_RETRIEVAL_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_EMBEDDINGS_VECTOR_STORE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_ACTIVE_INGESTION_STORAGE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_UPLOAD_DOWNLOAD_PREVIEW_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_PAPER_PARSING_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_STRATEGY_GENERATION_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_BACKTESTING_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_RECOMMENDATION_EXECUTION_AUDIT.md`
+
+### Tests Archived
+
+- `tests/test_research_artifact_index_api_boundary_audit.py`
+- `tests/test_research_artifact_index_display_boundary_audit.py`
+- `tests/test_research_artifact_index_no_active_ui_audit.py`
+- `tests/test_research_artifact_index_no_indexing_search_ranking_audit.py`
+- `tests/test_research_artifact_index_no_retrieval_audit.py`
+- `tests/test_research_artifact_index_no_embeddings_vector_store_audit.py`
+- `tests/test_research_artifact_index_no_active_ingestion_storage_audit.py`
+- `tests/test_research_artifact_index_no_upload_download_preview_audit.py`
+- `tests/test_research_artifact_index_no_paper_parsing_audit.py`
+- `tests/test_research_artifact_index_no_strategy_generation_audit.py`
+- `tests/test_research_artifact_index_no_backtesting_audit.py`
+- `tests/test_research_artifact_index_no_recommendation_execution_audit.py`
+
+### Baseline
+
+- Before archive pass: 4836 tests.
+- After archive pass: 4820 tests.
+- Test count change: net -16 tests. The 12 archived test files contained 18
+  test functions, and this pass added 2 active replacement checks in grouped
+  or active safety tests.
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+- Editable install passed.
+- `scripts/audit_foundation.py` passed.
+- `scripts/verify_foundation.py` passed with 4820 tests.
+- Full `.venv/bin/pytest` passed with 4820 tests.
+- `git diff --check` passed.
+- Archived tests are historical references and are not collected by pytest.
+
+### Safety
+
+Safety is preserved by grouped phase and boundary tests under `tests/phases/`
+and `tests/boundaries/`, plus remaining active API-surface and milestone tests.
+
+### Next Recommended Prompt
+
+Prompt 82 - Research Artifact Index System Boundary Hardening
+
+## Prompt 81 - Research Artifact Index Milestone Audit
+
+### Objective
+
+Perform Research Artifact Index Milestone Audit only, using the consolidated
+phase-doc and grouped-test policy.
+
+### Files Created
+
+- `docs/RESEARCH_ARTIFACT_INDEX_MILESTONE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NEXT_PHASE_PLAN.md`
+- `tests/phases/test_research_artifact_index_milestone_phase.py`
+- `tests/boundaries/test_research_artifact_index_milestone_boundaries.py`
+- `tests/boundaries/test_research_artifact_index_next_phase_readiness.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_READINESS_PLAN.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_MILESTONE_READINESS.md`
+- `docs/phases/research_artifact_index.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `docs/audits/safety_boundaries.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- Grouped milestone phase test.
+- Grouped milestone boundary test.
+- Grouped next-phase readiness test.
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+- Editable install passed.
+- `scripts/audit_foundation.py` passed.
+- `scripts/verify_foundation.py` passed with 4836 tests.
+- Full `.venv/bin/pytest` passed with 4836 tests.
+- `git diff --check` passed.
+- Baseline increased from 4828 to 4836 tests; no tests were removed, skipped,
+  xfailed, weakened, moved, or archived.
+
+### Audit Verdict
+
+Research Artifact Index planning/API/display/safety phase is ready for Prompt
+82 - Research Artifact Index System Boundary Hardening only if verification
+passes. Implementation, indexing/search/ranking/retrieval, embeddings/vector
+store, ingestion/storage, upload/download/preview, paper parsing, strategy
+generation, backtesting, recommendations, broker controls, readiness-to-trade,
+and execution remain forbidden.
+
+### Consolidation Policy Compliance
+
+Prompt 81 uses compact grouped docs/tests and does not create prompt-level audit
+sprawl.
+
+### Known Issues
+
+- Existing FastAPI/TestClient `StarletteDeprecationWarning` remains.
+
+### Next Recommended Prompt
+
+Prompt 82 - Research Artifact Index System Boundary Hardening
+
+## Interlude - Repo Documentation/Test Consolidation
+
+### Scope
+
+Consolidation only. This interlude adds phase-based documentation, grouped
+audit docs, grouped tests, and verifier/auditor coverage for the new structure.
+It adds no product capability, no API endpoints, no active UI, no
+ingestion/storage, no indexing/search/retrieval, no strategy generation, no
+backtesting, no recommendations, no broker controls, and no execution APIs.
+
+### Files Created
+
+- `docs/testing/TEST_POLICY.md`
+- `docs/testing/TEST_BASELINE.md`
+- `docs/testing/CONSOLIDATION_MAP.md`
+- `docs/phases/PHASE_DOCUMENTATION_POLICY.md`
+- `docs/phases/research_artifact_index.md`
+- `docs/phases/research_artifact_registry.md`
+- `docs/phases/strategy_research_workspace.md`
+- `docs/phases/active_decision_architecture.md`
+- `docs/audits/safety_boundaries.md`
+- `docs/audits/no_execution.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `tests/phases/test_research_artifact_index_phase.py`
+- `tests/phases/test_research_artifact_registry_phase.py`
+- `tests/phases/test_strategy_research_workspace_phase.py`
+- `tests/phases/test_active_decision_architecture_phase.py`
+- `tests/boundaries/test_no_execution_boundary.py`
+- `tests/boundaries/test_research_artifact_boundaries.py`
+- `tests/boundaries/test_documentation_consolidation_policy.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/PROMPT_LOG.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Baseline
+
+- Baseline before: 4814 tests.
+- Baseline after: 4828 tests.
+
+### Verification Result
+
+- Focused grouped consolidation pytest: 14 passed.
+- `.venv/bin/python -m pip install -e .`: passed.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 4828 tests.
+- `.venv/bin/pytest`: passed with 4828 tests.
+- `git diff --check`: passed.
+
+### Next Recommended Prompt
+
+Prompt 81 - Research Artifact Index Milestone Audit.
+
 ## Prompt 00 - Institutional Foundation
 
 ### Summary
@@ -6378,3 +8568,1487 @@ remain forbidden.
 ### Next Recommended Prompt
 
 Prompt 68 - Strategy Research Workspace System Boundary Hardening
+
+## Prompt 68 - Strategy Research Workspace System Boundary Hardening
+
+### Objective
+
+Implement Strategy Research Workspace System Boundary Hardening as
+boundary-hardening-only contracts, policies, invariants, docs, tests, and
+read-only metadata endpoints.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/strategy_research_workspace_boundary/__init__.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_boundary/forbidden.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_boundary/endpoints.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_boundary/modules.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_boundary/invariants.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_boundary/health.py`
+- `packages/core/stark_terminal_core/strategy_research_workspace_boundary/README.md`
+- `apps/api/stark_terminal_api/routes/strategy_research_workspace_boundary.py`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_SYSTEM_BOUNDARY_HARDENING.md`
+- `docs/STRATEGY_RESEARCH_FORBIDDEN_BEHAVIOR_REGISTRY.md`
+- `docs/STRATEGY_RESEARCH_ENDPOINT_BOUNDARY_POLICY.md`
+- `docs/STRATEGY_RESEARCH_MODULE_BOUNDARY_POLICY.md`
+- `docs/STRATEGY_RESEARCH_CROSS_MODULE_INVARIANTS.md`
+- `docs/STRATEGY_RESEARCH_BOUNDARY_NO_ACTIVE_UI_POLICY.md`
+- `docs/STRATEGY_RESEARCH_BOUNDARY_NO_PAPER_PARSING_POLICY.md`
+- `docs/STRATEGY_RESEARCH_BOUNDARY_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/STRATEGY_RESEARCH_BOUNDARY_NO_BACKTESTING_POLICY.md`
+- `docs/STRATEGY_RESEARCH_BOUNDARY_NO_EXECUTION_POLICY.md`
+- `tests/test_strategy_research_workspace_boundary_settings.py`
+- `tests/test_strategy_research_workspace_boundary_forbidden_registry.py`
+- `tests/test_strategy_research_workspace_boundary_endpoint_policy.py`
+- `tests/test_strategy_research_workspace_boundary_module_policy.py`
+- `tests/test_strategy_research_workspace_boundary_invariants.py`
+- `tests/test_api_strategy_research_workspace_boundary.py`
+- `tests/test_strategy_research_workspace_boundary_docs_status.py`
+- `tests/test_strategy_research_workspace_boundary_no_active_ui.py`
+- `tests/test_strategy_research_workspace_boundary_no_paper_parsing.py`
+- `tests/test_strategy_research_workspace_boundary_no_strategy_generation.py`
+- `tests/test_strategy_research_workspace_boundary_no_backtesting.py`
+- `tests/test_strategy_research_workspace_boundary_no_recommendation_execution.py`
+
+### Files Modified
+
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_READINESS_PLAN.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NEXT_PHASE_PLAN.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_MILESTONE_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_SAFETY_BOUNDARY_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_PLANNING.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_GUARDRAILS.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+Prompt 68 adds focused tests for boundary settings, forbidden registry,
+endpoint policies, module policies, invariants, boundary API behavior,
+documentation/status, no active UI, no paper parsing, no strategy generation,
+no backtesting, and no recommendation/execution behavior.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+git diff --check
+```
+
+### Verification Result
+
+Focused Prompt 68 pytest passed: 120 passed.
+`.venv/bin/python -m pip install -e .` failed because restricted DNS/PyPI
+access could not fetch `setuptools>=68`.
+`.venv/bin/python scripts/audit_foundation.py` passed.
+`.venv/bin/python scripts/verify_foundation.py` passed with 3829 tests.
+`.venv/bin/pytest` passed with 3829 tests.
+`git diff --check` passed.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments if the build backend is unavailable locally.
+- FastAPI/TestClient may emit the existing dependency-level `StarletteDeprecationWarning`.
+
+### Next Recommended Prompt
+
+Prompt 69 - Strategy Research Workspace API/Display Integration Readiness Audit
+
+## Prompt 69 - Strategy Research Workspace API/Display Integration Readiness Audit
+
+### Objective
+
+Perform Strategy Research Workspace API/Display Integration Readiness Audit
+for Prompts 63-68, consolidating planning/API/display/safety/milestone/boundary
+layers and confirming readiness for Research Artifact Registry Planning and
+Guardrails only.
+
+### Files Created
+
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_CROSS_ENDPOINT_CONSISTENCY_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_BOUNDARY_INTEGRATION_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_INTEGRATION_NO_ACTIVE_UI_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_INTEGRATION_NO_PAPER_PARSING_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_INTEGRATION_NO_STRATEGY_BACKTEST_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_INTEGRATION_NO_RECOMMENDATION_EXECUTION_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_READINESS_PLAN.md`
+- `tests/test_strategy_research_workspace_api_display_integration_audit_docs.py`
+- `tests/test_strategy_research_workspace_cross_endpoint_consistency.py`
+- `tests/test_strategy_research_workspace_api_display_boundary_integration.py`
+- `tests/test_strategy_research_workspace_boundary_integration.py`
+- `tests/test_strategy_research_workspace_integration_no_active_ui.py`
+- `tests/test_strategy_research_workspace_integration_no_paper_parsing.py`
+- `tests/test_strategy_research_workspace_integration_no_strategy_backtest.py`
+- `tests/test_strategy_research_workspace_integration_no_recommendation_execution.py`
+- `tests/test_research_artifact_registry_readiness_plan.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_READINESS_PLAN.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_NEXT_PHASE_PLAN.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_MILESTONE_AUDIT.md`
+- `docs/STRATEGY_RESEARCH_WORKSPACE_SYSTEM_BOUNDARY_HARDENING.md`
+- `docs/STRATEGY_RESEARCH_FORBIDDEN_BEHAVIOR_REGISTRY.md`
+- `docs/STRATEGY_RESEARCH_ENDPOINT_BOUNDARY_POLICY.md`
+- `docs/STRATEGY_RESEARCH_MODULE_BOUNDARY_POLICY.md`
+- `docs/STRATEGY_RESEARCH_CROSS_MODULE_INVARIANTS.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+Prompt 69 adds focused tests for API/display integration audit docs,
+cross-endpoint consistency, API/display boundary integration, boundary
+integration, no active UI, no paper parsing, no strategy/backtest path, no
+recommendation/execution path, and Research Artifact Registry planning
+readiness.
+
+### Commands Run
+
+```bash
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+git diff --check
+```
+
+### Verification Result
+
+Focused Prompt 69 pytest passed with 27 tests. `.venv/bin/python -m pip
+install -e .` failed because restricted DNS/PyPI access could not fetch
+`setuptools>=68`. `.venv/bin/python scripts/audit_foundation.py` passed.
+`.venv/bin/python scripts/verify_foundation.py` passed with 3856 tests.
+Full `.venv/bin/pytest` passed with 3856 tests. `git diff --check` passed.
+
+### Audit Verdict
+
+Strategy Research Workspace planning, API, display, safety, milestone, and
+boundary layers remain contract/skeleton/audit/boundary-only. No active UI,
+frontend implementation, desktop implementation, paper ingestion/parsing,
+strategy generation, strategy code generation, backtesting, optimization,
+recommendations, action generation, confidence scoring, DecisionObjects,
+readiness-to-trade, broker controls, approvals, overrides, or execution APIs
+were added. The next allowed step is Research Artifact Registry Planning and
+Guardrails only.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments if the build backend is unavailable locally.
+- FastAPI/TestClient may emit the existing dependency-level `StarletteDeprecationWarning`.
+
+### Next Recommended Prompt
+
+Prompt 70 - Research Artifact Registry Planning and Guardrails
+
+Prompt 70 - Research Artifact Registry Planning and Guardrails
+================================================================
+
+## Prompt 70 - Research Artifact Registry Planning and Guardrails
+
+### Objective
+
+Implement Research Artifact Registry Planning and Guardrails only. Add
+planning contracts, artifact metadata placeholders, artifact reference
+placeholders, artifact provenance placeholders, lifecycle placeholders,
+forbidden interaction contracts, safety/readiness helpers, read-only planning
+endpoints, docs, tests, audit coverage, verifier coverage, and status
+consolidation.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/research_artifact_registry/__init__.py`
+- `packages/core/stark_terminal_core/research_artifact_registry/README.md`
+- `packages/core/stark_terminal_core/research_artifact_registry/types.py`
+- `packages/core/stark_terminal_core/research_artifact_registry/metadata.py`
+- `packages/core/stark_terminal_core/research_artifact_registry/references.py`
+- `packages/core/stark_terminal_core/research_artifact_registry/provenance.py`
+- `packages/core/stark_terminal_core/research_artifact_registry/lifecycle.py`
+- `packages/core/stark_terminal_core/research_artifact_registry/placeholders.py`
+- `packages/core/stark_terminal_core/research_artifact_registry/interactions.py`
+- `packages/core/stark_terminal_core/research_artifact_registry/safety.py`
+- `packages/core/stark_terminal_core/research_artifact_registry/readiness.py`
+- `packages/core/stark_terminal_core/research_artifact_registry/health.py`
+- `apps/api/stark_terminal_api/routes/research_artifact_registry.py`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PLANNING.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_GUARDRAILS.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_METADATA_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_REFERENCE_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_PROVENANCE_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_LIFECYCLE_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_FORBIDDEN_INTERACTIONS.md`
+- `docs/RESEARCH_ARTIFACT_NO_INGESTION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_NO_PAPER_PARSING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_NO_BACKTESTING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_NO_RECOMMENDATION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_NO_EXECUTION_POLICY.md`
+- `tests/test_research_artifact_registry_settings.py`
+- `tests/test_research_artifact_registry_types.py`
+- `tests/test_research_artifact_registry_metadata.py`
+- `tests/test_research_artifact_registry_references.py`
+- `tests/test_research_artifact_registry_provenance.py`
+- `tests/test_research_artifact_registry_lifecycle.py`
+- `tests/test_research_artifact_registry_placeholders.py`
+- `tests/test_research_artifact_registry_forbidden_interactions.py`
+- `tests/test_research_artifact_registry_safety.py`
+- `tests/test_research_artifact_registry_readiness.py`
+- `tests/test_api_research_artifact_registry.py`
+- `tests/test_research_artifact_registry_docs_status.py`
+- `tests/test_research_artifact_registry_no_ingestion_or_parsing.py`
+- `tests/test_research_artifact_registry_no_strategy_backtest_recommendation_execution.py`
+
+### Files Modified
+
+- `.env.example`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_READINESS_PLAN.md`
+- `docs/PROMPT_LOG.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+Prompt 70 adds tests for settings, artifact types, metadata/reference/
+provenance/lifecycle placeholders, placeholder bundles, forbidden
+interactions, safety helpers, readiness helpers, read-only API endpoints,
+docs/status, and no-ingestion/no-parsing/no-strategy/no-backtest/
+no-recommendation/no-execution invariants.
+
+### Commands Run
+
+Verification commands run after implementation:
+
+```bash
+.venv/bin/pytest tests/test_research_artifact_registry_settings.py tests/test_research_artifact_registry_types.py tests/test_research_artifact_registry_metadata.py tests/test_research_artifact_registry_references.py tests/test_research_artifact_registry_provenance.py tests/test_research_artifact_registry_lifecycle.py tests/test_research_artifact_registry_placeholders.py tests/test_research_artifact_registry_forbidden_interactions.py tests/test_research_artifact_registry_safety.py tests/test_research_artifact_registry_readiness.py tests/test_api_research_artifact_registry.py tests/test_research_artifact_registry_docs_status.py tests/test_research_artifact_registry_no_ingestion_or_parsing.py tests/test_research_artifact_registry_no_strategy_backtest_recommendation_execution.py
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+git diff --check
+```
+
+### Verification Result
+
+- Focused Prompt 70 pytest: 79 passed, 1 existing FastAPI/TestClient warning.
+- `.venv/bin/python -m pip install -e .`: failed because restricted DNS/PyPI access could not fetch `setuptools>=68`.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 3935 tests, 1 existing FastAPI/TestClient warning.
+- `.venv/bin/pytest`: passed with 3935 tests, 1 existing FastAPI/TestClient warning.
+- `git diff --check`: passed.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install is blocked in this restricted environment because DNS/PyPI access cannot fetch `setuptools>=68`.
+- FastAPI/TestClient may emit the existing dependency-level `StarletteDeprecationWarning`.
+
+### Next Recommended Prompt
+
+Prompt 71 - Research Artifact Registry API Contract Skeleton
+
+## Prompt 71 - Research Artifact Registry API Contract Skeleton
+
+### Objective
+
+Implement the Research Artifact Registry API Contract Skeleton as a read-only,
+unavailable-by-default API contract layer for future artifact metadata,
+reference, provenance, lifecycle, unavailable response, safety, and health
+surfaces.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/research_artifact_registry_api/`
+- `apps/api/stark_terminal_api/routes/research_artifact_registry_api.py`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_CONTRACT_SKELETON.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_REQUEST_RESPONSE_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_REFERENCE_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_UNAVAILABLE_RESPONSES.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_SAFETY_BOUNDARY.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_NO_INGESTION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_NO_PAPER_PARSING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_NO_BACKTESTING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_NO_RECOMMENDATION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_NO_EXECUTION_POLICY.md`
+- `tests/test_research_artifact_registry_api_*.py`
+- `tests/test_api_research_artifact_registry_api.py`
+
+### Files Modified
+
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_READINESS_PLAN.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PLANNING.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_GUARDRAILS.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+Prompt 71 adds tests for API settings, contracts, request placeholders,
+response placeholders, reference placeholders, unavailable responses, safety
+helpers, read-only API behavior, docs/status, and no-ingestion/no-parsing/
+no-strategy/no-backtest/no-recommendation/no-execution invariants.
+
+### Commands Run
+
+Verification commands run after implementation:
+
+```bash
+.venv/bin/pytest tests/test_research_artifact_registry_api_settings.py tests/test_research_artifact_registry_api_contracts.py tests/test_research_artifact_registry_api_request_placeholders.py tests/test_research_artifact_registry_api_response_placeholders.py tests/test_research_artifact_registry_api_references.py tests/test_research_artifact_registry_api_unavailable_responses.py tests/test_research_artifact_registry_api_safety.py tests/test_api_research_artifact_registry_api.py tests/test_research_artifact_registry_api_docs_status.py tests/test_research_artifact_registry_api_no_ingestion_or_parsing.py tests/test_research_artifact_registry_api_no_strategy_backtest_recommendation_execution.py
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+git diff --check
+```
+
+### Verification Result
+
+- Focused Prompt 71 pytest: 99 passed, 1 existing FastAPI/TestClient warning.
+- `.venv/bin/python -m pip install -e .`: failed because restricted DNS/PyPI access could not fetch `setuptools>=68`.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 4034 tests, 1 existing FastAPI/TestClient warning.
+- `.venv/bin/pytest`: passed with 4034 tests, 1 existing FastAPI/TestClient warning.
+- `git diff --check`: passed.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments because DNS/PyPI
+  access cannot fetch `setuptools>=68`.
+- FastAPI/TestClient may emit the existing dependency-level
+  `StarletteDeprecationWarning`.
+
+### Next Recommended Prompt
+
+Prompt 72 - Research Artifact Registry Display Contract Skeleton
+
+## Prompt 72 - Research Artifact Registry Display Contract Skeleton
+
+### Objective
+
+Implement the Research Artifact Registry Display Contract Skeleton as a
+backend-only, read-only, unavailable-by-default display contract layer for
+future artifact metadata, card, reference, provenance, lifecycle badge,
+unavailable response, safety, and health surfaces.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/research_artifact_registry_display/`
+- `apps/api/stark_terminal_api/routes/research_artifact_registry_display.py`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_CONTRACT_SKELETON.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_METADATA_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_CARD_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_REFERENCE_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_PROVENANCE_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_LIFECYCLE_BADGES.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_UNAVAILABLE_RESPONSES.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_SAFETY_BOUNDARY.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_NO_ACTIVE_UI_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_NO_INGESTION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_NO_PAPER_PARSING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_NO_BACKTESTING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_NO_RECOMMENDATION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_NO_EXECUTION_POLICY.md`
+- `tests/test_research_artifact_registry_display_*.py`
+- `tests/test_api_research_artifact_registry_display.py`
+
+### Files Modified
+
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/CONFIGURATION.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_READINESS_PLAN.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PLANNING.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_GUARDRAILS.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_CONTRACT_SKELETON.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+Prompt 72 adds tests for display settings, display contracts, artifact card
+placeholders, reference display placeholders, provenance display placeholders,
+lifecycle display placeholders, lifecycle/safety badges, unavailable display
+responses, safety helpers, read-only display API behavior, docs/status, and
+no-active-UI/no-ingestion/no-parsing/no-strategy/no-backtest/no-recommendation/no-execution invariants.
+
+### Commands Run
+
+Verification commands run after implementation:
+
+```bash
+.venv/bin/pytest tests/test_research_artifact_registry_display_settings.py tests/test_research_artifact_registry_display_contracts.py tests/test_research_artifact_registry_display_cards.py tests/test_research_artifact_registry_display_references.py tests/test_research_artifact_registry_display_provenance.py tests/test_research_artifact_registry_display_lifecycle.py tests/test_research_artifact_registry_display_badges.py tests/test_research_artifact_registry_display_unavailable_responses.py tests/test_research_artifact_registry_display_safety.py tests/test_api_research_artifact_registry_display.py tests/test_research_artifact_registry_display_docs_status.py tests/test_research_artifact_registry_display_no_active_ui.py tests/test_research_artifact_registry_display_no_ingestion_or_parsing.py tests/test_research_artifact_registry_display_no_strategy_backtest_recommendation_execution.py
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+git diff --check
+```
+
+### Verification Result
+
+- Focused Prompt 72 pytest passed: 120 tests, with the existing
+  FastAPI/TestClient `StarletteDeprecationWarning`.
+- `.venv/bin/python -m pip install -e .` failed because restricted DNS/PyPI
+  access could not fetch `setuptools>=68`.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4154 tests and
+  the existing FastAPI/TestClient `StarletteDeprecationWarning`.
+- Full `.venv/bin/pytest` passed with 4154 tests and the existing
+  FastAPI/TestClient `StarletteDeprecationWarning`.
+- `git diff --check` passed.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments because DNS/PyPI
+  access cannot fetch `setuptools>=68`.
+- FastAPI/TestClient may emit the existing dependency-level
+  `StarletteDeprecationWarning`.
+
+### Next Recommended Prompt
+
+Prompt 73 - Research Artifact Registry Safety Boundary Audit
+
+## Prompt 73 - Research Artifact Registry Safety Boundary Audit
+
+### Objective
+
+Perform Research Artifact Registry Safety Boundary Audit only. Audit and
+consolidate Research Artifact Registry Planning and Guardrails, API Contract
+Skeleton, and Display Contract Skeleton while proving no active
+ingestion/storage, upload/download, active UI, frontend/desktop
+implementation, paper parsing, strategy generation, backtesting,
+recommendations, broker controls, approvals/overrides, or execution APIs
+exist.
+
+### Files Created
+
+- `docs/RESEARCH_ARTIFACT_REGISTRY_SAFETY_BOUNDARY_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_BOUNDARY_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_NO_ACTIVE_INGESTION_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_NO_PERSISTENT_STORAGE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_NO_UPLOAD_DOWNLOAD_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_NO_PAPER_PARSING_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_NO_STRATEGY_GENERATION_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_NO_BACKTESTING_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_NO_RECOMMENDATION_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_NO_EXECUTION_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_MILESTONE_READINESS.md`
+- `tests/test_research_artifact_registry_safety_boundary_audit_docs.py`
+- `tests/test_research_artifact_registry_api_boundary_audit.py`
+- `tests/test_research_artifact_registry_display_boundary_audit.py`
+- `tests/test_research_artifact_registry_no_active_ingestion_audit.py`
+- `tests/test_research_artifact_registry_no_persistent_storage_audit.py`
+- `tests/test_research_artifact_registry_no_upload_download_audit.py`
+- `tests/test_research_artifact_registry_no_active_ui_audit.py`
+- `tests/test_research_artifact_registry_no_paper_parsing_audit.py`
+- `tests/test_research_artifact_registry_no_strategy_generation_audit.py`
+- `tests/test_research_artifact_registry_no_backtesting_audit.py`
+- `tests/test_research_artifact_registry_no_recommendation_audit.py`
+- `tests/test_research_artifact_registry_no_execution_audit.py`
+- `tests/test_research_artifact_registry_api_surface_safety.py`
+- `tests/test_research_artifact_registry_milestone_readiness.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `.env.example`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_READINESS_PLAN.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PLANNING.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_GUARDRAILS.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_CONTRACT_SKELETON.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_CONTRACT_SKELETON.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_SAFETY_BOUNDARY.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_SAFETY_BOUNDARY.md`
+- `docs/RESEARCH_ARTIFACT_NO_INGESTION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_NO_PAPER_PARSING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_NO_BACKTESTING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_NO_RECOMMENDATION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_NO_EXECUTION_POLICY.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+Prompt 73 adds safety boundary audit tests for docs, API boundary, display
+boundary, no active ingestion, no persistent storage, no upload/download, no
+active UI, no paper parsing, no strategy generation, no backtesting, no
+recommendations, no execution, API surface safety, and milestone readiness.
+
+### Commands Run
+
+Verification commands run after implementation:
+
+```bash
+.venv/bin/pytest tests/test_research_artifact_registry_safety_boundary_audit_docs.py tests/test_research_artifact_registry_api_boundary_audit.py tests/test_research_artifact_registry_display_boundary_audit.py tests/test_research_artifact_registry_no_active_ingestion_audit.py tests/test_research_artifact_registry_no_persistent_storage_audit.py tests/test_research_artifact_registry_no_upload_download_audit.py tests/test_research_artifact_registry_no_active_ui_audit.py tests/test_research_artifact_registry_no_paper_parsing_audit.py tests/test_research_artifact_registry_no_strategy_generation_audit.py tests/test_research_artifact_registry_no_backtesting_audit.py tests/test_research_artifact_registry_no_recommendation_audit.py tests/test_research_artifact_registry_no_execution_audit.py tests/test_research_artifact_registry_api_surface_safety.py tests/test_research_artifact_registry_milestone_readiness.py
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+git diff --check
+```
+
+### Verification Result
+
+- Focused Prompt 73 pytest passed: 36 tests.
+- `.venv/bin/python -m pip install -e .` failed because restricted DNS/PyPI
+  access could not fetch `setuptools>=68`.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4190 tests.
+- Full `.venv/bin/pytest` passed with 4190 tests.
+- `git diff --check` passed.
+- Existing FastAPI/TestClient `StarletteDeprecationWarning` remains.
+
+### Audit Verdict
+
+Research Artifact Registry planning/API/display skeletons remain
+contract-only, read-only/unavailable-by-default at API surfaces, and safe for
+Research Artifact Registry Milestone Audit only. Active implementation remains
+forbidden.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments because DNS/PyPI
+  access cannot fetch `setuptools>=68`.
+- FastAPI/TestClient may emit the existing dependency-level
+  `StarletteDeprecationWarning`.
+
+### Next Recommended Prompt
+
+Prompt 74 - Research Artifact Registry Milestone Audit
+
+## Prompt 74 - Research Artifact Registry Milestone Audit
+
+### Objective
+
+Perform Research Artifact Registry Milestone Audit only. Audit and consolidate
+Research Artifact Registry Planning and Guardrails, API Contract Skeleton,
+Display Contract Skeleton, and Safety Boundary Audit while proving no active
+ingestion/storage, upload/download, active UI, frontend/desktop
+implementation, paper parsing, strategy generation, backtesting,
+recommendations, broker controls, approvals/overrides, or execution APIs
+exist.
+
+### Files Created
+
+- `docs/RESEARCH_ARTIFACT_REGISTRY_MILESTONE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PLANNING_MILESTONE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_MILESTONE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_MILESTONE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_SAFETY_MILESTONE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PHASE_NO_ACTIVE_INGESTION_STORAGE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PHASE_NO_UPLOAD_DOWNLOAD_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PHASE_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PHASE_NO_PAPER_PARSING_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PHASE_NO_STRATEGY_GENERATION_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PHASE_NO_BACKTESTING_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PHASE_NO_RECOMMENDATION_EXECUTION_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_NEXT_PHASE_PLAN.md`
+- `tests/test_research_artifact_registry_milestone_audit_docs.py`
+- `tests/test_research_artifact_registry_planning_milestone.py`
+- `tests/test_research_artifact_registry_api_milestone.py`
+- `tests/test_research_artifact_registry_display_milestone.py`
+- `tests/test_research_artifact_registry_safety_milestone.py`
+- `tests/test_research_artifact_registry_phase_no_active_ingestion_storage.py`
+- `tests/test_research_artifact_registry_phase_no_upload_download.py`
+- `tests/test_research_artifact_registry_phase_no_active_ui.py`
+- `tests/test_research_artifact_registry_phase_no_paper_parsing.py`
+- `tests/test_research_artifact_registry_phase_no_strategy_generation.py`
+- `tests/test_research_artifact_registry_phase_no_backtesting.py`
+- `tests/test_research_artifact_registry_phase_no_recommendation_execution.py`
+- `tests/test_research_artifact_registry_next_phase_readiness.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `.env.example`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_READINESS_PLAN.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_MILESTONE_READINESS.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PLANNING.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_GUARDRAILS.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_CONTRACT_SKELETON.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_CONTRACT_SKELETON.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_SAFETY_BOUNDARY_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_BOUNDARY_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_BOUNDARY_AUDIT.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+Prompt 74 adds milestone audit tests for docs, planning, API, display,
+safety, no active ingestion/storage, no upload/download, no active UI, no
+paper parsing, no strategy generation, no backtesting, no
+recommendation/execution, and next-phase readiness.
+
+### Commands Run
+
+Verification commands run after implementation:
+
+```bash
+.venv/bin/pytest tests/test_research_artifact_registry_milestone_audit_docs.py tests/test_research_artifact_registry_planning_milestone.py tests/test_research_artifact_registry_api_milestone.py tests/test_research_artifact_registry_display_milestone.py tests/test_research_artifact_registry_safety_milestone.py tests/test_research_artifact_registry_phase_no_active_ingestion_storage.py tests/test_research_artifact_registry_phase_no_upload_download.py tests/test_research_artifact_registry_phase_no_active_ui.py tests/test_research_artifact_registry_phase_no_paper_parsing.py tests/test_research_artifact_registry_phase_no_strategy_generation.py tests/test_research_artifact_registry_phase_no_backtesting.py tests/test_research_artifact_registry_phase_no_recommendation_execution.py tests/test_research_artifact_registry_next_phase_readiness.py
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+git diff --check
+```
+
+### Verification Result
+
+- Focused Prompt 74 pytest passed: 36 tests.
+- `.venv/bin/python -m pip install -e .` failed because restricted DNS/PyPI
+  access could not fetch `setuptools>=68`.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4223 tests.
+- Full `.venv/bin/pytest` passed with 4223 tests.
+- `git diff --check` passed.
+- Existing FastAPI/TestClient `StarletteDeprecationWarning` remains.
+
+### Audit Verdict
+
+Research Artifact Registry planning/API/display/safety phase remains
+planning-only, contract-only, display-contract-only, and audit-only. It is
+ready for Research Artifact Registry System Boundary Hardening only. Active
+implementation remains forbidden.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments because DNS/PyPI
+  access cannot fetch `setuptools>=68`.
+- FastAPI/TestClient may emit the existing dependency-level
+  `StarletteDeprecationWarning`.
+
+### Next Recommended Prompt
+
+Prompt 75 - Research Artifact Registry System Boundary Hardening
+
+## Prompt 75 - Research Artifact Registry System Boundary Hardening
+
+### Objective
+
+Implement Research Artifact Registry System Boundary Hardening only. Harden the
+Research Artifact Registry planning/API/display stack with a forbidden behavior
+registry, endpoint boundary policies, module boundary policies, cross-module
+invariants, health helpers, and read-only boundary endpoints while preserving
+all no-ingestion/no-storage/no-upload/download/no-active-UI/no-paper-parsing/no-
+strategy/no-backtest/no-recommendation/no-execution boundaries.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/research_artifact_registry_boundary/__init__.py`
+- `packages/core/stark_terminal_core/research_artifact_registry_boundary/init.py`
+- `packages/core/stark_terminal_core/research_artifact_registry_boundary/README.md`
+- `packages/core/stark_terminal_core/research_artifact_registry_boundary/forbidden.py`
+- `packages/core/stark_terminal_core/research_artifact_registry_boundary/endpoints.py`
+- `packages/core/stark_terminal_core/research_artifact_registry_boundary/modules.py`
+- `packages/core/stark_terminal_core/research_artifact_registry_boundary/invariants.py`
+- `packages/core/stark_terminal_core/research_artifact_registry_boundary/health.py`
+- `apps/api/stark_terminal_api/routes/research_artifact_registry_boundary.py`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_SYSTEM_BOUNDARY_HARDENING.md`
+- `docs/RESEARCH_ARTIFACT_FORBIDDEN_BEHAVIOR_REGISTRY.md`
+- `docs/RESEARCH_ARTIFACT_ENDPOINT_BOUNDARY_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_MODULE_BOUNDARY_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_CROSS_MODULE_INVARIANTS.md`
+- `docs/RESEARCH_ARTIFACT_BOUNDARY_NO_INGESTION_STORAGE_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_BOUNDARY_NO_UPLOAD_DOWNLOAD_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_BOUNDARY_NO_ACTIVE_UI_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_BOUNDARY_NO_PAPER_PARSING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_BOUNDARY_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_BOUNDARY_NO_BACKTESTING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_BOUNDARY_NO_EXECUTION_POLICY.md`
+- `tests/test_research_artifact_registry_boundary_settings.py`
+- `tests/test_research_artifact_registry_boundary_forbidden_registry.py`
+- `tests/test_research_artifact_registry_boundary_endpoint_policy.py`
+- `tests/test_research_artifact_registry_boundary_module_policy.py`
+- `tests/test_research_artifact_registry_boundary_invariants.py`
+- `tests/test_api_research_artifact_registry_boundary.py`
+- `tests/test_research_artifact_registry_boundary_docs_status.py`
+- `tests/test_research_artifact_registry_boundary_no_ingestion_storage.py`
+- `tests/test_research_artifact_registry_boundary_no_upload_download.py`
+- `tests/test_research_artifact_registry_boundary_no_active_ui.py`
+- `tests/test_research_artifact_registry_boundary_no_paper_parsing.py`
+- `tests/test_research_artifact_registry_boundary_no_strategy_generation.py`
+- `tests/test_research_artifact_registry_boundary_no_backtesting.py`
+- `tests/test_research_artifact_registry_boundary_no_recommendation_execution.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `.env.example`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_READINESS_PLAN.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_NEXT_PHASE_PLAN.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_MILESTONE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_SAFETY_BOUNDARY_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PLANNING.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_GUARDRAILS.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+Prompt 75 adds boundary-hardening tests for settings, forbidden behavior
+registry coverage, endpoint policies, module policies, cross-module invariants,
+read-only boundary API endpoints, docs/status updates, and no active
+ingestion/storage, upload/download, active UI, paper parsing, strategy
+generation, backtesting, recommendation, or execution behavior.
+
+### Commands Run
+
+Verification commands run after implementation:
+
+```bash
+.venv/bin/pytest tests/test_research_artifact_registry_boundary_settings.py tests/test_research_artifact_registry_boundary_forbidden_registry.py tests/test_research_artifact_registry_boundary_endpoint_policy.py tests/test_research_artifact_registry_boundary_module_policy.py tests/test_research_artifact_registry_boundary_invariants.py tests/test_api_research_artifact_registry_boundary.py tests/test_research_artifact_registry_boundary_docs_status.py tests/test_research_artifact_registry_boundary_no_ingestion_storage.py tests/test_research_artifact_registry_boundary_no_upload_download.py tests/test_research_artifact_registry_boundary_no_active_ui.py tests/test_research_artifact_registry_boundary_no_paper_parsing.py tests/test_research_artifact_registry_boundary_no_strategy_generation.py tests/test_research_artifact_registry_boundary_no_backtesting.py tests/test_research_artifact_registry_boundary_no_recommendation_execution.py
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+git diff --check
+```
+
+### Verification Result
+
+- Focused Prompt 75 pytest passed: 158 tests.
+- `.venv/bin/python -m pip install -e .` failed because restricted DNS/PyPI
+  access could not fetch `setuptools>=68`.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4381 tests.
+- Full `.venv/bin/pytest` passed with 4381 tests.
+- `git diff --check` passed.
+- Existing FastAPI/TestClient `StarletteDeprecationWarning` remains.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments because DNS/PyPI
+  access cannot fetch `setuptools>=68`.
+- FastAPI/TestClient may emit the existing dependency-level
+  `StarletteDeprecationWarning`.
+
+### Next Recommended Prompt
+
+Prompt 76 - Research Artifact Registry API/Display Integration Readiness Audit
+
+## Prompt 80 - Research Artifact Index Safety Boundary Audit
+
+### Objective
+
+Perform Research Artifact Index Safety Boundary Audit only.
+
+### Files Created
+
+- `docs/RESEARCH_ARTIFACT_INDEX_SAFETY_BOUNDARY_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_BOUNDARY_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_INDEXING_SEARCH_RANKING_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_RETRIEVAL_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_EMBEDDINGS_VECTOR_STORE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_ACTIVE_INGESTION_STORAGE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_UPLOAD_DOWNLOAD_PREVIEW_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_PAPER_PARSING_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_STRATEGY_GENERATION_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_BACKTESTING_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_RECOMMENDATION_EXECUTION_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_MILESTONE_READINESS.md`
+- `tests/test_research_artifact_index_safety_boundary_audit_docs.py`
+- `tests/test_research_artifact_index_api_boundary_audit.py`
+- `tests/test_research_artifact_index_display_boundary_audit.py`
+- `tests/test_research_artifact_index_no_active_ui_audit.py`
+- `tests/test_research_artifact_index_no_indexing_search_ranking_audit.py`
+- `tests/test_research_artifact_index_no_retrieval_audit.py`
+- `tests/test_research_artifact_index_no_embeddings_vector_store_audit.py`
+- `tests/test_research_artifact_index_no_active_ingestion_storage_audit.py`
+- `tests/test_research_artifact_index_no_upload_download_preview_audit.py`
+- `tests/test_research_artifact_index_no_paper_parsing_audit.py`
+- `tests/test_research_artifact_index_no_strategy_generation_audit.py`
+- `tests/test_research_artifact_index_no_backtesting_audit.py`
+- `tests/test_research_artifact_index_no_recommendation_execution_audit.py`
+- `tests/test_research_artifact_index_api_surface_safety.py`
+- `tests/test_research_artifact_index_milestone_readiness.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `.env.example`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_READINESS_PLAN.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_PLANNING.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_GUARDRAILS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_CONTRACT_SKELETON.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_CONTRACT_SKELETON.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+Prompt 80 adds tests for safety boundary audit docs, API boundary, display
+boundary, no active UI, no indexing/search/ranking, no retrieval, no
+embeddings/vector store, no active ingestion/storage, no upload/download/
+preview, no paper parsing, no strategy generation, no backtesting, no
+recommendation/execution behavior, API surface safety, milestone readiness,
+and active decision architecture preservation.
+
+### Commands Run
+
+- `.venv/bin/pytest tests/test_research_artifact_index_safety_boundary_audit_docs.py tests/test_research_artifact_index_api_boundary_audit.py tests/test_research_artifact_index_display_boundary_audit.py tests/test_research_artifact_index_no_active_ui_audit.py tests/test_research_artifact_index_no_indexing_search_ranking_audit.py tests/test_research_artifact_index_no_retrieval_audit.py tests/test_research_artifact_index_no_embeddings_vector_store_audit.py tests/test_research_artifact_index_no_active_ingestion_storage_audit.py tests/test_research_artifact_index_no_upload_download_preview_audit.py tests/test_research_artifact_index_no_paper_parsing_audit.py tests/test_research_artifact_index_no_strategy_generation_audit.py tests/test_research_artifact_index_no_backtesting_audit.py tests/test_research_artifact_index_no_recommendation_execution_audit.py tests/test_research_artifact_index_api_surface_safety.py tests/test_research_artifact_index_milestone_readiness.py`
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+- Focused Prompt 80 pytest: 25 passed.
+- `.venv/bin/python -m pip install -e .`: passed.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 4814 tests.
+- `.venv/bin/pytest`: passed with 4814 tests.
+- `git diff --check`: passed.
+- Existing FastAPI/TestClient `StarletteDeprecationWarning` remains.
+
+### Audit Verdict
+
+Research Artifact Index planning/API/display remains contract/skeleton/audit
+only. No active UI/frontend/desktop, indexing/search/ranking/retrieval,
+embeddings/vector store, ingestion/storage, upload/download/preview, paper
+parsing, strategy generation, backtesting, recommendations, broker controls,
+readiness-to-trade, approvals/overrides, or execution APIs were added.
+
+### Known Issues
+
+- Ambient `python` remains assumed unavailable; use `.venv/bin/python`.
+- Existing FastAPI/TestClient `StarletteDeprecationWarning` remains.
+
+### Next Recommended Prompt
+
+Prompt 81 - Research Artifact Index Milestone Audit
+
+## Prompt 79 - Research Artifact Index Display Contract Skeleton
+
+### Objective
+
+Implement Research Artifact Index Display Contract Skeleton only.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/research_artifact_index_display/__init__.py`
+- `packages/core/stark_terminal_core/research_artifact_index_display/init.py`
+- `packages/core/stark_terminal_core/research_artifact_index_display/README.md`
+- `packages/core/stark_terminal_core/research_artifact_index_display/contracts.py`
+- `packages/core/stark_terminal_core/research_artifact_index_display/cards.py`
+- `packages/core/stark_terminal_core/research_artifact_index_display/references.py`
+- `packages/core/stark_terminal_core/research_artifact_index_display/tags.py`
+- `packages/core/stark_terminal_core/research_artifact_index_display/provenance.py`
+- `packages/core/stark_terminal_core/research_artifact_index_display/lifecycle.py`
+- `packages/core/stark_terminal_core/research_artifact_index_display/badges.py`
+- `packages/core/stark_terminal_core/research_artifact_index_display/unavailable.py`
+- `packages/core/stark_terminal_core/research_artifact_index_display/safety.py`
+- `packages/core/stark_terminal_core/research_artifact_index_display/health.py`
+- `apps/api/stark_terminal_api/routes/research_artifact_index_display.py`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_CONTRACT_SKELETON.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_METADATA_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_CARD_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_REFERENCE_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_TAG_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_PROVENANCE_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_LIFECYCLE_BADGES.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_UNAVAILABLE_RESPONSES.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_SAFETY_BOUNDARY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_ACTIVE_UI_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_INDEXING_ENGINE_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_SEARCH_RANKING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_EMBEDDINGS_VECTOR_STORE_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_INGESTION_STORAGE_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_PAPER_PARSING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_BACKTESTING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_RECOMMENDATION_EXECUTION_POLICY.md`
+- `tests/test_research_artifact_index_display_settings.py`
+- `tests/test_research_artifact_index_display_contracts.py`
+- `tests/test_research_artifact_index_display_cards.py`
+- `tests/test_research_artifact_index_display_references.py`
+- `tests/test_research_artifact_index_display_tags.py`
+- `tests/test_research_artifact_index_display_provenance.py`
+- `tests/test_research_artifact_index_display_lifecycle.py`
+- `tests/test_research_artifact_index_display_badges.py`
+- `tests/test_research_artifact_index_display_unavailable_responses.py`
+- `tests/test_research_artifact_index_display_safety.py`
+- `tests/test_api_research_artifact_index_display.py`
+- `tests/test_research_artifact_index_display_docs_status.py`
+- `tests/test_research_artifact_index_display_no_active_ui.py`
+- `tests/test_research_artifact_index_display_no_indexing_search_embeddings.py`
+- `tests/test_research_artifact_index_display_no_ingestion_parsing_strategy_execution.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `.env.example`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_READINESS_PLAN.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_PLANNING.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_GUARDRAILS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_CONTRACT_SKELETON.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+Prompt 79 adds tests for display settings, contracts, cards, references, tags,
+provenance, lifecycle, badges, unavailable responses, safety helpers, read-only
+display API endpoints, docs/status, no active UI, no indexing/search/embedding,
+and no ingestion/parsing/strategy/backtest/recommendation/execution behavior.
+
+### Commands Run
+
+- `.venv/bin/pytest tests/test_research_artifact_index_display_settings.py tests/test_research_artifact_index_display_contracts.py tests/test_research_artifact_index_display_cards.py tests/test_research_artifact_index_display_references.py tests/test_research_artifact_index_display_tags.py tests/test_research_artifact_index_display_provenance.py tests/test_research_artifact_index_display_lifecycle.py tests/test_research_artifact_index_display_badges.py tests/test_research_artifact_index_display_unavailable_responses.py tests/test_research_artifact_index_display_safety.py tests/test_api_research_artifact_index_display.py tests/test_research_artifact_index_display_docs_status.py tests/test_research_artifact_index_display_no_active_ui.py tests/test_research_artifact_index_display_no_indexing_search_embeddings.py tests/test_research_artifact_index_display_no_ingestion_parsing_strategy_execution.py`
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+- Focused Prompt 79 pytest: 161 passed.
+- `.venv/bin/python -m pip install -e .`: passed.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 4789 tests.
+- `.venv/bin/pytest`: passed with 4789 tests.
+- `git diff --check`: passed.
+- Existing FastAPI/TestClient `StarletteDeprecationWarning` remains.
+
+### Known Issues
+
+- Ambient `python` remains assumed unavailable; use `.venv/bin/python`.
+- Existing FastAPI/TestClient `StarletteDeprecationWarning` remains.
+
+### Audit Verdict
+
+Research Artifact Index Display is backend-only, read-only,
+unavailable-by-default, and display-contract-skeleton-only. It is ready for
+Research Artifact Index Safety Boundary Audit.
+
+### Next Recommended Prompt
+
+Prompt 80 - Research Artifact Index Safety Boundary Audit
+
+## Prompt 78 - Research Artifact Index API Contract Skeleton
+
+### Objective
+
+Implement Research Artifact Index API Contract Skeleton only.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/research_artifact_index_api/__init__.py`
+- `packages/core/stark_terminal_core/research_artifact_index_api/init.py`
+- `packages/core/stark_terminal_core/research_artifact_index_api/README.md`
+- `packages/core/stark_terminal_core/research_artifact_index_api/contracts.py`
+- `packages/core/stark_terminal_core/research_artifact_index_api/requests.py`
+- `packages/core/stark_terminal_core/research_artifact_index_api/responses.py`
+- `packages/core/stark_terminal_core/research_artifact_index_api/references.py`
+- `packages/core/stark_terminal_core/research_artifact_index_api/unavailable.py`
+- `packages/core/stark_terminal_core/research_artifact_index_api/safety.py`
+- `packages/core/stark_terminal_core/research_artifact_index_api/health.py`
+- `apps/api/stark_terminal_api/routes/research_artifact_index_api.py`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_CONTRACT_SKELETON.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_REQUEST_RESPONSE_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_REFERENCE_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_UNAVAILABLE_RESPONSES.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_SAFETY_BOUNDARY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_INDEXING_ENGINE_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_SEARCH_RANKING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_EMBEDDINGS_VECTOR_STORE_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_INGESTION_STORAGE_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_PAPER_PARSING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_BACKTESTING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_RECOMMENDATION_EXECUTION_POLICY.md`
+- `tests/test_research_artifact_index_api_settings.py`
+- `tests/test_research_artifact_index_api_contracts.py`
+- `tests/test_research_artifact_index_api_request_placeholders.py`
+- `tests/test_research_artifact_index_api_response_placeholders.py`
+- `tests/test_research_artifact_index_api_references.py`
+- `tests/test_research_artifact_index_api_unavailable_responses.py`
+- `tests/test_research_artifact_index_api_safety.py`
+- `tests/test_api_research_artifact_index_api.py`
+- `tests/test_research_artifact_index_api_docs_status.py`
+- `tests/test_research_artifact_index_api_no_indexing_search_embeddings.py`
+- `tests/test_research_artifact_index_api_no_ingestion_parsing_strategy_execution.py`
+
+### Files Modified
+
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `.env.example`
+- `README.md`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_READINESS_PLAN.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_PLANNING.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_GUARDRAILS.md`
+- `docs/CONFIGURATION.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+- Prompt 78 API settings tests.
+- Prompt 78 API contract tests.
+- Prompt 78 request placeholder tests.
+- Prompt 78 response placeholder tests.
+- Prompt 78 reference placeholder tests.
+- Prompt 78 unavailable response tests.
+- Prompt 78 safety helper tests.
+- Prompt 78 API endpoint tests.
+- Prompt 78 docs/status tests.
+- Prompt 78 no-indexing/search/embedding tests.
+- Prompt 78 no-ingestion/parsing/strategy/backtest/recommendation/execution tests.
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+Passed.
+
+- Focused Prompt 78 pytest: 124 passed.
+- `.venv/bin/python -m pip install -e .`: passed.
+- `.venv/bin/python scripts/audit_foundation.py`: passed.
+- `.venv/bin/python scripts/verify_foundation.py`: passed with 4628 tests.
+- `.venv/bin/pytest`: passed with 4628 tests.
+- `git diff --check`: passed.
+- Baseline 4504 preserved.
+
+### Safety Verdict
+
+Research Artifact Index API remains read-only, unavailable-by-default, and API
+contract skeleton only. No indexing engine, search engine, ranking engine,
+retrieval engine, embeddings, vector store, active ingestion/storage,
+persistent storage, file upload/download/preview, paper parsing, strategy
+generation, backtesting, recommendations, broker controls, readiness-to-trade,
+or execution APIs were added.
+
+### Known Issues
+
+- Existing FastAPI/TestClient `StarletteDeprecationWarning` may remain.
+- Ambient `python` remains assumed unavailable; use `.venv/bin/python`.
+
+### Next Recommended Prompt
+
+Prompt 79 - Research Artifact Index Display Contract Skeleton
+
+## Prompt 77 - Research Artifact Index Planning and Guardrails
+
+### Objective
+
+Implement Research Artifact Index Planning and Guardrails only. Prompt 77
+creates planning-only index metadata, key, reference, tag, provenance,
+lifecycle, forbidden interaction, safety, readiness, health, and read-only
+planning endpoint contracts for a future Research Artifact Index.
+
+### Files Created
+
+- `packages/core/stark_terminal_core/research_artifact_index/`
+- `apps/api/stark_terminal_api/routes/research_artifact_index.py`
+- `docs/RESEARCH_ARTIFACT_INDEX_PLANNING.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_GUARDRAILS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_METADATA_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_KEY_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_REFERENCE_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_TAG_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_PROVENANCE_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_LIFECYCLE_PLACEHOLDERS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_FORBIDDEN_INTERACTIONS.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_INDEXING_ENGINE_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_SEARCH_RANKING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_EMBEDDINGS_VECTOR_STORE_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_INGESTION_STORAGE_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_PAPER_PARSING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_STRATEGY_GENERATION_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_BACKTESTING_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_RECOMMENDATION_EXECUTION_POLICY.md`
+- `tests/test_research_artifact_index_settings.py`
+- `tests/test_research_artifact_index_types.py`
+- `tests/test_research_artifact_index_metadata.py`
+- `tests/test_research_artifact_index_keys.py`
+- `tests/test_research_artifact_index_references.py`
+- `tests/test_research_artifact_index_tags.py`
+- `tests/test_research_artifact_index_provenance.py`
+- `tests/test_research_artifact_index_lifecycle.py`
+- `tests/test_research_artifact_index_forbidden_interactions.py`
+- `tests/test_research_artifact_index_safety.py`
+- `tests/test_research_artifact_index_readiness.py`
+- `tests/test_api_research_artifact_index.py`
+- `tests/test_research_artifact_index_docs_status.py`
+- `tests/test_research_artifact_index_no_indexing_search_embeddings.py`
+- `tests/test_research_artifact_index_no_ingestion_parsing_strategy_execution.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `.env.example`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_READINESS_PLAN.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_NEXT_PHASE_PLAN.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+Prompt 77 adds tests for Research Artifact Index settings, enums, metadata
+placeholders, key placeholders, reference placeholders, tag placeholders,
+provenance placeholders, lifecycle placeholders, forbidden interactions,
+safety helpers, readiness helpers, read-only API endpoints, docs/status, and
+the absence of indexing/search/ranking/embedding/vector-store/ingestion/
+storage/parsing/strategy/backtest/recommendation/execution behavior.
+
+### Commands Run
+
+- `.venv/bin/python -m pip install -e .`
+- `.venv/bin/python scripts/audit_foundation.py`
+- `.venv/bin/python scripts/verify_foundation.py`
+- `.venv/bin/pytest`
+- `git diff --check`
+
+### Verification Result
+
+- Focused Prompt 77 pytest passed: 82 tests.
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4504 tests.
+- Full `.venv/bin/pytest` passed with 4504 tests.
+- `git diff --check` passed.
+- Existing FastAPI/TestClient `StarletteDeprecationWarning` remains.
+
+### Known Issues
+
+- Ambient `python` remains assumed unavailable; use `.venv/bin/python`.
+- Existing FastAPI/TestClient `StarletteDeprecationWarning` remains.
+
+### Next Recommended Prompt
+
+Prompt 78 - Research Artifact Index API Contract Skeleton
+
+## Prompt 76 - Research Artifact Registry API/Display Integration Readiness Audit
+
+### Objective
+
+Perform Research Artifact Registry API/Display Integration Readiness Audit
+only. Audit and consolidate Research Artifact Registry planning and guardrails,
+API contract skeleton, display contract skeleton, safety boundary audit,
+milestone audit, system boundary hardening, cross-endpoint consistency,
+API/display boundary integration, boundary integration, and Research Artifact
+Index planning readiness.
+
+### Files Created
+
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_CROSS_ENDPOINT_CONSISTENCY_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_BOUNDARY_INTEGRATION_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_INTEGRATION_NO_ACTIVE_INGESTION_STORAGE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_INTEGRATION_NO_UPLOAD_DOWNLOAD_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_INTEGRATION_NO_ACTIVE_UI_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_INTEGRATION_NO_PAPER_PARSING_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_INTEGRATION_NO_STRATEGY_BACKTEST_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_INTEGRATION_NO_RECOMMENDATION_EXECUTION_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_READINESS_PLAN.md`
+- `tests/test_research_artifact_registry_api_display_integration_audit_docs.py`
+- `tests/test_research_artifact_registry_cross_endpoint_consistency.py`
+- `tests/test_research_artifact_registry_api_display_boundary_integration.py`
+- `tests/test_research_artifact_registry_boundary_integration.py`
+- `tests/test_research_artifact_registry_integration_no_active_ingestion_storage.py`
+- `tests/test_research_artifact_registry_integration_no_upload_download.py`
+- `tests/test_research_artifact_registry_integration_no_active_ui.py`
+- `tests/test_research_artifact_registry_integration_no_paper_parsing.py`
+- `tests/test_research_artifact_registry_integration_no_strategy_backtest.py`
+- `tests/test_research_artifact_registry_integration_no_recommendation_execution.py`
+- `tests/test_research_artifact_index_readiness_plan.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `apps/api/stark_terminal_api/main.py`
+- `apps/api/stark_terminal_api/routes/health.py`
+- `packages/core/stark_terminal_core/config/settings.py`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/API_SURFACE_INVENTORY.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_READINESS_PLAN.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_NEXT_PHASE_PLAN.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_MILESTONE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_SYSTEM_BOUNDARY_HARDENING.md`
+- `docs/RESEARCH_ARTIFACT_FORBIDDEN_BEHAVIOR_REGISTRY.md`
+- `docs/RESEARCH_ARTIFACT_ENDPOINT_BOUNDARY_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_MODULE_BOUNDARY_POLICY.md`
+- `docs/RESEARCH_ARTIFACT_CROSS_MODULE_INVARIANTS.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_CONTRACT_SKELETON.md`
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_CONTRACT_SKELETON.md`
+- `scripts/audit_foundation.py`
+- `scripts/verify_foundation.py`
+
+### Tests Added
+
+Prompt 76 adds tests for integration audit docs, cross-endpoint consistency,
+API/display boundary integration, boundary integration, no active
+ingestion/storage, no upload/download, no active UI, no paper parsing, no
+strategy/backtest, no recommendation/execution, and Research Artifact Index
+planning readiness.
+
+### Commands Run
+
+Verification commands to run after implementation:
+
+```bash
+.venv/bin/pytest tests/test_research_artifact_registry_api_display_integration_audit_docs.py tests/test_research_artifact_registry_cross_endpoint_consistency.py tests/test_research_artifact_registry_api_display_boundary_integration.py tests/test_research_artifact_registry_boundary_integration.py tests/test_research_artifact_registry_integration_no_active_ingestion_storage.py tests/test_research_artifact_registry_integration_no_upload_download.py tests/test_research_artifact_registry_integration_no_active_ui.py tests/test_research_artifact_registry_integration_no_paper_parsing.py tests/test_research_artifact_registry_integration_no_strategy_backtest.py tests/test_research_artifact_registry_integration_no_recommendation_execution.py tests/test_research_artifact_index_readiness_plan.py
+.venv/bin/python -m pip install -e .
+.venv/bin/python scripts/audit_foundation.py
+.venv/bin/python scripts/verify_foundation.py
+.venv/bin/pytest
+git diff --check
+```
+
+### Verification Result
+
+- Focused Prompt 76 pytest passed: 28 tests.
+- `.venv/bin/python -m pip install -e .` passed.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4422 tests.
+- Full `.venv/bin/pytest` passed with 4422 tests.
+- `git diff --check` passed.
+- Existing FastAPI/TestClient `StarletteDeprecationWarning` remains.
+
+### Audit Verdict
+
+Research Artifact Registry planning/API/display/safety/milestone/boundary
+stack is ready for Research Artifact Index Planning and Guardrails only.
+Research Artifact Registry implementation, Research Artifact Index
+implementation, indexing, search, ranking, storage, ingestion,
+embeddings/vector store, paper parsing, strategy generation, backtesting,
+recommendations, broker controls, readiness-to-trade, and execution APIs
+remain forbidden.
+
+### Known Issues
+
+- Ambient `python` command remains assumed unavailable; use `.venv/bin/python`.
+- Editable install may be blocked in restricted environments because DNS/PyPI
+  access cannot fetch `setuptools>=68`.
+- FastAPI/TestClient may emit the existing dependency-level
+  `StarletteDeprecationWarning`.
+
+### Next Recommended Prompt
+
+Prompt 77 - Research Artifact Index Planning and Guardrails
+
+## Interlude - Active Decision Architecture Target Documentation
+
+### Objective
+
+Document Stark Terminal's future active decision architecture target without
+implementing active decision generation, recommendations, paper trading, market
+data ingestion, strategy generation, backtesting, broker controls, UI, audit
+database, journal database, or execution APIs.
+
+### Scope
+
+Documentation/tests only. The interlude records the target chain from market
+data through data quality/provenance, timeseries, feature/regime/state,
+deterministic quant candidate generation, verifier checks, human review /
+paper-trade gate, and audit log/journal.
+
+### Files Created
+
+- `docs/ACTIVE_DECISION_ARCHITECTURE_TARGET.md`
+- `docs/DECISION_CANDIDATE_PIPELINE_TARGET.md`
+- `docs/VERIFIER_LAYER_TARGET_ARCHITECTURE.md`
+- `docs/HUMAN_REVIEW_PAPER_TRADE_GATE_TARGET.md`
+- `docs/AUDIT_LOG_JOURNAL_TARGET.md`
+- `tests/test_active_decision_architecture_target_docs.py`
+- `tests/test_decision_candidate_pipeline_target_docs.py`
+- `tests/test_verifier_layer_target_architecture_docs.py`
+- `tests/test_no_trade_commit_language_in_active_decision_target.py`
+
+### Files Modified
+
+- `README.md`
+- `PROJECT_MAP.md`
+- `docs/NORTH_STAR.md`
+- `docs/NEXT_PHASE_PLAN.md`
+- `docs/SAFETY_AUDIT.md`
+- `docs/DATA_POLICY.md`
+- `docs/INFRASTRUCTURE_STACK.md`
+- `docs/PROMPT_LOG.md`
+
+### Safety Notes
+
+Decision candidate is not a trade. No direct market-data-to-trade path is
+allowed. No direct signal-to-trade path is allowed. No LLM/autonomous model may
+bypass the verifier. Execution APIs remain forbidden.
+
+### Verification Result
+
+- Focused interlude pytest passed: 13 tests.
+- `.venv/bin/python -m pip install -e .` failed because restricted DNS/PyPI
+  access could not fetch `setuptools>=68`.
+- `.venv/bin/python scripts/audit_foundation.py` passed.
+- `.venv/bin/python scripts/verify_foundation.py` passed with 4394 tests.
+- Full `.venv/bin/pytest` passed with 4394 tests.
+- `git diff --check` passed.
+- Existing FastAPI/TestClient `StarletteDeprecationWarning` remains.
+
+### Next Recommended Prompt
+
+Prompt 76 - Research Artifact Registry API/Display Integration Readiness Audit

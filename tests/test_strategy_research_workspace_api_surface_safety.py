@@ -22,6 +22,9 @@ ENDPOINTS = [
     "/strategy-research-workspace-display/contracts",
     "/strategy-research-workspace-display/unavailable-template",
     "/strategy-research-workspace-display/placeholder-workspace",
+    "/strategy-research-workspace-boundary/health",
+    "/strategy-research-workspace-boundary/contracts",
+    "/strategy-research-workspace-boundary/invariants",
 ]
 
 FALSE_FLAGS = {

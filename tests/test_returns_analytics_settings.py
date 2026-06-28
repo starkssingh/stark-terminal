@@ -7,7 +7,7 @@ from stark_terminal_core.config.settings import Settings
 def test_returns_analytics_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "67"
+    assert settings.prompt_number == "107"
     assert settings.returns_analytics_enabled is True
     assert settings.returns_analytics_schema_version == "v1"
     assert settings.returns_analytics_allow_real_data is False

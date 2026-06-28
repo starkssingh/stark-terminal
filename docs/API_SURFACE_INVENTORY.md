@@ -1,5 +1,519 @@
 # API Surface Inventory
 
+## Prompt 105 Retail Decision Console Shareable Internal Preview Package
+
+Prompt 105 adds no API endpoint. The internal preview package is generated
+through a local package module and script only.
+
+The Retail Decision Console route family remains GET-only and read-only. It
+adds no POST endpoints, no live market data endpoint, no recommendation
+endpoint, no action generation endpoint, no confidence endpoint, no active
+DecisionObject endpoint, no broker endpoint, no order endpoint, and no
+execution endpoint.
+
+## Prompt 104 Retail Decision Console Manual Acceptance Checklist
+
+Prompt 104 adds no API endpoint. The manual acceptance checklist is a local
+QA runbook and grouped test update only.
+
+The Retail Decision Console route family remains GET-only and read-only. It
+adds no POST endpoints, no live market data endpoint, no recommendation
+endpoint, no action generation endpoint, no confidence endpoint, no active
+DecisionObject endpoint, no broker endpoint, no order endpoint, and no
+execution endpoint.
+
+## Prompt 103 Retail Decision Console Local QA Bundle
+
+Prompt 103 adds no API endpoint. The local QA bundle is generated through the
+local QA bundle module and script only.
+
+The Retail Decision Console route family remains GET-only and read-only. It
+adds no POST endpoints, no live market data endpoint, no recommendation
+endpoint, no action generation endpoint, no confidence endpoint, no active
+DecisionObject endpoint, no broker endpoint, no order endpoint, and no
+execution endpoint.
+
+## Prompt 102 Retail Decision Console Preview Snapshot Export
+
+Prompt 102 adds no API endpoint. Preview snapshots are generated from the
+local static/demo shell view-model through the preview script and snapshot
+module only.
+
+The Retail Decision Console route family remains GET-only and read-only. It
+adds no POST endpoints, no live market data endpoint, no recommendation
+endpoint, no action generation endpoint, no confidence endpoint, no active
+DecisionObject endpoint, no broker endpoint, no order endpoint, and no
+execution endpoint.
+
+## Prompt 101 Retail Decision Console Static Interactions
+
+Prompt 101 adds no API endpoint. Static interaction placeholders are local
+descriptor/view-model metadata and desktop/preview presentation only.
+
+The Retail Decision Console route family remains GET-only and read-only. It
+adds no POST endpoints, no live market data endpoint, no recommendation
+endpoint, no action generation endpoint, no confidence endpoint, no active
+DecisionObject endpoint, no broker endpoint, no order endpoint, and no
+execution endpoint.
+
+## Prompt 100 Retail Decision Console Visual Layout
+
+Prompt 100 adds no API endpoint. The visual layout pass updates local
+descriptor/view-model metadata, desktop rendering, and preview output only.
+
+The Retail Decision Console route family remains GET-only and read-only. It
+adds no POST endpoints, no live market data endpoint, no recommendation
+endpoint, no action generation endpoint, no confidence endpoint, no active
+DecisionObject endpoint, no broker endpoint, no order endpoint, and no
+execution endpoint.
+
+## Prompt 99 Retail Decision Console Local Preview
+
+Prompt 99 adds no API endpoint. The local preview helper uses the existing
+local desktop descriptor/view-model path and does not require an API server.
+
+The Retail Decision Console route family remains GET-only and read-only. It
+adds no POST endpoints, no live market data endpoint, no recommendation
+endpoint, no action generation endpoint, no confidence endpoint, no active
+DecisionObject endpoint, no broker endpoint, no order endpoint, and no
+execution endpoint.
+
+## Prompt 98 Retail Decision Console Static State Wiring
+
+Prompt 98 adds one GET-only, read-only Retail Decision Console static state
+wiring endpoint:
+
+- `/retail-decision-console/static-state-view-model`
+
+The endpoint exposes deterministic demo-only, unavailable, read-only shell
+view-model metadata. It adds no POST endpoints, no live market data endpoint,
+no recommendation endpoint, no action generation endpoint, no confidence
+endpoint, no active DecisionObject endpoint, no broker endpoint, no order
+endpoint, and no execution endpoint.
+
+## Prompt 97 Retail Decision Console Demo Static State
+
+Prompt 97 adds one GET-only, read-only Retail Decision Console demo/static
+state endpoint:
+
+- `/retail-decision-console/demo-state`
+
+The endpoint exposes deterministic demo-only, unavailable, read-only state
+metadata. It adds no POST endpoints, no live market data endpoint, no
+recommendation endpoint, no action generation endpoint, no confidence
+endpoint, no active DecisionObject endpoint, no broker endpoint, no order
+endpoint, and no execution endpoint.
+
+## Prompt 95 Retail Decision Console Productization Plan and UI Shell Boundary
+
+Prompt 95 adds these GET-only, read-only Retail Decision Console metadata
+endpoints:
+
+- `/retail-decision-console/health`
+- `/retail-decision-console/productization-plan`
+- `/retail-decision-console/ui-boundary`
+- `/retail-decision-console/readiness`
+- `/retail-decision-console/unavailable-state`
+- `/retail-decision-console/navigation-placeholder`
+- `/retail-decision-console/section-placeholder`
+- `/retail-decision-console/card-placeholder`
+
+These endpoints expose productization and UI shell boundary metadata only.
+They add no POST endpoints, no live decisions, no active recommendations, no
+action generation, no confidence scoring, no active DecisionObject
+generation, no live market-data claims, no broker controls, no order buttons,
+and no execution endpoints.
+
+## Prompt 93 Research Knowledge Map Phase Closure
+
+Prompt 93 adds no runtime API endpoints. It closes the Research Knowledge Map
+phase and verifies the planning/API/display route families remain GET-only,
+read-only, and safe:
+
+- `/research-knowledge-map/health`
+- `/research-knowledge-map/planning`
+- `/research-knowledge-map/readiness`
+- `/research-knowledge-map/item-placeholder`
+- `/research-knowledge-map/relationship-placeholder`
+- `/research-knowledge-map/evidence-placeholder`
+- `/research-knowledge-map/provenance-placeholder`
+- `/research-knowledge-map/lifecycle-placeholder`
+- `/research-knowledge-map-api/health`
+- `/research-knowledge-map-api/contracts`
+- `/research-knowledge-map-api/unavailable-template`
+- `/research-knowledge-map-api/request-placeholder`
+- `/research-knowledge-map-api/response-placeholder`
+- `/research-knowledge-map-api/reference-placeholder`
+- `/research-knowledge-map-display/health`
+- `/research-knowledge-map-display/contracts`
+- `/research-knowledge-map-display/unavailable-template`
+- `/research-knowledge-map-display/item-placeholder`
+- `/research-knowledge-map-display/relationship-placeholder`
+- `/research-knowledge-map-display/evidence-placeholder`
+- `/research-knowledge-map-display/provenance-placeholder`
+- `/research-knowledge-map-display/lifecycle-placeholder`
+
+These endpoints expose no POST endpoints, no active UI, no frontend/desktop
+implementation, no active knowledge map, no database, no persistent writes,
+no traversal/query/search/ranking/retrieval, no embeddings/vector store, no
+ingestion/storage, no upload/download/preview, no paper parsing, no strategy
+generation, no backtesting, no recommendations, no broker controls, and no
+execution APIs.
+
+## Prompt 92 Research Knowledge Map Safety Boundary Audit
+
+Prompt 92 adds no runtime API endpoints. It verifies these Research Knowledge
+Map route families remain GET-only, read-only, and safe:
+
+- `/research-knowledge-map/health`
+- `/research-knowledge-map/planning`
+- `/research-knowledge-map/readiness`
+- `/research-knowledge-map/item-placeholder`
+- `/research-knowledge-map/relationship-placeholder`
+- `/research-knowledge-map/evidence-placeholder`
+- `/research-knowledge-map/provenance-placeholder`
+- `/research-knowledge-map/lifecycle-placeholder`
+- `/research-knowledge-map-api/health`
+- `/research-knowledge-map-api/contracts`
+- `/research-knowledge-map-api/unavailable-template`
+- `/research-knowledge-map-api/request-placeholder`
+- `/research-knowledge-map-api/response-placeholder`
+- `/research-knowledge-map-api/reference-placeholder`
+- `/research-knowledge-map-display/health`
+- `/research-knowledge-map-display/contracts`
+- `/research-knowledge-map-display/unavailable-template`
+- `/research-knowledge-map-display/item-placeholder`
+- `/research-knowledge-map-display/relationship-placeholder`
+- `/research-knowledge-map-display/evidence-placeholder`
+- `/research-knowledge-map-display/provenance-placeholder`
+- `/research-knowledge-map-display/lifecycle-placeholder`
+
+These endpoints expose no POST endpoints, no active UI, no frontend/desktop
+implementation, no active knowledge map, no database, no persistent writes,
+no traversal/query/search/ranking/retrieval, no embeddings/vector store, no
+ingestion/storage, no upload/download/preview, no paper parsing, no strategy
+generation, no backtesting, no recommendations, no broker controls, and no
+execution APIs.
+
+## Prompt 91 Research Knowledge Map Display Contract Skeleton
+
+Prompt 91 adds these GET-only, read-only backend display metadata endpoints:
+
+- `/research-knowledge-map-display/health`
+- `/research-knowledge-map-display/contracts`
+- `/research-knowledge-map-display/unavailable-template`
+- `/research-knowledge-map-display/item-placeholder`
+- `/research-knowledge-map-display/relationship-placeholder`
+- `/research-knowledge-map-display/evidence-placeholder`
+- `/research-knowledge-map-display/provenance-placeholder`
+- `/research-knowledge-map-display/lifecycle-placeholder`
+
+These endpoints expose display contract metadata and placeholders only. They
+add no POST endpoints, no active UI, no frontend/desktop implementation, no
+active knowledge map, no database, no persistent writes, no traversal, no
+query engine, no search, no ranking, no retrieval, no embeddings/vector store,
+no paper parsing, no strategy generation, no backtesting, no recommendations,
+no broker controls, and no execution APIs.
+
+## Prompt 90 Research Knowledge Map API Contract Skeleton
+
+Prompt 90 adds these GET-only, read-only API contract metadata endpoints:
+
+- `/research-knowledge-map-api/health`
+- `/research-knowledge-map-api/contracts`
+- `/research-knowledge-map-api/unavailable-template`
+- `/research-knowledge-map-api/request-placeholder`
+- `/research-knowledge-map-api/response-placeholder`
+- `/research-knowledge-map-api/reference-placeholder`
+
+These endpoints expose API contract metadata and placeholders only. They add
+no POST endpoints, no active knowledge map, no database, no persistent writes,
+no traversal, no query engine, no search, no ranking, no retrieval, no
+embeddings/vector store, no paper parsing, no strategy generation, no
+backtesting, no recommendations, no broker controls, and no execution APIs.
+
+## Prompt 89 Research Knowledge Map Planning and Guardrails
+
+Prompt 89 adds these GET-only, read-only planning metadata endpoints:
+
+- `/research-knowledge-map/health`
+- `/research-knowledge-map/planning`
+- `/research-knowledge-map/readiness`
+- `/research-knowledge-map/item-placeholder`
+- `/research-knowledge-map/relationship-placeholder`
+- `/research-knowledge-map/evidence-placeholder`
+- `/research-knowledge-map/provenance-placeholder`
+- `/research-knowledge-map/lifecycle-placeholder`
+
+These endpoints expose planning contracts, placeholder metadata, guardrail
+status, and readiness metadata only. They add no POST endpoints, no active
+knowledge map, no database, no persistent writes, no traversal, no query
+engine, no search, no ranking, no retrieval, no embeddings/vector store, no
+active ingestion/storage, no upload/download/preview, no paper parsing, no
+strategy generation, no backtesting, no recommendations, no broker controls,
+and no execution APIs.
+
+## Prompt 88-B Research Metadata Graph Phase Closure
+
+Prompt 88-B adds no runtime API endpoints. It closes the Research Metadata
+Graph phase and verifies these Research Metadata Graph route families remain
+GET-only, read-only, and safe:
+
+- `/research-metadata-graph/health`
+- `/research-metadata-graph/planning`
+- `/research-metadata-graph/readiness`
+- `/research-metadata-graph/node-placeholder`
+- `/research-metadata-graph/edge-placeholder`
+- `/research-metadata-graph/provenance-placeholder`
+- `/research-metadata-graph/lifecycle-placeholder`
+- `/research-metadata-graph/reference-placeholder`
+- `/research-metadata-graph-api/health`
+- `/research-metadata-graph-api/contracts`
+- `/research-metadata-graph-api/unavailable-template`
+- `/research-metadata-graph-api/request-placeholder`
+- `/research-metadata-graph-api/response-placeholder`
+- `/research-metadata-graph-api/reference-placeholder`
+- `/research-metadata-graph-display/health`
+- `/research-metadata-graph-display/contracts`
+- `/research-metadata-graph-display/unavailable-template`
+- `/research-metadata-graph-display/node-placeholder`
+- `/research-metadata-graph-display/edge-placeholder`
+- `/research-metadata-graph-display/provenance-placeholder`
+- `/research-metadata-graph-display/lifecycle-placeholder`
+- `/research-metadata-graph-display/reference-placeholder`
+
+These endpoints expose no POST endpoints, no active UI, no frontend/desktop
+implementation, no graph implementation, no graph database, no persistent
+graph writes, no graph traversal, no graph query, no graph search, no graph
+ranking, no graph retrieval, no embeddings/vector store, no ingestion/storage,
+no upload/download/preview, no paper parsing, no strategy generation, no
+backtesting, no recommendations, no broker controls, and no execution APIs.
+
+## Prompt 87 Research Metadata Graph Safety Boundary Audit
+
+Prompt 87 adds no runtime API endpoints. It verifies these Research Metadata
+Graph route families remain GET-only, read-only, and safe:
+
+- `/research-metadata-graph/health`
+- `/research-metadata-graph/planning`
+- `/research-metadata-graph/readiness`
+- `/research-metadata-graph/node-placeholder`
+- `/research-metadata-graph/edge-placeholder`
+- `/research-metadata-graph/provenance-placeholder`
+- `/research-metadata-graph/lifecycle-placeholder`
+- `/research-metadata-graph/reference-placeholder`
+- `/research-metadata-graph-api/health`
+- `/research-metadata-graph-api/contracts`
+- `/research-metadata-graph-api/unavailable-template`
+- `/research-metadata-graph-api/request-placeholder`
+- `/research-metadata-graph-api/response-placeholder`
+- `/research-metadata-graph-api/reference-placeholder`
+- `/research-metadata-graph-display/health`
+- `/research-metadata-graph-display/contracts`
+- `/research-metadata-graph-display/unavailable-template`
+- `/research-metadata-graph-display/node-placeholder`
+- `/research-metadata-graph-display/edge-placeholder`
+- `/research-metadata-graph-display/provenance-placeholder`
+- `/research-metadata-graph-display/lifecycle-placeholder`
+- `/research-metadata-graph-display/reference-placeholder`
+
+These endpoints expose no POST endpoints, no active UI, no frontend/desktop
+implementation, no graph implementation, no graph database, no persistent
+graph writes, no graph traversal, no graph query, no graph search, no graph
+ranking, no graph retrieval, no embeddings/vector store, no ingestion/storage,
+no upload/download/preview, no paper parsing, no strategy generation, no
+backtesting, no recommendations, no broker controls, and no execution APIs.
+
+## Prompt 86 Research Metadata Graph Display Contract Skeleton
+
+Prompt 86 adds these GET-only, read-only backend display contract metadata
+endpoints:
+
+- `/research-metadata-graph-display/health`
+- `/research-metadata-graph-display/contracts`
+- `/research-metadata-graph-display/unavailable-template`
+- `/research-metadata-graph-display/node-placeholder`
+- `/research-metadata-graph-display/edge-placeholder`
+- `/research-metadata-graph-display/provenance-placeholder`
+- `/research-metadata-graph-display/lifecycle-placeholder`
+- `/research-metadata-graph-display/reference-placeholder`
+
+These endpoints expose display contract metadata and placeholders only. They
+add no POST endpoints, no active UI, no frontend/desktop implementation, no
+graph implementation, no graph database, no persistent graph writes, no graph
+traversal, no graph query, no graph search, no graph ranking, no graph
+retrieval, no embeddings/vector store, no ingestion/storage, no
+upload/download/preview, no paper parsing, no strategy generation, no
+backtesting, no recommendations, no broker controls, and no execution APIs.
+
+## Prompt 85 Research Metadata Graph API Contract Skeleton
+
+Prompt 85 adds these GET-only, read-only API contract metadata endpoints:
+
+- `/research-metadata-graph-api/health`
+- `/research-metadata-graph-api/contracts`
+- `/research-metadata-graph-api/unavailable-template`
+- `/research-metadata-graph-api/request-placeholder`
+- `/research-metadata-graph-api/response-placeholder`
+- `/research-metadata-graph-api/reference-placeholder`
+
+These endpoints expose API contract metadata and placeholders only. They add
+no POST endpoints, no graph implementation, no graph database, no persistent
+graph writes, no graph traversal, no graph query, no graph search, no graph
+ranking, no graph retrieval, no embeddings/vector store, no ingestion/storage,
+no upload/download/preview, no paper parsing, no strategy generation, no
+backtesting, no recommendations, no broker controls, and no execution APIs.
+
+## Prompt 84 Research Metadata Graph Planning and Guardrails
+
+Prompt 84 adds these GET-only, read-only planning metadata endpoints:
+
+- `/research-metadata-graph/health`
+- `/research-metadata-graph/planning`
+- `/research-metadata-graph/readiness`
+- `/research-metadata-graph/node-placeholder`
+- `/research-metadata-graph/edge-placeholder`
+- `/research-metadata-graph/provenance-placeholder`
+- `/research-metadata-graph/lifecycle-placeholder`
+- `/research-metadata-graph/reference-placeholder`
+
+These endpoints expose planning contracts, placeholder metadata, guardrail
+status, and readiness metadata only. They add no POST endpoints, no graph
+implementation, no graph database, no persistent graph writes, no graph
+traversal, no graph query, no graph search, no graph ranking, no graph
+retrieval, no embeddings/vector store, no ingestion/storage, no upload/
+download/preview, no paper parsing, no strategy generation, no backtesting, no
+recommendations, no broker controls, and no execution APIs.
+
+## Prompt 83 Research Artifact Index API/Display Integration Readiness Audit
+
+Prompt 83 adds no new runtime API endpoints. It verifies these Research
+Artifact Index route families remain GET-only, read-only, and safe:
+
+- `/research-artifact-index/health`
+- `/research-artifact-index/contracts`
+- `/research-artifact-index/placeholder-index`
+- `/research-artifact-index/readiness-template`
+- `/research-artifact-index/unavailable-template`
+- `/research-artifact-index-api/health`
+- `/research-artifact-index-api/contracts`
+- `/research-artifact-index-api/unavailable-template`
+- `/research-artifact-index-api/response-placeholder`
+- `/research-artifact-index-api/reference-placeholder`
+- `/research-artifact-index-display/health`
+- `/research-artifact-index-display/contracts`
+- `/research-artifact-index-display/unavailable-template`
+- `/research-artifact-index-display/placeholder-card`
+- `/research-artifact-index-display/placeholder-reference`
+- `/research-artifact-index-display/placeholder-tag`
+- `/research-artifact-index-display/placeholder-provenance`
+- `/research-artifact-index-display/placeholder-lifecycle`
+- `/research-artifact-index-boundary/health`
+- `/research-artifact-index-boundary/contracts`
+- `/research-artifact-index-boundary/invariants`
+
+These endpoints do not expose secrets, do not return live market data, do not
+ingest/store artifacts, do not upload/download/preview files, do not parse
+papers, do not build indexes, do not search, do not rank, do not retrieve, do
+not embed, do not use vector stores, do not generate strategies, do not
+generate backtests, do not generate recommendations, do not generate action
+states, do not compute confidence, do not generate DecisionObjects, do not
+approve or override, do not create active UI, do not generate
+readiness-to-trade, do not expose broker controls, and do not execute trades.
+
+No POST endpoints exist under the Research Artifact Index route families.
+
+## Prompt 82 Research Artifact Index System Boundary Hardening
+
+Prompt 82 adds these GET-only, read-only boundary metadata endpoints:
+
+- `/research-artifact-index-boundary/health`
+- `/research-artifact-index-boundary/contracts`
+- `/research-artifact-index-boundary/invariants`
+
+These endpoints expose boundary-hardening metadata only. They do not expose
+secrets, do not return live market data, do not ingest/store artifacts, do not
+upload/download/preview files, do not parse papers, do not build indexes, do
+not search, do not rank, do not retrieve, do not embed, do not use vector
+stores, do not generate strategies, do not generate backtests, do not generate
+recommendations, do not generate action states, do not compute confidence, do
+not generate DecisionObjects, do not approve or override, do not create active
+UI, do not generate readiness-to-trade, do not expose broker controls, and do
+not execute trades.
+
+No POST endpoints are added under the Research Artifact Index route families.
+
+## Prompt 81 Research Artifact Index Milestone Audit
+
+Prompt 81 verifies these Research Artifact Index route families remain
+read-only and safe:
+
+- `/research-artifact-index/health`
+- `/research-artifact-index/contracts`
+- `/research-artifact-index/placeholder-index`
+- `/research-artifact-index/readiness-template`
+- `/research-artifact-index/unavailable-template`
+- `/research-artifact-index-api/health`
+- `/research-artifact-index-api/contracts`
+- `/research-artifact-index-api/unavailable-template`
+- `/research-artifact-index-api/response-placeholder`
+- `/research-artifact-index-api/reference-placeholder`
+- `/research-artifact-index-display/health`
+- `/research-artifact-index-display/contracts`
+- `/research-artifact-index-display/unavailable-template`
+- `/research-artifact-index-display/placeholder-card`
+- `/research-artifact-index-display/placeholder-reference`
+- `/research-artifact-index-display/placeholder-tag`
+- `/research-artifact-index-display/placeholder-provenance`
+- `/research-artifact-index-display/placeholder-lifecycle`
+
+These endpoints do not expose secrets, do not return live market data, do not
+ingest/store artifacts, do not upload/download/preview files, do not parse
+papers, do not build indexes, do not search, do not rank, do not retrieve, do
+not embed, do not use vector stores, do not generate strategies, do not
+generate backtests, do not generate recommendations, do not generate action
+states, do not compute confidence, do not generate DecisionObjects, do not
+approve or override, do not create active UI, do not generate
+readiness-to-trade, do not expose broker controls, and do not execute trades.
+
+## Documentation/Test Consolidation Interlude
+
+This interlude adds no runtime API endpoints and changes no API surface. The
+new grouped docs and tests consolidate audit navigation only. Existing no
+execution, no broker controls, no active UI, no ingestion/storage, no
+indexing/search/retrieval, no recommendations, and no execution boundaries
+remain enforced.
+
+## Prompt 80 Research Artifact Index Safety Boundary Audit
+
+Prompt 80 verifies these Research Artifact Index route families remain
+read-only and safe:
+
+- `/research-artifact-index/health`
+- `/research-artifact-index/contracts`
+- `/research-artifact-index/placeholder-index`
+- `/research-artifact-index/readiness-template`
+- `/research-artifact-index/unavailable-template`
+- `/research-artifact-index-api/health`
+- `/research-artifact-index-api/contracts`
+- `/research-artifact-index-api/unavailable-template`
+- `/research-artifact-index-api/response-placeholder`
+- `/research-artifact-index-api/reference-placeholder`
+- `/research-artifact-index-display/health`
+- `/research-artifact-index-display/contracts`
+- `/research-artifact-index-display/unavailable-template`
+- `/research-artifact-index-display/placeholder-card`
+- `/research-artifact-index-display/placeholder-reference`
+- `/research-artifact-index-display/placeholder-tag`
+- `/research-artifact-index-display/placeholder-provenance`
+- `/research-artifact-index-display/placeholder-lifecycle`
+
+These endpoints expose no POST endpoints, no upload/download, no preview, no
+ingestion, no storage, no active UI, no frontend/desktop, no indexing, no
+search, no ranking, no retrieval, no embeddings, no vector store, no parsing,
+no strategy generation, no backtesting, no recommendations, no broker
+controls, and no execution.
+
 Prompt 60 completes Retail Trader Experience Milestone Audit after Retail Trader Experience Safety Boundary Audit, Retail Trader Experience Display Contract Skeleton, Retail Trader Experience API Contract Skeleton, Retail Trader Experience Planning and Guardrails, and the Retail Dashboard API/Display Integration Readiness
 Audit after Retail Dashboard planning, API contract skeleton, display contract
 skeleton, safety boundary audit, milestone audit, and system boundary
@@ -189,6 +703,39 @@ controls, and do not execute trades. The audit also confirms no API-to-display
 recommendation path, no display-to-decision path, no display-to-execution
 path, and no boundary bypass path.
 
+Prompt 69 Strategy Research Workspace API/display integration readiness
+verifies `/strategy-research-workspace/*`,
+`/strategy-research-workspace-api/*`,
+`/strategy-research-workspace-display/*`, and
+`/strategy-research-workspace-boundary/*` together, including:
+
+- `/strategy-research-workspace/health`
+- `/strategy-research-workspace/contracts`
+- `/strategy-research-workspace/placeholder-workspace`
+- `/strategy-research-workspace/readiness-template`
+- `/strategy-research-workspace-api/health`
+- `/strategy-research-workspace-api/contracts`
+- `/strategy-research-workspace-api/unavailable-template`
+- `/strategy-research-workspace-api/response-placeholder`
+- `/strategy-research-workspace-display/health`
+- `/strategy-research-workspace-display/contracts`
+- `/strategy-research-workspace-display/unavailable-template`
+- `/strategy-research-workspace-display/placeholder-workspace`
+- `/strategy-research-workspace-boundary/health`
+- `/strategy-research-workspace-boundary/contracts`
+- `/strategy-research-workspace-boundary/invariants`
+
+These endpoints do not expose secrets, do not return live market data, do not
+ingest or parse papers, do not generate strategies, do not generate backtests,
+do not generate recommendations, do not generate action states, do not compute
+confidence, do not generate DecisionObjects, do not approve or override, do
+not create active UI, do not generate readiness-to-trade, do not expose broker
+controls, and do not execute trades. The audit also confirms no
+API-to-display strategy path, no API-to-display backtest result path, no
+API-to-display recommendation path, no parsed-paper-to-display path, no
+research-as-recommendation path, no research-as-execution-control path, and no
+boundary bypass path.
+
 Prompt 56 adds `/retail-trader-experience/health`,
 `/retail-trader-experience/contracts`,
 `/retail-trader-experience/placeholder-experience`, and
@@ -241,10 +788,88 @@ generate recommendations, do not generate action states, do not compute
 confidence, do not generate DecisionObjects, do not create suitability
 profiles, do not approve or override, do not create active UI, do not generate
 readiness-to-trade, do not expose broker controls, and do not execute trades.
+
+## Prompt 77 Research Artifact Index Planning and Guardrails
+
+Prompt 77 adds these read-only Research Artifact Index planning endpoints:
+
+- `/research-artifact-index/health`
+- `/research-artifact-index/contracts`
+- `/research-artifact-index/placeholder-index`
+- `/research-artifact-index/readiness-template`
+- `/research-artifact-index/unavailable-template`
+
+These endpoints are GET-only/read-only and planning-only. They do not expose
+secrets, do not ingest/store artifacts, do not upload/download files, do not
+preview files, do not create persistent index writes, do not create database
+tables, do not create migrations, do not create object storage, do not create
+an indexing engine, do not create a search engine, do not create a ranking
+engine, do not create a retrieval engine, do not create embeddings, do not
+create a vector store, do not parse papers, do not parse PDFs, do not ingest
+arXiv records, do not run LLM paper analysis, do not generate strategies, do
+not generate strategy code, do not generate backtests, do not optimize, do not
+generate recommendations, do not generate action states, do not compute
+confidence, do not generate DecisionObjects, do not approve or override, do
+not create active UI, do not create frontend or desktop implementation, do not
+generate readiness-to-trade, do not expose broker controls, and do not execute
+trades.
+
+## Prompt 71 Research Artifact Registry API Contract Skeleton
+
+Prompt 71 adds these read-only Research Artifact Registry API contract
+endpoints:
+
+- `/research-artifact-registry-api/health`
+- `/research-artifact-registry-api/contracts`
+- `/research-artifact-registry-api/unavailable-template`
+- `/research-artifact-registry-api/response-placeholder`
+- `/research-artifact-registry-api/reference-placeholder`
+
+API verdict: these endpoints are GET-only. They expose API contract metadata,
+request placeholders, response placeholders, metadata reference placeholders,
+provenance reference placeholders, lifecycle reference placeholders,
+unavailable responses, and forbidden action metadata only. They do not expose
+secrets, do not return live market data, do not create active artifact
+ingestion/storage, do not persist artifacts, do not add database tables or
+migrations, do not upload files, do not download files, do not ingest or parse
+papers, do not parse PDFs, do not ingest arXiv records, do not run LLM paper
+analysis, do not generate strategies, do not generate strategy code, do not
+generate backtests, do not optimize, do not generate recommendations, do not
+generate action states, do not compute confidence, do not generate
+DecisionObjects, do not approve or override, do not generate
+readiness-to-trade, do not expose broker controls, and do not execute trades.
 The milestone audit confirms no market-data input endpoint, no
 market-data-to-trader-recommendation endpoint, no
 trader-experience-to-execution endpoint, no display-to-decision endpoint, no
 persona-to-suitability-profile path, and no boundary bypass path.
+
+## Prompt 72 Research Artifact Registry Display Contract Skeleton
+
+Prompt 72 adds these read-only Research Artifact Registry Display contract
+endpoints:
+
+- `/research-artifact-registry-display/health`
+- `/research-artifact-registry-display/contracts`
+- `/research-artifact-registry-display/unavailable-template`
+- `/research-artifact-registry-display/placeholder-card`
+- `/research-artifact-registry-display/placeholder-provenance`
+- `/research-artifact-registry-display/placeholder-lifecycle`
+
+Display verdict: these endpoints are GET-only. They expose backend-only
+display contract metadata, artifact card placeholders, reference display
+placeholders, provenance display placeholders, lifecycle badge placeholders,
+unavailable display responses, health metadata, and forbidden action metadata
+only. They do not expose secrets, do not return live market data, do not
+create active UI, do not create frontend components, do not create desktop
+components, do not create file previews, do not create active artifact
+ingestion/storage, do not persist artifacts, do not add database tables or
+migrations, do not upload files, do not download files, do not ingest or parse
+papers, do not parse PDFs, do not ingest arXiv records, do not run LLM paper
+analysis, do not generate strategies, do not generate strategy code, do not
+generate backtests, do not optimize, do not generate recommendations, do not
+generate action states, do not compute confidence, do not generate
+DecisionObjects, do not approve or override, do not generate
+readiness-to-trade, do not expose broker controls, and do not execute trades.
 
 Prompt 62 audits `/retail-trader-experience/*`,
 `/retail-trader-experience-api/*`,
@@ -418,3 +1043,240 @@ generate backtests, do not generate recommendations, do not generate action
 states, do not compute confidence, do not generate DecisionObjects, do not
 approve or override, do not create active UI, do not generate
 readiness-to-trade, do not expose broker controls, and do not execute trades.
+
+## Prompt 68 Strategy Research Workspace System Boundary Hardening
+
+Prompt 68 adds these read-only Strategy Research Workspace boundary endpoints:
+
+- `/strategy-research-workspace-boundary/health`
+- `/strategy-research-workspace-boundary/contracts`
+- `/strategy-research-workspace-boundary/invariants`
+
+Boundary verdict: `/strategy-research-workspace/*`,
+`/strategy-research-workspace-api/*`,
+`/strategy-research-workspace-display/*`, and
+`/strategy-research-workspace-boundary/*` do not expose secrets, do not return
+live market data, do not ingest or parse papers, do not generate strategies,
+do not generate strategy code, do not generate backtests, do not optimize, do
+not generate recommendations, do not generate action states, do not compute
+confidence, do not generate DecisionObjects, do not approve or override, do
+not create active UI, do not create frontend or desktop implementation, do not
+generate readiness-to-trade, do not expose broker controls, and do not execute
+trades.
+
+## Prompt 70 Research Artifact Registry Planning and Guardrails
+
+Prompt 70 adds these read-only Research Artifact Registry planning endpoints:
+
+- `/research-artifact-registry/health`
+- `/research-artifact-registry/contracts`
+- `/research-artifact-registry/placeholder-artifact`
+- `/research-artifact-registry/readiness-template`
+- `/research-artifact-registry/unavailable-template`
+
+API verdict: these endpoints are GET-only. They expose planning metadata,
+artifact metadata placeholders, artifact reference placeholders, provenance
+placeholders, lifecycle placeholders, forbidden interaction metadata,
+readiness templates, and unavailable templates only. They do not expose
+secrets, do not return live market data, do not create active artifact
+ingestion/storage, do not persist artifacts, do not add database tables or
+migrations, do not upload files, do not download files, do not ingest or parse
+papers, do not parse PDFs, do not ingest arXiv records, do not run LLM paper
+analysis, do not generate strategies, do not generate strategy code, do not
+generate backtests, do not optimize, do not generate recommendations, do not
+generate action states, do not compute confidence, do not generate
+DecisionObjects, do not approve or override, do not generate
+readiness-to-trade, do not expose broker controls, and do not execute trades.
+
+## Prompt 73 Research Artifact Registry Safety Boundary Audit
+
+Prompt 73 re-verifies these Research Artifact Registry endpoint families:
+
+- `/research-artifact-registry/health`
+- `/research-artifact-registry/contracts`
+- `/research-artifact-registry/placeholder-artifact`
+- `/research-artifact-registry/readiness-template`
+- `/research-artifact-registry/unavailable-template`
+- `/research-artifact-registry-api/health`
+- `/research-artifact-registry-api/contracts`
+- `/research-artifact-registry-api/unavailable-template`
+- `/research-artifact-registry-api/response-placeholder`
+- `/research-artifact-registry-api/reference-placeholder`
+- `/research-artifact-registry-display/health`
+- `/research-artifact-registry-display/contracts`
+- `/research-artifact-registry-display/unavailable-template`
+- `/research-artifact-registry-display/placeholder-card`
+- `/research-artifact-registry-display/placeholder-provenance`
+- `/research-artifact-registry-display/placeholder-lifecycle`
+
+Safety boundary verdict: these endpoints are GET-only/read-only. They expose
+planning metadata, API contract metadata, display contract metadata,
+placeholders, unavailable templates, and safety metadata only. They do not
+expose secrets, do not return live market data, do not create active artifact
+ingestion/storage, do not persist artifacts, do not upload files, do not
+download files, do not preview files, do not ingest or parse papers, do not
+parse PDFs, do not ingest arXiv records, do not run LLM paper analysis, do
+not create active UI, do not create frontend or desktop implementation, do
+not generate strategies, do not generate strategy code, do not generate
+backtests, do not optimize, do not generate recommendations, do not generate
+action states, do not compute confidence, do not generate DecisionObjects, do
+not approve or override, do not generate readiness-to-trade, do not expose
+broker controls, and do not execute trades.
+
+## Prompt 74 Research Artifact Registry Milestone Audit
+
+Prompt 74 re-verifies these Research Artifact Registry endpoint families:
+
+- `/research-artifact-registry/health`
+- `/research-artifact-registry/contracts`
+- `/research-artifact-registry/placeholder-artifact`
+- `/research-artifact-registry/readiness-template`
+- `/research-artifact-registry/unavailable-template`
+- `/research-artifact-registry-api/health`
+- `/research-artifact-registry-api/contracts`
+- `/research-artifact-registry-api/unavailable-template`
+- `/research-artifact-registry-api/response-placeholder`
+- `/research-artifact-registry-api/reference-placeholder`
+- `/research-artifact-registry-display/health`
+- `/research-artifact-registry-display/contracts`
+- `/research-artifact-registry-display/unavailable-template`
+- `/research-artifact-registry-display/placeholder-card`
+- `/research-artifact-registry-display/placeholder-provenance`
+- `/research-artifact-registry-display/placeholder-lifecycle`
+
+Milestone verdict: these endpoints are GET-only/read-only and
+unavailable-by-default where applicable. They do not expose secrets, do not
+return live market data, do not ingest/store artifacts, do not upload/download
+files, do not preview files, do not parse papers, do not parse PDFs, do not
+ingest arXiv records, do not run LLM paper analysis, do not create active UI,
+do not create frontend or desktop implementation, do not generate strategies,
+do not generate strategy code, do not generate backtests, do not optimize, do
+not generate recommendations, do not generate action states, do not compute
+confidence, do not generate DecisionObjects, do not approve or override, do
+not generate readiness-to-trade, do not expose broker controls, and do not
+execute trades.
+
+## Prompt 75 Research Artifact Registry System Boundary Hardening
+
+Prompt 75 adds these read-only Research Artifact Registry boundary endpoints:
+
+- `/research-artifact-registry-boundary/health`
+- `/research-artifact-registry-boundary/contracts`
+- `/research-artifact-registry-boundary/invariants`
+
+Boundary verdict: `/research-artifact-registry/*`,
+`/research-artifact-registry-api/*`,
+`/research-artifact-registry-display/*`, and
+`/research-artifact-registry-boundary/*` do not expose secrets, do not return
+live market data, do not create active artifact ingestion/storage, do not
+persist artifacts, do not upload files, do not download files, do not preview
+files, do not create active UI, do not create frontend or desktop
+implementation, do not ingest or parse papers, do not parse PDFs, do not
+ingest arXiv records, do not run LLM paper analysis, do not generate
+strategies, do not generate strategy code, do not generate backtests, do not
+optimize, do not generate recommendations, do not generate action states, do
+not compute confidence, do not generate DecisionObjects, do not approve or
+override, do not generate readiness-to-trade, do not expose broker controls,
+and do not execute trades.
+
+## Prompt 76 Research Artifact Registry API Display Integration Readiness Audit
+
+Prompt 76 re-verifies these Research Artifact Registry endpoint families:
+
+- `/research-artifact-registry/health`
+- `/research-artifact-registry/contracts`
+- `/research-artifact-registry/placeholder-artifact`
+- `/research-artifact-registry/readiness-template`
+- `/research-artifact-registry/unavailable-template`
+- `/research-artifact-registry-api/health`
+- `/research-artifact-registry-api/contracts`
+- `/research-artifact-registry-api/unavailable-template`
+- `/research-artifact-registry-api/response-placeholder`
+- `/research-artifact-registry-api/reference-placeholder`
+- `/research-artifact-registry-display/health`
+- `/research-artifact-registry-display/contracts`
+- `/research-artifact-registry-display/unavailable-template`
+- `/research-artifact-registry-display/placeholder-card`
+- `/research-artifact-registry-display/placeholder-provenance`
+- `/research-artifact-registry-display/placeholder-lifecycle`
+- `/research-artifact-registry-boundary/health`
+- `/research-artifact-registry-boundary/contracts`
+- `/research-artifact-registry-boundary/invariants`
+
+Integration readiness verdict: `/research-artifact-registry/*`,
+`/research-artifact-registry-api/*`,
+`/research-artifact-registry-display/*`, and
+`/research-artifact-registry-boundary/*` are GET-only/read-only and
+unavailable-by-default or boundary-hardening-only where applicable. These
+endpoints do not expose secrets, do not return live market data, do not
+ingest/store artifacts, do not upload/download files, do not preview files,
+do not parse papers, do not parse PDFs, do not ingest arXiv records, do not
+run LLM paper analysis, do not generate strategies, do not generate strategy
+code, do not generate backtests, do not optimize, do not generate
+recommendations, do not generate action states, do not compute confidence, do
+not generate DecisionObjects, do not approve or override, do not create active
+UI, do not create frontend or desktop implementation, do not generate
+readiness-to-trade, do not expose broker controls, and do not execute trades.
+
+## Prompt 78 Research Artifact Index API Contract Skeleton
+
+Prompt 78 adds these read-only Research Artifact Index API contract skeleton endpoints:
+
+- `/research-artifact-index-api/health`
+- `/research-artifact-index-api/contracts`
+- `/research-artifact-index-api/unavailable-template`
+- `/research-artifact-index-api/response-placeholder`
+- `/research-artifact-index-api/reference-placeholder`
+
+These endpoints are GET-only/read-only and unavailable-by-default. They do not
+expose secrets, do not ingest/store artifacts, do not upload/download files,
+do not preview files, do not create persistent index writes, do not create
+database tables or migrations, do not run indexing, do not search, do not
+rank, do not retrieve, do not generate embeddings, do not use a vector store,
+do not parse papers, do not parse PDFs, do not ingest arXiv records, do not
+run LLM paper analysis, do not generate strategies, do not generate backtests,
+do not optimize, do not generate recommendations, do not generate action
+states, do not compute confidence, do not generate DecisionObjects, do not
+approve or override, do not create active UI, do not generate readiness-to-
+trade, do not expose broker controls, and do not execute trades.
+
+There are no POST endpoints, no upload/download endpoints, no preview
+endpoints, no ingestion endpoints, no storage endpoints, no indexing
+endpoints, no search endpoints, no ranking endpoints, no embedding endpoints,
+no vector-store endpoints, no retrieval endpoints, no parse endpoints, no
+strategy endpoints, no backtest endpoints, no recommendation endpoints, and no
+execution endpoints for Research Artifact Index API.
+
+## Prompt 79 Research Artifact Index Display Contract Skeleton
+
+Prompt 79 adds these read-only Research Artifact Index Display contract skeleton endpoints:
+
+- `/research-artifact-index-display/health`
+- `/research-artifact-index-display/contracts`
+- `/research-artifact-index-display/unavailable-template`
+- `/research-artifact-index-display/placeholder-card`
+- `/research-artifact-index-display/placeholder-reference`
+- `/research-artifact-index-display/placeholder-tag`
+- `/research-artifact-index-display/placeholder-provenance`
+- `/research-artifact-index-display/placeholder-lifecycle`
+
+These endpoints are GET-only/read-only and unavailable-by-default. They do not
+expose secrets, do not create active UI, do not create frontend or desktop
+implementation, do not ingest/store artifacts, do not upload/download files,
+do not preview files, do not create persistent index writes, do not create
+database tables or migrations, do not run indexing, do not search, do not
+rank, do not retrieve, do not generate embeddings, do not use a vector store,
+do not parse papers, do not parse PDFs, do not ingest arXiv records, do not
+run LLM paper analysis, do not generate strategies, do not generate backtests,
+do not optimize, do not generate recommendations, do not generate action
+states, do not compute confidence, do not generate DecisionObjects, do not
+approve or override, do not generate readiness-to-trade, do not expose broker
+controls, and do not execute trades.
+
+There are no POST endpoints, no active UI endpoints, no frontend pages, no
+desktop UI endpoints, no upload/download endpoints, no preview endpoints, no
+ingestion endpoints, no storage endpoints, no indexing endpoints, no search
+endpoints, no ranking endpoints, no embedding endpoints, no vector-store
+endpoints, no retrieval endpoints, no parse endpoints, no strategy endpoints,
+no backtest endpoints, no recommendation endpoints, and no execution endpoints
+for Research Artifact Index Display.

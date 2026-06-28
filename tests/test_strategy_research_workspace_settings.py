@@ -33,7 +33,7 @@ def test_strategy_research_workspace_settings_defaults_are_safe():
 def test_safe_settings_snapshot_exposes_strategy_research_workspace_settings():
     snapshot = Settings().safe_settings_snapshot()
 
-    assert snapshot["prompt_number"] == "67"
+    assert snapshot["prompt_number"] == "107"
     assert snapshot["strategy_research_workspace_enabled"] is True
     assert snapshot["strategy_research_workspace_allow_strategy_generation"] is False
     assert snapshot["strategy_research_workspace_allow_backtesting"] is False

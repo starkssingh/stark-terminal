@@ -1,9 +1,10 @@
 # Strategy Research Workspace Milestone Readiness
 
-Prompt 67 completes Strategy Research Workspace Milestone Audit. The project
-is ready for Strategy Research Workspace System Boundary Hardening only. This
-is system-boundary-hardening readiness, not active research workspace
-readiness.
+Prompt 67 completes Strategy Research Workspace Milestone Audit. Prompt 68
+completes Strategy Research Workspace System Boundary Hardening. The project
+is ready for Strategy Research Workspace API/Display Integration Readiness
+Audit only. This is integration-readiness audit preparation, not active
+research workspace readiness.
 
 Development remains Mac mini M2 / macOS / Apple Silicon. The target desktop
 product remains Windows-native Stark Terminal.
@@ -17,6 +18,7 @@ The Strategy Research Workspace planning phase now includes:
 - Prompt 65 Strategy Research Workspace Display Contract Skeleton.
 - Prompt 66 Strategy Research Workspace Safety Boundary Audit.
 - Prompt 67 Strategy Research Workspace Milestone Audit.
+- Prompt 68 Strategy Research Workspace System Boundary Hardening.
 
 These are contract, skeleton, placeholder, unavailable, safety, readiness,
 docs, tests, and audit layers only. They are not production-ready research
@@ -49,9 +51,10 @@ and no execution APIs.
 
 ## Proposed Next Prompt
 
-Prompt 68 - Strategy Research Workspace System Boundary Hardening.
+Prompt 69 - Strategy Research Workspace API/Display Integration Readiness Audit.
 
-Prompt 68 should add Strategy Research Workspace system boundary hardening
-docs/contracts/tests only. See `docs/STRATEGY_RESEARCH_WORKSPACE_NEXT_PHASE_PLAN.md`.
+Prompt 69 should audit Strategy Research Workspace planning, API, display,
+safety, milestone, and boundary-hardening layers for API/display integration
+readiness only. See `docs/STRATEGY_RESEARCH_WORKSPACE_NEXT_PHASE_PLAN.md`.
 It must not unlock active UI, paper ingestion, paper parsing, strategy
 generation, backtesting, recommendations, broker controls, or execution APIs.

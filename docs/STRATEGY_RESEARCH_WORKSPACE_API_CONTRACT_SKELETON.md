@@ -55,5 +55,12 @@ recommendations, no confidence scoring, no DecisionObjects, no
 readiness-to-trade, no broker controls, no approvals, no overrides, and no
 execution APIs. The next allowed step is system boundary hardening only.
 
+Prompt 69 confirms API/display integration readiness only. The API skeleton
+still creates no API-to-display strategy path, no API-to-display backtest result
+path, no parsed-paper-to-display path, no recommendation-to-display path, no
+readiness-to-trade display path, no broker-control path, and no execution path.
+The next allowed step is Research Artifact Registry Planning and Guardrails
+only.
+
 Development remains Mac mini M2 / macOS / Apple Silicon. The target desktop
 product remains Windows-native Stark Terminal.

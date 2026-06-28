@@ -63,3 +63,11 @@ Prompt 67 milestone audit confirmation: the Strategy Research Workspace
 Safety Boundary Audit is now included in the completed milestone audit. The
 phase remains contract/skeleton/audit-only and is ready for system boundary
 hardening only.
+
+Prompt 68 system boundary hardening confirmation: the Strategy Research
+Workspace safety boundary now has a forbidden behavior registry, endpoint
+boundary policies, module boundary policies, cross-module invariants, and
+read-only boundary metadata endpoints. This remains boundary-hardening-only
+and does not unlock active UI, paper ingestion, paper parsing, strategy
+generation, backtesting, recommendations, broker controls, approvals,
+overrides, readiness-to-trade, or execution APIs.

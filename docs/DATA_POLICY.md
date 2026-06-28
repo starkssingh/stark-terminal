@@ -2,6 +2,168 @@
 
 Stark Terminal will use a data-provider adapter architecture. Provider-specific behavior must remain behind explicit adapters and typed contracts.
 
+## Prompt 107 Retail Decision Console Internal Preview Closure Data Policy
+
+Retail Decision Console internal preview milestone closure does not certify
+live data, recommendation, confidence, trading, broker, order, or execution
+readiness. Internal preview artifacts remain local/demo/static/unavailable
+and must not be treated as live market intelligence, validated research,
+recommendations, action states, confidence scores, active DecisionObjects,
+broker controls, order controls, or execution data.
+
+Internal preview artifacts must not be used for trading decisions. Commit/push
+after closure preserves a local internal preview milestone only, not a
+production release or trading-ready release.
+
+## Prompt 106 Retail Decision Console Internal Preview Smoke Data Policy
+
+Retail Decision Console internal preview smoke verification does not certify
+live data, recommendation, confidence, trading, broker, order, or execution
+readiness. Smoke verification may inspect local internal preview artifacts
+only and must not treat package artifacts as live market intelligence,
+validated recommendations, action states, confidence scores, active
+DecisionObjects, broker controls, order controls, or execution data.
+
+## Prompt 105 Retail Decision Console Internal Preview Package Data Policy
+
+Retail Decision Console internal preview packages must be marked demo, static,
+local-only, read-only, unavailable, not production ready, not trading ready,
+not recommendation ready, and not execution ready. Generated internal preview
+artifacts must not contain secrets, credentials, live market data,
+recommendations, action states, confidence scores, active DecisionObjects,
+broker controls, order controls, or execution data.
+
+Sharing internal preview packages does not imply production readiness, trading
+readiness, recommendation readiness, confidence readiness, DecisionObject
+readiness, broker readiness, order readiness, or execution readiness.
+
+## Prompt 104 Retail Decision Console Manual Acceptance Data Policy
+
+Retail Decision Console manual acceptance cannot certify live data,
+recommendation, strategy, confidence, DecisionObject, broker, order, or
+execution readiness. Acceptance artifacts remain local, demo/static,
+unavailable, and read-only unless explicitly promoted in a later safe release
+phase.
+
+Manual acceptance artifacts must not contain secrets, credentials, live market
+data, recommendations, action states, confidence scores, active
+DecisionObjects, broker controls, order controls, or execution data.
+
+## Prompt 103 Retail Decision Console Local QA Bundle Data Policy
+
+Retail Decision Console local QA bundles must be marked demo, static,
+local-only, read-only, and unavailable. Generated QA artifacts must not
+contain secrets, credentials, live market data, recommendations, action
+states, confidence scores, active DecisionObjects, broker controls, order
+controls, or execution data.
+
+Generated QA artifacts remain local-only unless manually shared. A QA bundle
+must not turn static shell state into market intelligence, validated
+research, a confidence report, a DecisionObject, a broker/order artifact, or
+an execution artifact.
+
+## Prompt 102 Retail Decision Console Preview Snapshot Data Policy
+
+Retail Decision Console preview snapshots must be marked demo, static, local,
+read-only, and unavailable. They must not contain secrets, credentials, live
+market data, recommendations, action states, confidence scores, active
+DecisionObjects, broker controls, order controls, or execution data.
+
+Preview snapshot export must not turn static shell state into market
+intelligence, validated research, a confidence report, a DecisionObject, or
+an execution artifact.
+
+## Prompt 101 Retail Decision Console Static Interaction Data Policy
+
+Retail Decision Console static interactions must not trigger live data,
+recommendation generation, action generation, confidence scoring,
+DecisionObject generation, broker controls, order controls, or execution.
+
+Local placeholder refresh must not fetch, infer, validate, rank, recommend, or
+transform market data. Static instrument/timeframe placeholder selection must
+remain local, demo-only, unavailable, and non-executive.
+
+## Prompt 100 Retail Decision Console Visual Layout Data Policy
+
+Retail Decision Console visual polish must not make demo/static state appear
+live, validated, actionable, or executable. All display zones must preserve
+demo/unavailable provenance and false dangerous flags.
+
+The visual layout pass must not create data-to-recommendation,
+data-to-confidence, data-to-DecisionObject, broker-control, order-button, or
+execution paths.
+
+## Prompt 99 Retail Decision Console Local Preview Data Policy
+
+Retail Decision Console local preview must not require credentials, provider
+setup, broker setup, live market data, or an API server. Preview state must
+remain demo, static, unavailable, and read-only.
+
+The preview must not treat local/static placeholders as live market
+intelligence, validated research, recommendations, action states, confidence
+scores, active DecisionObjects, broker controls, order controls, or execution
+readiness.
+
+## Prompt 98 Retail Decision Console Static State Wiring Data Policy
+
+Retail Decision Console state-to-view wiring must preserve demo/unavailable
+provenance. The UI shell and static-state view-model must not present
+demo/static placeholders as live market intelligence, validated research,
+recommendations, action states, confidence scores, active DecisionObjects,
+broker controls, order controls, or execution readiness.
+
+Prompt 98 adds no data ingestion, data-to-recommendation,
+data-to-confidence, data-to-DecisionObject, broker-control, order-button, or
+execution path.
+
+## Prompt 97 Retail Decision Console Demo Static State Data Policy
+
+Retail Decision Console demo/static state must be labeled as demo,
+static, and unavailable. It must not be treated as live market intelligence,
+real instrument data, a recommendation, an action state, a confidence score,
+an active DecisionObject, a broker control, an order control, or execution
+readiness.
+
+Any future Retail Decision Console display state must carry provenance,
+source status, data-quality status, and demo/unavailable status before it can
+move toward user-facing decision support. Prompt 97 adds no data-to-
+recommendation, data-to-confidence, data-to-DecisionObject, broker-control,
+order-button, or execution path.
+
+## Prompt 96 Retail Decision Console UI Shell Data Policy
+
+The Retail Decision Console UI shell must not present local, synthetic,
+static, or placeholder data as live market intelligence. Every visible shell
+state in Prompt 96 remains unavailable/demo/skeleton only.
+
+Any future display state must carry source, provenance, demo/unavailable
+status, and data-quality validation status before it can be treated as
+decision-support content. Prompt 96 adds no data-to-recommendation,
+data-to-confidence, data-to-DecisionObject, broker-control, order-button, or
+execution path.
+
+## Prompt 95 Retail Decision Console Data Policy
+
+Retail Decision Console cannot treat synthetic or local data as live market
+intelligence. Any future user-facing decision state must require data-quality,
+provenance, and decision validation checks before it can move beyond
+unavailable/demo/skeleton state.
+
+The Retail Decision Console cannot create a data-to-recommendation,
+data-to-confidence, data-to-DecisionObject, data-to-broker-control, or
+data-to-execution bypass. No live market-data claims are allowed in the
+Prompt 95 productization plan and UI shell boundary.
+
+## Prompt 94 Product Surface Reorientation Data Policy
+
+Product surfaces must not treat synthetic or local data as trusted live market
+intelligence. User-facing decision surfaces must remain unavailable, demo-only,
+or skeleton-only until data quality and decision validation are implemented.
+
+No product surface may create a knowledge-map-to-product-action,
+research-to-strategy, strategy-to-backtest, recommendation, confidence,
+DecisionObject, broker-control, or execution bypass.
+
 ## Rules
 
 - Do not hardcode fragile scraping as the foundation.
@@ -38,6 +200,235 @@ Stark Terminal will use a data-provider adapter architecture. Provider-specific 
 - Do not create ClickHouse tables automatically from imports, health checks, API routes, or app startup.
 - Do not let analytical warehouse outputs become trade calls.
 - Keep operational, research, and analytical stores distinct: TimescaleDB for operational time-series, DuckDB/Parquet for research lake, ClickHouse for analytical warehouse.
+
+## Prompt 93 Research Knowledge Map Phase Closure Data Policy
+
+Prompt 93 confirms these knowledge map phase-closure data rules:
+
+- No knowledge-map-to-product-action bypass rule.
+- No knowledge-map-to-strategy path.
+- No knowledge-map-to-backtest path.
+- No knowledge-map-to-recommendation path.
+- No knowledge-map-to-execution path.
+- No phase-closure bypass for active implementation, database, traversal,
+  search, ranking, retrieval, embeddings, vector store, ingestion, storage,
+  upload/download/preview, paper parsing, strategy generation, backtesting,
+  recommendations, broker controls, or execution APIs.
+- Planning/API/display placeholders remain descriptive contract metadata only.
+
+## Prompt 92 Research Knowledge Map Safety Data Policy
+
+Prompt 92 confirms these knowledge map safety audit rules:
+
+- No knowledge-map safety audit as implementation bypass rule.
+- No knowledge-map-to-strategy path.
+- No knowledge-map-to-backtest path.
+- No knowledge-map-to-recommendation path.
+- No knowledge-map-to-execution path.
+- No planning/API/display traversal/search/retrieval bypass rule.
+- No database, table, migration, persistent write, embedding, vector-store,
+  ingestion, storage, upload/download/preview, or paper-parsing bypass rule.
+- Planning/API/display placeholders remain descriptive contract metadata only.
+
+## Prompt 91 Research Knowledge Map Display Data Policy
+
+Prompt 91 confirms these knowledge map display rules:
+
+- No knowledge-map-display-to-strategy path.
+- No knowledge-map-display-to-backtest path.
+- No knowledge-map-display-to-recommendation path.
+- No knowledge-map-display-to-execution path.
+- No display-as-search/retrieval bypass rule.
+- No display-as-trusted-source rule.
+- No display active UI, frontend, desktop, database, persistent write,
+  embedding, vector-store, ingestion, storage, upload/download/preview, or
+  paper-parsing bypass rule.
+- Display placeholders remain descriptive backend contract metadata only.
+
+## Prompt 90 Research Knowledge Map API Data Policy
+
+Prompt 90 confirms these knowledge map API rules:
+
+- No knowledge-map-api-to-strategy path.
+- No knowledge-map-api-to-backtest path.
+- No knowledge-map-api-to-recommendation path.
+- No knowledge-map-api-to-execution path.
+- No API traversal/search/retrieval bypass rule.
+- No API database, persistent write, embedding, vector-store, ingestion,
+  storage, upload/download/preview, or paper-parsing bypass rule.
+- API placeholders remain descriptive contract metadata only.
+
+## Prompt 89 Research Knowledge Map Data Policy
+
+Prompt 89 confirms these knowledge map planning rules:
+
+- No knowledge-map-to-strategy path.
+- No knowledge-map-to-backtest path.
+- No knowledge-map-to-recommendation path.
+- No knowledge-map-to-execution path.
+- No knowledge map traversal/search/retrieval bypass rule.
+- No knowledge map database, persistent write, embedding, vector-store,
+  ingestion, storage, upload/download/preview, or paper-parsing bypass rule.
+- Knowledge map placeholders remain descriptive planning metadata only.
+
+## Prompt 88-B Research Metadata Graph Phase Closure Data Policy
+
+Prompt 88-B confirms these metadata graph phase-closure rules:
+
+- No metadata graph phase closure as implementation bypass rule.
+- No metadata graph phase closure as graph database, traversal, search,
+  ranking, retrieval, embedding, vector-store, ingestion, storage,
+  upload/download/preview, or active UI bypass rule.
+- No graph-to-strategy path.
+- No graph-to-backtest path.
+- No graph-to-recommendation path.
+- No graph-to-execution path.
+- Planning/API/display placeholders remain descriptive and unavailable by
+  default where applicable.
+- Research Knowledge Map Planning and Guardrails is the only next allowed
+  phase.
+
+## Prompt 87 Research Metadata Graph Safety Data Policy
+
+Prompt 87 confirms these metadata graph safety rules:
+
+- No metadata graph safety audit as implementation bypass rule.
+- No metadata graph safety audit as graph database, traversal, search,
+  ranking, retrieval, embedding, vector-store, ingestion, storage,
+  upload/download/preview, or active UI bypass rule.
+- No graph-to-strategy path.
+- No graph-to-backtest path.
+- No graph-to-recommendation path.
+- No graph-to-execution path.
+- Planning/API/display placeholders remain descriptive and unavailable by
+  default where applicable.
+
+## Prompt 86 Research Metadata Graph Display Data Policy
+
+Prompt 86 confirms these metadata graph display rules:
+
+- No graph display as implementation bypass rule.
+- No graph display as active UI, frontend, or desktop bypass rule.
+- No graph display traversal/search/retrieval bypass rule.
+- No graph display ranking or scoring bypass rule.
+- No graph display embedding/vector-store bypass rule.
+- No graph display ingestion/storage/upload/download/preview bypass rule.
+- No graph display paper parsing, PDF parsing, arXiv ingestion, or LLM paper
+  analysis.
+- No graph display as trusted source rule.
+- No graph display to strategy path.
+- No graph display to backtest path.
+- No graph display to recommendation path.
+- No graph display to execution path.
+
+## Prompt 85 Research Metadata Graph API Data Policy
+
+Prompt 85 confirms these metadata graph API rules:
+
+- No graph API as implementation bypass rule.
+- No graph API traversal/search/retrieval bypass rule.
+- No graph API ranking or scoring bypass rule.
+- No graph API embedding/vector-store bypass rule.
+- No graph API ingestion/storage/upload/download/preview bypass rule.
+- No graph API paper parsing, PDF parsing, arXiv ingestion, or LLM paper
+  analysis.
+- No graph API to strategy path.
+- No graph API to backtest path.
+- No graph API to recommendation path.
+- No graph API to execution path.
+
+## Prompt 84 Research Metadata Graph Planning Data Policy
+
+Prompt 84 confirms these metadata graph rules:
+
+- No metadata graph implementation before API, display, safety, and milestone
+  audit phases.
+- No active graph database.
+- No persistent graph writes.
+- No graph storage tables or graph migrations.
+- No graph traversal/search/retrieval bypass rule.
+- No graph ranking or scoring bypass rule.
+- No embedding/vector-store bypass rule.
+- No active graph ingestion or active graph storage.
+- No file upload/download/preview bypass rule.
+- No paper parsing, PDF parsing, arXiv ingestion, or LLM paper analysis.
+- No graph-to-strategy path.
+- No graph-to-backtest path.
+- No graph-to-recommendation path.
+- No graph-to-execution path.
+
+## Prompt 83 Research Artifact Index Integration Data Policy
+
+Prompt 83 confirms these API/display integration rules:
+
+- No API-to-display indexing/search/retrieval bypass rule.
+- No display-as-graph-implementation rule.
+- No artifact index placeholder may become a metadata graph implementation.
+- No graph database, graph traversal, graph search, graph ranking, graph
+  retrieval, embedding, vector-store, ingestion, storage, upload/download/
+  preview, parsing, strategy, backtest, recommendation, or execution path is
+  allowed before future explicit audited phases.
+- No artifact-to-strategy rule.
+- No artifact-to-backtest rule.
+- No artifact-to-recommendation rule.
+- No artifact-to-execution rule.
+
+## Prompt 81 Research Artifact Index Milestone Audit Confirmation
+
+Prompt 81 confirms these Research Artifact Index data policy rules:
+
+- No artifact-index-to-graph implementation before planning/guardrails rule:
+  Research Metadata Graph work must start with planning and guardrails only.
+- No index ingestion/storage bypass rule.
+- No index upload/download/preview bypass rule.
+- No index/search/ranking/retrieval bypass rule.
+- No embedding/vector-store bypass rule.
+- No artifact-index-to-strategy rule.
+- No artifact-index-to-backtest rule.
+- No artifact-index-to-recommendation rule.
+- No artifact-index-to-execution rule.
+- Index placeholders must not be treated as trusted real market data.
+
+## Prompt 82 Research Artifact Index Boundary Bypass Rules
+
+Prompt 82 confirms the Research Artifact Index boundary layer is a safety and
+control layer only. It must not become an implementation bypass.
+
+- No artifact index boundary bypass for active UI, frontend, or desktop.
+- No artifact index boundary bypass for indexing/search/ranking/retrieval.
+- No artifact index boundary bypass for embeddings/vector store.
+- No artifact index boundary bypass for active ingestion or persistent storage.
+- No artifact index boundary bypass for file upload/download/preview.
+- No artifact index boundary bypass for paper parsing, PDF parsing, arXiv
+  ingestion, LLM paper analysis, method extraction, or strategy extraction.
+- No artifact-index-to-strategy rule.
+- No artifact-index-to-backtest rule.
+- No artifact-index-to-recommendation rule.
+- No artifact-index-to-execution rule.
+
+## Prompt 80 Research Artifact Index Safety Audit Confirmation
+
+Prompt 80 adds these Research Artifact Index safety audit data policy rules:
+
+- No index ingestion/storage bypass rule: index placeholders must not ingest,
+  persist, or store artifact content.
+- No index upload/download/preview bypass rule: index/API/display placeholders
+  must not accept file bytes, download files, or preview file content.
+- No index/search/ranking/retrieval bypass rule: metadata, keys, references,
+  tags, provenance, lifecycle, API responses, and display placeholders must
+  not become indexing, search, ranking, retrieval, lookup, or source lookup
+  behavior.
+- No embedding/vector-store bypass rule: index records must not create
+  embeddings, vector IDs, vector databases, semantic vector search, or vector
+  store dependencies.
+- No index display preview rule: display placeholders must not render file
+  previews, indexed records, search results, ranking results, retrieval
+  results, embedding/vector displays, parsed papers, generated strategies,
+  backtest results, recommendations, broker controls, or execution controls.
+- No artifact-to-strategy rule.
+- No artifact-to-backtest rule.
+- No artifact-to-recommendation rule.
+- No artifact-to-execution rule.
 - Do not use features as trade calls.
 - Do not compute features without an explicit future prompt.
 - Feature definitions must include source reference expectations, lineage expectations, freshness/staleness metadata, and quality requirements.
@@ -1220,5 +1611,301 @@ fail-closed:
 Strategy Research Workspace milestone artifacts must not be treated as live
 market data, parsed research, generated strategies, backtest results,
 recommendations, action states, confidence scores, DecisionObjects,
+readiness-to-trade, broker controls, approvals, overrides, or execution
+controls.
+
+## Prompt 79 Research Artifact Index Display Data Policy
+
+Prompt 79 adds these Research Artifact Index Display data policy rules:
+
+- no display-as-indexing rule.
+- no display-as-search-result rule.
+- no display-as-ranking-result rule.
+- no display-as-embedding/vector-store rule.
+- no display-as-ingestion rule.
+- no display-as-file-preview rule.
+- no display-as-paper-parsing rule.
+- no display-as-strategy-output rule.
+- no display-as-backtest-result rule.
+- no display-as-recommendation rule.
+- no display-as-execution-control rule.
+
+Research Artifact Index Display card, reference, tag, provenance, lifecycle,
+badge, unavailable, safety, and health artifacts are backend display contract
+metadata only. They must not be treated as ingested content, stored content,
+indexed content, searchable content, ranked content, embedded/vectorized
+content, retrieved content, parsed paper content, trusted market data,
+generated strategy output, backtest evidence, recommendations, action states,
+confidence scores, DecisionObjects, readiness-to-trade, broker controls,
+approvals, overrides, or execution controls.
+
+## Prompt 68 Strategy Research Workspace System Boundary Hardening Policy
+
+Prompt 68 adds Strategy Research Workspace forbidden behavior registry,
+endpoint boundary policy, module boundary policy, and cross-module invariant
+contracts. These are boundary-hardening-only data policy controls and not
+active research capability.
+
+Policy rules:
+
+- no cross-module research boundary bypass.
+- no endpoint research boundary bypass.
+- no paper-to-strategy boundary bypass.
+- no strategy-to-backtest boundary bypass.
+- no research-as-recommendation boundary bypass.
+- no research-as-execution-control boundary bypass.
+- no live data display through Strategy Research Workspace placeholders.
+- no placeholder-as-strategy-output rule.
+- forbidden behavior registry policy applies to active UI, frontend
+  components, desktop components, paper ingestion, paper parsing, arXiv
+  ingestion, LLM paper analysis, strategy generation, strategy code
+  generation, signal/factor/alpha generation, backtesting, optimization,
+  recommendation generation, action generation, confidence scoring,
+  DecisionObjects, readiness-to-trade, broker controls, approvals, overrides,
+  provider SDKs, scraping, external calls, secrets, and execution APIs.
+
+Strategy Research Workspace boundary artifacts must not be treated as live
+market data, parsed research, generated strategies, backtest results,
+recommendations, action states, confidence scores, DecisionObjects,
+readiness-to-trade, broker controls, approvals, overrides, or execution
+controls.
+
+## Prompt 69 Strategy Research Workspace API Display Integration Policy
+
+Prompt 69 confirms the Strategy Research Workspace integration data policy:
+
+- no API-to-display strategy path rule.
+- no API-to-display backtest result path rule.
+- no parsed-paper-to-display path rule.
+- no Research Artifact Registry implementation before planning/guardrails rule.
+- no active artifact ingestion/storage before planning/guardrails rule.
+- no research-as-recommendation rule.
+- no research-as-execution-control rule.
+- no live data display rule.
+- no placeholder-as-strategy-output rule.
+
+Strategy Research Workspace integration artifacts must not be treated as live
+market data, parsed research, generated strategies, backtest results,
+recommendations, action states, confidence scores, DecisionObjects,
+readiness-to-trade, broker controls, approvals, overrides, or execution
+controls. Research Artifact Registry is ready for planning and guardrails only.
+
+## Prompt 70 Research Artifact Registry Planning Policy
+
+Prompt 70 adds these data policy rules:
+
+- no active artifact ingestion/storage rule.
+- no persistent artifact registry writes rule.
+- no artifact reference fetch rule.
+- no file upload/download rule.
+- no paper parsing rule.
+- no PDF parsing, arXiv ingestion, or LLM paper analysis rule.
+- no placeholder-as-validated-artifact rule.
+- no artifact-as-strategy-output rule.
+- no artifact-as-backtest-result rule.
+- no artifact-as-recommendation rule.
+- no artifact-as-execution-control rule.
+
+Research Artifact Registry metadata, references, provenance records, and
+lifecycle records are placeholders only. They cannot claim trusted real market
+data, validated strategies, backtest evidence, recommendations,
+readiness-to-trade, broker controls, approvals, overrides, or execution
+capability.
+## Prompt 71 Research Artifact Registry API Contract Policy
+
+Prompt 71 adds these API data policy rules:
+
+- no API artifact ingestion/storage rule.
+- no API persistent artifact registry writes rule.
+- no API file upload/download rule.
+- no API artifact reference fetch rule.
+- no API paper parsing rule.
+- no API PDF parsing, arXiv ingestion, or LLM paper analysis rule.
+- no API placeholder-as-validated-artifact rule.
+- no API artifact-as-strategy-output rule.
+- no API artifact-as-backtest-result rule.
+- no API artifact-as-recommendation rule.
+- no API artifact-as-execution-control rule.
+
+Research Artifact Registry API requests, responses, references, provenance
+references, lifecycle references, and unavailable responses are placeholders
+only. They cannot claim trusted real market data, validated artifacts,
+validated strategies, backtest evidence, recommendations, readiness-to-trade,
+broker controls, approvals, overrides, or execution capability.
+
+This API contract layer performs no external calls, reads no market data,
+reads no files, writes no files, publishes no events, creates no frontend
+components, creates no desktop components, generates no recommendations,
+scores no confidence, generates no DecisionObjects, exposes no broker
+controls, and creates no execution APIs.
+
+## Prompt 72 Research Artifact Registry Display Contract Policy
+
+Prompt 72 adds these display data policy rules:
+
+- no display-as-ingestion rule.
+- no display-as-file-preview rule.
+- no display-as-paper-parsing rule.
+- no display-as-strategy-output rule.
+- no display-as-backtest-result rule.
+- no display-as-recommendation rule.
+- no display-as-execution-control rule.
+- no display-as-validated-artifact rule.
+
+Research Artifact Registry display metadata, artifact card placeholders,
+reference display placeholders, provenance display placeholders, lifecycle
+display placeholders, lifecycle badges, safety badges, and unavailable display
+responses are placeholders only. They cannot claim trusted real market data,
+validated artifacts, validated strategies, backtest evidence,
+recommendations, readiness-to-trade, broker controls, approvals, overrides, or
+execution capability.
+
+This display contract layer performs no external calls, reads no market data,
+reads no files, writes no files, stores no artifacts, previews no files,
+publishes no events, creates no frontend components, creates no desktop
+components, creates no active UI, parses no papers, parses no PDFs, ingests no
+arXiv records, runs no LLM analysis, generates no strategies, runs no
+backtests, generates no recommendations, scores no confidence, generates no
+DecisionObjects, exposes no broker controls, and creates no execution APIs.
+
+## Prompt 73 Research Artifact Registry Safety Audit Policy
+
+Prompt 73 confirms these Research Artifact Registry data policy rules:
+
+- no artifact ingestion/storage bypass rule.
+- no artifact persistent storage bypass rule.
+- no artifact upload/download bypass rule.
+- no artifact reference fetch rule.
+- no artifact display preview rule.
+- no artifact-to-strategy rule.
+- no artifact-to-backtest rule.
+- no artifact-to-recommendation rule.
+- no artifact-to-execution rule.
+
+Research Artifact Registry planning, API, and display placeholders must not be
+treated as ingested content, stored content, parsed paper content, trusted
+market data, generated strategy output, backtest evidence, recommendations,
+action states, confidence scores, DecisionObjects, readiness-to-trade, broker
+controls, approvals, overrides, or execution controls.
+
+## Prompt 74 Research Artifact Registry Milestone Audit Policy
+
+Prompt 74 confirms these Research Artifact Registry data policy rules:
+
+- no artifact-to-index implementation before planning/guardrails rule.
+- no artifact ingestion/storage bypass rule.
+- no artifact upload/download bypass rule.
+- no artifact reference fetch rule.
+- no artifact display preview rule.
+- no artifact-to-strategy rule.
+- no artifact-to-backtest rule.
+- no artifact-to-recommendation rule.
+- no artifact-to-execution rule.
+
+Research Artifact Registry planning, API, display, and safety audit artifacts
+remain milestone-audited placeholders only. They must not be treated as
+ingested content, stored content, parsed paper content, trusted market data,
+generated strategy output, backtest evidence, recommendations, action states,
+confidence scores, DecisionObjects, readiness-to-trade, broker controls,
+approvals, overrides, or execution controls.
+
+## Prompt 75 Research Artifact Registry Boundary Hardening Policy
+
+Prompt 75 adds these artifact registry boundary policy rules:
+
+- no cross-module artifact registry boundary bypass rule.
+- no endpoint artifact registry boundary bypass rule.
+- no artifact ingestion/storage boundary bypass rule.
+- no artifact upload/download boundary bypass rule.
+- no artifact file preview boundary bypass rule.
+- no artifact-to-strategy boundary bypass rule.
+- no artifact-to-backtest boundary bypass rule.
+- forbidden behavior registry policy.
+
+Research Artifact Registry forbidden behavior registry, endpoint policies,
+module policies, and invariants are boundary metadata only. They must not be
+treated as active ingestion, persistent storage, upload/download, file
+preview, parsed paper content, trusted market data, generated strategy output,
+backtest evidence, recommendations, action states, confidence scores,
+DecisionObjects, readiness-to-trade, broker controls, approvals, overrides, or
+execution controls.
+
+## Prompt 76 Research Artifact Registry Integration Readiness Policy
+
+Prompt 76 adds these artifact registry integration-readiness policy rules:
+
+- no API-to-display artifact implementation path rule.
+- no API-to-display file preview path rule.
+- no API-to-display paper parsing path rule.
+- no artifact-to-index implementation before planning/guardrails rule.
+- no artifact-as-strategy output rule.
+- no artifact-as-backtest result rule.
+- no artifact-as-recommendation rule.
+- no artifact-as-execution-control rule.
+
+Research Artifact Registry planning, API, display, and boundary artifacts
+remain placeholders and metadata only. They must not be treated as ingested
+content, stored content, indexed content, searchable content, ranked content,
+embedded/vectorized content, parsed paper content, trusted market data,
+generated strategy output, backtest evidence, recommendations, action states,
+confidence scores, DecisionObjects, readiness-to-trade, broker controls,
+approvals, overrides, or execution controls.
+
+## Prompt 77 Research Artifact Index Planning Data Policy
+
+Prompt 77 adds these Research Artifact Index data policy rules:
+
+- no index-as-ingestion rule.
+- no index-as-storage rule.
+- no index-as-search rule.
+- no index-as-ranking rule.
+- no index-as-embedding/vector-store rule.
+- no artifact index reference fetch rule.
+- no artifact-to-strategy rule.
+- no artifact-to-backtest rule.
+- no artifact-to-recommendation rule.
+- no artifact-to-execution rule.
+
+Research Artifact Index metadata, key, reference, tag, provenance, lifecycle,
+forbidden-interaction, safety, readiness, and endpoint artifacts are planning
+metadata only. They must not be treated as ingested content, stored content,
+indexed content, searchable content, ranked content, embedded/vectorized
+content, retrieved content, parsed paper content, trusted market data,
+generated strategy output, backtest evidence, recommendations, action states,
+confidence scores, DecisionObjects, readiness-to-trade, broker controls,
+approvals, overrides, or execution controls.
+
+## Interlude Active Decision Architecture Target Data Policy
+
+Future market data must pass data quality and provenance layers before any
+future decision candidate use. This requirement does not enable market-data
+ingestion, provider clients, external calls, timeseries writes, feature
+computation, recommendation generation, confidence scoring, DecisionObject
+generation, paper trading, broker controls, or execution APIs.
+
+No direct market-data-to-trade path is allowed. No direct signal-to-trade path
+is allowed. Decision candidate is not a trade.
+
+## Prompt 78 Research Artifact Index API Data Policy
+
+Prompt 78 adds these Research Artifact Index API data policy rules:
+
+- no API index-as-ingestion rule.
+- no API index-as-storage rule.
+- no API index-as-search rule.
+- no API index-as-ranking rule.
+- no API index-as-embedding/vector-store rule.
+- no API artifact index reference fetch rule.
+- no API artifact-to-strategy rule.
+- no API artifact-to-backtest rule.
+- no API artifact-to-recommendation rule.
+- no API artifact-to-execution rule.
+
+Research Artifact Index API request, response, reference, unavailable, safety,
+and health artifacts are read-only API contract metadata only. They must not
+be treated as ingested content, stored content, indexed content, searchable
+content, ranked content, embedded/vectorized content, retrieved content,
+parsed paper content, trusted market data, generated strategy output, backtest
+evidence, recommendations, action states, confidence scores, DecisionObjects,
 readiness-to-trade, broker controls, approvals, overrides, or execution
 controls.

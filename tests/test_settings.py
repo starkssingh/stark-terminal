@@ -9,7 +9,7 @@ def test_settings_defaults_load() -> None:
 
     assert settings.app_name == "Stark Terminal"
     assert settings.app_version == "0.1.0"
-    assert settings.prompt_number == "67"
+    assert settings.prompt_number == "107"
     assert settings.api_port == 8000
     assert settings.feature_store_mode == "custom"
     assert settings.market_data_batch_persistence_enabled is True

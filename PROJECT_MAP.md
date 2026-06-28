@@ -1,5 +1,921 @@
 # Project Map
 
+## Prompt 107 Retail Decision Console Internal Preview Milestone Closure
+
+Prompt 107 closes the Retail Decision Console internal preview milestone. The
+milestone is safe for internal local preview only and remains static/demo,
+unavailable, local-only, read-only, not production ready, not trading ready,
+not recommendation ready, and not execution ready. It adds no live market
+data, recommendations, action generation, confidence scoring, active
+DecisionObject generation, broker controls, order buttons, execution APIs,
+provider calls, broker calls, production packaging, signed binaries, cloud
+deployment, or Windows installer.
+
+Milestone inventory now includes:
+
+- Retail Decision Console desktop shell module
+- demo/static state, layout, interaction, snapshot export, QA bundle,
+  internal preview package, and smoke verification modules
+- preview, QA bundle, internal preview package, and smoke verification scripts
+- local preview, manual smoke test, local QA bundle, manual acceptance, and
+  internal preview package runbooks
+- internal review notes template
+- grouped phase and boundary tests
+
+Grouped tests:
+
+- `tests/phases/test_retail_decision_console_internal_preview_milestone_closure.py`
+- `tests/boundaries/test_retail_decision_console_internal_preview_milestone_boundaries.py`
+
+Next intended phase:
+
+- Commit/push, then Prompt 108 - Retail Decision Console Post-Preview UX
+  Backlog and Next Product Phase Selection
+
+## Prompt 106 Retail Decision Console Internal Preview Package Smoke Verification
+
+Prompt 106 adds local smoke verification for the Retail Decision Console
+internal preview package. It verifies that the package builds locally, required
+artifacts exist, the manifest is safe, README/runbooks/checklists/templates are
+included, snapshot artifacts and no-GUI output are present, safety summary is
+present, and no artifact implies production, trading, recommendation,
+confidence, DecisionObject, broker, order, or execution readiness.
+
+Core module:
+
+- `packages/core/stark_terminal_core/retail_decision_console/internal_preview_smoke.py`
+
+Script:
+
+- `scripts/smoke_verify_retail_decision_console_internal_preview.py`
+
+Grouped tests:
+
+- `tests/phases/test_retail_decision_console_internal_preview_smoke_phase.py`
+- `tests/boundaries/test_retail_decision_console_internal_preview_smoke_boundaries.py`
+- `tests/boundaries/test_smoke_verify_retail_decision_console_internal_preview_script.py`
+
+Next intended phase:
+
+- Prompt 107 - Retail Decision Console Internal Preview Milestone Closure
+
+## Prompt 105 Retail Decision Console Shareable Internal Preview Package
+
+Prompt 105 adds a safe shareable internal preview package for the current
+Retail Decision Console static/demo product surface. It collects the preview
+runbook, manual smoke test, local QA bundle runbook, manual acceptance
+checklist, preview snapshot artifacts, no-GUI summary, safety summary, README,
+and internal review notes into a local output directory. It adds no live
+market data, recommendations, action generation, confidence scoring, active
+DecisionObject generation, broker controls, order buttons, execution APIs,
+provider calls, broker calls, production packaging, signed binaries, cloud
+deployment, or Windows installer.
+
+Core module:
+
+- `packages/core/stark_terminal_core/retail_decision_console/internal_preview_package.py`
+
+Script:
+
+- `scripts/build_retail_decision_console_internal_preview.py`
+
+Runbook and template:
+
+- `docs/runbooks/retail_decision_console_internal_preview_package.md`
+- `docs/templates/retail_decision_console_internal_review_notes.md`
+
+Grouped tests:
+
+- `tests/phases/test_retail_decision_console_internal_preview_package_phase.py`
+- `tests/boundaries/test_retail_decision_console_internal_preview_package_boundaries.py`
+- `tests/boundaries/test_build_retail_decision_console_internal_preview_script.py`
+
+Next intended phase:
+
+- Prompt 106 - Retail Decision Console Internal Preview Package Smoke Verification
+
+## Prompt 104 Retail Decision Console Manual Acceptance Checklist
+
+Prompt 104 adds a manual acceptance checklist for the current Retail Decision
+Console static/demo product surface. It defines preflight, preview, QA bundle,
+visual, safety, snapshot, failure, and verdict checks for local internal
+review only. It adds no live market data, recommendations, action generation,
+confidence scoring, active DecisionObject generation, broker controls, order
+buttons, execution APIs, provider calls, broker calls, production packaging,
+or Windows installer.
+
+Runbook:
+
+- `docs/runbooks/retail_decision_console_manual_acceptance_checklist.md`
+
+Grouped tests:
+
+- `tests/phases/test_retail_decision_console_manual_acceptance_phase.py`
+- `tests/boundaries/test_retail_decision_console_manual_acceptance_boundaries.py`
+
+Next intended phase:
+
+- Prompt 105 - Retail Decision Console Shareable Internal Preview Package
+
+## Prompt 103 Retail Decision Console Local QA Bundle
+
+Prompt 103 adds safe local QA bundle generation for the Retail Decision
+Console static/demo shell. It collects the preview snapshot, no-GUI preview
+summary, safety summary, manifest, and runbook copies into a local output
+directory. It adds no live market data, recommendations, action generation,
+confidence scoring, active DecisionObject generation, broker controls, order
+buttons, execution APIs, provider calls, broker calls, production packaging,
+or Windows installer.
+
+Core module:
+
+- `packages/core/stark_terminal_core/retail_decision_console/qa_bundle.py`
+
+Script:
+
+- `scripts/build_retail_decision_console_qa_bundle.py`
+
+Runbook:
+
+- `docs/runbooks/retail_decision_console_local_qa_bundle.md`
+
+Grouped tests:
+
+- `tests/phases/test_retail_decision_console_local_qa_bundle_phase.py`
+- `tests/boundaries/test_retail_decision_console_local_qa_bundle_boundaries.py`
+- `tests/boundaries/test_build_retail_decision_console_qa_bundle_script.py`
+
+Next intended phase:
+
+- Prompt 104 - Retail Decision Console Manual Acceptance Checklist
+
+## Prompt 102 Retail Decision Console Preview Snapshot Export
+
+Prompt 102 adds safe local-only preview snapshot export to the Retail
+Decision Console static/demo shell. It supports stdout snapshots and local
+JSON, Markdown, and text export from the static shell view-model. It adds no
+live market data, recommendations, action generation, confidence scoring,
+active DecisionObject generation, broker controls, order buttons, execution
+APIs, provider calls, broker calls, production packaging, screenshot
+pipeline, or Windows installer.
+
+Core module:
+
+- `packages/core/stark_terminal_core/retail_decision_console/snapshot_export.py`
+
+Updated product surface files:
+
+- `packages/core/stark_terminal_core/retail_decision_console/__init__.py`
+- `packages/core/stark_terminal_core/retail_decision_console/init.py`
+- `packages/core/stark_terminal_core/retail_decision_console/README.md`
+- `scripts/preview_retail_decision_console.py`
+
+Runbooks:
+
+- `docs/runbooks/retail_decision_console_local_preview.md`
+- `docs/runbooks/retail_decision_console_manual_smoke_test.md`
+
+Grouped tests:
+
+- `tests/phases/test_retail_decision_console_preview_snapshot_phase.py`
+- `tests/boundaries/test_retail_decision_console_preview_snapshot_boundaries.py`
+- `tests/boundaries/test_preview_retail_decision_console_snapshot_script.py`
+
+Next intended phase:
+
+- Prompt 103 - Retail Decision Console Local QA Bundle
+
+## Prompt 101 Retail Decision Console Static Interaction Placeholders
+
+Prompt 101 adds safe static interaction placeholders to the Retail Decision
+Console static/demo shell. It adds local-only interaction descriptors,
+view-model exposure, desktop placeholder display, and clearer local preview
+output. It adds no live market data, recommendations, action generation,
+confidence scoring, active DecisionObject generation, broker controls, order
+buttons, execution APIs, provider calls, broker calls, production packaging,
+or Windows installer.
+
+Core module:
+
+- `packages/core/stark_terminal_core/retail_decision_console/interactions.py`
+
+Updated product surface files:
+
+- `packages/core/stark_terminal_core/retail_decision_console/state_view_model.py`
+- `apps/desktop/stark_terminal_desktop/retail_decision_console.py`
+- `scripts/preview_retail_decision_console.py`
+
+Grouped tests:
+
+- `tests/phases/test_retail_decision_console_static_interactions_phase.py`
+- `tests/boundaries/test_retail_decision_console_static_interactions_boundaries.py`
+- `tests/boundaries/test_desktop_retail_decision_console_static_interactions.py`
+
+Next intended phase:
+
+- Prompt 102 - Retail Decision Console Preview Snapshot Export
+
+## Prompt 100 Retail Decision Console Visual Polish and Section Layout Pass
+
+Prompt 100 improves the Retail Decision Console static/demo shell layout with
+visual layout descriptors, layout zones, section grouping, card ordering
+metadata, and clearer local preview output. It adds no live market data,
+recommendations, action generation, confidence scoring, active DecisionObject
+generation, broker controls, order buttons, execution APIs, provider calls,
+broker calls, production packaging, or Windows installer.
+
+Core module:
+
+- `packages/core/stark_terminal_core/retail_decision_console/layout.py`
+
+Updated product surface files:
+
+- `packages/core/stark_terminal_core/retail_decision_console/state_view_model.py`
+- `apps/desktop/stark_terminal_desktop/retail_decision_console.py`
+- `scripts/preview_retail_decision_console.py`
+
+Grouped tests:
+
+- `tests/phases/test_retail_decision_console_visual_layout_phase.py`
+- `tests/boundaries/test_retail_decision_console_visual_layout_boundaries.py`
+- `tests/boundaries/test_desktop_retail_decision_console_visual_layout.py`
+
+Next intended phase:
+
+- Prompt 101 - Retail Decision Console Static Interaction Placeholders
+
+## Prompt 99 Retail Decision Console Local Preview Runbook and Manual Smoke Test
+
+Prompt 99 makes the Retail Decision Console static/demo shell safely
+previewable locally. It adds runbooks and a helper script only. It adds no
+live market data, recommendations, action generation, confidence scoring,
+active DecisionObject generation, broker controls, order buttons, execution
+APIs, provider calls, broker calls, production packaging, or Windows
+installer.
+
+Runbooks:
+
+- `docs/runbooks/retail_decision_console_local_preview.md`
+- `docs/runbooks/retail_decision_console_manual_smoke_test.md`
+
+Preview helper:
+
+- `scripts/preview_retail_decision_console.py`
+
+Grouped tests:
+
+- `tests/phases/test_retail_decision_console_local_preview_phase.py`
+- `tests/boundaries/test_retail_decision_console_local_preview_boundaries.py`
+- `tests/boundaries/test_preview_retail_decision_console_script.py`
+
+Next intended phase:
+
+- Prompt 100 - Retail Decision Console Visual Polish and Section Layout Pass
+
+## Prompt 98 Retail Decision Console Static State Wiring into Desktop Shell
+
+Prompt 98 wires the Retail Decision Console demo/static state into a safe
+desktop shell view-model and fallback/window rendering path. The wiring is
+local/static, demo-only, unavailable, and read-only. It adds no live market
+data, recommendations, action generation, confidence scoring, active
+DecisionObject generation, broker controls, order buttons, or execution APIs.
+
+Core modules:
+
+- `packages/core/stark_terminal_core/retail_decision_console/state_view_model.py`
+- `packages/core/stark_terminal_core/retail_decision_console/ui_shell.py`
+- `packages/core/stark_terminal_core/retail_decision_console/ui_descriptors.py`
+- `packages/core/stark_terminal_core/retail_decision_console/static_state.py`
+- `packages/core/stark_terminal_core/retail_decision_console/demo_state.py`
+
+Desktop module:
+
+- `apps/desktop/stark_terminal_desktop/retail_decision_console.py`
+
+API endpoint:
+
+- GET `/retail-decision-console/static-state-view-model`
+
+Grouped tests:
+
+- `tests/phases/test_retail_decision_console_static_state_wiring_phase.py`
+- `tests/boundaries/test_retail_decision_console_static_state_wiring_boundaries.py`
+- `tests/boundaries/test_desktop_retail_decision_console_static_state_wiring.py`
+- `tests/boundaries/test_api_retail_decision_console_static_state_wiring.py`
+
+Next intended phase:
+
+- Prompt 99 - Retail Decision Console Local Preview Runbook and Manual Smoke Test
+
+## Prompt 97 Retail Decision Console Demo Data Contract and Static State Model
+
+Prompt 97 adds deterministic Retail Decision Console demo/static state
+contracts. The state is local/static, demo-only, unavailable, and read-only.
+It adds no live market data, recommendations, action generation, confidence
+scoring, active DecisionObject generation, broker controls, order buttons, or
+execution APIs.
+
+Core modules:
+
+- `packages/core/stark_terminal_core/retail_decision_console/static_state.py`
+- `packages/core/stark_terminal_core/retail_decision_console/demo_state.py`
+- `packages/core/stark_terminal_core/retail_decision_console/state_safety.py`
+
+API endpoint:
+
+- GET `/retail-decision-console/demo-state`
+
+Grouped tests:
+
+- `tests/phases/test_retail_decision_console_demo_state_phase.py`
+- `tests/boundaries/test_retail_decision_console_demo_state_boundaries.py`
+- `tests/boundaries/test_api_retail_decision_console_demo_state.py`
+
+Next intended phase:
+
+- Prompt 98 - Retail Decision Console Static State Wiring into Desktop Shell
+
+## Prompt 96 Retail Decision Console UI Shell Skeleton
+
+Prompt 96 adds the first safe Retail Decision Console desktop shell skeleton.
+It is static/skeleton-only and does not add live decisions, recommendations,
+confidence scoring, active DecisionObject generation, live market-data claims,
+broker controls, order buttons, or execution APIs.
+
+Core modules:
+
+- `packages/core/stark_terminal_core/retail_decision_console/ui_descriptors.py`
+- `packages/core/stark_terminal_core/retail_decision_console/ui_shell.py`
+
+Desktop module:
+
+- `apps/desktop/stark_terminal_desktop/retail_decision_console.py`
+
+Canonical phase doc:
+
+- `docs/phases/retail_decision_console.md`
+
+Grouped tests:
+
+- `tests/phases/test_retail_decision_console_ui_shell_phase.py`
+- `tests/boundaries/test_retail_decision_console_ui_shell_boundaries.py`
+- `tests/boundaries/test_desktop_retail_decision_console_shell.py`
+
+Next intended phase:
+
+- Prompt 97 - Retail Decision Console Demo Data Contract and Static State Model
+
+## Prompt 95 Retail Decision Console Productization Plan and UI Shell Boundary
+
+Prompt 95 starts Retail Decision Console productization with product surface
+contracts, UI shell boundary contracts, placeholders, unavailable/readiness
+metadata, and GET-only read-only metadata endpoints. It adds no live decision,
+recommendation, confidence, active DecisionObject, broker, order button, live
+market-data, or execution implementation.
+
+Package:
+
+- `packages/core/stark_terminal_core/retail_decision_console/`
+
+API route:
+
+- `apps/api/stark_terminal_api/routes/retail_decision_console.py`
+
+Canonical phase doc:
+
+- `docs/phases/retail_decision_console.md`
+
+Grouped tests:
+
+- `tests/phases/test_retail_decision_console_phase.py`
+- `tests/boundaries/test_retail_decision_console_boundaries.py`
+- `tests/boundaries/test_api_retail_decision_console.py`
+
+Next intended phase:
+
+- Prompt 96 - Retail Decision Console UI Shell Skeleton
+
+No active UI, live decisions, recommendations, confidence scoring, active
+DecisionObject generation, live market-data display, broker controls, order
+buttons, or execution APIs are added by Prompt 95.
+
+## Prompt 94 Product Surface Reorientation and Development Plan
+
+Prompt 94 reorients Stark Terminal from research-contract phases toward the
+next concrete product surface. It recommends Retail Decision Console /
+Decision Desk productization as Prompt 95 and adds no product runtime
+capability.
+
+Docs:
+
+- `docs/phases/product_surface_reorientation.md`
+
+Grouped tests:
+
+- `tests/phases/test_product_surface_reorientation_phase.py`
+- `tests/boundaries/test_product_surface_reorientation_boundaries.py`
+
+Next intended phase:
+
+- Prompt 95 - Retail Decision Console Productization Plan and UI Shell
+  Boundary
+
+No route, package, active UI, broker controls, active recommendations,
+confidence scoring, active DecisionObject generation, live market-data
+ingestion, or execution APIs are added by Prompt 94.
+
+## Prompt 93 Research Knowledge Map Phase Closure
+
+Prompt 93 closes the Research Knowledge Map phase in the canonical phase doc.
+It consolidates planning/guardrails, API contract skeleton, display contract
+skeleton, safety boundary audit, and phase closure without adding product
+capability.
+
+Docs:
+
+- `docs/phases/research_knowledge_map.md`
+
+Grouped tests:
+
+- `tests/phases/test_research_knowledge_map_phase_closure.py`
+
+No active knowledge map implementation exists. No active UI, frontend,
+desktop, database, tables, migrations, persistent writes, traversal, query,
+search, ranking, retrieval, embeddings/vector store, ingestion/storage,
+upload/download/preview, paper parsing, strategy generation, backtesting,
+recommendations, broker controls, readiness-to-trade, or execution APIs exist.
+
+## Prompt 92 Research Knowledge Map Safety Boundary Audit
+
+Prompt 92 performs the Research Knowledge Map Safety Boundary Audit inside the
+canonical phase doc. It audits the planning/guardrails package, API contract
+skeleton package, display contract skeleton package, and GET-only route
+families. It does not add active knowledge map implementation, active UI,
+frontend components, desktop components, database, tables, migrations,
+persistent writes, traversal, query, search, ranking, retrieval, embeddings/
+vector store, ingestion/storage, upload/download/preview, paper parsing,
+strategy generation, backtesting, recommendations, broker controls,
+readiness-to-trade, or execution APIs.
+
+Docs:
+
+- `docs/phases/research_knowledge_map.md`
+
+Grouped tests:
+
+- `tests/phases/test_research_knowledge_map_safety_phase.py`
+- `tests/boundaries/test_research_knowledge_map_safety_boundaries.py`
+- `tests/boundaries/test_api_research_knowledge_map_safety_surface.py`
+
+No active UI, frontend, desktop, database, search, retrieval, vector-store,
+broker, or execution implementation exists.
+
+## Prompt 91 Research Knowledge Map Display Contract Skeleton
+
+Prompt 91 adds Research Knowledge Map Display Contract Skeleton under the
+phase-based documentation/test policy. It does not add active knowledge map
+implementation, active UI, frontend components, desktop components, database,
+persistent writes, traversal, query, search, ranking, retrieval, embeddings/
+vector store, ingestion/storage, upload/download/preview, paper parsing,
+strategy generation, backtesting, recommendations, broker controls,
+readiness-to-trade, or execution APIs.
+
+Package:
+
+- `packages/core/stark_terminal_core/research_knowledge_map_display/`
+
+API route:
+
+- `apps/api/stark_terminal_api/routes/research_knowledge_map_display.py`
+
+Docs:
+
+- `docs/phases/research_knowledge_map.md`
+
+Grouped tests:
+
+- `tests/phases/test_research_knowledge_map_display_phase.py`
+- `tests/boundaries/test_research_knowledge_map_display_boundaries.py`
+- `tests/boundaries/test_api_research_knowledge_map_display.py`
+
+No active UI, frontend, desktop, database, search, retrieval, vector-store,
+broker, or execution implementation exists.
+
+## Prompt 90 Research Knowledge Map API Contract Skeleton
+
+Prompt 90 adds Research Knowledge Map API Contract Skeleton under the
+phase-based documentation/test policy. It does not add active knowledge map
+implementation, database, persistent writes, traversal, query, search,
+ranking, retrieval, embeddings/vector store, active UI, ingestion/storage,
+upload/download/preview, paper parsing, strategy generation, backtesting,
+recommendations, broker controls, readiness-to-trade, or execution APIs.
+
+Package:
+
+- `packages/core/stark_terminal_core/research_knowledge_map_api/`
+
+API route:
+
+- `apps/api/stark_terminal_api/routes/research_knowledge_map_api.py`
+
+Docs:
+
+- `docs/phases/research_knowledge_map.md`
+
+Grouped tests:
+
+- `tests/phases/test_research_knowledge_map_api_phase.py`
+- `tests/boundaries/test_research_knowledge_map_api_boundaries.py`
+- `tests/boundaries/test_api_research_knowledge_map_contract.py`
+
+No database, search, retrieval, vector-store, frontend, desktop, broker, or
+execution implementation exists.
+
+## Prompt 89 Research Knowledge Map Planning and Guardrails
+
+Prompt 89 adds Research Knowledge Map planning and guardrails under the
+phase-based documentation/test policy. It does not add active knowledge map
+implementation, database, persistent writes, traversal, query, search,
+ranking, retrieval, embeddings/vector store, active UI, ingestion/storage,
+upload/download/preview, paper parsing, strategy generation, backtesting,
+recommendations, broker controls, readiness-to-trade, or execution APIs.
+
+Package:
+
+- `packages/core/stark_terminal_core/research_knowledge_map/`
+
+API route:
+
+- `apps/api/stark_terminal_api/routes/research_knowledge_map.py`
+
+Docs:
+
+- `docs/phases/research_knowledge_map.md`
+
+Grouped tests:
+
+- `tests/phases/test_research_knowledge_map_phase.py`
+- `tests/boundaries/test_research_knowledge_map_boundaries.py`
+- `tests/boundaries/test_api_research_knowledge_map.py`
+
+No database, search, retrieval, vector-store, frontend, desktop, broker, or
+execution implementation exists.
+
+## Prompt 88-B Research Metadata Graph Phase Closure
+
+Prompt 88-B closes the Research Metadata Graph phase in the canonical phase
+doc and transitions future work to Research Knowledge Map planning. It does
+not add active UI, frontend/desktop implementation, graph implementation,
+graph database, graph storage, graph traversal, graph query, graph search,
+graph ranking, graph retrieval, embeddings/vector store, active ingestion/
+storage, upload/download/preview, paper parsing, strategy generation,
+backtesting, recommendations, broker controls, readiness-to-trade, or
+execution APIs.
+
+Docs:
+
+- `docs/phases/research_metadata_graph.md`
+
+Grouped tests:
+
+- `tests/phases/test_research_metadata_graph_phase_closure.py`
+
+No active UI, frontend, desktop, graph database, storage, search, retrieval,
+or vector-store implementation exists. No broker or execution implementation
+exists. The next phase is Research Knowledge Map Planning and Guardrails only.
+
+## Prompt 87 Research Metadata Graph Safety Boundary Audit
+
+Prompt 87 performs a grouped Research Metadata Graph Safety Boundary Audit. It
+audits the Prompt 84 planning/guardrails layer, Prompt 85 API contract
+skeleton, and Prompt 86 display contract skeleton. It does not add active UI,
+frontend/desktop implementation, graph implementation, graph database, graph
+storage, graph traversal, graph query, graph search, graph ranking, graph
+retrieval, embeddings/vector store, active ingestion/storage,
+upload/download/preview, paper parsing, strategy generation, backtesting,
+recommendations, broker controls, readiness-to-trade, or execution APIs.
+
+Docs:
+
+- `docs/RESEARCH_METADATA_GRAPH_SAFETY_BOUNDARY_AUDIT.md`
+
+Grouped tests:
+
+- `tests/phases/test_research_metadata_graph_safety_audit_phase.py`
+- `tests/boundaries/test_research_metadata_graph_safety_boundaries.py`
+- `tests/boundaries/test_api_research_metadata_graph_safety_surface.py`
+
+No active UI, frontend, desktop, graph database, storage, search, retrieval,
+or vector-store implementation exists. No broker or execution implementation
+exists.
+
+## Prompt 86 Research Metadata Graph Display Contract Skeleton
+
+Prompt 86 adds Research Metadata Graph Display Contract Skeleton under the
+grouped documentation/test policy. It does not add active UI,
+frontend/desktop implementation, graph implementation, graph database, graph
+storage, graph traversal, graph query, graph search, graph ranking, graph
+retrieval, embeddings/vector store, active ingestion/storage,
+upload/download/preview, paper parsing, strategy generation, backtesting,
+recommendations, broker controls, readiness-to-trade, or execution APIs.
+
+Package:
+
+- `packages/core/stark_terminal_core/research_metadata_graph_display/`
+
+API route:
+
+- `apps/api/stark_terminal_api/routes/research_metadata_graph_display.py`
+
+Docs:
+
+- `docs/RESEARCH_METADATA_GRAPH_DISPLAY_CONTRACT_SKELETON.md`
+
+Grouped tests:
+
+- `tests/phases/test_research_metadata_graph_display_phase.py`
+- `tests/boundaries/test_research_metadata_graph_display_boundaries.py`
+- `tests/boundaries/test_api_research_metadata_graph_display.py`
+
+No active UI, frontend, desktop, graph database, storage, search, retrieval,
+or vector-store implementation exists. No broker or execution implementation
+exists.
+
+## Prompt 85 Research Metadata Graph API Contract Skeleton
+
+Prompt 85 adds Research Metadata Graph API Contract Skeleton under the grouped
+documentation/test policy. It does not add graph implementation, graph
+database, graph storage, graph traversal, graph query, graph search, graph
+ranking, graph retrieval, embeddings/vector store, active ingestion/storage,
+upload/download/preview, paper parsing, strategy generation, backtesting,
+recommendations, broker controls, readiness-to-trade, or execution APIs.
+
+Package:
+
+- `packages/core/stark_terminal_core/research_metadata_graph_api/`
+
+API route:
+
+- `apps/api/stark_terminal_api/routes/research_metadata_graph_api.py`
+
+Docs:
+
+- `docs/RESEARCH_METADATA_GRAPH_API_CONTRACT_SKELETON.md`
+
+Grouped tests:
+
+- `tests/phases/test_research_metadata_graph_api_phase.py`
+- `tests/boundaries/test_research_metadata_graph_api_boundaries.py`
+- `tests/boundaries/test_api_research_metadata_graph_contract.py`
+
+No graph database/storage/search/retrieval/vector-store implementation exists.
+No frontend, desktop, broker, or execution implementation exists.
+
+## Prompt 84 Research Metadata Graph Planning and Guardrails
+
+Prompt 84 adds Research Metadata Graph planning and guardrails under the
+grouped documentation/test policy. It does not add graph implementation, graph
+database, graph storage, graph traversal, graph query, graph search, graph
+ranking, graph retrieval, embeddings/vector store, active ingestion/storage,
+upload/download/preview, paper parsing, strategy generation, backtesting,
+recommendations, broker controls, readiness-to-trade, or execution APIs.
+
+Package:
+
+- `packages/core/stark_terminal_core/research_metadata_graph/`
+
+API route:
+
+- `apps/api/stark_terminal_api/routes/research_metadata_graph.py`
+
+Docs:
+
+- `docs/RESEARCH_METADATA_GRAPH_PLANNING_AND_GUARDRAILS.md`
+- `docs/phases/research_metadata_graph.md`
+
+Grouped tests:
+
+- `tests/phases/test_research_metadata_graph_phase.py`
+- `tests/boundaries/test_research_metadata_graph_boundaries.py`
+- `tests/boundaries/test_api_research_metadata_graph.py`
+
+No graph database/storage/search/retrieval/vector-store implementation exists.
+No frontend, desktop, broker, or execution implementation exists.
+
+## Prompt 83 Research Artifact Index API/Display Integration Readiness Audit
+
+Prompt 83 audits Research Artifact Index planning/API/display/boundary
+integration readiness under the grouped documentation/test policy. It does not
+add Research Artifact Index implementation, active UI, frontend/desktop
+implementation, indexing/search/ranking/retrieval, embeddings/vector store,
+active ingestion/storage, upload/download/preview, paper parsing, strategy
+generation, backtesting, recommendations, broker controls,
+readiness-to-trade, or execution APIs.
+
+Docs:
+
+- `docs/RESEARCH_ARTIFACT_INDEX_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`
+- `docs/RESEARCH_METADATA_GRAPH_READINESS_PLAN.md`
+
+Grouped tests:
+
+- `tests/phases/test_research_artifact_index_api_display_integration_phase.py`
+- `tests/boundaries/test_research_artifact_index_api_display_integration_boundaries.py`
+- `tests/boundaries/test_api_research_artifact_index_integration_consistency.py`
+
+Existing Research Artifact Index packages/routes remain planning,
+contract-skeleton, display-skeleton, boundary-hardening, and read-only audit
+surfaces only. No frontend, desktop, database, persistent storage, indexing,
+search, ranking, retrieval, embedding, vector-store, graph database, graph
+traversal, ingestion, upload/download/preview, broker, or execution
+implementation exists.
+
+## Prompt 82 Research Artifact Index System Boundary Hardening
+
+Prompt 82 adds compact Research Artifact Index system boundary hardening under
+the grouped documentation/test policy. It does not add Research Artifact Index
+implementation, active UI, frontend/desktop implementation, indexing/search/
+ranking/retrieval, embeddings/vector store, active ingestion/storage,
+upload/download/preview, paper parsing, strategy generation, backtesting,
+recommendations, broker controls, readiness-to-trade, or execution APIs.
+
+Package:
+
+- `packages/core/stark_terminal_core/research_artifact_index_boundary/`
+
+API route:
+
+- `apps/api/stark_terminal_api/routes/research_artifact_index_boundary.py`
+
+Doc:
+
+- `docs/RESEARCH_ARTIFACT_INDEX_SYSTEM_BOUNDARY_HARDENING.md`
+
+Grouped tests:
+
+- `tests/phases/test_research_artifact_index_system_boundary_phase.py`
+- `tests/boundaries/test_research_artifact_index_system_boundaries.py`
+- `tests/boundaries/test_api_research_artifact_index_boundary.py`
+
+No frontend, desktop, database, persistent storage, indexing, search, ranking,
+retrieval, embedding, vector-store, ingestion, upload/download/preview,
+broker, or execution implementation exists for Research Artifact Index.
+
+## Prompt 81 Research Artifact Index Milestone Audit
+
+Prompt 81 adds compact Research Artifact Index milestone audit docs and grouped
+phase/boundary tests under the consolidation policy. It does not add Research
+Artifact Index implementation, active UI, frontend/desktop implementation,
+indexing/search/ranking/retrieval, embeddings/vector store, active
+ingestion/storage, upload/download/preview, paper parsing, strategy
+generation, backtesting, recommendations, broker controls, readiness-to-trade,
+or execution APIs.
+
+Docs:
+
+- `docs/RESEARCH_ARTIFACT_INDEX_MILESTONE_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_NEXT_PHASE_PLAN.md`
+- `docs/phases/research_artifact_index.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `docs/audits/safety_boundaries.md`
+
+Grouped tests:
+
+- `tests/phases/test_research_artifact_index_milestone_phase.py`
+- `tests/boundaries/test_research_artifact_index_milestone_boundaries.py`
+- `tests/boundaries/test_research_artifact_index_next_phase_readiness.py`
+
+Existing packages and routes remain:
+
+- `packages/core/stark_terminal_core/research_artifact_index/`
+- `packages/core/stark_terminal_core/research_artifact_index_api/`
+- `packages/core/stark_terminal_core/research_artifact_index_display/`
+- `apps/api/stark_terminal_api/routes/research_artifact_index.py`
+- `apps/api/stark_terminal_api/routes/research_artifact_index_api.py`
+- `apps/api/stark_terminal_api/routes/research_artifact_index_display.py`
+
+No frontend, desktop, database, persistent storage, indexing, search, ranking,
+retrieval, embedding, vector-store, broker, or execution implementation exists
+for Research Artifact Index.
+
+## Documentation/Test Consolidation Interlude
+
+This interlude adds phase-based docs and grouped tests without adding product
+capability.
+
+New documentation directories:
+
+- `docs/phases/` - phase summaries and phase documentation policy.
+- `docs/audits/` - consolidated safety and boundary audits.
+- `docs/testing/` - test policy, baseline, and consolidation map.
+- `docs/reports/` - grouped reports preserving deleted micro-audit details,
+  deleted file mappings, safety coverage, and active test baseline evidence.
+
+New grouped test directories:
+
+- `tests/phases/` - phase-level docs and safety coverage.
+- `tests/boundaries/` - consolidated boundary tests.
+- `docs/archive/prompt_audits/` - historical granular prompt audit docs.
+- `tests/archive/prompt_audits/` - historical granular prompt audit tests using `.py.archived`.
+
+Archive Pass 1 moves obvious Research Artifact Index Prompt 80 micro-audit
+artifacts into archive directories. Prompt logs and
+`docs/testing/CONSOLIDATION_MAP.md` remain the chronological source of record.
+No API endpoints, product capability, active UI, ingestion/storage,
+indexing/search, strategy generation, recommendation behavior, broker controls,
+or execution APIs are added by this interlude.
+
+Archive Pass 2 moves older Strategy Research Workspace and Research Artifact
+Registry `NO_*` micro-audit docs/tests into phase-specific archive
+subdirectories:
+
+- `docs/archive/prompt_audits/strategy_research_workspace/`
+- `docs/archive/prompt_audits/research_artifact_registry/`
+- `tests/archive/prompt_audits/strategy_research_workspace/`
+- `tests/archive/prompt_audits/research_artifact_registry/`
+
+The active navigation layer remains `docs/phases/`, `docs/audits/`,
+`tests/phases/`, and `tests/boundaries/`. No source code, routes, package
+modules, active decision architecture docs/tests, grouped docs/tests, or
+product behavior tests are archived by Archive Pass 2.
+
+Aggressive grouped report cleanup deletes previously archived superseded
+micro-audit files after preserving their details in:
+
+- `docs/reports/DOCS_CONSOLIDATED_REPORT.md`
+- `docs/reports/TESTS_CONSOLIDATED_REPORT.md`
+- `docs/reports/DELETED_FILES_REPORT.md`
+- `docs/reports/SAFETY_COVERAGE_REPORT.md`
+- `docs/reports/ACTIVE_TEST_BASELINE_REPORT.md`
+
+## Prompt 80 Research Artifact Index Safety Boundary Audit
+
+Prompt 80 adds Research Artifact Index safety audit documentation and tests.
+It does not add Research Artifact Index implementation, active UI,
+frontend/desktop implementation, indexing/search/ranking/retrieval,
+embeddings/vector store, active ingestion/storage, upload/download/preview,
+paper parsing, strategy generation, backtesting, recommendations, broker
+controls, readiness-to-trade, or execution APIs.
+
+Active docs:
+
+- `docs/RESEARCH_ARTIFACT_INDEX_SAFETY_BOUNDARY_AUDIT.md`
+- `docs/RESEARCH_ARTIFACT_INDEX_MILESTONE_READINESS.md`
+- `docs/phases/research_artifact_index.md`
+- `docs/audits/research_artifact_boundaries.md`
+- `docs/audits/safety_boundaries.md`
+
+Archived Prompt 80 micro-audit docs:
+
+- `docs/archive/prompt_audits/RESEARCH_ARTIFACT_INDEX_API_BOUNDARY_AUDIT.md`
+- `docs/archive/prompt_audits/RESEARCH_ARTIFACT_INDEX_DISPLAY_BOUNDARY_AUDIT.md`
+- `docs/archive/prompt_audits/RESEARCH_ARTIFACT_INDEX_NO_ACTIVE_UI_AUDIT.md`
+- `docs/archive/prompt_audits/RESEARCH_ARTIFACT_INDEX_NO_INDEXING_SEARCH_RANKING_AUDIT.md`
+- `docs/archive/prompt_audits/RESEARCH_ARTIFACT_INDEX_NO_RETRIEVAL_AUDIT.md`
+- `docs/archive/prompt_audits/RESEARCH_ARTIFACT_INDEX_NO_EMBEDDINGS_VECTOR_STORE_AUDIT.md`
+- `docs/archive/prompt_audits/RESEARCH_ARTIFACT_INDEX_NO_ACTIVE_INGESTION_STORAGE_AUDIT.md`
+- `docs/archive/prompt_audits/RESEARCH_ARTIFACT_INDEX_NO_UPLOAD_DOWNLOAD_PREVIEW_AUDIT.md`
+- `docs/archive/prompt_audits/RESEARCH_ARTIFACT_INDEX_NO_PAPER_PARSING_AUDIT.md`
+- `docs/archive/prompt_audits/RESEARCH_ARTIFACT_INDEX_NO_STRATEGY_GENERATION_AUDIT.md`
+- `docs/archive/prompt_audits/RESEARCH_ARTIFACT_INDEX_NO_BACKTESTING_AUDIT.md`
+- `docs/archive/prompt_audits/RESEARCH_ARTIFACT_INDEX_NO_RECOMMENDATION_EXECUTION_AUDIT.md`
+
+Active tests:
+
+- `tests/test_research_artifact_index_safety_boundary_audit_docs.py`
+- `tests/test_research_artifact_index_api_surface_safety.py`
+- `tests/test_research_artifact_index_milestone_readiness.py`
+- `tests/phases/test_research_artifact_index_phase.py`
+- `tests/boundaries/test_research_artifact_boundaries.py`
+
+Archived Prompt 80 micro-audit tests:
+
+- `tests/archive/prompt_audits/test_research_artifact_index_api_boundary_audit.py.archived`
+- `tests/archive/prompt_audits/test_research_artifact_index_display_boundary_audit.py.archived`
+- `tests/archive/prompt_audits/test_research_artifact_index_no_active_ui_audit.py.archived`
+- `tests/archive/prompt_audits/test_research_artifact_index_no_indexing_search_ranking_audit.py.archived`
+- `tests/archive/prompt_audits/test_research_artifact_index_no_retrieval_audit.py.archived`
+- `tests/archive/prompt_audits/test_research_artifact_index_no_embeddings_vector_store_audit.py.archived`
+- `tests/archive/prompt_audits/test_research_artifact_index_no_active_ingestion_storage_audit.py.archived`
+- `tests/archive/prompt_audits/test_research_artifact_index_no_upload_download_preview_audit.py.archived`
+- `tests/archive/prompt_audits/test_research_artifact_index_no_paper_parsing_audit.py.archived`
+- `tests/archive/prompt_audits/test_research_artifact_index_no_strategy_generation_audit.py.archived`
+- `tests/archive/prompt_audits/test_research_artifact_index_no_backtesting_audit.py.archived`
+- `tests/archive/prompt_audits/test_research_artifact_index_no_recommendation_execution_audit.py.archived`
+
+Existing packages and routes remain:
+
+- `packages/core/stark_terminal_core/research_artifact_index/`
+- `packages/core/stark_terminal_core/research_artifact_index_api/`
+- `packages/core/stark_terminal_core/research_artifact_index_display/`
+- `apps/api/stark_terminal_api/routes/research_artifact_index.py`
+- `apps/api/stark_terminal_api/routes/research_artifact_index_api.py`
+- `apps/api/stark_terminal_api/routes/research_artifact_index_display.py`
+
+No frontend, desktop, database, persistent storage, indexing, search,
+ranking, retrieval, embedding, vector-store, broker, or execution
+implementation exists for Research Artifact Index.
+
 ## Current Repo Structure
 
 ```text
@@ -2237,22 +3153,22 @@ execution APIs. No frontend or desktop implementation is present yet.
 - `docs/STRATEGY_RESEARCH_WORKSPACE_SAFETY_BOUNDARY_AUDIT.md`: Prompt 66 consolidated safety boundary audit.
 - `docs/STRATEGY_RESEARCH_WORKSPACE_API_BOUNDARY_AUDIT.md`: Strategy Research Workspace API boundary audit.
 - `docs/STRATEGY_RESEARCH_WORKSPACE_DISPLAY_BOUNDARY_AUDIT.md`: Strategy Research Workspace display boundary audit.
-- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_ACTIVE_UI_AUDIT.md`: No-active-UI audit.
-- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_PAPER_PARSING_AUDIT.md`: No-paper-ingestion/parsing audit.
-- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_STRATEGY_GENERATION_AUDIT.md`: No-strategy-generation audit.
-- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_BACKTESTING_AUDIT.md`: No-backtesting audit.
-- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_RECOMMENDATION_AUDIT.md`: No-recommendation audit.
-- `docs/STRATEGY_RESEARCH_WORKSPACE_NO_EXECUTION_AUDIT.md`: No-execution audit.
+- `docs/archive/prompt_audits/strategy_research_workspace/STRATEGY_RESEARCH_WORKSPACE_NO_ACTIVE_UI_AUDIT.md`: Archived no-active-UI audit.
+- `docs/archive/prompt_audits/strategy_research_workspace/STRATEGY_RESEARCH_WORKSPACE_NO_PAPER_PARSING_AUDIT.md`: Archived no-paper-ingestion/parsing audit.
+- `docs/archive/prompt_audits/strategy_research_workspace/STRATEGY_RESEARCH_WORKSPACE_NO_STRATEGY_GENERATION_AUDIT.md`: Archived no-strategy-generation audit.
+- `docs/archive/prompt_audits/strategy_research_workspace/STRATEGY_RESEARCH_WORKSPACE_NO_BACKTESTING_AUDIT.md`: Archived no-backtesting audit.
+- `docs/archive/prompt_audits/strategy_research_workspace/STRATEGY_RESEARCH_WORKSPACE_NO_RECOMMENDATION_AUDIT.md`: Archived no-recommendation audit.
+- `docs/archive/prompt_audits/strategy_research_workspace/STRATEGY_RESEARCH_WORKSPACE_NO_EXECUTION_AUDIT.md`: Archived no-execution audit.
 - `docs/STRATEGY_RESEARCH_WORKSPACE_MILESTONE_READINESS.md`: Milestone audit readiness note.
 - `tests/test_strategy_research_workspace_safety_boundary_audit_docs.py`: Prompt 66 audit docs tests.
 - `tests/test_strategy_research_workspace_api_boundary_audit.py`: API boundary audit tests.
 - `tests/test_strategy_research_workspace_display_boundary_audit.py`: Display boundary audit tests.
-- `tests/test_strategy_research_workspace_no_active_ui_audit.py`: No-active-UI audit tests.
-- `tests/test_strategy_research_workspace_no_paper_parsing_audit.py`: No-paper-parsing audit tests.
-- `tests/test_strategy_research_workspace_no_strategy_generation_audit.py`: No-strategy-generation audit tests.
-- `tests/test_strategy_research_workspace_no_backtesting_audit.py`: No-backtesting audit tests.
-- `tests/test_strategy_research_workspace_no_recommendation_audit.py`: No-recommendation audit tests.
-- `tests/test_strategy_research_workspace_no_execution_audit.py`: No-execution audit tests.
+- `tests/archive/prompt_audits/strategy_research_workspace/test_strategy_research_workspace_no_active_ui_audit.py.archived`: Archived no-active-UI audit tests.
+- `tests/archive/prompt_audits/strategy_research_workspace/test_strategy_research_workspace_no_paper_parsing_audit.py.archived`: Archived no-paper-parsing audit tests.
+- `tests/archive/prompt_audits/strategy_research_workspace/test_strategy_research_workspace_no_strategy_generation_audit.py.archived`: Archived no-strategy-generation audit tests.
+- `tests/archive/prompt_audits/strategy_research_workspace/test_strategy_research_workspace_no_backtesting_audit.py.archived`: Archived no-backtesting audit tests.
+- `tests/archive/prompt_audits/strategy_research_workspace/test_strategy_research_workspace_no_recommendation_audit.py.archived`: Archived no-recommendation audit tests.
+- `tests/archive/prompt_audits/strategy_research_workspace/test_strategy_research_workspace_no_execution_audit.py.archived`: Archived no-execution audit tests.
 - `tests/test_strategy_research_workspace_api_surface_safety.py`: Strategy Research Workspace API surface safety tests.
 - `tests/test_strategy_research_workspace_milestone_readiness.py`: Milestone readiness tests.
 
@@ -2306,3 +3222,461 @@ recommendation generation, action generation, confidence scoring, active
 DecisionObject generation or display, readiness-to-trade, broker controls,
 approvals, overrides, real market data display, or execution APIs. No
 frontend or desktop implementation is present yet.
+
+## Prompt 68 Strategy Research Workspace System Boundary Hardening
+
+- `packages/core/stark_terminal_core/strategy_research_workspace_boundary/__init__.py`: Boundary package exports.
+- `packages/core/stark_terminal_core/strategy_research_workspace_boundary/forbidden.py`: Forbidden behavior registry contracts.
+- `packages/core/stark_terminal_core/strategy_research_workspace_boundary/endpoints.py`: Endpoint boundary policies.
+- `packages/core/stark_terminal_core/strategy_research_workspace_boundary/modules.py`: Module boundary policies.
+- `packages/core/stark_terminal_core/strategy_research_workspace_boundary/invariants.py`: Cross-module invariant and rejection helpers.
+- `packages/core/stark_terminal_core/strategy_research_workspace_boundary/health.py`: Boundary health helper.
+- `packages/core/stark_terminal_core/strategy_research_workspace_boundary/README.md`: Boundary package scope.
+- `apps/api/stark_terminal_api/routes/strategy_research_workspace_boundary.py`: Read-only boundary route.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_SYSTEM_BOUNDARY_HARDENING.md`: System boundary hardening docs.
+- `docs/STRATEGY_RESEARCH_FORBIDDEN_BEHAVIOR_REGISTRY.md`: Forbidden behavior registry docs.
+- `docs/STRATEGY_RESEARCH_ENDPOINT_BOUNDARY_POLICY.md`: Endpoint policy docs.
+- `docs/STRATEGY_RESEARCH_MODULE_BOUNDARY_POLICY.md`: Module policy docs.
+- `docs/STRATEGY_RESEARCH_CROSS_MODULE_INVARIANTS.md`: Cross-module invariant docs.
+- `docs/STRATEGY_RESEARCH_BOUNDARY_NO_ACTIVE_UI_POLICY.md`: No-active-UI boundary policy.
+- `docs/STRATEGY_RESEARCH_BOUNDARY_NO_PAPER_PARSING_POLICY.md`: No-paper-parsing boundary policy.
+- `docs/STRATEGY_RESEARCH_BOUNDARY_NO_STRATEGY_GENERATION_POLICY.md`: No-strategy-generation boundary policy.
+- `docs/STRATEGY_RESEARCH_BOUNDARY_NO_BACKTESTING_POLICY.md`: No-backtesting boundary policy.
+- `docs/STRATEGY_RESEARCH_BOUNDARY_NO_EXECUTION_POLICY.md`: No-recommendation/no-execution boundary policy.
+- `tests/test_strategy_research_workspace_boundary_settings.py`: Boundary settings tests.
+- `tests/test_strategy_research_workspace_boundary_forbidden_registry.py`: Forbidden registry tests.
+- `tests/test_strategy_research_workspace_boundary_endpoint_policy.py`: Endpoint policy tests.
+- `tests/test_strategy_research_workspace_boundary_module_policy.py`: Module policy tests.
+- `tests/test_strategy_research_workspace_boundary_invariants.py`: Invariant helper tests.
+- `tests/test_api_strategy_research_workspace_boundary.py`: Boundary API tests.
+- `tests/test_strategy_research_workspace_boundary_docs_status.py`: Prompt 68 docs/status tests.
+- `tests/test_strategy_research_workspace_boundary_no_active_ui.py`: No-active-UI tests.
+- `tests/test_strategy_research_workspace_boundary_no_paper_parsing.py`: No-paper-parsing tests.
+- `tests/test_strategy_research_workspace_boundary_no_strategy_generation.py`: No-strategy-generation tests.
+- `tests/test_strategy_research_workspace_boundary_no_backtesting.py`: No-backtesting tests.
+- `tests/test_strategy_research_workspace_boundary_no_recommendation_execution.py`: No-recommendation/no-execution tests.
+
+Prompt 68 adds system boundary hardening only. It confirms
+`strategy_research_workspace`, `strategy_research_workspace_api`,
+`strategy_research_workspace_display`, and
+`strategy_research_workspace_boundary` remain contract/skeleton/boundary
+layers. It adds no active Strategy Research Workspace UI, frontend
+implementation, desktop implementation, paper ingestion, paper parsing, arXiv
+ingestion, LLM paper analysis, method extraction, strategy extraction,
+strategy generation, strategy code generation, signal/factor/alpha
+generation, backtesting, optimization, parameter search, walk-forward
+analysis, performance claims, recommendation generation, action generation,
+confidence scoring, active DecisionObject generation or display,
+readiness-to-trade, broker controls, approvals, overrides, real market data
+display, or execution APIs. No frontend or desktop implementation is present
+yet.
+
+## Prompt 69 Strategy Research Workspace API/Display Integration Readiness Audit
+
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`: Prompt 69 integration readiness audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_CROSS_ENDPOINT_CONSISTENCY_AUDIT.md`: Cross-endpoint consistency audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_API_DISPLAY_BOUNDARY_AUDIT.md`: API/display boundary audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_BOUNDARY_INTEGRATION_AUDIT.md`: Boundary integration audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_INTEGRATION_NO_ACTIVE_UI_AUDIT.md`: Integration no-active-UI audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_INTEGRATION_NO_PAPER_PARSING_AUDIT.md`: Integration no-paper-parsing audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_INTEGRATION_NO_STRATEGY_BACKTEST_AUDIT.md`: Integration no-strategy/no-backtest audit.
+- `docs/STRATEGY_RESEARCH_WORKSPACE_INTEGRATION_NO_RECOMMENDATION_EXECUTION_AUDIT.md`: Integration no-recommendation/no-execution audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_READINESS_PLAN.md`: Research Artifact Registry planning readiness note.
+- `tests/test_strategy_research_workspace_api_display_integration_audit_docs.py`: Prompt 69 integration docs tests.
+- `tests/test_strategy_research_workspace_cross_endpoint_consistency.py`: Cross-endpoint consistency tests.
+- `tests/test_strategy_research_workspace_api_display_boundary_integration.py`: API/display boundary integration tests.
+- `tests/test_strategy_research_workspace_boundary_integration.py`: Boundary integration tests.
+- `tests/test_strategy_research_workspace_integration_no_active_ui.py`: Integration no-active-UI tests.
+- `tests/test_strategy_research_workspace_integration_no_paper_parsing.py`: Integration no-paper-parsing tests.
+- `tests/test_strategy_research_workspace_integration_no_strategy_backtest.py`: Integration no-strategy/no-backtest tests.
+- `tests/test_strategy_research_workspace_integration_no_recommendation_execution.py`: Integration no-recommendation/no-execution tests.
+- `tests/test_research_artifact_registry_readiness_plan.py`: Research Artifact Registry readiness tests.
+
+Prompt 69 adds API/display integration readiness audit docs, tests, audit
+coverage, verifier coverage, and status consolidation only. It confirms
+`strategy_research_workspace`, `strategy_research_workspace_api`,
+`strategy_research_workspace_display`, and
+`strategy_research_workspace_boundary` remain contract/skeleton/audit/boundary
+layers. It adds no active Strategy Research Workspace UI, frontend
+implementation, desktop implementation, Research Artifact Registry
+implementation, active artifact ingestion/storage, paper ingestion, paper
+parsing, arXiv ingestion, LLM paper analysis, method extraction, strategy
+extraction, strategy generation, strategy code generation,
+signal/factor/alpha generation, backtesting, optimization, parameter search,
+walk-forward analysis, performance claims, recommendation generation, action
+generation, confidence scoring, active DecisionObject generation or display,
+readiness-to-trade, broker controls, approvals, overrides, real market data
+display, API-to-display strategy paths, API-to-display backtest paths,
+API-to-display recommendation paths, parsed-paper display paths, boundary
+bypass paths, or execution APIs. No frontend, desktop, or Research Artifact
+Registry implementation is present yet.
+
+## Prompt 70 Research Artifact Registry Planning and Guardrails
+
+- `packages/core/stark_terminal_core/research_artifact_registry/`: planning-only Research Artifact Registry contracts for artifact kinds, metadata placeholders, reference placeholders, provenance placeholders, lifecycle placeholders, forbidden interactions, safety, readiness, and health.
+- `apps/api/stark_terminal_api/routes/research_artifact_registry.py`: read-only Research Artifact Registry planning endpoints.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PLANNING.md`: planning and guardrails overview.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_GUARDRAILS.md`: registry guardrails.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PLACEHOLDERS.md`: placeholder bundle documentation.
+- `docs/RESEARCH_ARTIFACT_METADATA_PLACEHOLDERS.md`: metadata placeholder documentation.
+- `docs/RESEARCH_ARTIFACT_REFERENCE_PLACEHOLDERS.md`: reference placeholder documentation.
+- `docs/RESEARCH_ARTIFACT_PROVENANCE_PLACEHOLDERS.md`: provenance placeholder documentation.
+- `docs/RESEARCH_ARTIFACT_LIFECYCLE_PLACEHOLDERS.md`: lifecycle placeholder documentation.
+- `docs/RESEARCH_ARTIFACT_FORBIDDEN_INTERACTIONS.md`: forbidden interaction registry documentation.
+- `docs/RESEARCH_ARTIFACT_NO_INGESTION_POLICY.md`: no-ingestion/storage policy.
+- `docs/RESEARCH_ARTIFACT_NO_PAPER_PARSING_POLICY.md`: no-paper-parsing policy.
+- `docs/RESEARCH_ARTIFACT_NO_STRATEGY_GENERATION_POLICY.md`: no-strategy-generation policy.
+- `docs/RESEARCH_ARTIFACT_NO_BACKTESTING_POLICY.md`: no-backtesting policy.
+- `docs/RESEARCH_ARTIFACT_NO_RECOMMENDATION_POLICY.md`: no-recommendation policy.
+- `docs/RESEARCH_ARTIFACT_NO_EXECUTION_POLICY.md`: no-execution policy.
+- `tests/test_research_artifact_registry_*.py` and `tests/test_api_research_artifact_registry.py`: Prompt 70 settings, contracts, placeholders, safety, readiness, API, docs, and forbidden-behavior tests.
+
+Prompt 70 adds no active artifact ingestion/storage, no persistent registry
+writes, no database tables, no migrations, no file upload/download, no paper
+parsing, no PDF/arXiv/LLM analysis, no strategy generation, no backtesting, no
+recommendations, no broker controls, and no execution APIs. No frontend or
+desktop implementation is added.
+
+## Prompt 71 Research Artifact Registry API Contract Skeleton
+
+- `packages/core/stark_terminal_core/research_artifact_registry_api/`: read-only Research Artifact Registry API contract package.
+- `packages/core/stark_terminal_core/research_artifact_registry_api/contracts.py`: API contract metadata.
+- `packages/core/stark_terminal_core/research_artifact_registry_api/requests.py`: request placeholders.
+- `packages/core/stark_terminal_core/research_artifact_registry_api/responses.py`: response placeholders.
+- `packages/core/stark_terminal_core/research_artifact_registry_api/references.py`: metadata/provenance/API reference placeholders.
+- `packages/core/stark_terminal_core/research_artifact_registry_api/unavailable.py`: unavailable response contract.
+- `packages/core/stark_terminal_core/research_artifact_registry_api/safety.py`: API safety helper contracts.
+- `packages/core/stark_terminal_core/research_artifact_registry_api/health.py`: API contract health helper.
+- `apps/api/stark_terminal_api/routes/research_artifact_registry_api.py`: GET-only API contract route.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_CONTRACT_SKELETON.md`: API contract skeleton docs.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_REQUEST_RESPONSE_PLACEHOLDERS.md`: request/response placeholder docs.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_REFERENCE_PLACEHOLDERS.md`: API reference placeholder docs.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_UNAVAILABLE_RESPONSES.md`: unavailable response docs.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_SAFETY_BOUNDARY.md`: API safety boundary docs.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_NO_INGESTION_POLICY.md`: no API ingestion/storage policy.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_NO_PAPER_PARSING_POLICY.md`: no API paper parsing policy.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_NO_STRATEGY_GENERATION_POLICY.md`: no API strategy generation policy.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_NO_BACKTESTING_POLICY.md`: no API backtesting policy.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_NO_RECOMMENDATION_POLICY.md`: no API recommendation policy.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_NO_EXECUTION_POLICY.md`: no API execution policy.
+- `tests/test_research_artifact_registry_api_*.py` and `tests/test_api_research_artifact_registry_api.py`: Prompt 71 settings, contracts, placeholders, safety, API, docs, and forbidden-behavior tests.
+
+Prompt 71 adds no Research Artifact Registry implementation, no active
+artifact ingestion/storage, no persistent registry writes, no database tables,
+no migrations, no file upload/download, no paper parsing, no PDF/arXiv/LLM
+analysis, no strategy generation, no backtesting, no recommendations, no
+broker controls, and no execution APIs. No frontend or desktop implementation
+is added.
+
+## Prompt 72 Research Artifact Registry Display Contract Skeleton
+
+- `packages/core/stark_terminal_core/research_artifact_registry_display/`: backend-only Research Artifact Registry display contract package.
+- `packages/core/stark_terminal_core/research_artifact_registry_display/contracts.py`: display contract metadata.
+- `packages/core/stark_terminal_core/research_artifact_registry_display/cards.py`: artifact card placeholders.
+- `packages/core/stark_terminal_core/research_artifact_registry_display/references.py`: display reference placeholders.
+- `packages/core/stark_terminal_core/research_artifact_registry_display/provenance.py`: provenance display placeholders.
+- `packages/core/stark_terminal_core/research_artifact_registry_display/lifecycle.py`: lifecycle display placeholders.
+- `packages/core/stark_terminal_core/research_artifact_registry_display/badges.py`: lifecycle and safety badge placeholders.
+- `packages/core/stark_terminal_core/research_artifact_registry_display/unavailable.py`: unavailable display response contract.
+- `packages/core/stark_terminal_core/research_artifact_registry_display/safety.py`: display safety helper contracts.
+- `packages/core/stark_terminal_core/research_artifact_registry_display/health.py`: display contract health helper.
+- `apps/api/stark_terminal_api/routes/research_artifact_registry_display.py`: GET-only display contract route.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_CONTRACT_SKELETON.md`: display contract skeleton docs.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_METADATA_PLACEHOLDERS.md`: display metadata placeholder docs.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_CARD_PLACEHOLDERS.md`: card placeholder docs.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_REFERENCE_PLACEHOLDERS.md`: display reference placeholder docs.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_PROVENANCE_PLACEHOLDERS.md`: provenance display placeholder docs.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_LIFECYCLE_BADGES.md`: lifecycle badge placeholder docs.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_UNAVAILABLE_RESPONSES.md`: unavailable display response docs.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_SAFETY_BOUNDARY.md`: display safety boundary docs.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_NO_ACTIVE_UI_POLICY.md`: no active UI policy.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_NO_INGESTION_POLICY.md`: no display ingestion/storage policy.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_NO_PAPER_PARSING_POLICY.md`: no display paper parsing policy.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_NO_STRATEGY_GENERATION_POLICY.md`: no display strategy generation policy.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_NO_BACKTESTING_POLICY.md`: no display backtesting policy.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_NO_RECOMMENDATION_POLICY.md`: no display recommendation policy.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_NO_EXECUTION_POLICY.md`: no display execution policy.
+- `tests/test_research_artifact_registry_display_*.py` and `tests/test_api_research_artifact_registry_display.py`: Prompt 72 settings, contracts, placeholders, safety, API, docs, and forbidden-behavior tests.
+
+Prompt 72 adds no Research Artifact Registry implementation, no active UI, no
+frontend implementation, no desktop implementation, no active artifact
+ingestion/storage, no persistent registry writes, no database tables, no
+migrations, no object storage, no file preview, no file upload/download, no
+paper parsing, no PDF/arXiv/LLM analysis, no strategy generation, no
+backtesting, no recommendations, no broker controls, and no execution APIs.
+
+## Prompt 73 Research Artifact Registry Safety Boundary Audit
+
+- `docs/RESEARCH_ARTIFACT_REGISTRY_SAFETY_BOUNDARY_AUDIT.md`: Safety boundary audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_BOUNDARY_AUDIT.md`: API boundary audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_BOUNDARY_AUDIT.md`: Display boundary audit.
+- `docs/archive/prompt_audits/research_artifact_registry/RESEARCH_ARTIFACT_REGISTRY_NO_ACTIVE_INGESTION_AUDIT.md`: Archived no-active-ingestion audit.
+- `docs/archive/prompt_audits/research_artifact_registry/RESEARCH_ARTIFACT_REGISTRY_NO_PERSISTENT_STORAGE_AUDIT.md`: Archived no-persistent-storage audit.
+- `docs/archive/prompt_audits/research_artifact_registry/RESEARCH_ARTIFACT_REGISTRY_NO_UPLOAD_DOWNLOAD_AUDIT.md`: Archived no-upload/download audit.
+- `docs/archive/prompt_audits/research_artifact_registry/RESEARCH_ARTIFACT_REGISTRY_NO_ACTIVE_UI_AUDIT.md`: Archived no-active-UI audit.
+- `docs/archive/prompt_audits/research_artifact_registry/RESEARCH_ARTIFACT_REGISTRY_NO_PAPER_PARSING_AUDIT.md`: Archived no-paper-parsing audit.
+- `docs/archive/prompt_audits/research_artifact_registry/RESEARCH_ARTIFACT_REGISTRY_NO_STRATEGY_GENERATION_AUDIT.md`: Archived no-strategy-generation audit.
+- `docs/archive/prompt_audits/research_artifact_registry/RESEARCH_ARTIFACT_REGISTRY_NO_BACKTESTING_AUDIT.md`: Archived no-backtesting audit.
+- `docs/archive/prompt_audits/research_artifact_registry/RESEARCH_ARTIFACT_REGISTRY_NO_RECOMMENDATION_AUDIT.md`: Archived no-recommendation audit.
+- `docs/archive/prompt_audits/research_artifact_registry/RESEARCH_ARTIFACT_REGISTRY_NO_EXECUTION_AUDIT.md`: Archived no-execution audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_MILESTONE_READINESS.md`: Milestone readiness note.
+- `tests/test_research_artifact_registry_safety_boundary_audit_docs.py`, API/display boundary audit tests, `tests/test_research_artifact_registry_api_surface_safety.py`, and `tests/test_research_artifact_registry_milestone_readiness.py`: active Prompt 73 audit tests.
+- `tests/archive/prompt_audits/research_artifact_registry/test_research_artifact_registry_no_active_ingestion_audit.py.archived` and sibling `NO_*` files: archived Prompt 73 micro-audit tests.
+
+Prompt 73 adds audit docs, tests, audit coverage, verifier coverage, and
+status consolidation only. `research_artifact_registry`,
+`research_artifact_registry_api`, and `research_artifact_registry_display`
+remain planning/contract/skeleton/audit layers. No active UI, frontend
+implementation, desktop implementation, active artifact ingestion/storage,
+persistent storage, database tables, migrations, object storage, file
+preview, file upload/download, paper parsing, PDF/arXiv/LLM analysis,
+strategy generation, backtesting, recommendations, broker controls, or
+execution APIs are implemented.
+
+## Prompt 74 Research Artifact Registry Milestone Audit
+
+- `docs/RESEARCH_ARTIFACT_REGISTRY_MILESTONE_AUDIT.md`: Research Artifact Registry milestone audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PLANNING_MILESTONE_AUDIT.md`: Planning milestone audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_MILESTONE_AUDIT.md`: API milestone audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_DISPLAY_MILESTONE_AUDIT.md`: Display milestone audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_SAFETY_MILESTONE_AUDIT.md`: Safety milestone audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PHASE_NO_ACTIVE_INGESTION_STORAGE_AUDIT.md`: Phase no-active-ingestion/storage audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PHASE_NO_UPLOAD_DOWNLOAD_AUDIT.md`: Phase no-upload/download audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PHASE_NO_ACTIVE_UI_AUDIT.md`: Phase no-active-UI audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PHASE_NO_PAPER_PARSING_AUDIT.md`: Phase no-paper-parsing audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PHASE_NO_STRATEGY_GENERATION_AUDIT.md`: Phase no-strategy-generation audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PHASE_NO_BACKTESTING_AUDIT.md`: Phase no-backtesting audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_PHASE_NO_RECOMMENDATION_EXECUTION_AUDIT.md`: Phase no-recommendation/execution audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_NEXT_PHASE_PLAN.md`: Next phase plan for Prompt 75 and the Research Artifact Index sequence.
+- `tests/test_research_artifact_registry_*_milestone.py`, `tests/test_research_artifact_registry_phase_*.py`, and `tests/test_research_artifact_registry_next_phase_readiness.py`: Prompt 74 milestone, phase-boundary, and readiness tests.
+
+Prompt 74 adds milestone audit docs, tests, audit coverage, verifier coverage,
+and status consolidation only. `research_artifact_registry`,
+`research_artifact_registry_api`, and `research_artifact_registry_display`
+remain planning/contract/skeleton/audit layers. There is no frontend
+implementation, no desktop implementation, no database or persistent storage
+implementation, no active ingestion/storage, no file upload/download, no paper
+parsing, no strategy generation, no backtesting, no recommendations, no broker
+controls, and no execution APIs.
+
+## Prompt 75 Research Artifact Registry System Boundary Hardening
+
+Prompt 75 adds the Research Artifact Registry boundary hardening package:
+
+- `packages/core/stark_terminal_core/research_artifact_registry_boundary/`: forbidden behavior registry contracts, endpoint policies, module policies, invariant helpers, rejection helpers, boundary health metadata, and package exports.
+- `apps/api/stark_terminal_api/routes/research_artifact_registry_boundary.py`: read-only boundary health, contracts, and invariants endpoints.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_SYSTEM_BOUNDARY_HARDENING.md`: Prompt 75 system boundary hardening overview.
+- `docs/RESEARCH_ARTIFACT_FORBIDDEN_BEHAVIOR_REGISTRY.md`: Artifact forbidden behavior registry policy.
+- `docs/RESEARCH_ARTIFACT_ENDPOINT_BOUNDARY_POLICY.md`: Endpoint boundary policy.
+- `docs/RESEARCH_ARTIFACT_MODULE_BOUNDARY_POLICY.md`: Module boundary policy.
+- `docs/RESEARCH_ARTIFACT_CROSS_MODULE_INVARIANTS.md`: Cross-module invariant policy.
+- `docs/RESEARCH_ARTIFACT_BOUNDARY_NO_INGESTION_STORAGE_POLICY.md`: No-ingestion/storage policy.
+- `docs/RESEARCH_ARTIFACT_BOUNDARY_NO_UPLOAD_DOWNLOAD_POLICY.md`: No-upload/download policy.
+- `docs/RESEARCH_ARTIFACT_BOUNDARY_NO_ACTIVE_UI_POLICY.md`: No-active-UI policy.
+- `docs/RESEARCH_ARTIFACT_BOUNDARY_NO_PAPER_PARSING_POLICY.md`: No-paper-parsing policy.
+- `docs/RESEARCH_ARTIFACT_BOUNDARY_NO_STRATEGY_GENERATION_POLICY.md`: No-strategy-generation policy.
+- `docs/RESEARCH_ARTIFACT_BOUNDARY_NO_BACKTESTING_POLICY.md`: No-backtesting policy.
+- `docs/RESEARCH_ARTIFACT_BOUNDARY_NO_EXECUTION_POLICY.md`: No-recommendation/no-execution policy.
+- `tests/test_research_artifact_registry_boundary_*.py` and `tests/test_api_research_artifact_registry_boundary.py`: Prompt 75 boundary settings, registry, endpoint, module, invariant, API, docs, and forbidden behavior tests.
+
+Research Artifact Registry planning, API, display, safety, milestone, and
+boundary layers remain contract/skeleton/audit/boundary metadata only. There
+is still no frontend implementation, no desktop implementation, no database
+or persistent storage implementation, no active ingestion/storage, no
+upload/download, no file preview, no paper parsing, no strategy generation,
+no backtesting, no recommendations, no broker controls, and no execution APIs.
+
+## Prompt 76 Research Artifact Registry API/Display Integration Readiness Audit
+
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_DISPLAY_INTEGRATION_READINESS_AUDIT.md`: Prompt 76 integration readiness audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_CROSS_ENDPOINT_CONSISTENCY_AUDIT.md`: Cross-endpoint consistency audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_API_DISPLAY_BOUNDARY_AUDIT.md`: API/display boundary audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_BOUNDARY_INTEGRATION_AUDIT.md`: Boundary integration audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_INTEGRATION_NO_ACTIVE_INGESTION_STORAGE_AUDIT.md`: No-ingestion/storage integration audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_INTEGRATION_NO_UPLOAD_DOWNLOAD_AUDIT.md`: No-upload/download integration audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_INTEGRATION_NO_ACTIVE_UI_AUDIT.md`: No-active-UI integration audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_INTEGRATION_NO_PAPER_PARSING_AUDIT.md`: No-paper-parsing integration audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_INTEGRATION_NO_STRATEGY_BACKTEST_AUDIT.md`: No-strategy/backtest integration audit.
+- `docs/RESEARCH_ARTIFACT_REGISTRY_INTEGRATION_NO_RECOMMENDATION_EXECUTION_AUDIT.md`: No-recommendation/execution integration audit.
+- `docs/RESEARCH_ARTIFACT_INDEX_READINESS_PLAN.md`: Research Artifact Index planning readiness note.
+- `tests/test_research_artifact_registry_api_display_integration_audit_docs.py`: Prompt 76 docs/status tests.
+- `tests/test_research_artifact_registry_cross_endpoint_consistency.py`: Cross-endpoint safety tests.
+- `tests/test_research_artifact_registry_api_display_boundary_integration.py`: API/display boundary tests.
+- `tests/test_research_artifact_registry_boundary_integration.py`: Boundary integration tests.
+- `tests/test_research_artifact_registry_integration_no_active_ingestion_storage.py`: No-ingestion/storage tests.
+- `tests/test_research_artifact_registry_integration_no_upload_download.py`: No-upload/download tests.
+- `tests/test_research_artifact_registry_integration_no_active_ui.py`: No-active-UI tests.
+- `tests/test_research_artifact_registry_integration_no_paper_parsing.py`: No-paper-parsing tests.
+- `tests/test_research_artifact_registry_integration_no_strategy_backtest.py`: No-strategy/backtest tests.
+- `tests/test_research_artifact_registry_integration_no_recommendation_execution.py`: No-recommendation/execution tests.
+- `tests/test_research_artifact_index_readiness_plan.py`: Research Artifact Index readiness tests.
+
+Research Artifact Registry planning, API, display, safety, milestone, and
+boundary layers remain planning/contract/skeleton/audit/boundary-only. The
+Research Artifact Index is ready for planning and guardrails only. There is no
+Research Artifact Registry implementation, no Research Artifact Index
+implementation, no indexing, no search, no ranking, no embeddings/vector
+store, no retrieval, no frontend implementation, no desktop implementation,
+no database or persistent storage implementation, no active ingestion/storage,
+no upload/download, no file preview, no paper parsing, no strategy generation,
+no backtesting, no recommendations, no broker controls, and no execution APIs.
+
+## Interlude Active Decision Architecture Target Documentation
+
+- `docs/ACTIVE_DECISION_ARCHITECTURE_TARGET.md`: Future active decision architecture target.
+- `docs/DECISION_CANDIDATE_PIPELINE_TARGET.md`: Future candidate pipeline boundaries.
+- `docs/VERIFIER_LAYER_TARGET_ARCHITECTURE.md`: Future verifier layer target checks.
+- `docs/HUMAN_REVIEW_PAPER_TRADE_GATE_TARGET.md`: Future human/paper gate target.
+- `docs/AUDIT_LOG_JOURNAL_TARGET.md`: Future audit log and journal target.
+- `tests/test_active_decision_architecture_target_docs.py`: Target architecture documentation tests.
+- `tests/test_decision_candidate_pipeline_target_docs.py`: Candidate pipeline boundary tests.
+- `tests/test_verifier_layer_target_architecture_docs.py`: Verifier target architecture tests.
+- `tests/test_no_trade_commit_language_in_active_decision_target.py`: No active trade/engine surface tests.
+
+The interlude adds documentation and tests only. It does not implement an
+active decision engine, market-data ingestion, recommendation generation,
+confidence scoring, paper trading, broker controls, frontend UI, desktop UI,
+strategy generation, backtesting, audit/journal persistence, or execution
+APIs.
+
+## Prompt 77 Research Artifact Index Planning and Guardrails
+
+Prompt 77 adds the Research Artifact Index planning package:
+
+- `packages/core/stark_terminal_core/research_artifact_index/`: planning-only index metadata, key, reference, tag, provenance, lifecycle, forbidden interaction, safety, readiness, and health contracts.
+- `apps/api/stark_terminal_api/routes/research_artifact_index.py`: read-only index health, contracts, placeholder-index, readiness-template, and unavailable-template endpoints.
+- `docs/RESEARCH_ARTIFACT_INDEX_PLANNING.md`: Prompt 77 planning overview.
+- `docs/RESEARCH_ARTIFACT_INDEX_GUARDRAILS.md`: Index guardrails and fail-closed safety posture.
+- `docs/RESEARCH_ARTIFACT_INDEX_PLACEHOLDERS.md`: Placeholder family overview.
+- `docs/RESEARCH_ARTIFACT_INDEX_METADATA_PLACEHOLDERS.md`: Metadata placeholder policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_KEY_PLACEHOLDERS.md`: Key placeholder policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_REFERENCE_PLACEHOLDERS.md`: Reference placeholder policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_TAG_PLACEHOLDERS.md`: Tag placeholder policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_PROVENANCE_PLACEHOLDERS.md`: Provenance placeholder policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_LIFECYCLE_PLACEHOLDERS.md`: Lifecycle placeholder policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_FORBIDDEN_INTERACTIONS.md`: Index forbidden interaction registry.
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_INDEXING_ENGINE_POLICY.md`: No-indexing-engine policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_SEARCH_RANKING_POLICY.md`: No-search/ranking policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_EMBEDDINGS_VECTOR_STORE_POLICY.md`: No-embeddings/vector-store policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_INGESTION_STORAGE_POLICY.md`: No-ingestion/storage policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_PAPER_PARSING_POLICY.md`: No-paper-parsing policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_STRATEGY_GENERATION_POLICY.md`: No-strategy-generation policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_BACKTESTING_POLICY.md`: No-backtesting policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_NO_RECOMMENDATION_EXECUTION_POLICY.md`: No-recommendation/execution policy.
+- `tests/test_research_artifact_index_*.py` and `tests/test_api_research_artifact_index.py`: Prompt 77 settings, type, placeholder, safety, readiness, API, docs, and forbidden-behavior tests.
+
+Research Artifact Index remains planning/guardrails only. There is no database
+or persistent storage implementation, no active ingestion/storage, no
+upload/download, no file preview, no indexing engine, no search engine, no
+ranking engine, no retrieval engine, no embedding pipeline, no vector store,
+no frontend implementation, no desktop implementation, no paper parsing, no
+strategy generation, no backtesting, no recommendations, no broker controls,
+and no execution APIs.
+
+## Prompt 78 Research Artifact Index API Contract Skeleton
+
+Prompt 78 adds:
+
+- `packages/core/stark_terminal_core/research_artifact_index_api/`: read-only
+  Research Artifact Index API contract metadata, request placeholders, response
+  placeholders, reference placeholders, unavailable responses, safety helpers,
+  and health metadata.
+- `apps/api/stark_terminal_api/routes/research_artifact_index_api.py`:
+  GET-only Research Artifact Index API contract skeleton route.
+- `docs/RESEARCH_ARTIFACT_INDEX_API_CONTRACT_SKELETON.md`: Prompt 78 API
+  contract skeleton overview.
+- `docs/RESEARCH_ARTIFACT_INDEX_API_REQUEST_RESPONSE_PLACEHOLDERS.md`: request
+  and response placeholder policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_API_REFERENCE_PLACEHOLDERS.md`: reference
+  placeholder policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_API_UNAVAILABLE_RESPONSES.md`: unavailable
+  response policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_API_SAFETY_BOUNDARY.md`: API safety boundary.
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_INDEXING_ENGINE_POLICY.md`: no-indexing
+  engine policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_SEARCH_RANKING_POLICY.md`: no-search and
+  no-ranking policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_EMBEDDINGS_VECTOR_STORE_POLICY.md`:
+  no-embeddings/vector-store policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_INGESTION_STORAGE_POLICY.md`:
+  no-ingestion/storage policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_PAPER_PARSING_POLICY.md`: no-paper
+  parsing policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_STRATEGY_GENERATION_POLICY.md`:
+  no-strategy-generation policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_BACKTESTING_POLICY.md`: no-backtesting
+  policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_API_NO_RECOMMENDATION_EXECUTION_POLICY.md`:
+  no-recommendation/execution policy.
+- `tests/test_research_artifact_index_api_*.py` and
+  `tests/test_api_research_artifact_index_api.py`: Prompt 78 settings,
+  contract, placeholder, unavailable, safety, API, docs, and forbidden-behavior
+  tests.
+
+Research Artifact Index API remains contract-skeleton-only. There is no
+database or persistent storage implementation, no active ingestion/storage, no
+upload/download, no file preview, no indexing engine, no search engine, no
+ranking engine, no retrieval engine, no embedding pipeline, no vector store,
+no frontend implementation, no desktop implementation, no paper parsing, no
+strategy generation, no backtesting, no recommendations, no broker controls,
+and no execution APIs.
+
+## Prompt 79 Research Artifact Index Display Contract Skeleton
+
+Prompt 79 adds:
+
+- `packages/core/stark_terminal_core/research_artifact_index_display/`: backend-only
+  Research Artifact Index Display contract metadata, index card placeholders,
+  reference display placeholders, tag display placeholders, provenance display
+  placeholders, lifecycle display placeholders, badge placeholders, unavailable
+  display responses, safety helpers, and health metadata.
+- `apps/api/stark_terminal_api/routes/research_artifact_index_display.py`:
+  GET-only Research Artifact Index Display contract skeleton route.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_CONTRACT_SKELETON.md`: Prompt 79
+  display contract skeleton overview.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_METADATA_PLACEHOLDERS.md`: display
+  metadata placeholder policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_CARD_PLACEHOLDERS.md`: card placeholder
+  policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_REFERENCE_PLACEHOLDERS.md`: reference
+  display placeholder policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_TAG_PLACEHOLDERS.md`: tag display
+  placeholder policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_PROVENANCE_PLACEHOLDERS.md`:
+  provenance display placeholder policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_LIFECYCLE_BADGES.md`: lifecycle and
+  safety badge policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_UNAVAILABLE_RESPONSES.md`: unavailable
+  display response policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_SAFETY_BOUNDARY.md`: display safety
+  boundary.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_ACTIVE_UI_POLICY.md`: no-active-UI
+  policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_INDEXING_ENGINE_POLICY.md`:
+  no-indexing-engine policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_SEARCH_RANKING_POLICY.md`:
+  no-search/ranking policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_EMBEDDINGS_VECTOR_STORE_POLICY.md`:
+  no-embeddings/vector-store policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_INGESTION_STORAGE_POLICY.md`:
+  no-ingestion/storage policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_PAPER_PARSING_POLICY.md`: no-paper
+  parsing policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_STRATEGY_GENERATION_POLICY.md`:
+  no-strategy-generation policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_BACKTESTING_POLICY.md`: no-backtesting
+  policy.
+- `docs/RESEARCH_ARTIFACT_INDEX_DISPLAY_NO_RECOMMENDATION_EXECUTION_POLICY.md`:
+  no-recommendation/execution policy.
+- `tests/test_research_artifact_index_display_*.py` and
+  `tests/test_api_research_artifact_index_display.py`: Prompt 79 settings,
+  contract, card, reference, tag, provenance, lifecycle, badge, unavailable,
+  safety, API, docs, and forbidden-behavior tests.
+
+Research Artifact Index Display remains display-contract-skeleton-only. There
+is no frontend implementation, no desktop implementation, no active UI, no
+database or persistent storage implementation, no active ingestion/storage, no
+upload/download, no file preview, no indexing engine, no search engine, no
+ranking engine, no retrieval engine, no embedding pipeline, no vector store,
+no paper parsing, no strategy generation, no backtesting, no recommendations,
+no broker controls, and no execution APIs.

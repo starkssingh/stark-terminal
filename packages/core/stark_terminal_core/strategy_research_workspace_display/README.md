@@ -13,6 +13,10 @@ backtesting, optimization, recommendation generation, action generation,
 confidence scoring, active DecisionObject generation, readiness-to-trade,
 broker controls, approvals, overrides, and execution APIs.
 
+Boundary phrase lock: no active UI, no frontend components, no desktop
+components, no paper parser, no strategy generator, no backtest engine, no
+recommendation engine, and no execution surface.
+
 Future prompts may add safety audits before any active research workspace
 implementation. Development remains Mac mini M2 / macOS / Apple Silicon and
 the target desktop product remains Windows-native Stark Terminal.

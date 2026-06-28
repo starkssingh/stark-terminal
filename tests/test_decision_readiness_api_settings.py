@@ -9,7 +9,7 @@ from stark_terminal_core.config.settings import Settings
 def test_decision_readiness_api_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "67"
+    assert settings.prompt_number == "107"
     assert settings.decision_readiness_api_enabled is True
     assert settings.decision_readiness_api_schema_version == "v1"
     assert settings.decision_readiness_api_allow_recommendations is False

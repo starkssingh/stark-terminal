@@ -7,7 +7,7 @@ from stark_terminal_core.config.settings import Settings
 def test_decision_desk_settings_defaults_are_safe() -> None:
     settings = Settings()
 
-    assert settings.prompt_number == "67"
+    assert settings.prompt_number == "107"
     assert settings.retail_decision_desk_enabled is True
     assert settings.retail_decision_desk_schema_version == "v1"
     assert settings.retail_decision_desk_allow_real_data is False

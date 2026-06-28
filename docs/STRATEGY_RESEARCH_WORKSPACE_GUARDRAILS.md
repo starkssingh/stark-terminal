@@ -56,3 +56,11 @@ generation, strategy code generation, backtesting, optimization,
 recommendations, action generation, confidence scoring, DecisionObject
 generation, readiness-to-trade, broker controls, approvals, overrides, and
 execution APIs remain forbidden.
+
+## Prompt 68 System Boundary Hardening
+
+Prompt 68 codifies these guardrails in a forbidden behavior registry, endpoint
+boundary policies, module boundary policies, and cross-module invariants. It
+is boundary-hardening-only and keeps active UI, paper parsing, strategy
+generation, backtesting, recommendations, broker controls, readiness-to-trade,
+approvals, overrides, and execution APIs forbidden.

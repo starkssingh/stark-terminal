@@ -2,6 +2,335 @@
 
 Prompt 25 completes the Provider Adapter Milestone Audit before analytics planning. Current implemented foundations include PostgreSQL/Alembic metadata, TimescaleDB-oriented operational schema, TimescaleDB Synthetic OHLCV Storage Foundation, Synthetic OHLCV to Research Lake Export Contract, Provider Adapter Guardrails, Provider Readiness governance, Local Sample Provider Adapter v0, Local File Provider Adapter v0, DuckDB + Parquet research lake foundation, Redis cache, Redis Streams, Kafka/Redpanda Event Backbone, Data Quality + Validation Framework, Synthetic Fixtures, Instrument Metadata Persistence Wiring, Market Data Batch Persistence Contracts, Worker System, Instrument Master/Provider Contracts, ClickHouse Warehouse, and custom Stark Feature Registry. Other infrastructure systems remain planned and not implemented.
 
+## Prompt 107 Retail Decision Console Internal Preview Milestone Closure
+
+Retail Decision Console internal preview milestone closure is product-surface
+QA consolidation only. It is not deployment infrastructure, not production
+packaging infrastructure, not signed binary infrastructure, not installer
+infrastructure, not ingestion infrastructure, not a live market data service,
+not a provider client, not a decision engine, not a recommendation engine, not
+a confidence scoring service, not broker infrastructure, not order
+infrastructure, and not an execution surface. No new dependency is added.
+
+## Prompt 106 Retail Decision Console Internal Preview Smoke Verification
+
+Retail Decision Console internal preview smoke verification is local QA only.
+It is not packaging infrastructure, not deployment infrastructure, not
+ingestion infrastructure, not a live market data service, not a provider
+client, not a decision engine, not a recommendation engine, not a confidence
+scoring service, not broker infrastructure, not order infrastructure, and not
+an execution surface. No new dependency is added.
+
+## Prompt 105 Retail Decision Console Shareable Internal Preview Package
+
+Retail Decision Console internal preview package work is local QA/product-
+surface sharing only. It is not deployment infrastructure, not production
+packaging infrastructure, not signed binary infrastructure, not auto-updater
+infrastructure, not installer infrastructure, not data ingestion
+infrastructure, not a live market data service, not a provider client, not a
+decision engine, not a recommendation engine, not a confidence scoring
+service, not broker infrastructure, not order infrastructure, and not an
+execution surface. No new dependency is added.
+
+## Prompt 104 Retail Decision Console Manual Acceptance Checklist
+
+Retail Decision Console manual acceptance checklist work is QA documentation
+only. It is not deployment infrastructure, not packaging infrastructure, not
+installer infrastructure, not data ingestion infrastructure, not a live market
+data service, not a provider client, not a decision engine, not a
+recommendation engine, not a confidence scoring service, not broker
+infrastructure, not order infrastructure, and not an execution surface. No new
+dependency is added.
+
+## Prompt 103 Retail Decision Console Local QA Bundle
+
+Retail Decision Console local QA bundle generation is QA/product-surface
+artifact generation only. It is not deployment infrastructure, not packaging
+infrastructure, not installer infrastructure, not data ingestion
+infrastructure, not a live market data service, not a provider client, not a
+decision engine, not a recommendation engine, not a confidence scoring
+service, not broker infrastructure, not order infrastructure, and not an
+execution surface. No new dependency is added.
+
+## Prompt 102 Retail Decision Console Preview Snapshot Export
+
+Retail Decision Console preview snapshot export is local QA and product-
+surface export support only. It is not data ingestion infrastructure, not a
+live market data service, not a provider client, not a decision engine, not a
+recommendation engine, not a confidence scoring service, not broker
+infrastructure, not order infrastructure, and not an execution surface. No
+new dependency is added.
+
+## Prompt 101 Retail Decision Console Static Interactions
+
+Retail Decision Console static interactions are product-surface UX
+placeholders only. They are not data infrastructure, not ingestion
+infrastructure, not a live market data service, not a provider client, not a
+decision engine, not a recommendation engine, not a confidence scoring
+service, not broker infrastructure, and not an execution surface. No new
+dependency is added.
+
+## Prompt 100 Retail Decision Console Visual Layout
+
+Retail Decision Console visual layout is product-surface UI work only. It is
+not data ingestion infrastructure, not a live market data service, not a
+provider client, not a decision engine, not a recommendation engine, not a
+confidence scoring service, not broker infrastructure, and not an execution
+surface. No new dependency is added.
+
+## Prompt 99 Retail Decision Console Local Preview
+
+Retail Decision Console local preview is desktop QA and product-surface preview
+support only. It is not deployment infrastructure, not packaging
+infrastructure, not data ingestion infrastructure, not a live provider client,
+not a decision engine, not a recommendation engine, not a confidence scoring
+service, not broker infrastructure, and not an execution surface. No new
+dependency is added.
+
+## Prompt 98 Retail Decision Console Static State Wiring
+
+Retail Decision Console static-state wiring is desktop product surface wiring
+only. It is not data ingestion infrastructure, not a live market data service,
+not a provider client, not a decision engine, not a recommendation engine, not
+a confidence scoring service, not broker infrastructure, and not an execution
+surface. No new dependency is added.
+
+## Prompt 97 Retail Decision Console Demo Static State
+
+Retail Decision Console demo/static state is product-surface state modeling
+only. It is not data ingestion infrastructure, not a live market data service,
+not a provider client, not a decision engine, not a recommendation engine, not
+a confidence scoring service, not broker infrastructure, and not an execution
+surface. No new dependency is added.
+
+## Prompt 96 Retail Decision Console UI Shell
+
+Retail Decision Console UI shell is a desktop product surface skeleton only.
+It is not new infrastructure, not a live data service, not a broker
+integration, not a market-data ingestion path, not a recommendation engine,
+not a confidence scoring service, and not an execution surface. No new
+dependency is added.
+
+## Prompt 95 Retail Decision Console Productization
+
+Retail Decision Console is the flagship product surface that may later consume
+existing foundations. Prompt 95 adds productization and UI shell boundary
+metadata only; it is not infrastructure expansion, not a UI implementation,
+not a live decision engine, not a broker integration, not a market-data
+ingestion path, and not an execution surface.
+
+## Prompt 94 Product Surface Orientation
+
+The existing infrastructure foundations exist to support product surfaces.
+Prompt 94 shifts the roadmap toward Retail Decision Console / Decision Desk
+productization rather than expanding infrastructure for its own sake. This is
+planning only and adds no new dependency, runtime service, route, UI, database,
+broker control, recommendation engine, confidence scoring, active
+DecisionObject generation, or execution API.
+
+## Prompt 93 Research Knowledge Map Phase Closure
+
+Prompt 93 confirms Research Knowledge Map remains a planning/API/display/
+safety-contract layer only. It is phase closed, not active map infrastructure,
+not UI infrastructure, not frontend infrastructure, not desktop UI
+infrastructure, not database infrastructure, not table/migration
+infrastructure, not traversal infrastructure, not query/search/ranking/
+retrieval infrastructure, not vector infrastructure, not persistent storage,
+not ingestion infrastructure, not paper parsing infrastructure, not strategy
+infrastructure, not backtesting infrastructure, not recommendation
+infrastructure, not broker infrastructure, and not execution infrastructure.
+
+No UI dependency, frontend dependency, desktop dependency, database
+dependency, NetworkX dependency, vector database dependency, search engine
+dependency, storage migration, charting dependency, broker dependency, or
+execution dependency is added.
+
+## Prompt 92 Research Knowledge Map Safety Boundary Audit
+
+Prompt 92 confirms Research Knowledge Map remains a planning/API/display/
+safety-contract layer only. It is not active map infrastructure, UI
+infrastructure, frontend infrastructure, desktop UI infrastructure, database
+infrastructure, table/migration infrastructure, traversal infrastructure,
+query/search/ranking/retrieval infrastructure, vector infrastructure,
+persistent storage, ingestion infrastructure, paper parsing infrastructure,
+strategy infrastructure, backtesting infrastructure, recommendation
+infrastructure, broker infrastructure, or execution infrastructure.
+
+No UI dependency, frontend dependency, desktop dependency, database
+dependency, NetworkX dependency, vector database dependency, search engine
+dependency, storage migration, charting dependency, broker dependency, or
+execution dependency is added.
+
+## Prompt 91 Research Knowledge Map Display Contract Skeleton
+
+Prompt 91 adds Research Knowledge Map Display as a backend display-contract
+skeleton only. It is not active UI infrastructure, not frontend
+infrastructure, not desktop UI infrastructure, not database infrastructure,
+not traversal infrastructure, not query/search/ranking/retrieval
+infrastructure, not vector infrastructure, not persistent storage, not
+ingestion infrastructure, not paper parsing infrastructure, not strategy
+infrastructure, not backtesting infrastructure, not recommendation
+infrastructure, not broker infrastructure, and not execution infrastructure.
+
+No UI dependency, frontend dependency, desktop dependency, database
+dependency, NetworkX dependency, vector database dependency, search engine
+dependency, storage migration, charting dependency, broker dependency, or
+execution dependency is added.
+
+## Prompt 90 Research Knowledge Map API Contract Skeleton
+
+Prompt 90 adds Research Knowledge Map API as an API-contract skeleton only. It
+is not database infrastructure, not traversal infrastructure, not query/search/
+ranking/retrieval infrastructure, not vector infrastructure, not persistent
+storage, not ingestion infrastructure, not paper parsing infrastructure, not
+strategy infrastructure, not backtesting infrastructure, not recommendation
+infrastructure, not broker infrastructure, and not execution infrastructure.
+
+No database dependency, NetworkX dependency, vector database dependency,
+search engine dependency, storage migration, UI dependency, desktop
+dependency, broker dependency, or execution dependency is added.
+
+## Prompt 89 Research Knowledge Map Planning and Guardrails
+
+Prompt 89 adds Research Knowledge Map as a planning/control metadata layer
+only. It is not database infrastructure, not graph storage, not traversal
+infrastructure, not query/search/ranking/retrieval infrastructure, not vector
+infrastructure, not persistent storage, not ingestion infrastructure, not
+paper parsing infrastructure, not strategy infrastructure, not backtesting
+infrastructure, not recommendation infrastructure, not broker infrastructure,
+and not execution infrastructure.
+
+No database dependency, NetworkX dependency, vector database dependency,
+search engine dependency, storage migration, UI dependency, desktop
+dependency, broker dependency, or execution dependency is added.
+
+## Prompt 88-B Research Metadata Graph Phase Closure
+
+Prompt 88-B confirms Research Metadata Graph remains a planning/API/display/
+safety-contract phase only. It is not UI infrastructure, not
+frontend infrastructure, not desktop UI infrastructure, not graph database
+infrastructure, not graph storage, not graph traversal infrastructure, not
+graph query/search/ranking/retrieval infrastructure, not vector
+infrastructure, not persistent storage, not ingestion infrastructure, not
+paper parsing infrastructure, not strategy infrastructure, not backtesting
+infrastructure, not recommendation infrastructure, not broker infrastructure,
+and not execution infrastructure.
+
+No UI dependency, desktop dependency, graph database dependency, NetworkX
+dependency, vector database dependency, search engine dependency, storage
+migration, or charting dependency is added.
+
+## Prompt 87 Research Metadata Graph Safety Boundary Audit
+
+Prompt 87 confirms Research Metadata Graph remains a planning/API/display/
+safety-contract layer only. It is not UI infrastructure, not frontend
+infrastructure, not desktop UI infrastructure, not graph database
+infrastructure, not graph storage, not graph traversal infrastructure, not
+graph query/search/ranking/retrieval infrastructure, not vector
+infrastructure, not persistent storage, not ingestion infrastructure, not
+paper parsing infrastructure, not strategy infrastructure, not backtesting
+infrastructure, not recommendation infrastructure, not broker infrastructure,
+and not execution infrastructure.
+
+No UI dependency, desktop dependency, graph database dependency, NetworkX
+dependency, vector database dependency, search engine dependency, storage
+migration, or charting dependency is added.
+
+## Prompt 86 Research Metadata Graph Display Contract Skeleton
+
+Prompt 86 adds Research Metadata Graph Display as a backend display-contract
+skeleton only. It is not UI infrastructure, not frontend infrastructure, not
+desktop UI infrastructure, not graph database infrastructure, not graph
+storage, not graph traversal infrastructure, not graph query/search/ranking/
+retrieval infrastructure, not vector infrastructure, not persistent storage,
+not ingestion infrastructure, not paper parsing infrastructure, not strategy
+infrastructure, not backtesting infrastructure, not recommendation
+infrastructure, not broker infrastructure, and not execution infrastructure.
+
+No UI dependency, desktop dependency, graph database dependency, NetworkX
+dependency, vector database dependency, search engine dependency, storage
+migration, or charting dependency is added.
+
+## Prompt 85 Research Metadata Graph API Contract Skeleton
+
+Prompt 85 adds Research Metadata Graph API as an API-contract skeleton only. It
+is not graph database infrastructure, not graph storage, not graph traversal
+infrastructure, not graph query/search/ranking/retrieval infrastructure, not
+vector infrastructure, not persistent storage, not ingestion infrastructure,
+not paper parsing infrastructure, not strategy infrastructure, not backtesting
+infrastructure, not recommendation infrastructure, not broker infrastructure,
+and not execution infrastructure.
+
+No graph database dependency, NetworkX dependency, vector database dependency,
+search engine dependency, storage migration, or UI dependency is added.
+
+## Prompt 84 Research Metadata Graph Planning and Guardrails
+
+Prompt 84 adds Research Metadata Graph as a planning/control metadata layer
+only. It is not graph database infrastructure, not graph storage, not graph
+traversal infrastructure, not graph query/search/ranking/retrieval
+infrastructure, not vector infrastructure, not persistent storage, not
+ingestion infrastructure, not paper parsing infrastructure, not strategy
+infrastructure, not backtesting infrastructure, not recommendation
+infrastructure, not broker infrastructure, and not execution infrastructure.
+
+No graph database dependency, NetworkX dependency, vector database dependency,
+search engine dependency, storage migration, or UI dependency is added.
+
+## Prompt 83 Research Artifact Index API/Display Integration Readiness
+
+Prompt 83 adds an API/display integration readiness audit layer only. It is not
+implementation infrastructure. It adds no graph database, graph traversal,
+indexing, search, ranking, retrieval, vector infrastructure, persistent
+storage, active UI, parsing infrastructure, strategy infrastructure,
+backtesting infrastructure, recommendation infrastructure, broker
+infrastructure, or execution infrastructure.
+
+Research Metadata Graph is ready for planning and guardrails only.
+
+## Prompt 81 Research Artifact Index Milestone Audit
+
+Prompt 81 confirms Research Artifact Index, Research Artifact Index API, and
+Research Artifact Index Display modules remain planning/contract/skeleton/audit
+layers only. They are not active indexing, search, ranking, retrieval, vector
+infrastructure, storage, UI, parsing, strategy, backtesting, recommendation,
+broker, or execution layers.
+
+The milestone audit introduces no database tables, no migrations, no object
+storage, no persistent index state, no frontend or desktop UI, no
+embedding/vector-store dependencies, no search engine dependencies, no indexing
+dependencies, and no execution APIs.
+
+Prompt 81 also confirms consolidation policy compliance: the milestone uses
+phase-level docs and grouped boundary tests rather than returning to
+prompt-level audit sprawl.
+
+## Prompt 82 Research Artifact Index System Boundary Hardening
+
+Prompt 82 adds Research Artifact Index boundary metadata as a safety/control
+layer only. The boundary package defines a forbidden behavior registry,
+endpoint boundary policies, module boundary policies, invariant helpers, and
+health metadata.
+
+This is not active indexing infrastructure, search infrastructure, ranking
+infrastructure, retrieval infrastructure, vector infrastructure, persistent
+storage, active UI, parsing infrastructure, strategy infrastructure,
+backtesting infrastructure, recommendation infrastructure, broker
+infrastructure, or execution infrastructure.
+
+## Prompt 80 Research Artifact Index Safety Boundary Audit
+
+Prompt 80 confirms Research Artifact Index, Research Artifact Index API, and
+Research Artifact Index Display modules are planning/contract/skeleton/audit
+layers only. They are not active indexing, search, ranking, retrieval, vector
+infrastructure, storage, UI, parsing, strategy, backtesting, recommendation,
+broker, or execution layers.
+
+The index/API/display modules introduce no database tables, no migrations, no
+object storage, no persistent index state, no frontend or desktop UI, no
+embedding/vector-store dependencies, no search engine dependencies, no
+indexing dependencies, and no execution APIs.
+
 ## PostgreSQL
 
 PostgreSQL is the system of record for relational and durable metadata: instruments, configurations, user research state, DecisionObject records, audits, experiment metadata, provider metadata, and operational control tables.
@@ -595,6 +924,18 @@ generation, confidence scoring, active DecisionObject display,
 readiness-to-trade, broker controls, approvals, overrides, live market data
 display, and execution APIs remain forbidden.
 
+## Prompt 70 Research Artifact Registry Planning Layer
+
+Prompt 70 adds Research Artifact Registry as a future research
+metadata/registry layer, currently planning-only and not persistent storage.
+The current layer consists of Pydantic contracts, placeholders, safety helpers,
+readiness helpers, health metadata, and read-only planning endpoints.
+
+It is not active artifact ingestion/storage, not database tables, not
+migrations, not object storage, not file upload/download, not paper parsing,
+not PDF/arXiv/LLM analysis, not strategy generation, not backtesting, not
+recommendations, not broker controls, and not execution APIs.
+
 ## Prompt 67 Strategy Research Workspace Milestone Audit
 
 Prompt 67 adds Strategy Research Workspace milestone audit artifacts as an
@@ -821,6 +1162,46 @@ no confidence, generates no DecisionObjects, generates no readiness-to-trade,
 exposes no broker controls, grants no approvals or overrides, and creates no
 execution APIs.
 
+## Prompt 68 Strategy Research Workspace Boundary Hardening Layer
+
+Prompt 68 adds `strategy_research_workspace_boundary` as a core research
+hardening layer, not an active UI layer, not a frontend implementation, not a
+desktop implementation, not a strategy layer, not a backtesting layer, not a
+recommendation layer, and not an execution layer. It defines a forbidden
+behavior registry, endpoint boundary policies, module boundary policies,
+cross-module invariant helpers, rejection helpers, health metadata, and
+read-only `/strategy-research-workspace-boundary/*` endpoints.
+
+This boundary layer performs no external calls, reads no market data, writes
+no files, publishes no events, creates no frontend components, creates no
+desktop components, ingests no papers, parses no papers, calls no arXiv
+ingestion, performs no LLM paper analysis, generates no strategies, generates
+no strategy code, generates no signals/factors/alpha, runs no backtests, runs
+no optimization, generates no recommendations, generates no action states,
+scores no confidence, generates no DecisionObjects, generates no
+readiness-to-trade, exposes no broker controls, grants no approvals or
+overrides, and creates no execution APIs.
+
+## Prompt 69 Strategy Research Workspace API Display Integration Readiness Audit
+
+Prompt 69 adds Strategy Research Workspace API/Display Integration Readiness
+Audit artifacts as an audit layer over Strategy Research Workspace planning,
+API skeleton, display skeleton, safety audit, milestone audit, and boundary
+hardening modules. It is not an active UI layer, not a frontend
+implementation, not a desktop implementation, not a Research Artifact Registry
+implementation, not an artifact ingestion/storage layer, not a strategy layer,
+not a backtesting layer, not a recommendation layer, and not an execution
+layer.
+
+The audited modules remain contract, skeleton, placeholder, unavailable
+response, boundary metadata, and audit layers only. Active UI, paper parsing,
+strategy generation, backtesting, optimization, recommendations, action
+generation, confidence scoring, active DecisionObject display,
+readiness-to-trade, broker controls, approvals, overrides, live market data
+display, API-to-display strategy paths, API-to-display backtest paths,
+API-to-display recommendation paths, parsed-paper-to-display paths, boundary
+bypass paths, and execution APIs remain forbidden.
+
 ## Prompt 53 Retail Dashboard Milestone Audit
 
 Prompt 53 adds Retail Dashboard Milestone Audit artifacts as an audit layer
@@ -834,3 +1215,176 @@ response, and audit layers only. Active UI, recommendation cards, action
 generation, confidence scoring, active DecisionObject display,
 readiness-to-trade, broker controls, approvals, overrides, live market data
 display, and execution APIs remain forbidden.
+## Prompt 71 Research Artifact Registry API Contract Layer
+
+Prompt 71 adds `research_artifact_registry_api` as a future research metadata
+API contract layer, not an active registry implementation and not persistent
+storage. It defines read-only API contracts, request placeholders, response
+placeholders, metadata/provenance/lifecycle reference placeholders,
+unavailable responses, safety helpers, health metadata, and GET-only
+`/research-artifact-registry-api/*` endpoints.
+
+This API contract layer performs no external calls, reads no market data,
+reads no files, writes no files, stores no artifacts, creates no database
+tables, creates no migrations, writes no object storage, publishes no events,
+creates no frontend components, creates no desktop components, parses no
+papers, parses no PDFs, ingests no arXiv records, runs no LLM analysis,
+generates no strategies, runs no backtests, generates no recommendations,
+scores no confidence, generates no DecisionObjects, generates no
+readiness-to-trade, exposes no broker controls, and creates no execution APIs.
+
+## Prompt 72 Research Artifact Registry Display Contract Layer
+
+Prompt 72 adds `research_artifact_registry_display` as a backend display
+contract layer only. It is not active UI, not a frontend implementation, not a
+desktop implementation, not a file preview layer, not active artifact
+ingestion/storage, not persistent storage, not a strategy layer, not a
+backtesting layer, not a recommendation layer, and not an execution layer. It
+defines display contracts, artifact card placeholders, reference display
+placeholders, provenance display placeholders, lifecycle badge placeholders,
+unavailable display responses, safety helpers, health metadata, and GET-only
+`/research-artifact-registry-display/*` endpoints.
+
+This display contract layer performs no external calls, reads no market data,
+reads no files, writes no files, stores no artifacts, creates no database
+tables, creates no migrations, writes no object storage, publishes no events,
+creates no frontend components, creates no desktop components, creates no
+active UI, previews no files, parses no papers, parses no PDFs, ingests no
+arXiv records, runs no LLM analysis, generates no strategies, runs no
+backtests, generates no recommendations, scores no confidence, generates no
+DecisionObjects, generates no readiness-to-trade, exposes no broker controls,
+and creates no execution APIs.
+
+## Prompt 73 Research Artifact Registry Safety Boundary Audit
+
+Prompt 73 adds Research Artifact Registry Safety Boundary Audit artifacts as
+an audit layer over the planning, API contract skeleton, and display contract
+skeleton modules. These modules are planning/contract/skeleton/audit layers,
+not active storage, not active UI, not frontend implementation, not desktop
+implementation, not file upload/download, not paper parsing, not strategy
+generation, not backtesting, not recommendation generation, and not execution
+layers.
+
+The audited modules remain read-only and unavailable-by-default where exposed
+through API surfaces. They create no database tables, migrations, object
+storage, repository writes, external calls, file previews, broker controls, or
+execution APIs.
+
+## Prompt 74 Research Artifact Registry Milestone Audit
+
+Prompt 74 adds Research Artifact Registry Milestone Audit artifacts as an
+audit layer over the planning, API contract skeleton, display contract
+skeleton, and safety boundary audit modules. The registry/API/display modules
+are planning/contract/skeleton/audit layers, not active storage, not active UI,
+not frontend implementation, not desktop implementation, not file
+upload/download, not paper parsing, not strategy generation, not backtesting,
+not recommendation generation, and not execution layers.
+
+The audited modules remain read-only and unavailable-by-default where exposed
+through API surfaces. They create no database tables, migrations, object
+storage, repository writes, external calls, file previews, broker controls,
+readiness-to-trade, approvals/overrides, or execution APIs. Prompt 75 may add
+system boundary hardening only.
+
+## Prompt 75 Research Artifact Registry Boundary
+
+Prompt 75 adds `research_artifact_registry_boundary` as a research artifact
+hardening layer, not active storage, not active UI, not parsing, not strategy
+generation, not backtesting, not recommendation generation, and not execution
+infrastructure.
+
+The boundary package defines forbidden behavior registry contracts, endpoint
+boundary policies, module boundary policies, cross-module invariant helpers,
+rejection helpers, boundary health metadata, and read-only
+`/research-artifact-registry-boundary/*` endpoints. It introduces no database
+tables, no migrations, no object storage, no repository writes, no
+upload/download handlers, no file previews, no frontend or desktop
+implementation, no paper parsing, no strategy generation, no backtesting, no
+recommendation generation, no broker controls, no approvals/overrides, no
+readiness-to-trade, and no execution APIs.
+
+## Prompt 76 Research Artifact Registry API Display Integration Readiness Audit
+
+Prompt 76 adds Research Artifact Registry API/display integration readiness
+audit artifacts as a documentation, test, audit, and verifier layer over the
+registry planning, API, display, safety, milestone, and boundary modules.
+Those modules remain planning/contract/skeleton/audit/boundary layers, not
+active storage, not active UI, not frontend implementation, not desktop
+implementation, not file upload/download, not file preview, not paper parsing,
+not indexing/search/ranking, not embeddings/vector store, not strategy
+generation, not backtesting, not recommendation generation, and not execution
+layers.
+
+The integration-readiness audit introduces no database tables, migrations,
+object storage, repository writes, external calls, file previews, broker
+controls, readiness-to-trade, approvals/overrides, or execution APIs. Prompt
+77 may add Research Artifact Index Planning and Guardrails only.
+
+## Interlude Active Decision Architecture Target
+
+The future active decision architecture target is a conceptual layer only:
+Market data -> Data quality + provenance layer -> Timeseries engine -> Feature
+/ regime / state engine -> Deterministic quant engine -> Decision candidate ->
+Verifier layer -> Human review / paper-trade gate -> Audit log + journal.
+
+This is not a current active engine. The repository does not add market-data
+ingestion, feature computation, active decision generation, verifier engine
+implementation, paper trading, audit/journal persistence, broker controls, or
+execution APIs through this interlude.
+
+## Prompt 77 Research Artifact Index Planning Layer
+
+Prompt 77 adds `research_artifact_index` as a future research metadata/index
+planning layer, currently planning-only and not active indexing/search/storage
+or vector infrastructure.
+
+The index package defines planning-only metadata placeholders, key
+placeholders, reference placeholders, tag placeholders, provenance
+placeholders, lifecycle placeholders, forbidden interaction contracts, safety
+helpers, readiness helpers, health metadata, and read-only
+`/research-artifact-index/*` endpoints. It introduces no indexing engine, no
+search engine, no ranking engine, no retrieval engine, no embedding pipeline,
+no vector store, no database tables, no migrations, no object storage, no
+repository writes, no ingestion/storage, no upload/download, no file previews,
+no paper parsing, no strategy generation, no backtesting, no recommendation
+generation, no broker controls, no approvals/overrides, no readiness-to-trade,
+and no execution APIs.
+
+## Prompt 78 Research Artifact Index API Contract Layer
+
+Prompt 78 adds `research_artifact_index_api` as a future research metadata API
+contract layer. It is read-only and unavailable-by-default, not active
+indexing, not search, not ranking, not retrieval, not embeddings/vector store,
+not active ingestion/storage, not persistent storage, not paper parsing, not
+strategy generation, not backtesting, not recommendation generation, and not
+execution infrastructure.
+
+The package defines API contract metadata, request placeholders, response
+placeholders, reference placeholders, unavailable responses, safety helpers,
+health metadata, and read-only `/research-artifact-index-api/*` endpoints. It
+introduces no database tables, no migrations, no object storage, no repository
+writes, no ingestion/storage, no upload/download handlers, no file previews,
+no frontend or desktop implementation, no paper parsing, no strategy
+generation, no backtesting, no recommendation generation, no broker controls,
+no approvals/overrides, no readiness-to-trade, and no execution APIs.
+
+## Prompt 79 Research Artifact Index Display Contract Layer
+
+Prompt 79 adds `research_artifact_index_display` as a backend display contract
+layer only. It is read-only and unavailable-by-default, not active UI, not a
+frontend implementation, not a desktop implementation, not active
+indexing/search/ranking/retrieval, not embeddings/vector infrastructure, not
+active ingestion/storage, not persistent storage, not paper parsing, not
+strategy generation, not backtesting, not recommendation generation, and not
+execution infrastructure.
+
+The package defines display contract metadata, index card placeholders,
+reference display placeholders, tag display placeholders, provenance display
+placeholders, lifecycle badge placeholders, unavailable display responses,
+safety helpers, health metadata, and read-only
+`/research-artifact-index-display/*` endpoints. It introduces no database
+tables, no migrations, no object storage, no repository writes, no
+ingestion/storage, no upload/download handlers, no file previews, no frontend
+or desktop implementation, no paper parsing, no strategy generation, no
+backtesting, no recommendation generation, no broker controls, no
+approvals/overrides, no readiness-to-trade, and no execution APIs.

@@ -70,3 +70,23 @@ cross-module invariants. Active UI, paper ingestion, paper parsing, strategy
 generation, backtesting, recommendations, confidence scoring, DecisionObject
 generation, readiness-to-trade, broker controls, approvals, overrides, and
 execution APIs remain forbidden.
+
+## Prompt 68 Boundary Hardening Confirmation
+
+Prompt 68 implements the Strategy Research Workspace System Boundary
+Hardening layer as boundary-hardening-only contracts, policies, invariants,
+docs, tests, and read-only metadata endpoints. It confirms the milestone phase
+is ready for API/display integration readiness audit only. Active UI, paper
+ingestion, paper parsing, strategy generation, backtesting, recommendations,
+confidence scoring, DecisionObject generation, readiness-to-trade, broker
+controls, approvals, overrides, and execution APIs remain forbidden.
+
+## Prompt 69 API Display Integration Readiness Confirmation
+
+Prompt 69 performs the Strategy Research Workspace API/Display Integration
+Readiness Audit and confirms readiness for Research Artifact Registry Planning
+and Guardrails only. It confirms no API-to-display strategy path, no
+API-to-display backtest path, no parsed-paper-to-display path, no
+recommendation-to-display path, no research-to-execution path, no active UI,
+no paper ingestion/parsing, no strategy generation, no backtesting, no
+recommendations, no broker controls, and no execution APIs.

@@ -14,8 +14,8 @@ def test_strategy_research_workspace_milestone_readiness_recommends_prompt_68() 
     )
     next_phase = (ROOT / "docs/NEXT_PHASE_PLAN.md").read_text(encoding="utf-8")
 
-    assert "Prompt 68 - Strategy Research Workspace System Boundary Hardening" in readiness
-    assert "Prompt 68 - Strategy Research Workspace System Boundary Hardening" in next_phase
+    assert "Prompt 69 - Strategy Research Workspace API/Display Integration Readiness Audit" in readiness
+    assert "Prompt 69 - Strategy Research Workspace API/Display Integration Readiness Audit" in next_phase
     assert "active UI" in readiness
     assert "paper ingestion" in readiness
     assert "paper parsing" in readiness
@@ -33,11 +33,11 @@ def test_strategy_research_workspace_status_docs_reflect_prompt_67() -> None:
         encoding="utf-8"
     )
 
-    assert "Current Prompt: 67" in north_star
-    assert "Completed Prompts: 68 after completion" in north_star
-    assert "Strategy Research Workspace Planning Phase - Milestone Audit completed" in north_star
+    assert "Current Prompt: 78" in north_star
+    assert "Completed Prompts: 72 after completion" in north_star
+    assert "Research Artifact Registry Planning Phase - API Contract Skeleton" in north_star
     assert "Prompt 66 - Strategy Research Workspace Safety Boundary Audit" in prompt_log
-    assert "Prompt 68 - Strategy Research Workspace System Boundary Hardening" in readiness_plan
+    assert "Prompt 69 - Strategy Research Workspace API/Display Integration Readiness Audit" in readiness_plan
 
 
 def test_verify_foundation_includes_prompt_63_to_67_artifacts() -> None:

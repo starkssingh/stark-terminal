@@ -13,8 +13,8 @@ def test_health_endpoint_returns_prompt_53_retail_dashboard_milestone_status() -
         "status": "ok",
         "service": "stark-terminal-api",
         "version": "0.1.0",
-        "prompt": "67",
+        "prompt": "107",
         "architecture": "institutional-grade-foundation",
         "execution_apis_enabled": False,
-        "audit_status": "strategy-research-workspace-milestone",
+        "audit_status": "retail-decision-console-internal-preview-milestone-closure",
     }

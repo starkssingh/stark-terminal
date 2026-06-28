@@ -1,6 +1,6 @@
 # Configuration
 
-Prompt 67 maintains Strategy Research Workspace Milestone Audit status metadata. Prompt 66 maintains Strategy Research Workspace Safety Boundary Audit status metadata. Prompt 65 added safe Strategy Research Workspace Display Contract Skeleton settings. Prompt 64 adds safe Strategy Research Workspace API Contract Skeleton settings. Prompt 63 added safe Strategy Research Workspace Planning and Guardrails settings. Prompt 62 maintained Retail Trader Experience API/Display Integration Readiness Audit status metadata. Prompt 61 added safe Retail Trader Experience System Boundary Hardening settings. Prompt 60 maintained Retail Trader Experience Milestone Audit status metadata. Prompt 59 maintained Retail Trader Experience Safety Boundary Audit status metadata. Prompt 58 added safe Retail Trader Experience Display Contract Skeleton settings. Prompt 57 added safe Retail Trader Experience API Contract Skeleton settings. Prompt 56 added safe Retail Trader Experience Planning and Guardrails settings. Prompt 55 maintained Retail Dashboard API/Display Integration Readiness Audit status metadata. Prompt 54 added safe Retail Dashboard System Boundary Hardening settings. Prompt 50 added safe Retail Dashboard API Contract Skeleton settings. Prompt 49 added safe Retail Dashboard Planning and Guardrails settings. Prompt 48 completed Decision API/Display Integration Readiness Audit status metadata. Prompt 47 added safe Decision Boundary settings. Prompt 44 maintains safe Decision Evidence Validation v0 settings. Prompt 43 added safe Decision Desk Display Contract Skeleton settings. Prompt 42 added safe Decision Desk Readiness API Skeleton settings. Prompt 41 maintained the Decision Desk Milestone Audit status. Prompt 40 added safe Decision Desk API Contract Skeleton settings. Prompt 39 added safe Decision Safety and Human-Review Guardrails settings. Prompt 38 added safe DecisionObject evidence bundle settings. Prompt 36 added Retail Decision Desk planning settings. Prompt 35 maintained analytics/regime milestone audit status metadata. Prompt 34 added safe regime feature preparation settings. Prompt 33 added safe regime analytics planning settings. Prompt 32 added safe time-series diagnostics settings. Prompt 31 added safe correlation/beta analytics settings. Prompt 30 added analytics milestone audit status metadata. Prompt 29 added safe volatility/drawdown analytics settings, Prompt 28 added safe returns/rolling analytics settings, Prompt 27 added safe numerical analytics settings, Prompt 26 added safe analytics foundation settings, Prompt 24 added safe Local File Provider settings, Prompt 23 added safe Provider Readiness settings, Prompt 21 added safe Local Sample Provider settings, Prompt 20 added Provider Guardrail settings, Prompt 19 added Synthetic OHLCV Export settings, Prompt 18 added Synthetic OHLCV Storage settings, Prompt 14 added Synthetic Fixture settings, Prompt 15 added Instrument Persistence settings, and Prompt 16 added Market Data Batch Persistence settings.
+Prompt 69 maintains Strategy Research Workspace API/Display Integration Readiness Audit status metadata without adding new settings. Prompt 68 adds safe Strategy Research Workspace System Boundary Hardening settings and status metadata. Prompt 67 maintains Strategy Research Workspace Milestone Audit status metadata. Prompt 66 maintains Strategy Research Workspace Safety Boundary Audit status metadata. Prompt 65 added safe Strategy Research Workspace Display Contract Skeleton settings. Prompt 64 adds safe Strategy Research Workspace API Contract Skeleton settings. Prompt 63 added safe Strategy Research Workspace Planning and Guardrails settings. Prompt 62 maintained Retail Trader Experience API/Display Integration Readiness Audit status metadata. Prompt 61 added safe Retail Trader Experience System Boundary Hardening settings. Prompt 60 maintained Retail Trader Experience Milestone Audit status metadata. Prompt 59 maintained Retail Trader Experience Safety Boundary Audit status metadata. Prompt 58 added safe Retail Trader Experience Display Contract Skeleton settings. Prompt 57 added safe Retail Trader Experience API Contract Skeleton settings. Prompt 56 added safe Retail Trader Experience Planning and Guardrails settings. Prompt 55 maintained Retail Dashboard API/Display Integration Readiness Audit status metadata. Prompt 54 added safe Retail Dashboard System Boundary Hardening settings. Prompt 50 added safe Retail Dashboard API Contract Skeleton settings. Prompt 49 added safe Retail Dashboard Planning and Guardrails settings. Prompt 48 completed Decision API/Display Integration Readiness Audit status metadata. Prompt 47 added safe Decision Boundary settings. Prompt 44 maintains safe Decision Evidence Validation v0 settings. Prompt 43 added safe Decision Desk Display Contract Skeleton settings. Prompt 42 added safe Decision Desk Readiness API Skeleton settings. Prompt 41 maintained the Decision Desk Milestone Audit status. Prompt 40 added safe Decision Desk API Contract Skeleton settings. Prompt 39 added safe Decision Safety and Human-Review Guardrails settings. Prompt 38 added safe DecisionObject evidence bundle settings. Prompt 36 added Retail Decision Desk planning settings. Prompt 35 maintained analytics/regime milestone audit status metadata. Prompt 34 added safe regime feature preparation settings. Prompt 33 added safe regime analytics planning settings. Prompt 32 added safe time-series diagnostics settings. Prompt 31 added safe correlation/beta analytics settings. Prompt 30 added analytics milestone audit status metadata. Prompt 29 added safe volatility/drawdown analytics settings, Prompt 28 added safe returns/rolling analytics settings, Prompt 27 added safe numerical analytics settings, Prompt 26 added safe analytics foundation settings, Prompt 24 added safe Local File Provider settings, Prompt 23 added safe Provider Readiness settings, Prompt 21 added safe Local Sample Provider settings, Prompt 20 added Provider Guardrail settings, Prompt 19 added Synthetic OHLCV Export settings, Prompt 18 added Synthetic OHLCV Storage settings, Prompt 14 added Synthetic Fixture settings, Prompt 15 added Instrument Persistence settings, and Prompt 16 added Market Data Batch Persistence settings.
 
 ## Settings
 
@@ -1397,3 +1397,186 @@ controls, approvals, overrides, and execution APIs remain forbidden.
 ### Next Recommended Prompt
 
 Prompt 68 - Strategy Research Workspace System Boundary Hardening
+
+## Prompt 68 Status Metadata
+
+Prompt 68 updates project status metadata for Strategy Research Workspace
+System Boundary Hardening: `PROMPT_NUMBER=68` and API health
+`audit_status=strategy-research-workspace-boundary-hardening` while execution
+APIs remain disabled.
+
+Safe boundary settings added:
+
+- `STRATEGY_RESEARCH_WORKSPACE_BOUNDARY_ENABLED=true`
+- `STRATEGY_RESEARCH_WORKSPACE_BOUNDARY_SCHEMA_VERSION=v1`
+- `STRATEGY_RESEARCH_WORKSPACE_BOUNDARY_STAGE=boundary_hardening`
+- all `STRATEGY_RESEARCH_WORKSPACE_BOUNDARY_ALLOW_*` flags default false.
+
+The settings expose no credentials and cannot enable active UI, frontend
+components, desktop components, paper ingestion, paper parsing, strategy
+generation, strategy code generation, backtesting, optimization,
+recommendations, action generation, confidence scoring, DecisionObject
+generation, readiness-to-trade, broker controls, approvals, overrides, or
+execution APIs.
+
+### Next Recommended Prompt
+
+Prompt 69 - Strategy Research Workspace API/Display Integration Readiness Audit
+
+## Prompt 69 Status Metadata
+
+Prompt 69 updates project status metadata for Strategy Research Workspace
+API/Display Integration Readiness Audit: `PROMPT_NUMBER=69` and API health
+`audit_status=strategy-research-workspace-api-display-readiness` while execution
+APIs remain disabled.
+
+No new configuration fields, credentials, provider settings, broker settings,
+UI settings, ingestion settings, paper parsing settings, strategy generation
+settings, backtesting settings, recommendation settings, approval settings,
+override settings, readiness-to-trade settings, or execution settings are added
+in Prompt 69.
+
+### Next Recommended Prompt
+
+Prompt 70 - Research Artifact Registry Planning and Guardrails
+
+## Prompt 70 Status Metadata
+
+Prompt 70 adds safe Research Artifact Registry Planning and Guardrails
+settings: `PROMPT_NUMBER=70` and API health
+`audit_status=research-artifact-registry-planning` while execution APIs remain
+disabled.
+
+Safe registry settings added:
+
+- `RESEARCH_ARTIFACT_REGISTRY_ENABLED=true`
+- `RESEARCH_ARTIFACT_REGISTRY_SCHEMA_VERSION=v1`
+- `RESEARCH_ARTIFACT_REGISTRY_STAGE=planning`
+- all `RESEARCH_ARTIFACT_REGISTRY_ALLOW_*` flags default false.
+
+The settings expose no credentials and cannot enable active artifact
+ingestion/storage, persistent storage, file upload/download, paper parsing,
+PDF parsing, arXiv ingestion, LLM analysis, strategy generation, backtesting,
+recommendations, or execution APIs.
+
+### Next Recommended Prompt
+
+Prompt 71 - Research Artifact Registry API Contract Skeleton
+
+## Prompt 71 Status Metadata
+
+Prompt 71 adds safe Research Artifact Registry API Contract Skeleton settings:
+`PROMPT_NUMBER=71` and API health
+`audit_status=research-artifact-registry-api-contract-skeleton` while execution
+APIs remain disabled.
+
+Safe registry API settings added:
+
+- `RESEARCH_ARTIFACT_REGISTRY_API_ENABLED=true`
+- `RESEARCH_ARTIFACT_REGISTRY_API_SCHEMA_VERSION=v1`
+- `RESEARCH_ARTIFACT_REGISTRY_API_STAGE=api_contract_skeleton`
+- all `RESEARCH_ARTIFACT_REGISTRY_API_ALLOW_*` flags default false.
+
+The settings expose no credentials and cannot enable active artifact
+ingestion/storage, persistent storage, file upload/download, paper parsing,
+PDF parsing, arXiv ingestion, LLM analysis, strategy generation, backtesting,
+recommendations, or execution APIs.
+
+### Next Recommended Prompt
+
+Prompt 72 - Research Artifact Registry Display Contract Skeleton
+
+## Prompt 72 Status Metadata
+
+Prompt 72 adds safe Research Artifact Registry Display Contract Skeleton
+settings: `PROMPT_NUMBER=72` and API health
+`audit_status=research-artifact-registry-display-contract-skeleton` while
+execution APIs remain disabled.
+
+Safe registry display settings added:
+
+- `RESEARCH_ARTIFACT_REGISTRY_DISPLAY_ENABLED=true`
+- `RESEARCH_ARTIFACT_REGISTRY_DISPLAY_SCHEMA_VERSION=v1`
+- `RESEARCH_ARTIFACT_REGISTRY_DISPLAY_STAGE=display_contract_skeleton`
+- all `RESEARCH_ARTIFACT_REGISTRY_DISPLAY_ALLOW_*` flags default false.
+
+The settings expose no credentials and cannot enable active UI, frontend
+components, desktop components, active artifact ingestion/storage, persistent
+storage, file upload/download, paper parsing, strategy generation,
+backtesting, recommendations, or execution APIs.
+
+### Next Recommended Prompt
+
+Prompt 73 - Research Artifact Registry Safety Boundary Audit
+
+## Prompt 77 Status Metadata
+
+Prompt 77 adds safe Research Artifact Index Planning and Guardrails settings:
+`PROMPT_NUMBER=77` and API health
+`audit_status=research-artifact-index-planning` while execution APIs remain
+disabled.
+
+Safe Research Artifact Index settings added:
+
+- `RESEARCH_ARTIFACT_INDEX_ENABLED=true`
+- `RESEARCH_ARTIFACT_INDEX_SCHEMA_VERSION=v1`
+- `RESEARCH_ARTIFACT_INDEX_STAGE=planning_and_guardrails`
+- all `RESEARCH_ARTIFACT_INDEX_ALLOW_*` flags default false.
+
+The settings expose no credentials and cannot enable an indexing engine,
+search engine, ranking engine, retrieval engine, embeddings, vector store,
+active ingestion/storage, persistent storage, file upload/download/preview,
+paper parsing, PDF parsing, arXiv ingestion, LLM analysis, strategy
+generation, backtesting, recommendations, or execution APIs.
+
+### Next Recommended Prompt
+
+Prompt 78 - Research Artifact Index API Contract Skeleton
+
+## Prompt 78 Status Metadata
+
+Prompt 78 adds safe Research Artifact Index API Contract Skeleton settings:
+`PROMPT_NUMBER=78` and API health
+`audit_status=research-artifact-index-api-contract-skeleton` while execution
+APIs remain disabled.
+
+Safe Research Artifact Index API settings added:
+
+- `RESEARCH_ARTIFACT_INDEX_API_ENABLED=true`
+- `RESEARCH_ARTIFACT_INDEX_API_SCHEMA_VERSION=v1`
+- `RESEARCH_ARTIFACT_INDEX_API_STAGE=api_contract_skeleton`
+- all `RESEARCH_ARTIFACT_INDEX_API_ALLOW_*` flags default false.
+
+The settings expose no credentials and cannot enable an indexing engine,
+search engine, ranking engine, retrieval engine, embeddings, vector store,
+active ingestion/storage, persistent storage, file upload/download/preview,
+paper parsing, strategy generation, backtesting, recommendations, or execution
+APIs.
+
+### Next Recommended Prompt
+
+Prompt 79 - Research Artifact Index Display Contract Skeleton
+
+## Prompt 79 Status Metadata
+
+Prompt 79 adds safe Research Artifact Index Display Contract Skeleton settings:
+`PROMPT_NUMBER=79` and API health
+`audit_status=research-artifact-index-display-contract-skeleton` while
+execution APIs remain disabled.
+
+Safe Research Artifact Index Display settings added:
+
+- `RESEARCH_ARTIFACT_INDEX_DISPLAY_ENABLED=true`
+- `RESEARCH_ARTIFACT_INDEX_DISPLAY_SCHEMA_VERSION=v1`
+- `RESEARCH_ARTIFACT_INDEX_DISPLAY_STAGE=display_contract_skeleton`
+- all `RESEARCH_ARTIFACT_INDEX_DISPLAY_ALLOW_*` flags default false.
+
+The settings expose no credentials and cannot enable active UI, frontend
+components, desktop components, indexing engine, search engine, ranking
+engine, retrieval engine, embeddings, vector store, active ingestion/storage,
+persistent storage, file upload/download/preview, paper parsing, strategy
+generation, backtesting, recommendations, or execution APIs.
+
+### Next Recommended Prompt
+
+Prompt 80 - Research Artifact Index Safety Boundary Audit

@@ -28,7 +28,7 @@ DISPLAY_FLAG_FIELDS = [
 def test_strategy_research_workspace_display_settings_defaults_are_safe():
     settings = Settings()
 
-    assert settings.prompt_number == "67"
+    assert settings.prompt_number == "107"
     assert settings.strategy_research_workspace_display_enabled is True
     assert settings.strategy_research_workspace_display_schema_version == "v1"
     for field in DISPLAY_FLAG_FIELDS:
@@ -40,7 +40,7 @@ def test_strategy_research_workspace_display_settings_defaults_are_safe():
 def test_safe_settings_snapshot_exposes_strategy_research_workspace_display_settings():
     snapshot = Settings().safe_settings_snapshot()
 
-    assert snapshot["prompt_number"] == "67"
+    assert snapshot["prompt_number"] == "107"
     assert snapshot["strategy_research_workspace_display_enabled"] is True
     assert snapshot["strategy_research_workspace_display_allow_strategy_generation"] is False
     assert snapshot["strategy_research_workspace_display_allow_backtesting"] is False
@@ -57,4 +57,3 @@ def test_strategy_research_workspace_display_settings_reject_unsafe_flags(field)
 def test_strategy_research_workspace_display_settings_reject_available_by_default_disabled():
     with pytest.raises(ValueError):
         Settings(strategy_research_workspace_display_return_unavailable_by_default=False)
-

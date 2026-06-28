@@ -1,7 +1,10 @@
 # Strategy Research Workspace Next Phase Plan
 
-Prompt 67 completes the Strategy Research Workspace planning/API/display/safety
-phase if checks pass. The phase remains contract/skeleton/audit-only.
+Prompt 69 completes Strategy Research Workspace API/Display Integration
+Readiness Audit if checks pass. The phase remains
+contract/skeleton/audit/boundary/integration-readiness-only.
+
+Historical status marker: Prompt 69 - Strategy Research Workspace API/Display Integration Readiness Audit.
 
 Development remains Mac mini M2 / macOS / Apple Silicon. The target desktop
 product remains Windows-native Stark Terminal.
@@ -9,9 +12,10 @@ product remains Windows-native Stark Terminal.
 ## Current Phase Verdict
 
 Strategy Research Workspace Planning and Guardrails, API Contract Skeleton,
-Display Contract Skeleton, Safety Boundary Audit, and Milestone Audit are
-complete as planning, contract, placeholder, unavailable response, safety,
-readiness, docs, tests, and audit layers only.
+Display Contract Skeleton, Safety Boundary Audit, Milestone Audit, System
+Boundary Hardening, and API/Display Integration Readiness Audit are complete
+as planning, contract, placeholder, unavailable response, safety, readiness,
+boundary, integration, docs, tests, and audit layers only.
 
 Active Strategy Research Workspace UI is still not allowed. Frontend
 implementation is still not allowed. Desktop implementation is still not
@@ -26,18 +30,17 @@ and execution APIs remain forbidden.
 
 ## Recommended Next Sequence
 
-1. Prompt 68 - Strategy Research Workspace System Boundary Hardening.
-2. Prompt 69 - Strategy Research Workspace API/Display Integration Readiness Audit.
-3. Prompt 70 - Research Artifact Registry Planning and Guardrails.
-4. Prompt 71 - Research Artifact Registry API Contract Skeleton.
-5. Prompt 72 - Research Artifact Registry Display Contract Skeleton.
+1. Prompt 70 - Research Artifact Registry Planning and Guardrails.
+2. Prompt 71 - Research Artifact Registry API Contract Skeleton.
+3. Prompt 72 - Research Artifact Registry Display Contract Skeleton.
+4. Prompt 73 - Research Artifact Registry Safety Boundary Audit.
+5. Prompt 74 - Research Artifact Registry Milestone Audit.
 
-## Prompt 68 Readiness
+## Prompt 70 Readiness
 
-Prompt 68 should add Strategy Research Workspace system boundary hardening
-docs/contracts/tests only: forbidden behavior registry, endpoint boundary
-policies, module boundary policies, cross-module invariants, and
-cross-endpoint no-active-UI/no-paper-parsing/no-strategy/no-backtest/
-no-recommendation/no-execution checks. It must not unlock active UI, paper
-parsing, strategy generation, backtesting, recommendations, broker controls,
-or execution APIs.
+Prompt 70 should implement Research Artifact Registry Planning and Guardrails
+only. It must not unlock Research Artifact Registry implementation, active
+artifact ingestion/storage, active UI, paper parsing, strategy generation,
+backtesting, recommendations, broker controls, or execution APIs.
+
+See `RESEARCH_ARTIFACT_REGISTRY_READINESS_PLAN.md` for the readiness plan.

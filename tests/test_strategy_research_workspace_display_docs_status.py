@@ -65,9 +65,9 @@ def test_strategy_research_workspace_display_status_docs_are_updated():
     )
 
     assert "Prompt 65" in prompt_log
-    assert "Current Prompt: 67" in north_star
+    assert "Current Prompt: 78" in north_star
     assert (
-        "Strategy Research Workspace Status: planning/guardrails, API/display contract skeletons, safety boundary audit, and milestone audit complete"
+        "Strategy Research Workspace Status: planning/guardrails, API/display contract skeletons, safety/milestone audits, and system boundary hardening implemented"
         in north_star
     )
     assert "Strategy Research Workspace Display Contract Skeleton" in project_map

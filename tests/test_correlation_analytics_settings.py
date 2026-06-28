@@ -7,7 +7,7 @@ from stark_terminal_core.config.settings import Settings, get_settings
 def test_correlation_beta_settings_defaults_are_safe() -> None:
     settings = get_settings()
 
-    assert settings.prompt_number == "67"
+    assert settings.prompt_number == "107"
     assert settings.correlation_analytics_enabled is True
     assert settings.beta_analytics_enabled is True
     assert settings.correlation_analytics_schema_version == "v1"

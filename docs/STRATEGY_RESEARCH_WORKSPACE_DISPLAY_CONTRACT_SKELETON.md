@@ -57,6 +57,14 @@ backtest-result displays, not recommendation displays, not confidence
 displays, not DecisionObject displays, not readiness-to-trade displays, not
 broker controls, and not execution displays.
 
+Prompt 69 confirms API/display integration readiness only. The display layer
+still exposes display contracts and placeholders only. It creates no active
+display rendering, no active strategy cards, no parsed-paper display path, no
+generated-strategy display path, no backtest-result display path, no
+recommendation-to-display path, no readiness-to-trade display path, no
+broker-control display path, and no execution display path. The next allowed
+step is Research Artifact Registry Planning and Guardrails only.
+
 Development remains Mac mini M2 / macOS / Apple Silicon. The target desktop
 product remains Windows-native Stark Terminal.
 

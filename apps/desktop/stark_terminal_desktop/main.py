@@ -2,10 +2,12 @@ from __future__ import annotations
 
 import sys
 
+from stark_terminal_desktop.retail_decision_console import create_retail_decision_console_window
+
 
 def main() -> int:
     try:
-        from PySide6.QtWidgets import QApplication, QLabel, QMainWindow
+        from PySide6.QtWidgets import QApplication
     except ImportError:
         print(
             "PySide6 is not installed. Install the optional desktop dependency with "
@@ -14,10 +16,7 @@ def main() -> int:
         return 0
 
     app = QApplication(sys.argv)
-    window = QMainWindow()
-    window.setWindowTitle("Stark Terminal")
-    window.setMinimumSize(960, 540)
-    window.setCentralWidget(QLabel("Stark Terminal — Institutional Foundation Shell"))
+    window = create_retail_decision_console_window()
     window.show()
     return app.exec()
 
